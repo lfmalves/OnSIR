@@ -1,0 +1,657 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF
+   xmlns="http://example.org/SeedIrradCore#"
+   xmlns:dct="http://purl.org/dc/terms/"
+   xmlns:qudt="http://qudt.org/schema/qudt/"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#radiationType">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">radiation type</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/SeedIrradCore#SeedIrradiationTreatment"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#hasBiochemicalChange">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">has biochemical change</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/SeedIrradCore#SeedIrradiationTreatment"/>
+    <rdfs:range rdf:resource="http://example.org/SeedIrradCore#BiochemicalChange"/>
+    <rdfs:subPropertyOf rdf:resource="http://example.org/SeedIrradCore#induces"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#Treat_Co60_Gamma_50Gy">
+    <rdf:type rdf:resource="http://example.org/SeedIrradCore#SeedIrradiationTreatment"/>
+    <radiationType>gamma</radiationType>
+    <sourceIsotope>Co-60</sourceIsotope>
+    <hasDose rdf:nodeID="Nd561c67186a949e6a5adb4a1971f7ca7"/>
+    <hasDoseRate rdf:nodeID="Nccec60fe69d9481bb3939dda71a36363"/>
+    <hasExposureTime rdf:nodeID="N5a83b24a088543d0830dd89b1036fcab"/>
+    <hasDoseRange rdf:nodeID="N2bfc25341a67483a9ea35db718572c92"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#Seedling">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Seedling</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#AntioxidantActivity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">AntioxidantActivity</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/SeedIrradCore#Endpoint"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#Substrate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Substrate</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/SeedIrradCore#Context"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N79f435bf96ac4125800c1ee94e0948ef">
+    <rdf:type rdf:resource="http://qudt.org/schema/qudt/QuantityValue"/>
+    <qudt:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">254.0</qudt:numericValue>
+    <qudt:unit rdf:resource="http://qudt.org/vocab/unit/NanoM"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N1da56865f09f484fad386ed547b9af68">
+    <rdf:type rdf:resource="http://qudt.org/schema/qudt/QuantityValue"/>
+    <qudt:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1200.0</qudt:numericValue>
+    <qudt:unit rdf:resource="http://qudt.org/vocab/unit/J-PER-M2"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#PlantSeed">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Plant Seed</rdfs:label>
+    <rdfs:comment xml:lang="en">Integration touchpoint suggestion: align to crop ontologies' seed class (e.g., TobaccoSeed) via skos:exactMatch/closeMatch.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#induces">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">induces</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/SeedIrradCore#SeedIrradiationTreatment"/>
+    <rdfs:range rdf:resource="http://example.org/SeedIrradCore#Response"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nf088edcdecb845a9a6c3c0ecc2020b5a">
+    <rdf:type rdf:resource="http://qudt.org/schema/qudt/QuantityValue"/>
+    <qudt:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">150.0</qudt:numericValue>
+    <qudt:unit rdf:resource="http://qudt.org/vocab/unit/Gray"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#forEndpoint">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">for endpoint</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/SeedIrradCore#TreatmentOutcome"/>
+    <rdfs:range rdf:resource="http://example.org/SeedIrradCore#Endpoint"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#LipidPeroxidation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">LipidPeroxidation</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/SeedIrradCore#Endpoint"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#BioticStressResistance">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Biotic Stress Resistance</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/SeedIrradCore#StressResistance"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://qudt.org/schema/qudt/numericValue">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">numeric value</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#MutagenicDoseRange">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Mutagenic Dose Range</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/SeedIrradCore#DoseRange"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#Ir192">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Ir192</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/SeedIrradCore#Isotope"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#hasContext">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">has context</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/SeedIrradCore#TreatmentOutcome"/>
+    <rdfs:range rdf:resource="http://example.org/SeedIrradCore#Context"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#SeedlingVigorIndex">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">SeedlingVigorIndex</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/SeedIrradCore#Endpoint"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#DoseRateCategory">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Dose-rate Category</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#MutagenicDose">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Mutagenic Dose</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/SeedIrradCore#DoseCategory"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#BeneficialDoseRange">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Beneficial Dose Range</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/SeedIrradCore#DoseRange"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#StressResistance">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Stress Resistance</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/SeedIrradCore#HormeticResponse"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://qudt.org/schema/qudt/QuantityValue">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#SeedIrradiationTreatment">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Seed Irradiation Treatment</rdfs:label>
+    <rdfs:comment xml:lang="en">Irradiation applied to seeds using ionizing or non-ionizing radiation.</rdfs:comment>
+    <rdfs:comment xml:lang="en">Integration touchpoint suggestion: align to external ontology class 'SeedTreatment' via skos:closeMatch.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://example.org/SeedIrradCore#SeedTreatment"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#HormeticResponse">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Hormetic Response</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/SeedIrradCore#Response"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#Model_BC_Germination">
+    <rdf:type rdf:resource="http://example.org/SeedIrradCore#BrainCousensModel"/>
+    <bc_b rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-2.148</bc_b>
+    <bc_c rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.001017</bc_c>
+    <bc_d rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.002433</bc_d>
+    <bc_e rdf:datatype="http://www.w3.org/2001/XMLSchema#double">53.0</bc_e>
+    <bc_f rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-3.747e-06</bc_f>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#bc_d">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">BC parameter d</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/SeedIrradCore#DoseResponseModel"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#hasSubject">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">has subject</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/SeedIrradCore#TreatmentOutcome"/>
+    <rdfs:range rdf:resource="http://example.org/SeedIrradCore#PlantSeed"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Na5b56dfc96df423699e6530c1a8fb143">
+    <rdf:type rdf:resource="http://qudt.org/schema/qudt/QuantityValue"/>
+    <qudt:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">100.0</qudt:numericValue>
+    <qudt:unit rdf:resource="http://qudt.org/vocab/unit/Gray"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#BrainCousensModel">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Brain–Cousens Model</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/SeedIrradCore#DoseResponseModel"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#Resp_Mutagenesis">
+    <rdf:type rdf:resource="http://example.org/SeedIrradCore#MutagenicResponse"/>
+    <mutationFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.012</mutationFrequency>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#SeedTreatment">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Seed Treatment</rdfs:label>
+    <rdfs:comment xml:lang="en">Any pre-sowing treatment applied to seeds.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <rdfs:label xml:lang="en">SeedIrradCore: Independent Ontology of Seed Irradiation (v1.0)</rdfs:label>
+    <dct:creator xml:lang="en">You + Assistant</dct:creator>
+    <dct:license xml:lang="en">CC BY 4.0</dct:license>
+    <rdfs:comment xml:lang="en">A generic, independent ontology for seed irradiation across crops; designed for SPARQL and downstream integration with farm/crop ontologies like OnTop via lightweight mappings.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#HormeticDose">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Hormetic Dose</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/SeedIrradCore#DoseCategory"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#MutagenicResponse">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Mutagenic Response</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/SeedIrradCore#Response"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#hasModel">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">has model</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/SeedIrradCore#TreatmentOutcome"/>
+    <rdfs:range rdf:resource="http://example.org/SeedIrradCore#DoseResponseModel"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#SterilizationDose">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Sterilization Dose</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/SeedIrradCore#DoseCategory"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#Treat_UVC_254nm_1200Jm2">
+    <rdf:type rdf:resource="http://example.org/SeedIrradCore#SeedIrradiationTreatment"/>
+    <radiationType>uv-c</radiationType>
+    <hasWavelength rdf:nodeID="N79f435bf96ac4125800c1ee94e0948ef"/>
+    <hasFluence rdf:nodeID="N1da56865f09f484fad386ed547b9af68"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#GerminationStage">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Germination Stage</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/SeedIrradCore#LifecycleStage"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#mutationFrequency">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">mutation frequency</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/SeedIrradCore#MutagenicResponse"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#PlantPart">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Plant Part</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#germinationRateIncrease">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">germination rate increase</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/SeedIrradCore#HormeticResponse"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#EnzymeActivityChange">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Enzyme Activity Change</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/SeedIrradCore#BiochemicalChange"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N41e94149afb547c18c29c71a7bb55ea0">
+    <rdf:type rdf:resource="http://qudt.org/schema/qudt/QuantityValue"/>
+    <qudt:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">25.0</qudt:numericValue>
+    <qudt:unit rdf:resource="http://qudt.org/vocab/unit/Gray"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#hasFluence">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">has fluence</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/SeedIrradCore#SeedIrradiationTreatment"/>
+    <rdfs:range rdf:resource="http://qudt.org/schema/qudt/QuantityValue"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#bc_e">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">BC parameter e</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/SeedIrradCore#DoseResponseModel"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#FreshMass">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">FreshMass</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/SeedIrradCore#Endpoint"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#Endpoint">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Endpoint</rdfs:label>
+    <rdfs:comment xml:lang="en">Measured response variable used to assess treatment effects.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#GerminationRate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">GerminationRate</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/SeedIrradCore#Endpoint"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#DoseRange">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Dose Range</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#ElectronBeam">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">ElectronBeam</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/SeedIrradCore#RadiationType"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#hasDose">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">has absorbed dose</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/SeedIrradCore#SeedIrradiationTreatment"/>
+    <rdfs:range rdf:resource="http://qudt.org/schema/qudt/QuantityValue"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N2bfc25341a67483a9ea35db718572c92">
+    <rdf:type rdf:resource="http://example.org/SeedIrradCore#BeneficialDoseRange"/>
+    <minDose rdf:nodeID="N41e94149afb547c18c29c71a7bb55ea0"/>
+    <maxDose rdf:nodeID="Na5b56dfc96df423699e6530c1a8fb143"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#hasDoseRange">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">has dose range</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/SeedIrradCore#SeedIrradiationTreatment"/>
+    <rdfs:range rdf:resource="http://example.org/SeedIrradCore#DoseRange"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#Co60">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Co60</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/SeedIrradCore#Isotope"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#TemperatureCondition">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Temperature Condition</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/SeedIrradCore#Context"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#LowDoseRate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Low Dose-rate</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/SeedIrradCore#DoseRateCategory"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#HighDoseRate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">High Dose-rate</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/SeedIrradCore#DoseRateCategory"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#DryMass">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">DryMass</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/SeedIrradCore#Endpoint"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#UV_A">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">UV_A</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/SeedIrradCore#RadiationType"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#SeedStage">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Seed Stage</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/SeedIrradCore#LifecycleStage"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#ROSBalanceShift">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">ROS Balance Shift</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/SeedIrradCore#BiochemicalChange"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#hasDoseRateCategory">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">has dose-rate category</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/SeedIrradCore#TreatmentOutcome"/>
+    <rdfs:range rdf:resource="http://example.org/SeedIrradCore#DoseRateCategory"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#AbioticStressResistance">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Abiotic Stress Resistance</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/SeedIrradCore#StressResistance"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#Response">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Response</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#SterilizationDoseRange">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Sterilization Dose Range</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/SeedIrradCore#DoseRange"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#EarlySeedlingStage">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Early Seedling Stage</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/SeedIrradCore#LifecycleStage"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#bc_c">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">BC parameter c</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/SeedIrradCore#DoseResponseModel"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#Neutron">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Neutron</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/SeedIrradCore#RadiationType"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#Cs137">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Cs137</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/SeedIrradCore#Isotope"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#RootLength">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">RootLength</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/SeedIrradCore#Endpoint"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#hasResponse">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">has response</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/SeedIrradCore#TreatmentOutcome"/>
+    <rdfs:range rdf:resource="http://example.org/SeedIrradCore#Response"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#BiochemicalChange">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Biochemical Change</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/SeedIrradCore#HormeticResponse"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#DoseCategory">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Dose Category</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#LifecycleStage">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Lifecycle Stage</rdfs:label>
+    <rdfs:comment xml:lang="en">Integration touchpoint: map Seed/Germination/Seedling stages to external lifecycle hierarchies.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#XRay">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">XRay</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/SeedIrradCore#RadiationType"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#WaterQuality">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Water Quality</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/SeedIrradCore#Context"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#SoilCondition">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Soil Condition</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/SeedIrradCore#Context"/>
+    <rdfs:comment xml:lang="en">Integration touchpoint: map to external 'SoilCondition' in farm ontologies.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#Outcome_Co60_GerminationHormesis">
+    <rdf:type rdf:resource="http://example.org/SeedIrradCore#TreatmentOutcome"/>
+    <hasTreatment rdf:resource="http://example.org/SeedIrradCore#Treat_Co60_Gamma_50Gy"/>
+    <hasSubject rdf:resource="http://example.org/SeedIrradCore#PlantSeed"/>
+    <forEndpoint rdf:resource="http://example.org/SeedIrradCore#GerminationRate"/>
+    <hasDoseCategory rdf:resource="http://example.org/SeedIrradCore#HormeticDose"/>
+    <hasResponse rdf:resource="http://example.org/SeedIrradCore#Resp_GerminationHormesis"/>
+    <hasModel rdf:resource="http://example.org/SeedIrradCore#Model_BC_Germination"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://qudt.org/schema/qudt/unit">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">unit</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#sourceIsotope">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">source isotope</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/SeedIrradCore#SeedIrradiationTreatment"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#ChlorophyllContent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">ChlorophyllContent</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/SeedIrradCore#Endpoint"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#Outcome_UVC_Sterilization">
+    <rdf:type rdf:resource="http://example.org/SeedIrradCore#TreatmentOutcome"/>
+    <hasTreatment rdf:resource="http://example.org/SeedIrradCore#Treat_UVC_254nm_1200Jm2"/>
+    <hasSubject rdf:resource="http://example.org/SeedIrradCore#PlantSeed"/>
+    <forEndpoint rdf:resource="http://example.org/SeedIrradCore#SeedSterility"/>
+    <hasDoseCategory rdf:resource="http://example.org/SeedIrradCore#SterilizationDose"/>
+    <hasResponse rdf:resource="http://example.org/SeedIrradCore#Resp_Sterility"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#Proton">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Proton</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/SeedIrradCore#RadiationType"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#TreatmentOutcome">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Treatment Outcome</rdfs:label>
+    <rdfs:comment xml:lang="en">Reifies the relationship between treatment, subject, endpoint, context, and response.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#bc_f">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">BC parameter f</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/SeedIrradCore#DoseResponseModel"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#Plant">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Plant</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#maxDose">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">max dose</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/SeedIrradCore#DoseRange"/>
+    <rdfs:range rdf:resource="http://qudt.org/schema/qudt/QuantityValue"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#hasExposureTime">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">has exposure time</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/SeedIrradCore#SeedIrradiationTreatment"/>
+    <rdfs:range rdf:resource="http://qudt.org/schema/qudt/QuantityValue"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#minDose">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">min dose</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/SeedIrradCore#DoseRange"/>
+    <rdfs:range rdf:resource="http://qudt.org/schema/qudt/QuantityValue"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nccec60fe69d9481bb3939dda71a36363">
+    <rdf:type rdf:resource="http://qudt.org/schema/qudt/QuantityValue"/>
+    <qudt:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">2.5</qudt:numericValue>
+    <qudt:unit rdf:resource="http://qudt.org/vocab/unit/Gy-PER-HR"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#MutationFrequency">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">MutationFrequency</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/SeedIrradCore#Endpoint"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#Outcome_XRay_Mutagenesis">
+    <rdf:type rdf:resource="http://example.org/SeedIrradCore#TreatmentOutcome"/>
+    <hasTreatment rdf:resource="http://example.org/SeedIrradCore#Treat_XRay_150Gy"/>
+    <hasSubject rdf:resource="http://example.org/SeedIrradCore#PlantSeed"/>
+    <forEndpoint rdf:resource="http://example.org/SeedIrradCore#MutationFrequency"/>
+    <hasDoseCategory rdf:resource="http://example.org/SeedIrradCore#MutagenicDose"/>
+    <hasResponse rdf:resource="http://example.org/SeedIrradCore#Resp_Mutagenesis"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#Gamma">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Gamma</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/SeedIrradCore#RadiationType"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#sterilityRate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">sterility rate</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/SeedIrradCore#SterilizationResponse"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#hasWavelength">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">has wavelength</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/SeedIrradCore#SeedIrradiationTreatment"/>
+    <rdfs:range rdf:resource="http://qudt.org/schema/qudt/QuantityValue"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#CotyledonFreeing">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">CotyledonFreeing</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/SeedIrradCore#Endpoint"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#SeedSterility">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">SeedSterility</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/SeedIrradCore#Endpoint"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#Treat_XRay_150Gy">
+    <rdf:type rdf:resource="http://example.org/SeedIrradCore#SeedIrradiationTreatment"/>
+    <radiationType>x-ray</radiationType>
+    <hasDose rdf:nodeID="Nf088edcdecb845a9a6c3c0ecc2020b5a"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#Xe133">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Xe133</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/SeedIrradCore#Isotope"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#AntioxidantIncrease">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Antioxidant Increase</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/SeedIrradCore#BiochemicalChange"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N5a83b24a088543d0830dd89b1036fcab">
+    <rdf:type rdf:resource="http://qudt.org/schema/qudt/QuantityValue"/>
+    <qudt:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.333333</qudt:numericValue>
+    <qudt:unit rdf:resource="http://qudt.org/vocab/unit/HR"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#LightCondition">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Light Condition</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/SeedIrradCore#Context"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#rootGrowthStimulus">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">root growth stimulus</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/SeedIrradCore#HormeticResponse"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#hasDoseRate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">has dose rate</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/SeedIrradCore#SeedIrradiationTreatment"/>
+    <rdfs:range rdf:resource="http://qudt.org/schema/qudt/QuantityValue"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#ShootLength">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">ShootLength</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/SeedIrradCore#Endpoint"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#UV_B">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">UV_B</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/SeedIrradCore#RadiationType"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nd561c67186a949e6a5adb4a1971f7ca7">
+    <rdf:type rdf:resource="http://qudt.org/schema/qudt/QuantityValue"/>
+    <qudt:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">50.0</qudt:numericValue>
+    <qudt:unit rdf:resource="http://qudt.org/vocab/unit/Gray"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#Am241">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Am241</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/SeedIrradCore#Isotope"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#hasDoseCategory">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">has dose category</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/SeedIrradCore#TreatmentOutcome"/>
+    <rdfs:range rdf:resource="http://example.org/SeedIrradCore#DoseCategory"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#UV_C">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">UV_C</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/SeedIrradCore#RadiationType"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#SterilizationResponse">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Sterilization Response</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/SeedIrradCore#Response"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#PollenSterility">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">PollenSterility</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/SeedIrradCore#Endpoint"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#Resp_Sterility">
+    <rdf:type rdf:resource="http://example.org/SeedIrradCore#SterilizationResponse"/>
+    <sterilityRate rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.98</sterilityRate>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#hasTreatment">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">has treatment</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/SeedIrradCore#TreatmentOutcome"/>
+    <rdfs:range rdf:resource="http://example.org/SeedIrradCore#SeedIrradiationTreatment"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#bc_b">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">BC parameter b</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/SeedIrradCore#DoseResponseModel"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#Isotope">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Radioisotope</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#Context">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Context</rdfs:label>
+    <rdfs:comment xml:lang="en">Experimental or environmental conditions relevant to outcomes.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#RadiationType">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Radiation Type</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#DoseResponseModel">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Dose–Response Model</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/SeedIrradCore#Resp_GerminationHormesis">
+    <rdf:type rdf:resource="http://example.org/SeedIrradCore#HormeticResponse"/>
+    <germinationRateIncrease rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.22</germinationRateIncrease>
+    <rootGrowthStimulus rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.3</rootGrowthStimulus>
+  </rdf:Description>
+</rdf:RDF>
