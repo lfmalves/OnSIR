@@ -238,6 +238,168 @@ g.add((ONT, DCT.source, URIRef("https://doi.org/10.56238/sevened2025.039-003")))
 g.add((ONT, DCT.source, URIRef("https://doi.org/10.22456/2175-2745.146658")))     # RITA ontology
 g.add((ONT, DCT.source, URIRef("https://doi.org/10.69547/TSFJB.030203")))         # tobacco hormesis model
 
+# ============================================================================
+# (13) CONTEXT-DEPENDENT NUMERIC DOSE CLASSIFICATION
+# ----------------------------------------------------------------------------
+# A dose is not hormetic in itself: 10 Gy stimulates tobacco but is far below the
+# stimulatory range of cowpea or fenugreek. We therefore reify the classification as a
+# DoseAssessment (a numeric dose applied to a taxon for an endpoint) and give each taxon its
+# own dose windows using OWL 2 datatype facets, so that a reasoner DERIVES the dose category
+# from the numeric value together with the taxon, instead of it being asserted.
+#
+# Window convention, using only literature-reported bounds per taxon:
+#   stimulatory  : 0 < dose <= D*_upper      (reported stimulation optimum, upper value)
+#   mutagenic    : D*_upper < dose < LD50    (between optimum and early-viability LD50)
+#   sterilizing  : dose >= LD50
+# These are operational, provenanced bounds, not universal thresholds.
+# ============================================================================
+NCBI = "http://purl.obolibrary.org/obo/NCBITaxon_"
+
+# (taxon label, NCBITaxon id [OLS-verified], D*_upper Gy, LD50 Gy, provenance)
+TAXON_WINDOWS = [
+    ("Nicotiana tabacum",        "4097",  15.0,  25.0, "Alves & Arthur 2025, TSF J. Biol. 3(2):26-51"),
+    ("Vigna unguiculata",        "3917",  80.0, 132.0, "Gnankambary et al. 2019, Int. J. Genet. Mol. Biol. 11(2):29-33"),
+    ("Trigonella foenum-graecum","78534", 150.0, 350.0, "Latha et al. 2017, J. AgriSearch 4(1):28-33"),
+    ("Capsicum annuum",          "4072",  50.0, 200.0, "Esmaiel et al. 2025, J. Agric. Biol. Res. 11(1):44-55"),
+]
+
+# --- classes and properties for the assessment context ---
+for cls, com in [("DoseAssessment",
+                  "A numeric absorbed dose considered for a given taxon, endpoint and stage; the "
+                  "unit of context-dependent dose classification."),
+                 ("StimulatoryDoseAssessment",
+                  "A DoseAssessment whose dose lies in the stimulatory window of its taxon."),
+                 ("MutagenicDoseAssessment",
+                  "A DoseAssessment whose dose lies between the stimulatory optimum and the "
+                  "early-viability LD50 of its taxon."),
+                 ("SterilizingDoseAssessment",
+                  "A DoseAssessment whose dose reaches or exceeds the early-viability LD50 of its taxon.")]:
+    g.add((C(cls), RDF.type, OWL.Class)); g.add((C(cls), SKOS.definition, Literal(com)))
+for sub in ["StimulatoryDoseAssessment", "MutagenicDoseAssessment", "SterilizingDoseAssessment"]:
+    g.add((C(sub), RDFS.subClassOf, C("DoseAssessment")))
+all_disjoint(["StimulatoryDoseAssessment", "MutagenicDoseAssessment", "SterilizingDoseAssessment"])
+
+g.add((C("forTaxon"), RDF.type, OWL.ObjectProperty))
+g.add((C("forTaxon"), RDFS.domain, C("DoseAssessment")))
+g.add((C("forTaxon"), RDFS.comment, Literal("the taxon the assessment is relative to")))
+g.add((C("forEndpoint"), RDF.type, OWL.ObjectProperty))
+g.add((C("forEndpoint"), RDFS.domain, C("DoseAssessment")))
+g.add((C("forEndpoint"), RDFS.range, C("Endpoint")))
+g.add((C("atStage"), RDF.type, OWL.ObjectProperty))
+g.add((C("atStage"), RDFS.domain, C("DoseAssessment")))
+g.add((C("atStage"), RDFS.range, C("LifecycleStage")))
+g.add((C("doseGy"), RDF.type, OWL.DatatypeProperty))
+g.add((C("doseGy"), RDF.type, OWL.FunctionalProperty))
+g.add((C("doseGy"), RDFS.domain, C("DoseAssessment")))
+g.add((C("doseGy"), SKOS.definition, Literal("absorbed dose in gray (UO_0000134)")))
+# a seed HAS a taxon; it is not a subclass of one
+g.add((C("hasTaxon"), RDF.type, OWL.ObjectProperty))
+g.add((C("hasTaxon"), RDFS.domain, C("PlantSeed")))
+g.add((C("hasTaxon"), RDFS.comment, Literal(
+    "relates a plant structure to its taxon; taxonomic identity is not an anatomical type, so "
+    "PlantSeed is never asserted to be a subclass of an NCBITaxon class")))
+g.add((C("expectedResponse"), RDF.type, OWL.ObjectProperty))
+g.add((C("expectedResponse"), RDFS.domain, C("DoseAssessment")))
+g.add((C("expectedResponse"), RDFS.range, C("Response")))
+
+# --- helpers: OWL 2 datatype facet range, hasValue restriction, intersection ---
+def _rdf_list(items):
+    head = BNode(); cur = head
+    for i, it in enumerate(items):
+        g.add((cur, RDF.first, it))
+        if i < len(items) - 1:
+            nxt = BNode(); g.add((cur, RDF.rest, nxt)); cur = nxt
+        else:
+            g.add((cur, RDF.rest, RDF.nil))
+    return head
+
+NUMERIC_TYPES = (XSD.decimal, XSD.double)   # OWL 2 treats these as DISJOINT value spaces
+
+def _facet_range(dt, lo, hi, lo_exclusive, hi_exclusive):
+    dr = BNode()
+    g.add((dr, RDF.type, RDFS.Datatype)); g.add((dr, OWL.onDatatype, dt))
+    facets = []
+    if lo is not None:
+        f = BNode()
+        g.add((f, XSD.minExclusive if lo_exclusive else XSD.minInclusive,
+               Literal(lo, datatype=dt)))
+        facets.append(f)
+    if hi is not None:
+        f = BNode()
+        g.add((f, XSD.maxExclusive if hi_exclusive else XSD.maxInclusive,
+               Literal(hi, datatype=dt)))
+        facets.append(f)
+    g.add((dr, OWL.withRestrictions, _rdf_list(facets)))
+    return dr
+
+def dose_range(lo=None, hi=None, lo_exclusive=True, hi_exclusive=False):
+    """A dose window as a faceted data range.
+
+    OWL 2 gives xsd:decimal and xsd:double disjoint value spaces, and different tools serialize
+    a plain numeric literal differently (rdflib emits xsd:double, owlready2 emits xsd:decimal).
+    A window declared on only one of them silently fails to classify literals written by the
+    other. We therefore build the window as a DataUnionOf over both, so classification is
+    independent of which serializer produced the ABox.
+    """
+    parts = [_facet_range(dt, lo, hi, lo_exclusive, hi_exclusive) for dt in NUMERIC_TYPES]
+    u = BNode()
+    g.add((u, RDF.type, RDFS.Datatype)); g.add((u, OWL.unionOf, _rdf_list(parts)))
+    return u
+
+def numeric_union():
+    """xsd:decimal union xsd:double, for use as a property range."""
+    u = BNode(); g.add((u, RDF.type, RDFS.Datatype))
+    g.add((u, OWL.unionOf, _rdf_list(list(NUMERIC_TYPES))))
+    return u
+
+# doseGy accepts either numeric serialization (see dose_range docstring)
+g.add((C("doseGy"), RDFS.range, numeric_union()))
+
+def has_value(prop, ind):
+    r = BNode(); g.add((r, RDF.type, OWL.Restriction))
+    g.add((r, OWL.onProperty, C(prop))); g.add((r, OWL.hasValue, ind))
+    return r
+
+def some_data(prop, drange):
+    r = BNode(); g.add((r, RDF.type, OWL.Restriction))
+    g.add((r, OWL.onProperty, C(prop))); g.add((r, OWL.someValuesFrom, drange))
+    return r
+
+def defined_intersection(name, members):
+    g.add((C(name), RDF.type, OWL.Class))
+    eq = BNode(); g.add((C(name), OWL.equivalentClass, eq))
+    g.add((eq, RDF.type, OWL.Class))
+    g.add((eq, OWL.intersectionOf, _rdf_list(members)))
+
+# --- per-taxon window classes; the reasoner infers the generic category ---
+for label, tid, dstar_hi, ld50, prov in TAXON_WINDOWS:
+    slug = label.replace(" ", "_").replace("-", "_")
+    ind = NS["taxon_" + slug]
+    g.add((ind, RDF.type, OWL.NamedIndividual))
+    g.add((ind, RDF.type, URIRef(NCBI + tid)))        # typed with the NCBITaxon class
+    g.add((ind, RDFS.label, Literal(label)))
+    for cat, rng, parent in [
+        ("Stimulatory", dose_range(0.0, dstar_hi), "StimulatoryDoseAssessment"),
+        ("Mutagenic",   dose_range(dstar_hi, ld50, lo_exclusive=True, hi_exclusive=True),
+         "MutagenicDoseAssessment"),
+        ("Sterilizing", dose_range(ld50, None, lo_exclusive=False), "SterilizingDoseAssessment"),
+    ]:
+        cname = f"{slug}_{cat}Dose"
+        defined_intersection(cname, [C("DoseAssessment"), has_value("forTaxon", ind),
+                                     some_data("doseGy", rng)])
+        g.add((C(cname), RDFS.subClassOf, C(parent)))
+        g.add((C(cname), RDFS.comment, Literal(
+            f"{cat.lower()} dose window for {label}: bounds from {prov}")))
+        g.add((C(cname), DCT.source, Literal(prov)))
+
+# --- dose category entails the expected response (now with a numeric, contextual antecedent) ---
+for acls, resp in [("StimulatoryDoseAssessment", "HormeticResponse"),
+                   ("MutagenicDoseAssessment", "MutagenicResponse"),
+                   ("SterilizingDoseAssessment", "SterilizationResponse")]:
+    r = BNode(); g.add((r, RDF.type, OWL.Restriction))
+    g.add((r, OWL.onProperty, C("expectedResponse"))); g.add((r, OWL.someValuesFrom, C(resp)))
+    g.add((C(acls), RDFS.subClassOf, r))
+
 g.serialize("OnSIR.ttl", format="turtle")
 g.serialize("OnSIR.owl", format="xml")
 

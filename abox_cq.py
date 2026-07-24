@@ -63,7 +63,13 @@ def build():
         g.add((seed, RDF.type, NS.PlantSeed))
         g.add((seed, RDFS.label, Literal(r["species"])))
         if taxon.get(r["species"]):
-            g.add((seed, RDF.type, URIRef(taxon[r["species"]])))     # NCBITaxon alignment (verified)
+            # A taxon is NOT an anatomical type: the seed HAS a taxon, it is not a subclass /
+            # instance of one. We therefore link via onsir:hasTaxon to a taxon individual that
+            # is itself typed with the (verified) NCBITaxon class.
+            tind = NS[f"taxon_{r['species'].replace(' ', '_').replace('-', '_')}"]
+            g.add((tind, RDF.type, URIRef(taxon[r["species"]])))
+            g.add((tind, RDFS.label, Literal(r["species"])))
+            g.add((seed, NS.hasTaxon, tind))
         g.add((o, RDF.type, NS.TreatmentOutcome))
         g.add((o, NS.hasTreatment, t)); g.add((o, NS.hasSubject, seed))
         g.add((o, RDFS.label, Literal(f"{r['species']} / {r['source']} / {r['dose']} Gy ({r['year']})")))
@@ -93,9 +99,10 @@ def run_cqs(g, rows, taxon):
     print("CQ4 dose-rate category distribution:")
     for r in Q("SELECT ?c (COUNT(?o) AS ?n) WHERE {?o onsir:hasDoseRateCategory ?c} GROUP BY ?c"):
         print(f"   {str(r[0]).split('/')[-1]}: {r[1]}")
-    print("CQ5 NCBITaxon-typed seeds (species interoperability):")
-    r = Q("SELECT (COUNT(DISTINCT ?s) AS ?n) WHERE {?s a ?tax. FILTER(STRSTARTS(STR(?tax),'http://purl.obolibrary.org/obo/NCBITaxon_'))}")
-    print(f"   {r[0][0]} seeds typed with an NCBITaxon class")
+    print("CQ5 seeds linked to an NCBITaxon class via hasTaxon (species interoperability):")
+    r = Q("SELECT (COUNT(DISTINCT ?s) AS ?n) WHERE {?s onsir:hasTaxon ?t. ?t a ?tax. "
+          "FILTER(STRSTARTS(STR(?tax),'http://purl.obolibrary.org/obo/NCBITaxon_'))}")
+    print(f"   {r[0][0]} seeds carry a resolved taxon")
     print("CQ6 mean dose by isotope:")
     for r in Q("SELECT ?iso (AVG(?v) AS ?mu) (COUNT(?t) AS ?n) WHERE {?t onsir:hasSourceIsotope ?iso; onsir:hasDose ?q. ?q onsir:numericValue ?v} GROUP BY ?iso"):
         print(f"   {str(r[0]).split('/')[-1]}: mean {float(r[1]):.0f} Gy (n={r[2]})")

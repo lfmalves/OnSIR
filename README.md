@@ -12,7 +12,8 @@ treatment to its subject, context, dose category, and response.
 
 ## What is in this release (v1.0.0)
 
-- **72 named classes, 22 object properties, 11 datatype properties** (functional and inverse characteristics; the file also contains 7 anonymous class expressions).
+- **88 named classes, 26 object properties, 12 datatype properties**, 4 named individuals
+  (functional and inverse characteristics; anonymous class expressions are not counted as terms).
 - **Logical axioms**: pairwise **disjointness** of dose categories, responses,
   radiation types and isotopes; **existential restrictions** on treatments/outcomes/dose ranges;
   **dose→effect axioms** (a hormetic dose entails a hormetic response, etc.) and the defined
@@ -20,8 +21,13 @@ treatment to its subject, context, dose category, and response.
 - **External alignment** (verified IRIs): BFO (upper level), PO (`seed`, `seedling`),
   NCBITaxon (species), ChEBI (isotopes), UO (`gray`), PATO (qualities). A gap analysis versus
   the OBO Radiobiology Ontology (RBO) motivates OnSIR's seed-irradiation dose–effect classes.
-- **Reasoning:** the ontology is **consistent** under HermiT and Pellet; dose→effect
-  classification and disjointness are verified (`reason.py`).
+- **Context-dependent dose classification:** a dose is not hormetic in itself, so taxon-specific
+  numeric dose windows are encoded with OWL 2 datatype facets. The reasoner *derives* the category
+  from the dose value plus the taxon — the same 100 Gy is inferred **sterilizing** for tobacco,
+  **mutagenic** for cowpea and **stimulatory** for fenugreek (`reason_context.py`).
+- **Reasoning:** the ontology is **consistent** under HermiT; dose→effect classification,
+  context-dependent classification and disjointness are all verified (`reason.py`,
+  `reason_context.py`). Disjointness also makes contradictory literature encodings detectable.
 - **ABox + competency questions:** an ABox built from the **EICCAM 28-study systematic review**
   (`abox_cq.py`) with 24/27 species aligned to NCBITaxon; competency questions are answered as
   SPARQL with a coverage report.
@@ -35,7 +41,10 @@ treatment to its subject, context, dose category, and response.
 | `docs/index.html` | human-readable documentation (pyLODE) |
 | `build_ontology.py` | reproducible construction of the ontology |
 | `reason.py` | HermiT consistency + dose→effect classification |
+| `reason_context.py` | context-dependent numeric dose classification + contradiction detection |
 | `abox_cq.py` | ABox construction + SPARQL competency questions |
+| `make_docs.py` | regenerates `docs/index.html` from the ontology |
+| `rbo_gap.py`, `rbo_gap_analysis.md` | term-level comparison against the OBO Radiation Biology Ontology |
 
 ## Reuse
 
@@ -44,7 +53,7 @@ treatment to its subject, context, dose category, and response.
 ```
 
 Load `OnSIR.ttl` in Protégé or any OWL API / rdflib / owlready2 pipeline. Requires Java for
-HermiT/Pellet.
+HermiT.
 
 ## Persistent identifier
 

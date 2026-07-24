@@ -50,6 +50,54 @@ onsir:BioticStressResistance a owl:Class ;
     rdfs:label "Biotic Stress Resistance"@en ;
     rdfs:subClassOf onsir:StressResistance .
 
+onsir:Capsicum_annuum_MutagenicDose a owl:Class ;
+    dct:source "Esmaiel et al. 2025, J. Agric. Biol. Res. 11(1):44-55" ;
+    rdfs:comment "mutagenic dose window for Capsicum annuum: bounds from Esmaiel et al. 2025, J. Agric. Biol. Res. 11(1):44-55" ;
+    rdfs:subClassOf onsir:MutagenicDoseAssessment ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( onsir:DoseAssessment [ a owl:Restriction ;
+                        owl:hasValue onsir:taxon_Capsicum_annuum ;
+                        owl:onProperty onsir:forTaxon ] [ a owl:Restriction ;
+                        owl:onProperty onsir:doseGy ;
+                        owl:someValuesFrom [ a rdfs:Datatype ;
+                                owl:unionOf ( [ a rdfs:Datatype ;
+                                            owl:onDatatype xsd:decimal ;
+                                            owl:withRestrictions ( [ xsd:minExclusive 50.0 ] [ xsd:maxExclusive 200.0 ] ) ] [ a rdfs:Datatype ;
+                                            owl:onDatatype xsd:double ;
+                                            owl:withRestrictions ( [ xsd:minExclusive 5e+01 ] [ xsd:maxExclusive 2e+02 ] ) ] ) ] ] ) ] .
+
+onsir:Capsicum_annuum_SterilizingDose a owl:Class ;
+    dct:source "Esmaiel et al. 2025, J. Agric. Biol. Res. 11(1):44-55" ;
+    rdfs:comment "sterilizing dose window for Capsicum annuum: bounds from Esmaiel et al. 2025, J. Agric. Biol. Res. 11(1):44-55" ;
+    rdfs:subClassOf onsir:SterilizingDoseAssessment ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( onsir:DoseAssessment [ a owl:Restriction ;
+                        owl:hasValue onsir:taxon_Capsicum_annuum ;
+                        owl:onProperty onsir:forTaxon ] [ a owl:Restriction ;
+                        owl:onProperty onsir:doseGy ;
+                        owl:someValuesFrom [ a rdfs:Datatype ;
+                                owl:unionOf ( [ a rdfs:Datatype ;
+                                            owl:onDatatype xsd:decimal ;
+                                            owl:withRestrictions ( [ xsd:minInclusive 200.0 ] ) ] [ a rdfs:Datatype ;
+                                            owl:onDatatype xsd:double ;
+                                            owl:withRestrictions ( [ xsd:minInclusive 2e+02 ] ) ] ) ] ] ) ] .
+
+onsir:Capsicum_annuum_StimulatoryDose a owl:Class ;
+    dct:source "Esmaiel et al. 2025, J. Agric. Biol. Res. 11(1):44-55" ;
+    rdfs:comment "stimulatory dose window for Capsicum annuum: bounds from Esmaiel et al. 2025, J. Agric. Biol. Res. 11(1):44-55" ;
+    rdfs:subClassOf onsir:StimulatoryDoseAssessment ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( onsir:DoseAssessment [ a owl:Restriction ;
+                        owl:hasValue onsir:taxon_Capsicum_annuum ;
+                        owl:onProperty onsir:forTaxon ] [ a owl:Restriction ;
+                        owl:onProperty onsir:doseGy ;
+                        owl:someValuesFrom [ a rdfs:Datatype ;
+                                owl:unionOf ( [ a rdfs:Datatype ;
+                                            owl:onDatatype xsd:decimal ;
+                                            owl:withRestrictions ( [ xsd:minExclusive 0.0 ] [ xsd:maxInclusive 50.0 ] ) ] [ a rdfs:Datatype ;
+                                            owl:onDatatype xsd:double ;
+                                            owl:withRestrictions ( [ xsd:minExclusive 0e+00 ] [ xsd:maxInclusive 5e+01 ] ) ] ) ] ] ) ] .
+
 onsir:ChlorophyllContent a owl:Class ;
     rdfs:label "ChlorophyllContent"@en ;
     rdfs:subClassOf onsir:Endpoint ;
@@ -96,6 +144,54 @@ onsir:MutagenicOutcome a owl:Class ;
             owl:intersectionOf ( onsir:TreatmentOutcome [ a owl:Restriction ;
                         owl:onProperty onsir:hasResponse ;
                         owl:someValuesFrom onsir:MutagenicResponse ] ) ] .
+
+onsir:Nicotiana_tabacum_MutagenicDose a owl:Class ;
+    dct:source "Alves & Arthur 2025, TSF J. Biol. 3(2):26-51" ;
+    rdfs:comment "mutagenic dose window for Nicotiana tabacum: bounds from Alves & Arthur 2025, TSF J. Biol. 3(2):26-51" ;
+    rdfs:subClassOf onsir:MutagenicDoseAssessment ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( onsir:DoseAssessment [ a owl:Restriction ;
+                        owl:hasValue onsir:taxon_Nicotiana_tabacum ;
+                        owl:onProperty onsir:forTaxon ] [ a owl:Restriction ;
+                        owl:onProperty onsir:doseGy ;
+                        owl:someValuesFrom [ a rdfs:Datatype ;
+                                owl:unionOf ( [ a rdfs:Datatype ;
+                                            owl:onDatatype xsd:decimal ;
+                                            owl:withRestrictions ( [ xsd:minExclusive 15.0 ] [ xsd:maxExclusive 25.0 ] ) ] [ a rdfs:Datatype ;
+                                            owl:onDatatype xsd:double ;
+                                            owl:withRestrictions ( [ xsd:minExclusive 1.5e+01 ] [ xsd:maxExclusive 2.5e+01 ] ) ] ) ] ] ) ] .
+
+onsir:Nicotiana_tabacum_SterilizingDose a owl:Class ;
+    dct:source "Alves & Arthur 2025, TSF J. Biol. 3(2):26-51" ;
+    rdfs:comment "sterilizing dose window for Nicotiana tabacum: bounds from Alves & Arthur 2025, TSF J. Biol. 3(2):26-51" ;
+    rdfs:subClassOf onsir:SterilizingDoseAssessment ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( onsir:DoseAssessment [ a owl:Restriction ;
+                        owl:hasValue onsir:taxon_Nicotiana_tabacum ;
+                        owl:onProperty onsir:forTaxon ] [ a owl:Restriction ;
+                        owl:onProperty onsir:doseGy ;
+                        owl:someValuesFrom [ a rdfs:Datatype ;
+                                owl:unionOf ( [ a rdfs:Datatype ;
+                                            owl:onDatatype xsd:decimal ;
+                                            owl:withRestrictions ( [ xsd:minInclusive 25.0 ] ) ] [ a rdfs:Datatype ;
+                                            owl:onDatatype xsd:double ;
+                                            owl:withRestrictions ( [ xsd:minInclusive 2.5e+01 ] ) ] ) ] ] ) ] .
+
+onsir:Nicotiana_tabacum_StimulatoryDose a owl:Class ;
+    dct:source "Alves & Arthur 2025, TSF J. Biol. 3(2):26-51" ;
+    rdfs:comment "stimulatory dose window for Nicotiana tabacum: bounds from Alves & Arthur 2025, TSF J. Biol. 3(2):26-51" ;
+    rdfs:subClassOf onsir:StimulatoryDoseAssessment ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( onsir:DoseAssessment [ a owl:Restriction ;
+                        owl:hasValue onsir:taxon_Nicotiana_tabacum ;
+                        owl:onProperty onsir:forTaxon ] [ a owl:Restriction ;
+                        owl:onProperty onsir:doseGy ;
+                        owl:someValuesFrom [ a rdfs:Datatype ;
+                                owl:unionOf ( [ a rdfs:Datatype ;
+                                            owl:onDatatype xsd:decimal ;
+                                            owl:withRestrictions ( [ xsd:minExclusive 0.0 ] [ xsd:maxInclusive 15.0 ] ) ] [ a rdfs:Datatype ;
+                                            owl:onDatatype xsd:double ;
+                                            owl:withRestrictions ( [ xsd:minExclusive 0e+00 ] [ xsd:maxInclusive 1.5e+01 ] ) ] ) ] ] ) ] .
 
 onsir:Outcome_Co60_GerminationHormesis a onsir:TreatmentOutcome ;
     onsir:forEndpoint onsir:GerminationRate ;
@@ -179,10 +275,110 @@ onsir:TemperatureCondition a owl:Class ;
     rdfs:subClassOf onsir:Context ;
     skos:closeMatch obo:PATO_0000146 .
 
+onsir:Trigonella_foenum_graecum_MutagenicDose a owl:Class ;
+    dct:source "Latha et al. 2017, J. AgriSearch 4(1):28-33" ;
+    rdfs:comment "mutagenic dose window for Trigonella foenum-graecum: bounds from Latha et al. 2017, J. AgriSearch 4(1):28-33" ;
+    rdfs:subClassOf onsir:MutagenicDoseAssessment ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( onsir:DoseAssessment [ a owl:Restriction ;
+                        owl:hasValue onsir:taxon_Trigonella_foenum_graecum ;
+                        owl:onProperty onsir:forTaxon ] [ a owl:Restriction ;
+                        owl:onProperty onsir:doseGy ;
+                        owl:someValuesFrom [ a rdfs:Datatype ;
+                                owl:unionOf ( [ a rdfs:Datatype ;
+                                            owl:onDatatype xsd:decimal ;
+                                            owl:withRestrictions ( [ xsd:minExclusive 150.0 ] [ xsd:maxExclusive 350.0 ] ) ] [ a rdfs:Datatype ;
+                                            owl:onDatatype xsd:double ;
+                                            owl:withRestrictions ( [ xsd:minExclusive 1.5e+02 ] [ xsd:maxExclusive 3.5e+02 ] ) ] ) ] ] ) ] .
+
+onsir:Trigonella_foenum_graecum_SterilizingDose a owl:Class ;
+    dct:source "Latha et al. 2017, J. AgriSearch 4(1):28-33" ;
+    rdfs:comment "sterilizing dose window for Trigonella foenum-graecum: bounds from Latha et al. 2017, J. AgriSearch 4(1):28-33" ;
+    rdfs:subClassOf onsir:SterilizingDoseAssessment ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( onsir:DoseAssessment [ a owl:Restriction ;
+                        owl:hasValue onsir:taxon_Trigonella_foenum_graecum ;
+                        owl:onProperty onsir:forTaxon ] [ a owl:Restriction ;
+                        owl:onProperty onsir:doseGy ;
+                        owl:someValuesFrom [ a rdfs:Datatype ;
+                                owl:unionOf ( [ a rdfs:Datatype ;
+                                            owl:onDatatype xsd:decimal ;
+                                            owl:withRestrictions ( [ xsd:minInclusive 350.0 ] ) ] [ a rdfs:Datatype ;
+                                            owl:onDatatype xsd:double ;
+                                            owl:withRestrictions ( [ xsd:minInclusive 3.5e+02 ] ) ] ) ] ] ) ] .
+
+onsir:Trigonella_foenum_graecum_StimulatoryDose a owl:Class ;
+    dct:source "Latha et al. 2017, J. AgriSearch 4(1):28-33" ;
+    rdfs:comment "stimulatory dose window for Trigonella foenum-graecum: bounds from Latha et al. 2017, J. AgriSearch 4(1):28-33" ;
+    rdfs:subClassOf onsir:StimulatoryDoseAssessment ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( onsir:DoseAssessment [ a owl:Restriction ;
+                        owl:hasValue onsir:taxon_Trigonella_foenum_graecum ;
+                        owl:onProperty onsir:forTaxon ] [ a owl:Restriction ;
+                        owl:onProperty onsir:doseGy ;
+                        owl:someValuesFrom [ a rdfs:Datatype ;
+                                owl:unionOf ( [ a rdfs:Datatype ;
+                                            owl:onDatatype xsd:decimal ;
+                                            owl:withRestrictions ( [ xsd:minExclusive 0.0 ] [ xsd:maxInclusive 150.0 ] ) ] [ a rdfs:Datatype ;
+                                            owl:onDatatype xsd:double ;
+                                            owl:withRestrictions ( [ xsd:minExclusive 0e+00 ] [ xsd:maxInclusive 1.5e+02 ] ) ] ) ] ] ) ] .
+
+onsir:Vigna_unguiculata_MutagenicDose a owl:Class ;
+    dct:source "Gnankambary et al. 2019, Int. J. Genet. Mol. Biol. 11(2):29-33" ;
+    rdfs:comment "mutagenic dose window for Vigna unguiculata: bounds from Gnankambary et al. 2019, Int. J. Genet. Mol. Biol. 11(2):29-33" ;
+    rdfs:subClassOf onsir:MutagenicDoseAssessment ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( onsir:DoseAssessment [ a owl:Restriction ;
+                        owl:hasValue onsir:taxon_Vigna_unguiculata ;
+                        owl:onProperty onsir:forTaxon ] [ a owl:Restriction ;
+                        owl:onProperty onsir:doseGy ;
+                        owl:someValuesFrom [ a rdfs:Datatype ;
+                                owl:unionOf ( [ a rdfs:Datatype ;
+                                            owl:onDatatype xsd:decimal ;
+                                            owl:withRestrictions ( [ xsd:minExclusive 80.0 ] [ xsd:maxExclusive 132.0 ] ) ] [ a rdfs:Datatype ;
+                                            owl:onDatatype xsd:double ;
+                                            owl:withRestrictions ( [ xsd:minExclusive 8e+01 ] [ xsd:maxExclusive 1.32e+02 ] ) ] ) ] ] ) ] .
+
+onsir:Vigna_unguiculata_SterilizingDose a owl:Class ;
+    dct:source "Gnankambary et al. 2019, Int. J. Genet. Mol. Biol. 11(2):29-33" ;
+    rdfs:comment "sterilizing dose window for Vigna unguiculata: bounds from Gnankambary et al. 2019, Int. J. Genet. Mol. Biol. 11(2):29-33" ;
+    rdfs:subClassOf onsir:SterilizingDoseAssessment ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( onsir:DoseAssessment [ a owl:Restriction ;
+                        owl:hasValue onsir:taxon_Vigna_unguiculata ;
+                        owl:onProperty onsir:forTaxon ] [ a owl:Restriction ;
+                        owl:onProperty onsir:doseGy ;
+                        owl:someValuesFrom [ a rdfs:Datatype ;
+                                owl:unionOf ( [ a rdfs:Datatype ;
+                                            owl:onDatatype xsd:decimal ;
+                                            owl:withRestrictions ( [ xsd:minInclusive 132.0 ] ) ] [ a rdfs:Datatype ;
+                                            owl:onDatatype xsd:double ;
+                                            owl:withRestrictions ( [ xsd:minInclusive 1.32e+02 ] ) ] ) ] ] ) ] .
+
+onsir:Vigna_unguiculata_StimulatoryDose a owl:Class ;
+    dct:source "Gnankambary et al. 2019, Int. J. Genet. Mol. Biol. 11(2):29-33" ;
+    rdfs:comment "stimulatory dose window for Vigna unguiculata: bounds from Gnankambary et al. 2019, Int. J. Genet. Mol. Biol. 11(2):29-33" ;
+    rdfs:subClassOf onsir:StimulatoryDoseAssessment ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( onsir:DoseAssessment [ a owl:Restriction ;
+                        owl:hasValue onsir:taxon_Vigna_unguiculata ;
+                        owl:onProperty onsir:forTaxon ] [ a owl:Restriction ;
+                        owl:onProperty onsir:doseGy ;
+                        owl:someValuesFrom [ a rdfs:Datatype ;
+                                owl:unionOf ( [ a rdfs:Datatype ;
+                                            owl:onDatatype xsd:decimal ;
+                                            owl:withRestrictions ( [ xsd:minExclusive 0.0 ] [ xsd:maxInclusive 80.0 ] ) ] [ a rdfs:Datatype ;
+                                            owl:onDatatype xsd:double ;
+                                            owl:withRestrictions ( [ xsd:minExclusive 0e+00 ] [ xsd:maxInclusive 8e+01 ] ) ] ) ] ] ) ] .
+
 onsir:WaterQuality a owl:Class ;
     rdfs:label "Water Quality"@en ;
     rdfs:subClassOf onsir:Context ;
     skos:closeMatch obo:CHEBI_15377 .
+
+onsir:atStage a owl:ObjectProperty ;
+    rdfs:domain onsir:DoseAssessment ;
+    rdfs:range onsir:LifecycleStage .
 
 onsir:bc_b a owl:DatatypeProperty ;
     rdfs:label "BC parameter b"@en ;
@@ -223,7 +419,8 @@ onsir:doseUpperGy a owl:DatatypeProperty,
 
 onsir:forEndpoint a owl:ObjectProperty ;
     rdfs:label "for endpoint"@en ;
-    rdfs:domain onsir:TreatmentOutcome ;
+    rdfs:domain onsir:DoseAssessment,
+        onsir:TreatmentOutcome ;
     rdfs:range onsir:Endpoint .
 
 onsir:germinationRateIncrease a owl:DatatypeProperty ;
@@ -281,6 +478,10 @@ onsir:hasSubject a owl:ObjectProperty ;
     rdfs:label "has subject"@en ;
     rdfs:domain onsir:TreatmentOutcome ;
     rdfs:range onsir:PlantSeed .
+
+onsir:hasTaxon a owl:ObjectProperty ;
+    rdfs:comment "relates a plant structure to its taxon; taxonomic identity is not an anatomical type, so PlantSeed is never asserted to be a subclass of an NCBITaxon class" ;
+    rdfs:domain onsir:PlantSeed .
 
 onsir:hasWavelength a owl:ObjectProperty ;
     rdfs:label "has wavelength"@en ;
@@ -486,9 +687,9 @@ onsir:hasDose a owl:FunctionalProperty,
 onsir:DoseRateCategory a owl:Class ;
     rdfs:label "Dose-rate Category"@en .
 
-onsir:LifecycleStage a owl:Class ;
-    rdfs:label "Lifecycle Stage"@en ;
-    rdfs:comment "Integration touchpoint: map Seed/Germination/Seedling stages to external lifecycle hierarchies."@en .
+onsir:expectedResponse a owl:ObjectProperty ;
+    rdfs:domain onsir:DoseAssessment ;
+    rdfs:range onsir:Response .
 
 onsir:hasDoseCategory a owl:ObjectProperty ;
     rdfs:label "has dose category"@en ;
@@ -505,6 +706,22 @@ onsir:induces a owl:ObjectProperty ;
     rdfs:domain onsir:SeedIrradiationTreatment ;
     rdfs:range onsir:Response .
 
+onsir:taxon_Capsicum_annuum a obo:NCBITaxon_4072,
+        owl:NamedIndividual ;
+    rdfs:label "Capsicum annuum" .
+
+onsir:taxon_Nicotiana_tabacum a obo:NCBITaxon_4097,
+        owl:NamedIndividual ;
+    rdfs:label "Nicotiana tabacum" .
+
+onsir:taxon_Trigonella_foenum_graecum a obo:NCBITaxon_78534,
+        owl:NamedIndividual ;
+    rdfs:label "Trigonella foenum-graecum" .
+
+onsir:taxon_Vigna_unguiculata a obo:NCBITaxon_3917,
+        owl:NamedIndividual ;
+    rdfs:label "Vigna unguiculata" .
+
 onsir:BiochemicalChange a owl:Class ;
     rdfs:label "Biochemical Change"@en ;
     rdfs:subClassOf onsir:HormeticResponse .
@@ -520,16 +737,14 @@ onsir:HormeticDose a owl:Class ;
     rdfs:subClassOf onsir:DoseCategory ;
     skos:definition "A dose in the range that elicits a stimulatory (hormetic) biological response." .
 
+onsir:LifecycleStage a owl:Class ;
+    rdfs:label "Lifecycle Stage"@en ;
+    rdfs:comment "Integration touchpoint: map Seed/Germination/Seedling stages to external lifecycle hierarchies."@en .
+
 onsir:MutagenicDose a owl:Class ;
     rdfs:label "Mutagenic Dose"@en ;
     rdfs:subClassOf onsir:DoseCategory ;
     skos:definition "A dose in the range that elicits induced genetic variability (mutagenesis) without predominant sterilization." .
-
-onsir:PlantSeed a owl:Class ;
-    rdfs:label "Plant Seed"@en ;
-    rdfs:comment "Integration touchpoint suggestion: align to crop ontologies' seed class (e.g., TobaccoSeed) via skos:exactMatch/closeMatch."@en ;
-    rdfs:subClassOf obo:BFO_0000040 ;
-    owl:equivalentClass obo:PO_0009010 .
 
 onsir:QuantityValue rdfs:comment "dose rate values use gray per minute (UO_0010060)",
         "dose values use unit gray (UO_0000134)" ;
@@ -540,9 +755,32 @@ onsir:SterilizationDose a owl:Class ;
     rdfs:subClassOf onsir:DoseCategory ;
     skos:definition "A dose high enough to cause predominant loss of viability or reproductive capacity." .
 
-onsir:SterilizationResponse a owl:Class ;
-    rdfs:label "Sterilization Response"@en ;
-    rdfs:subClassOf onsir:Response .
+onsir:MutagenicDoseAssessment a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty onsir:expectedResponse ;
+            owl:someValuesFrom onsir:MutagenicResponse ],
+        onsir:DoseAssessment ;
+    skos:definition "A DoseAssessment whose dose lies between the stimulatory optimum and the early-viability LD50 of its taxon." .
+
+onsir:PlantSeed a owl:Class ;
+    rdfs:label "Plant Seed"@en ;
+    rdfs:comment "Integration touchpoint suggestion: align to crop ontologies' seed class (e.g., TobaccoSeed) via skos:exactMatch/closeMatch."@en ;
+    rdfs:subClassOf obo:BFO_0000040 ;
+    owl:equivalentClass obo:PO_0009010 .
+
+onsir:SterilizingDoseAssessment a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty onsir:expectedResponse ;
+            owl:someValuesFrom onsir:SterilizationResponse ],
+        onsir:DoseAssessment ;
+    skos:definition "A DoseAssessment whose dose reaches or exceeds the early-viability LD50 of its taxon." .
+
+onsir:StimulatoryDoseAssessment a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty onsir:expectedResponse ;
+            owl:someValuesFrom onsir:HormeticResponse ],
+        onsir:DoseAssessment ;
+    skos:definition "A DoseAssessment whose dose lies in the stimulatory window of its taxon." .
 
 onsir:Context a owl:Class ;
     rdfs:label "Context"@en ;
@@ -551,8 +789,8 @@ onsir:Context a owl:Class ;
 onsir:Isotope a owl:Class ;
     rdfs:label "Radioisotope"@en .
 
-onsir:MutagenicResponse a owl:Class ;
-    rdfs:label "Mutagenic Response"@en ;
+onsir:SterilizationResponse a owl:Class ;
+    rdfs:label "Sterilization Response"@en ;
     rdfs:subClassOf onsir:Response .
 
 onsir:hasResponse a owl:ObjectProperty ;
@@ -564,20 +802,24 @@ onsir:DoseResponseModel a owl:Class ;
     rdfs:label "Dose–Response Model"@en ;
     skos:definition "A parametric model describing how an endpoint varies with dose (e.g., the Brain-Cousens hormetic model)." .
 
+onsir:MutagenicResponse a owl:Class ;
+    rdfs:label "Mutagenic Response"@en ;
+    rdfs:subClassOf onsir:Response .
+
+onsir:DoseRange a owl:Class ;
+    rdfs:label "Dose Range"@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty onsir:maxDose ;
+            owl:someValuesFrom onsir:QuantityValue ],
+        [ a owl:Restriction ;
+            owl:onProperty onsir:minDose ;
+            owl:someValuesFrom onsir:QuantityValue ] .
+
 onsir:Response a owl:Class ;
     rdfs:label "Response"@en ;
     rdfs:subClassOf obo:BFO_0000019 ;
     owl:equivalentClass [ a owl:Class ;
             owl:unionOf ( onsir:HormeticResponse onsir:MutagenicResponse onsir:SterilizationResponse ) ] .
-
-onsir:DoseRange a owl:Class ;
-    rdfs:label "Dose Range"@en ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty onsir:minDose ;
-            owl:someValuesFrom onsir:QuantityValue ],
-        [ a owl:Restriction ;
-            owl:onProperty onsir:maxDose ;
-            owl:someValuesFrom onsir:QuantityValue ] .
 
 onsir:HormeticResponse a owl:Class ;
     rdfs:label "Hormetic Response"@en ;
@@ -586,6 +828,17 @@ onsir:HormeticResponse a owl:Class ;
 
 onsir:RadiationType a owl:Class ;
     rdfs:label "Radiation Type"@en .
+
+onsir:doseGy a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain onsir:DoseAssessment ;
+    rdfs:range [ a rdfs:Datatype ;
+            owl:unionOf ( xsd:decimal xsd:double ) ] ;
+    skos:definition "absorbed dose in gray (UO_0000134)" .
+
+onsir:forTaxon a owl:ObjectProperty ;
+    rdfs:comment "the taxon the assessment is relative to" ;
+    rdfs:domain onsir:DoseAssessment .
 
 onsir:Endpoint a owl:Class ;
     rdfs:label "Endpoint"@en ;
@@ -600,18 +853,18 @@ onsir:SeedIrradiationTreatment a owl:Class ;
     rdfs:comment "Integration touchpoint suggestion: align to external ontology class 'SeedTreatment' via skos:closeMatch."@en,
         "Irradiation applied to seeds using ionizing or non-ionizing radiation."@en ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty onsir:hasRadiationType ;
+            owl:someValuesFrom onsir:RadiationType ],
+        [ a owl:Restriction ;
             owl:onClass onsir:QuantityValue ;
             owl:onProperty onsir:hasDose ;
             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
         [ a owl:Restriction ;
-            owl:onProperty onsir:induces ;
-            owl:someValuesFrom onsir:Response ],
-        [ a owl:Restriction ;
             owl:onProperty onsir:hasDose ;
             owl:someValuesFrom onsir:QuantityValue ],
         [ a owl:Restriction ;
-            owl:onProperty onsir:hasRadiationType ;
-            owl:someValuesFrom onsir:RadiationType ],
+            owl:onProperty onsir:induces ;
+            owl:someValuesFrom onsir:Response ],
         obo:BFO_0000015,
         onsir:SeedTreatment ;
     skos:definition "A treatment process in which seeds are exposed to ionizing radiation of a specified type, source, dose and dose rate." .
@@ -620,25 +873,40 @@ onsir:TreatmentOutcome a owl:Class ;
     rdfs:label "Treatment Outcome"@en ;
     rdfs:comment "Reifies the relationship between treatment, subject, endpoint, context, and response."@en ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty onsir:hasTreatment ;
+            owl:someValuesFrom onsir:SeedIrradiationTreatment ],
+        [ a owl:Restriction ;
             owl:onClass onsir:SeedIrradiationTreatment ;
             owl:onProperty onsir:hasTreatment ;
             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
         [ a owl:Restriction ;
             owl:onProperty onsir:hasResponse ;
-            owl:someValuesFrom onsir:Response ],
-        [ a owl:Restriction ;
-            owl:onProperty onsir:hasTreatment ;
-            owl:someValuesFrom onsir:SeedIrradiationTreatment ] ;
+            owl:someValuesFrom onsir:Response ] ;
     skos:definition "The observed result of a seed-irradiation treatment on a subject seed under a context, characterized by a dose category and a biological response for a given endpoint." .
+
+onsir:DoseAssessment a owl:Class ;
+    skos:definition "A numeric absorbed dose considered for a given taxon, endpoint and stage; the unit of context-dependent dose classification." .
+
+[] a owl:AllDisjointClasses ;
+    owl:members ( onsir:StimulatoryDoseAssessment onsir:MutagenicDoseAssessment onsir:SterilizingDoseAssessment ) .
+
+[] a owl:AllDisjointClasses ;
+    owl:members ( onsir:HormeticDose onsir:MutagenicDose onsir:SterilizationDose ) .
+
+[] a owl:AllDisjointClasses ;
+    owl:members ( onsir:HormeticResponse onsir:MutagenicResponse onsir:SterilizationResponse ) .
+
+[] a owl:AllDisjointClasses ;
+    owl:members ( onsir:Gamma onsir:XRay onsir:Neutron onsir:Proton onsir:ElectronBeam onsir:UV_A onsir:UV_B onsir:UV_C ) .
+
+[] a owl:AllDisjointClasses ;
+    owl:members ( onsir:Am241 onsir:Co60 onsir:Cs137 onsir:Ir192 onsir:Xe133 ) .
 
 [] a owl:AllDisjointClasses ;
     owl:members ( onsir:BeneficialDoseRange onsir:MutagenicDoseRange onsir:SterilizationDoseRange ) .
 
 [] a owl:AllDisjointClasses ;
     owl:members ( onsir:LowDoseRate onsir:HighDoseRate ) .
-
-[] a owl:AllDisjointClasses ;
-    owl:members ( onsir:HormeticDose onsir:MutagenicDose onsir:SterilizationDose ) .
 
 [] a owl:Class ;
     rdfs:subClassOf [ a owl:Restriction ;
@@ -663,13 +931,4 @@ onsir:TreatmentOutcome a owl:Class ;
     owl:intersectionOf ( onsir:TreatmentOutcome [ a owl:Restriction ;
                 owl:onProperty onsir:hasDoseCategory ;
                 owl:someValuesFrom onsir:MutagenicDose ] ) .
-
-[] a owl:AllDisjointClasses ;
-    owl:members ( onsir:Gamma onsir:XRay onsir:Neutron onsir:Proton onsir:ElectronBeam onsir:UV_A onsir:UV_B onsir:UV_C ) .
-
-[] a owl:AllDisjointClasses ;
-    owl:members ( onsir:HormeticResponse onsir:MutagenicResponse onsir:SterilizationResponse ) .
-
-[] a owl:AllDisjointClasses ;
-    owl:members ( onsir:Am241 onsir:Co60 onsir:Cs137 onsir:Ir192 onsir:Xe133 ) .
 

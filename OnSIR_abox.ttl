@@ -288,108 +288,177 @@ onsir:seed_00 a onsir:PlantSeed ;
 onsir:seed_01 a onsir:PlantSeed ;
     rdfs:label "Polianthes tuberosa" .
 
-onsir:seed_02 a obo:NCBITaxon_86757,
-        onsir:PlantSeed ;
-    rdfs:label "Magnolia champaca" .
+onsir:seed_02 a onsir:PlantSeed ;
+    rdfs:label "Magnolia champaca" ;
+    onsir:hasTaxon onsir:taxon_Magnolia_champaca .
 
-onsir:seed_03 a obo:NCBITaxon_157791,
-        onsir:PlantSeed ;
-    rdfs:label "Vigna radiata" .
+onsir:seed_03 a onsir:PlantSeed ;
+    rdfs:label "Vigna radiata" ;
+    onsir:hasTaxon onsir:taxon_Vigna_radiata .
 
-onsir:seed_04 a obo:NCBITaxon_4076,
-        onsir:PlantSeed ;
-    rdfs:label "Datura stramonium" .
+onsir:seed_04 a onsir:PlantSeed ;
+    rdfs:label "Datura stramonium" ;
+    onsir:hasTaxon onsir:taxon_Datura_stramonium .
 
-onsir:seed_05 a obo:NCBITaxon_93977,
-        onsir:PlantSeed ;
-    rdfs:label "Osmanthus fragrans" .
+onsir:seed_05 a onsir:PlantSeed ;
+    rdfs:label "Osmanthus fragrans" ;
+    onsir:hasTaxon onsir:taxon_Osmanthus_fragrans .
 
-onsir:seed_06 a obo:NCBITaxon_3413428,
-        onsir:PlantSeed ;
-    rdfs:label "Capsicum sp." .
+onsir:seed_06 a onsir:PlantSeed ;
+    rdfs:label "Capsicum sp." ;
+    onsir:hasTaxon <https://w3id.org/onsir/taxon_Capsicum_sp.> .
 
-onsir:seed_07 a obo:NCBITaxon_4513,
-        onsir:PlantSeed ;
-    rdfs:label "Hordeum vulgare" .
+onsir:seed_07 a onsir:PlantSeed ;
+    rdfs:label "Hordeum vulgare" ;
+    onsir:hasTaxon onsir:taxon_Hordeum_vulgare .
 
-onsir:seed_08 a obo:NCBITaxon_3708,
-        onsir:PlantSeed ;
-    rdfs:label "Brassica napus" .
+onsir:seed_08 a onsir:PlantSeed ;
+    rdfs:label "Brassica napus" ;
+    onsir:hasTaxon onsir:taxon_Brassica_napus .
 
-onsir:seed_09 a obo:NCBITaxon_4081,
-        onsir:PlantSeed ;
-    rdfs:label "Solanum lycopersicum" .
+onsir:seed_09 a onsir:PlantSeed ;
+    rdfs:label "Solanum lycopersicum" ;
+    onsir:hasTaxon onsir:taxon_Solanum_lycopersicum .
 
-onsir:seed_10 a obo:NCBITaxon_1258759,
-        onsir:PlantSeed ;
-    rdfs:label "Toona sureni" .
+onsir:seed_10 a onsir:PlantSeed ;
+    rdfs:label "Toona sureni" ;
+    onsir:hasTaxon onsir:taxon_Toona_sureni .
 
-onsir:seed_11 a obo:NCBITaxon_3915,
-        onsir:PlantSeed ;
-    rdfs:label "Vigna mungo" .
+onsir:seed_11 a onsir:PlantSeed ;
+    rdfs:label "Vigna mungo" ;
+    onsir:hasTaxon onsir:taxon_Vigna_mungo .
 
-onsir:seed_12 a obo:NCBITaxon_4066,
-        onsir:PlantSeed ;
-    rdfs:label "Calotropis gigantea" .
+onsir:seed_12 a onsir:PlantSeed ;
+    rdfs:label "Calotropis gigantea" ;
+    onsir:hasTaxon onsir:taxon_Calotropis_gigantea .
 
-onsir:seed_13 a obo:NCBITaxon_4047,
-        onsir:PlantSeed ;
-    rdfs:label "Coriandrum sativum" .
+onsir:seed_13 a onsir:PlantSeed ;
+    rdfs:label "Coriandrum sativum" ;
+    onsir:hasTaxon onsir:taxon_Coriandrum_sativum .
 
-onsir:seed_14 a obo:NCBITaxon_153762,
-        onsir:PlantSeed ;
-    rdfs:label "Neolamarckia cadamba" .
+onsir:seed_14 a onsir:PlantSeed ;
+    rdfs:label "Neolamarckia cadamba" ;
+    onsir:hasTaxon onsir:taxon_Neolamarckia_cadamba .
 
-onsir:seed_15 a obo:NCBITaxon_3702,
-        onsir:PlantSeed ;
-    rdfs:label "Arabidopsis thaliana" .
+onsir:seed_15 a onsir:PlantSeed ;
+    rdfs:label "Arabidopsis thaliana" ;
+    onsir:hasTaxon onsir:taxon_Arabidopsis_thaliana .
 
 onsir:seed_16 a onsir:PlantSeed ;
     rdfs:label "Ficus variegata" .
 
-onsir:seed_17 a obo:NCBITaxon_35936,
-        onsir:PlantSeed ;
-    rdfs:label "Lablab purpureus" .
+onsir:seed_17 a onsir:PlantSeed ;
+    rdfs:label "Lablab purpureus" ;
+    onsir:hasTaxon onsir:taxon_Lablab_purpureus .
 
-onsir:seed_18 a obo:NCBITaxon_4530,
-        onsir:PlantSeed ;
-    rdfs:label "Oryza sativa" .
+onsir:seed_18 a onsir:PlantSeed ;
+    rdfs:label "Oryza sativa" ;
+    onsir:hasTaxon onsir:taxon_Oryza_sativa .
 
-onsir:seed_19 a obo:NCBITaxon_316893,
-        onsir:PlantSeed ;
-    rdfs:label "Plukenetia volubilis" .
+onsir:seed_19 a onsir:PlantSeed ;
+    rdfs:label "Plukenetia volubilis" ;
+    onsir:hasTaxon onsir:taxon_Plukenetia_volubilis .
 
-onsir:seed_20 a obo:NCBITaxon_1487825,
-        onsir:PlantSeed ;
-    rdfs:label "Reutealis trisperma" .
+onsir:seed_20 a onsir:PlantSeed ;
+    rdfs:label "Reutealis trisperma" ;
+    onsir:hasTaxon onsir:taxon_Reutealis_trisperma .
 
-onsir:seed_21 a obo:NCBITaxon_4111,
-        onsir:PlantSeed ;
-    rdfs:label "Solanum melongena" .
+onsir:seed_21 a onsir:PlantSeed ;
+    rdfs:label "Solanum melongena" ;
+    onsir:hasTaxon onsir:taxon_Solanum_melongena .
 
-onsir:seed_22 a obo:NCBITaxon_4058,
-        onsir:PlantSeed ;
+onsir:seed_22 a onsir:PlantSeed ;
+    rdfs:label "Catharanthus roseus" ;
+    onsir:hasTaxon onsir:taxon_Catharanthus_roseus .
+
+onsir:seed_23 a onsir:PlantSeed ;
+    rdfs:label "Salvia hispanica" ;
+    onsir:hasTaxon onsir:taxon_Salvia_hispanica .
+
+onsir:seed_24 a onsir:PlantSeed ;
+    rdfs:label "Solanum lycopersicum" ;
+    onsir:hasTaxon onsir:taxon_Solanum_lycopersicum .
+
+onsir:seed_25 a onsir:PlantSeed ;
+    rdfs:label "Dianthus caryophyllus" ;
+    onsir:hasTaxon onsir:taxon_Dianthus_caryophyllus .
+
+onsir:seed_26 a onsir:PlantSeed ;
+    rdfs:label "Phaseolus vulgaris" ;
+    onsir:hasTaxon onsir:taxon_Phaseolus_vulgaris .
+
+onsir:seed_27 a onsir:PlantSeed ;
+    rdfs:label "Solanum tuberosum" ;
+    onsir:hasTaxon onsir:taxon_Solanum_tuberosum .
+
+onsir:taxon_Arabidopsis_thaliana a obo:NCBITaxon_3702 ;
+    rdfs:label "Arabidopsis thaliana" .
+
+onsir:taxon_Brassica_napus a obo:NCBITaxon_3708 ;
+    rdfs:label "Brassica napus" .
+
+onsir:taxon_Calotropis_gigantea a obo:NCBITaxon_4066 ;
+    rdfs:label "Calotropis gigantea" .
+
+<https://w3id.org/onsir/taxon_Capsicum_sp.> a obo:NCBITaxon_3413428 ;
+    rdfs:label "Capsicum sp." .
+
+onsir:taxon_Catharanthus_roseus a obo:NCBITaxon_4058 ;
     rdfs:label "Catharanthus roseus" .
 
-onsir:seed_23 a obo:NCBITaxon_49212,
-        onsir:PlantSeed ;
-    rdfs:label "Salvia hispanica" .
+onsir:taxon_Coriandrum_sativum a obo:NCBITaxon_4047 ;
+    rdfs:label "Coriandrum sativum" .
 
-onsir:seed_24 a obo:NCBITaxon_4081,
-        onsir:PlantSeed ;
-    rdfs:label "Solanum lycopersicum" .
+onsir:taxon_Datura_stramonium a obo:NCBITaxon_4076 ;
+    rdfs:label "Datura stramonium" .
 
-onsir:seed_25 a obo:NCBITaxon_3570,
-        onsir:PlantSeed ;
+onsir:taxon_Dianthus_caryophyllus a obo:NCBITaxon_3570 ;
     rdfs:label "Dianthus caryophyllus" .
 
-onsir:seed_26 a obo:NCBITaxon_3885,
-        onsir:PlantSeed ;
+onsir:taxon_Hordeum_vulgare a obo:NCBITaxon_4513 ;
+    rdfs:label "Hordeum vulgare" .
+
+onsir:taxon_Lablab_purpureus a obo:NCBITaxon_35936 ;
+    rdfs:label "Lablab purpureus" .
+
+onsir:taxon_Magnolia_champaca a obo:NCBITaxon_86757 ;
+    rdfs:label "Magnolia champaca" .
+
+onsir:taxon_Neolamarckia_cadamba a obo:NCBITaxon_153762 ;
+    rdfs:label "Neolamarckia cadamba" .
+
+onsir:taxon_Oryza_sativa a obo:NCBITaxon_4530 ;
+    rdfs:label "Oryza sativa" .
+
+onsir:taxon_Osmanthus_fragrans a obo:NCBITaxon_93977 ;
+    rdfs:label "Osmanthus fragrans" .
+
+onsir:taxon_Phaseolus_vulgaris a obo:NCBITaxon_3885 ;
     rdfs:label "Phaseolus vulgaris" .
 
-onsir:seed_27 a obo:NCBITaxon_4113,
-        onsir:PlantSeed ;
+onsir:taxon_Plukenetia_volubilis a obo:NCBITaxon_316893 ;
+    rdfs:label "Plukenetia volubilis" .
+
+onsir:taxon_Reutealis_trisperma a obo:NCBITaxon_1487825 ;
+    rdfs:label "Reutealis trisperma" .
+
+onsir:taxon_Salvia_hispanica a obo:NCBITaxon_49212 ;
+    rdfs:label "Salvia hispanica" .
+
+onsir:taxon_Solanum_melongena a obo:NCBITaxon_4111 ;
+    rdfs:label "Solanum melongena" .
+
+onsir:taxon_Solanum_tuberosum a obo:NCBITaxon_4113 ;
     rdfs:label "Solanum tuberosum" .
+
+onsir:taxon_Toona_sureni a obo:NCBITaxon_1258759 ;
+    rdfs:label "Toona sureni" .
+
+onsir:taxon_Vigna_mungo a obo:NCBITaxon_3915 ;
+    rdfs:label "Vigna mungo" .
+
+onsir:taxon_Vigna_radiata a obo:NCBITaxon_157791 ;
+    rdfs:label "Vigna radiata" .
 
 onsir:treat_00 a onsir:SeedIrradiationTreatment ;
     onsir:hasDose onsir:dose_00 ;
@@ -499,4 +568,7 @@ onsir:treat_26 a onsir:SeedIrradiationTreatment ;
 onsir:treat_27 a onsir:SeedIrradiationTreatment ;
     onsir:hasDose onsir:dose_27 ;
     onsir:hasSourceIsotope onsir:Co60 .
+
+onsir:taxon_Solanum_lycopersicum a obo:NCBITaxon_4081 ;
+    rdfs:label "Solanum lycopersicum" .
 
