@@ -18,6 +18,16 @@ def parse_dose(s):
     v = float(m.group(1)); u = m.group(2)
     return {"kGy": v*1000, "Gy": v, "kR": v*8.77, "R": v*0.00877}[u]   # kR->Gy air-kerma approx
 
+# The corpus codes endpoints on a six-value axis (EICCAM axis EP): EP1 emergence and early vigour,
+# EP2 biochemistry, EP3 genetics, EP4 morphology/anatomy, EP5 plant health, EP6 other physiological.
+# These are categories, not individual measurements, so they map to EndpointCategory classes.
+EP_MAP = {"EP1": "EmergenceAndEarlyVigor",
+          "EP2": "BiochemicalEndpointCategory",
+          "EP3": "GeneticEndpointCategory",
+          "EP4": "MorphologicalEndpointCategory",
+          "EP5": "PlantHealthEndpointCategory",
+          "EP6": "OtherPhysiologicalEndpointCategory"}
+
 def parse_rows():
     rows = []
     for line in open(TEX, encoding="utf-8"):
@@ -60,6 +70,8 @@ def build():
             g.add((t, NS.hasDose, qv))
         if DR_MAP.get(r["dr"]):
             g.add((o, NS.hasDoseRateCategory, NS[DR_MAP[r["dr"]]]))
+        if EP_MAP.get(r["ep"]):
+            g.add((o, NS.hasEndpointCategory, NS[EP_MAP[r["ep"]]]))
         g.add((seed, RDF.type, NS.PlantSeed))
         g.add((seed, RDFS.label, Literal(r["species"])))
         if taxon.get(r["species"]):
@@ -85,6 +97,9 @@ def run_cqs(g, rows, taxon):
     aligned = sum(1 for v in taxon.values() if v)
     print(f"  distinct species: {len(taxon)};  NCBITaxon-aligned (verified): {aligned}")
     print(f"  dose populated: {sum(1 for r in rows if r['dose'] is not None)}/{n}")
+    print(f"  endpoint category: {sum(1 for r in rows if EP_MAP.get(r['ep']))}/{n}")
+    print(f"  source isotope: {sum(1 for r in rows if r['source'] in ('Co-60','Cs-137'))}/{n}")
+    print(f"  dose-rate category: {sum(1 for r in rows if DR_MAP.get(r['dr']))}/{n}")
 
     print("\n=== competency questions (SPARQL) ===")
     print("CQ1 sources used:")

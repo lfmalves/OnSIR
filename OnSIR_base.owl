@@ -185,10 +185,12 @@
   </rdf:Description>
   <rdf:Description rdf:about="http://example.org/SeedIrradCore">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
-    <rdfs:label xml:lang="en">SeedIrradCore: Independent Ontology of Seed Irradiation (v1.0)</rdfs:label>
-    <dct:creator xml:lang="en">You + Assistant</dct:creator>
+    <rdfs:label xml:lang="en">OnSIR source skeleton</rdfs:label>
+    <dct:creator xml:lang="en">Luis Felipe Medeiro Alves</dct:creator>
+    <dct:creator xml:lang="en">Valter Arthur</dct:creator>
+    <dct:creator xml:lang="en">Ferrucio de Franco Rosa</dct:creator>
     <dct:license xml:lang="en">CC BY 4.0</dct:license>
-    <rdfs:comment xml:lang="en">A generic, independent ontology for seed irradiation across crops; designed for SPARQL and downstream integration with farm/crop ontologies like OnTop via lightweight mappings.</rdfs:comment>
+    <rdfs:comment xml:lang="en">Hand-authored term skeleton consumed by build_ontology.py, which rewrites every term into the https://w3id.org/onsir/ namespace and adds the axioms, datatype facets and external alignments. This file is a build input, not a release artifact: the staging namespace below is internal and does not appear in the published ontology. The release is OnSIR.ttl / OnSIR.owl.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="http://example.org/SeedIrradCore#HormeticDose">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>

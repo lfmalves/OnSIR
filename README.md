@@ -2,7 +2,7 @@
 
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 
-**Canonical IRI:** `https://w3id.org/onsir` · **Version:** 1.0.0 · **License:** CC BY 4.0
+**Canonical IRI:** `https://w3id.org/onsir` · **Version:** 1.1.0 · **License:** CC BY 4.0
 
 OnSIR is a FAIR OWL 2 DL ontology of **seed-irradiation treatments** and their dose-dependent
 biological effects — **hormetic**, **mutagenic**, and **sterilizing** — across crop and model
@@ -10,7 +10,7 @@ plants. It models radiation types and isotopic sources, dose and dose-rate categ
 dose–response models, lifecycle stages, endpoints, and the `TreatmentOutcome` that links a
 treatment to its subject, context, dose category, and response.
 
-## What is in this release (v1.0.0)
+## What is in this release (v1.1.0)
 
 - **88 named classes, 26 object properties, 12 datatype properties**, 4 named individuals
   (functional and inverse characteristics; anonymous class expressions are not counted as terms).
@@ -67,7 +67,7 @@ permanent independently of any hosting provider.
 resolve.** Registration requires a pull request to
 [perma-id/w3id.org](https://github.com/perma-id/w3id.org); until it is merged, the authoritative
 location of the files is this repository. An archival release with a DOI (e.g. Zenodo) is likewise
-still to be minted. Both steps are planned for the first tagged release.
+still to be minted. Both steps are planned before publication; v1.1.0 does not yet have them.
 
 ## How to cite
 

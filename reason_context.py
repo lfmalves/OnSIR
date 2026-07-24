@@ -66,7 +66,7 @@ if __name__ == "__main__":
 
     print("\n=== (C) contradiction detection: a reported optimum ABOVE the reported LD50 ===")
     print("  Triticum aestivum is reported with optimum 250-300 Gy but LD50 273-279 Gy")
-    print("  (Chauhan et al. 2023), so its stimulatory and sterilizing windows would overlap.")
+    print("  (Chauhan et al. 2023), so the at-or-below-optimum and at-or-above-LD50 windows would overlap.")
     onto = o2.get_ontology(ONT).load()
     NS = onto.get_namespace(NSU)
     import rdflib

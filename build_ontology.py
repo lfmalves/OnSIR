@@ -40,17 +40,24 @@ for pfx, n in [("", NS), ("onsir", NS), ("dct", DCT), ("skos", SKOS), ("obo", OB
 
 # ---- ontology header + real metadata ----
 g.add((ONT, RDF.type, OWL.Ontology))
-g.add((ONT, URIRef(str(OWL) + "versionIRI"), URIRef("https://w3id.org/onsir/1.0.0")))
-g.add((ONT, OWL.versionInfo, Literal("1.0.0")))
+g.add((ONT, URIRef(str(OWL) + "versionIRI"), URIRef("https://w3id.org/onsir/1.1.0")))
+g.add((ONT, OWL.versionInfo, Literal("1.1.0")))
 g.add((ONT, DCT.title, Literal("OnSIR: Ontology for Seed Irradiation and Plant Radiobiology")))
 g.add((ONT, DCT.description, Literal(
     "A FAIR OWL 2 DL ontology of seed-irradiation treatments and their dose-dependent "
-    "biological effects (hormetic, mutagenic, sterilizing), aligned to BFO, PO, NCBITaxon, "
-    "ChEBI, UO and PATO, with dose-to-effect axioms supporting DL reasoning.")))
+    "biological effects, aligned to BFO, PO, NCBITaxon, ChEBI, PATO and ENVO with verified IRIs "
+    "and to QUDT for units, with dose-to-effect axioms supporting DL reasoning.")))
 for name, orcid in [("Luis Felipe Medeiro Alves", "0009-0005-4227-5568"),
                     ("Ferrucio de Franco Rosa", None),
                     ("Valter Arthur", "0000-0003-3521-9136")]:
-    g.add((ONT, DCT.creator, Literal(name)))
+    if orcid:
+        # emit the ORCID as a resolvable agent IRI, not only as a name string
+        who = URIRef("https://orcid.org/" + orcid)
+        g.add((ONT, DCT.creator, who))
+        g.add((who, RDF.type, URIRef("http://xmlns.com/foaf/0.1/Person")))
+        g.add((who, RDFS.label, Literal(name)))
+    else:
+        g.add((ONT, DCT.creator, Literal(name)))
 g.add((ONT, DCT.license, URIRef("https://creativecommons.org/licenses/by/4.0/")))
 g.add((ONT, DCT.created, Literal("2025-09-21", datatype=XSD.date)))
 g.add((ONT, DCT.modified, Literal("2026-07-24", datatype=XSD.date)))
@@ -302,6 +309,34 @@ g.add((C("forTaxon"), RDFS.comment, Literal("the taxon the assessment is relativ
 g.add((C("forEndpoint"), RDF.type, OWL.ObjectProperty))
 g.add((C("forEndpoint"), RDFS.domain, C("DoseAssessment")))
 g.add((C("forEndpoint"), RDFS.range, C("Endpoint")))
+# ---- endpoint categories (the review corpus's EP axis) ----
+# The coded corpus records endpoints at a coarser granularity than OnSIR's Endpoint classes: six
+# categories, not thirteen measurements. Asserting e.g. SeedlingVigorIndex from the code "EP1"
+# would invent a measurement that the source does not report, so the axis is represented
+# separately and left unrelated to the fine-grained Endpoint tree.
+g.add((C("EndpointCategory"), RDF.type, OWL.Class))
+g.add((C("EndpointCategory"), SKOS.definition, Literal(
+    "A coarse grouping of measured endpoints, as recorded by a systematic review's coding scheme. "
+    "Distinct from Endpoint, which names an individual measurable characteristic.")))
+EP_CATS = [
+    ("EmergenceAndEarlyVigor", "Emergence and early vigour."),
+    ("BiochemicalEndpointCategory", "Biochemical endpoints."),
+    ("GeneticEndpointCategory", "Genetic endpoints."),
+    ("MorphologicalEndpointCategory", "Morphological and anatomical endpoints."),
+    ("PlantHealthEndpointCategory", "Plant-health (phytosanitary) endpoints."),
+    ("OtherPhysiologicalEndpointCategory", "Other physiological endpoints."),
+]
+for nm, dfn in EP_CATS:
+    g.add((C(nm), RDF.type, OWL.Class))
+    g.add((C(nm), RDFS.subClassOf, C("EndpointCategory")))
+    g.add((C(nm), SKOS.definition, Literal(dfn)))
+all_disjoint([nm for nm, _ in EP_CATS])
+g.add((C("hasEndpointCategory"), RDF.type, OWL.ObjectProperty))
+g.add((C("hasEndpointCategory"), RDFS.domain, C("TreatmentOutcome")))
+g.add((C("hasEndpointCategory"), RDFS.range, C("EndpointCategory")))
+g.add((C("hasEndpointCategory"), RDFS.comment, Literal(
+    "relates an outcome to the coarse endpoint category recorded for it in the source corpus")))
+
 g.add((C("atStage"), RDF.type, OWL.ObjectProperty))
 g.add((C("atStage"), RDFS.domain, C("DoseAssessment")))
 g.add((C("atStage"), RDFS.range, C("LifecycleStage")))
@@ -432,7 +467,11 @@ g.serialize("OnSIR.owl", format="xml")
 from rdflib import RDF as R
 print("OnSIR ontology built.")
 print("  triples:", len(g))
-print("  classes:", len(set(g.subjects(R.type, OWL.Class))))
+# count NAMED classes in the OnSIR namespace only: counting all owl:Class subjects also counts
+# anonymous class expressions, which is how an inflated class count got into an earlier draft.
+print("  classes (named, onsir namespace):",
+      len([c for c in set(g.subjects(R.type, OWL.Class))
+           if isinstance(c, URIRef) and str(c).startswith(str(NS))]))
 print("  object properties:", len(set(g.subjects(R.type, OWL.ObjectProperty))))
 print("  restrictions:", len(set(g.subjects(R.type, OWL.Restriction))))
 print("  AllDisjointClasses:", len(set(g.subjects(R.type, OWL.AllDisjointClasses))))
