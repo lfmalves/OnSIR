@@ -21,10 +21,13 @@ treatment to its subject, context, dose category, and response.
 - **External alignment** (verified IRIs): BFO (upper level), PO (`seed`, `seedling`),
   NCBITaxon (species), ChEBI (isotopes), UO (`gray`), PATO (qualities). A gap analysis versus
   the OBO Radiobiology Ontology (RBO) motivates OnSIR's seed-irradiation dose–effect classes.
-- **Context-dependent dose classification:** a dose is not hormetic in itself, so taxon-specific
-  numeric dose windows are encoded with OWL 2 datatype facets. The reasoner *derives* the category
-  from the dose value plus the taxon — the same 100 Gy is inferred **sterilizing** for tobacco,
-  **mutagenic** for cowpea and **stimulatory** for fenugreek (`reason_context.py`).
+- **Context-dependent dose positioning:** a dose is not hormetic in itself, so taxon-specific
+  numeric windows are encoded with OWL 2 datatype facets and the reasoner *derives* where a dose sits
+  relative to the statistics reported for its taxon. The same 100 Gy is placed **at/above the
+  reported LD50** for tobacco, **above the reported optimum** for cowpea, and **at/below it** for
+  fenugreek (`reason_context.py`). The classes are named for dose position, not biology: a reported
+  optimum is not the upper bound of stimulation, and an LD50 is a lethality statistic — *not* a
+  sterilization threshold. The link to a response type is a non-entailing annotation.
 - **Reasoning:** the ontology is **consistent** under HermiT; dose→effect classification,
   context-dependent classification and disjointness are all verified (`reason.py`,
   `reason_context.py`). Disjointness also makes contradictory literature encodings detectable.

@@ -264,20 +264,37 @@ TAXON_WINDOWS = [
 ]
 
 # --- classes and properties for the assessment context ---
+# NOTE ON NAMING. The reported statistics are a stimulation OPTIMUM and an early-viability LD50.
+# Neither licenses a biological category name: the optimum is where stimulation is maximal, not
+# where it ends, so doses just above it may still be stimulatory; and an LD50 is 50% lethality
+# under some endpoint and time definition, which is NOT sterility -- a population at its LD50 may
+# retain substantial reproductive capacity. We therefore name these classes by the dose's POSITION
+# RELATIVE TO THE REPORTED STATISTICS, which is exactly what the evidence supports, and keep the
+# biological response classes separate.
 for cls, com in [("DoseAssessment",
                   "A numeric absorbed dose considered for a given taxon, endpoint and stage; the "
-                  "unit of context-dependent dose classification."),
-                 ("StimulatoryDoseAssessment",
-                  "A DoseAssessment whose dose lies in the stimulatory window of its taxon."),
-                 ("MutagenicDoseAssessment",
-                  "A DoseAssessment whose dose lies between the stimulatory optimum and the "
-                  "early-viability LD50 of its taxon."),
-                 ("SterilizingDoseAssessment",
-                  "A DoseAssessment whose dose reaches or exceeds the early-viability LD50 of its taxon.")]:
+                  "unit of context-dependent dose positioning."),
+                 ("AtOrBelowReportedOptimum",
+                  "A DoseAssessment whose dose is at or below the stimulation optimum reported for "
+                  "its taxon. Being at or below the reported optimum is evidence consistent with a "
+                  "stimulatory response; it does not entail one, and stimulation may also occur "
+                  "above the optimum."),
+                 ("AboveReportedOptimum",
+                  "A DoseAssessment whose dose exceeds the reported stimulation optimum but is "
+                  "below the reported early-viability LD50. This is not by itself evidence of "
+                  "mutagenesis: mutation induction may begin below the optimum and continue above "
+                  "the LD50, and depends on the endpoint."),
+                 ("AtOrAboveReportedLD50",
+                  "A DoseAssessment whose dose reaches or exceeds the early-viability LD50 reported "
+                  "for its taxon. LD50 is a 50% lethality statistic, NOT a sterilization threshold; "
+                  "inferring sterility requires reproductive evidence, which this class does not "
+                  "assert.")]:
     g.add((C(cls), RDF.type, OWL.Class)); g.add((C(cls), SKOS.definition, Literal(com)))
-for sub in ["StimulatoryDoseAssessment", "MutagenicDoseAssessment", "SterilizingDoseAssessment"]:
+for sub in ["AtOrBelowReportedOptimum", "AboveReportedOptimum", "AtOrAboveReportedLD50"]:
     g.add((C(sub), RDFS.subClassOf, C("DoseAssessment")))
-all_disjoint(["StimulatoryDoseAssessment", "MutagenicDoseAssessment", "SterilizingDoseAssessment"])
+# These three are disjoint as ARITHMETIC intervals of the dose axis -- a fact about the numbers,
+# not a biological claim about incompatible responses.
+all_disjoint(["AtOrBelowReportedOptimum", "AboveReportedOptimum", "AtOrAboveReportedLD50"])
 
 g.add((C("forTaxon"), RDF.type, OWL.ObjectProperty))
 g.add((C("forTaxon"), RDFS.domain, C("DoseAssessment")))
@@ -379,26 +396,34 @@ for label, tid, dstar_hi, ld50, prov in TAXON_WINDOWS:
     g.add((ind, RDF.type, URIRef(NCBI + tid)))        # typed with the NCBITaxon class
     g.add((ind, RDFS.label, Literal(label)))
     for cat, rng, parent in [
-        ("Stimulatory", dose_range(0.0, dstar_hi), "StimulatoryDoseAssessment"),
-        ("Mutagenic",   dose_range(dstar_hi, ld50, lo_exclusive=True, hi_exclusive=True),
-         "MutagenicDoseAssessment"),
-        ("Sterilizing", dose_range(ld50, None, lo_exclusive=False), "SterilizingDoseAssessment"),
+        ("AtOrBelowOptimum", dose_range(0.0, dstar_hi), "AtOrBelowReportedOptimum"),
+        ("AboveOptimum",     dose_range(dstar_hi, ld50, lo_exclusive=True, hi_exclusive=True),
+         "AboveReportedOptimum"),
+        ("AtOrAboveLD50",    dose_range(ld50, None, lo_exclusive=False), "AtOrAboveReportedLD50"),
     ]:
         cname = f"{slug}_{cat}Dose"
         defined_intersection(cname, [C("DoseAssessment"), has_value("forTaxon", ind),
                                      some_data("doseGy", rng)])
         g.add((C(cname), RDFS.subClassOf, C(parent)))
         g.add((C(cname), RDFS.comment, Literal(
-            f"{cat.lower()} dose window for {label}: bounds from {prov}")))
+            f"dose interval '{cat}' for {label}, relative to the reported statistics; "
+            f"bounds from {prov}")))
         g.add((C(cname), DCT.source, Literal(prov)))
 
-# --- dose category entails the expected response (now with a numeric, contextual antecedent) ---
-for acls, resp in [("StimulatoryDoseAssessment", "HormeticResponse"),
-                   ("MutagenicDoseAssessment", "MutagenicResponse"),
-                   ("SterilizingDoseAssessment", "SterilizationResponse")]:
-    r = BNode(); g.add((r, RDF.type, OWL.Restriction))
-    g.add((r, OWL.onProperty, C("expectedResponse"))); g.add((r, OWL.someValuesFrom, C(resp)))
-    g.add((C(acls), RDFS.subClassOf, r))
+# --- dose position is CONSISTENT WITH a response; it does not entail one ---
+# An earlier version made the dose interval a subclass of "has expected response R", i.e. it
+# ENTAILED the biology from the arithmetic. That is stronger than the evidence: the reported
+# statistics bound a dose axis, they do not determine the response for an arbitrary endpoint and
+# stage. We therefore record the relation as a non-entailing annotation.
+g.add((C("consistentWithResponse"), RDF.type, OWL.AnnotationProperty))
+g.add((C("consistentWithResponse"), RDFS.comment, Literal(
+    "Relates a dose-position class to the response type it is evidentially compatible with. This is "
+    "an annotation, deliberately NOT a subclass axiom: no biological response is entailed by the "
+    "position of a dose relative to a reported statistic.")))
+for acls, resp in [("AtOrBelowReportedOptimum", "HormeticResponse"),
+                   ("AboveReportedOptimum", "MutagenicResponse"),
+                   ("AtOrAboveReportedLD50", "SterilizationResponse")]:
+    g.add((C(acls), C("consistentWithResponse"), C(resp)))
 
 g.serialize("OnSIR.ttl", format="turtle")
 g.serialize("OnSIR.owl", format="xml")

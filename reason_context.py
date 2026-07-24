@@ -6,8 +6,10 @@ Three demonstrations:
   (A) the SAME dose (100 Gy) classifies differently for three taxa, because each taxon carries
       its own literature-derived dose windows;
   (B) the same taxon classifies differently across doses, and the expected response follows;
-  (C) an inconsistent literature encoding (a reported optimum ABOVE the reported LD50, as for
-      Triticum aestivum) is DETECTED as a logical contradiction rather than silently stored.
+  (C) an ENCODING conflict is detected: when a taxon's reported optimum exceeds its reported LD50
+      (Triticum aestivum), the two statistics cannot both bound one dose ordering, and the record is
+      flagged. This is a data-quality check on the encoding, not a claim that the observations are
+      biologically contradictory.
 """
 import owlready2 as o2
 
@@ -17,7 +19,7 @@ NSU = "https://w3id.org/onsir/"
 TAXA = {"Nicotiana tabacum": "taxon_Nicotiana_tabacum",
         "Vigna unguiculata": "taxon_Vigna_unguiculata",
         "Trigonella foenum-graecum": "taxon_Trigonella_foenum_graecum"}
-CATS = ["StimulatoryDoseAssessment", "MutagenicDoseAssessment", "SterilizingDoseAssessment"]
+CATS = ["AtOrBelowReportedOptimum", "AboveReportedOptimum", "AtOrAboveReportedLD50"]
 
 
 def classify(cases):
@@ -105,8 +107,8 @@ if __name__ == "__main__":
         eq = BNode(); g.add((c, OWL.equivalentClass, eq)); g.add((eq, RDF.type, OWL.Class))
         g.add((eq, OWL.intersectionOf, rlist([N["DoseAssessment"], hv, sv])))
         g.add((c, RDFS.subClassOf, N[parent]))
-    defc("Triticum_aestivum_StimulatoryDose", 0.0, 300.0, "StimulatoryDoseAssessment")
-    defc("Triticum_aestivum_SterilizingDose", 273.0, None, "SterilizingDoseAssessment", lo_ex=False)
+    defc("Triticum_aestivum_AtOrBelowOptimumDose", 0.0, 300.0, "AtOrBelowReportedOptimum")
+    defc("Triticum_aestivum_AtOrAboveLD50Dose", 273.0, None, "AtOrAboveReportedLD50", lo_ex=False)
     bad = N["tritium_overlap_case"]
     g.add((bad, RDF.type, OWL.NamedIndividual)); g.add((bad, RDF.type, N["DoseAssessment"]))
     g.add((bad, N["forTaxon"], tri))
@@ -119,6 +121,11 @@ if __name__ == "__main__":
             o2.sync_reasoner_hermit()
         print("  result: CONSISTENT  (unexpected -- the overlap was not detected)")
     except o2.OwlReadyInconsistentOntologyError:
-        print("  result: INCONSISTENT as expected -> 280 Gy would be BOTH stimulatory and")
-        print("          sterilizing for this taxon; the disjointness axiom catches the")
-        print("          contradictory encoding instead of storing it silently.")
+        print("  result: INCONSISTENT as expected -> 280 Gy would fall BOTH at-or-below the")
+        print("          reported optimum AND at-or-above the reported LD50 for this taxon.")
+        print("          The two reported statistics therefore cannot both bound a single")
+        print("          dose ordering as encoded, so the RECORD is flagged for review.")
+        print("          NOTE: this is a data-quality signal about the encoding, NOT a proof")
+        print("          that the underlying observations are biologically contradictory --")
+        print("          they may concern different endpoints, stages, or the surviving")
+        print("          subpopulation, in which case both can be simultaneously true.")
