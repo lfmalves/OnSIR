@@ -1,0 +1,675 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix onsir: <https://w3id.org/onsir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+qudt:numericValue a owl:DatatypeProperty ;
+    rdfs:label "numeric value"@en ;
+    rdfs:range xsd:double .
+
+qudt:unit a owl:ObjectProperty ;
+    rdfs:label "unit"@en .
+
+<https://w3id.org/onsir> a owl:Ontology ;
+    dct:created "2025-09-21"^^xsd:date ;
+    dct:creator "Ferrucio de Franco Rosa",
+        "Luis Felipe Medeiro Alves",
+        "Valter Arthur" ;
+    dct:description "A FAIR OWL 2 DL ontology of seed-irradiation treatments and their dose-dependent biological effects (hormetic, mutagenic, sterilizing), aligned to BFO, PO, NCBITaxon, ChEBI, UO and PATO, with dose-to-effect axioms supporting DL reasoning." ;
+    dct:license <https://creativecommons.org/licenses/by/4.0/> ;
+    dct:modified "2026-07-24"^^xsd:date ;
+    dct:source <https://doi.org/10.22456/2175-2745.146658>,
+        <https://doi.org/10.56238/sevened2025.039-003>,
+        <https://doi.org/10.69547/TSFJB.030203> ;
+    dct:title "OnSIR: Ontology for Seed Irradiation and Plant Radiobiology" ;
+    rdfs:comment "Canonical IRI https://w3id.org/onsir; source at https://github.com/lfmalves/OnSIR" ;
+    rdfs:seeAlso obo:rbo.owl ;
+    owl:versionIRI onsir:1.0.0 ;
+    owl:versionInfo "1.0.0" .
+
+onsir:AbioticStressResistance a owl:Class ;
+    rdfs:label "Abiotic Stress Resistance"@en ;
+    rdfs:subClassOf onsir:StressResistance .
+
+onsir:AntioxidantActivity a owl:Class ;
+    rdfs:label "AntioxidantActivity"@en ;
+    rdfs:subClassOf onsir:Endpoint ;
+    skos:closeMatch obo:CHEBI_22586 .
+
+onsir:AntioxidantIncrease a owl:Class ;
+    rdfs:label "Antioxidant Increase"@en ;
+    rdfs:subClassOf onsir:BiochemicalChange ;
+    skos:closeMatch obo:CHEBI_22586 .
+
+onsir:BioticStressResistance a owl:Class ;
+    rdfs:label "Biotic Stress Resistance"@en ;
+    rdfs:subClassOf onsir:StressResistance .
+
+onsir:ChlorophyllContent a owl:Class ;
+    rdfs:label "ChlorophyllContent"@en ;
+    rdfs:subClassOf onsir:Endpoint ;
+    skos:closeMatch obo:CHEBI_28966 .
+
+onsir:CotyledonFreeing a owl:Class ;
+    rdfs:label "CotyledonFreeing"@en ;
+    rdfs:subClassOf onsir:Endpoint ;
+    skos:closeMatch obo:PO_0020030 .
+
+onsir:DryMass a owl:Class ;
+    rdfs:label "DryMass"@en ;
+    rdfs:subClassOf onsir:Endpoint ;
+    skos:closeMatch obo:PATO_0000125 .
+
+onsir:EarlySeedlingStage a owl:Class ;
+    rdfs:label "Early Seedling Stage"@en ;
+    rdfs:subClassOf onsir:LifecycleStage .
+
+onsir:EnzymeActivityChange a owl:Class ;
+    rdfs:label "Enzyme Activity Change"@en ;
+    rdfs:subClassOf onsir:BiochemicalChange .
+
+onsir:FreshMass a owl:Class ;
+    rdfs:label "FreshMass"@en ;
+    rdfs:subClassOf onsir:Endpoint ;
+    skos:closeMatch obo:PATO_0000125 .
+
+onsir:GerminationStage a owl:Class ;
+    rdfs:label "Germination Stage"@en ;
+    rdfs:subClassOf onsir:LifecycleStage ;
+    skos:closeMatch obo:PO_0007057 .
+
+onsir:LightCondition a owl:Class ;
+    rdfs:label "Light Condition"@en ;
+    rdfs:subClassOf onsir:Context .
+
+onsir:LipidPeroxidation a owl:Class ;
+    rdfs:label "LipidPeroxidation"@en ;
+    rdfs:subClassOf onsir:Endpoint .
+
+onsir:MutagenicOutcome a owl:Class ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( onsir:TreatmentOutcome [ a owl:Restriction ;
+                        owl:onProperty onsir:hasResponse ;
+                        owl:someValuesFrom onsir:MutagenicResponse ] ) ] .
+
+onsir:Outcome_Co60_GerminationHormesis a onsir:TreatmentOutcome ;
+    onsir:forEndpoint onsir:GerminationRate ;
+    onsir:hasDoseCategory onsir:HormeticDose ;
+    onsir:hasModel onsir:Model_BC_Germination ;
+    onsir:hasResponse onsir:Resp_GerminationHormesis ;
+    onsir:hasSubject onsir:PlantSeed ;
+    onsir:hasTreatment onsir:Treat_Co60_Gamma_50Gy .
+
+onsir:Outcome_UVC_Sterilization a onsir:TreatmentOutcome ;
+    onsir:forEndpoint onsir:SeedSterility ;
+    onsir:hasDoseCategory onsir:SterilizationDose ;
+    onsir:hasResponse onsir:Resp_Sterility ;
+    onsir:hasSubject onsir:PlantSeed ;
+    onsir:hasTreatment onsir:Treat_UVC_254nm_1200Jm2 .
+
+onsir:Outcome_XRay_Mutagenesis a onsir:TreatmentOutcome ;
+    onsir:forEndpoint onsir:MutationFrequency ;
+    onsir:hasDoseCategory onsir:MutagenicDose ;
+    onsir:hasResponse onsir:Resp_Mutagenesis ;
+    onsir:hasSubject onsir:PlantSeed ;
+    onsir:hasTreatment onsir:Treat_XRay_150Gy .
+
+onsir:Plant a owl:Class ;
+    rdfs:label "Plant"@en ;
+    rdfs:subClassOf obo:BFO_0000040 .
+
+onsir:PlantPart a owl:Class ;
+    rdfs:label "Plant Part"@en ;
+    rdfs:subClassOf obo:BFO_0000040,
+        obo:PO_0025131 .
+
+onsir:PollenSterility a owl:Class ;
+    rdfs:label "PollenSterility"@en ;
+    rdfs:subClassOf onsir:Endpoint .
+
+onsir:ROSBalanceShift a owl:Class ;
+    rdfs:label "ROS Balance Shift"@en ;
+    rdfs:subClassOf onsir:BiochemicalChange ;
+    skos:closeMatch obo:CHEBI_26523 .
+
+onsir:RootLength a owl:Class ;
+    rdfs:label "RootLength"@en ;
+    rdfs:subClassOf onsir:Endpoint .
+
+onsir:SeedStage a owl:Class ;
+    rdfs:label "Seed Stage"@en ;
+    rdfs:subClassOf onsir:LifecycleStage .
+
+onsir:Seedling a owl:Class ;
+    rdfs:label "Seedling"@en ;
+    rdfs:subClassOf obo:BFO_0000040 ;
+    owl:equivalentClass obo:PO_0008037 .
+
+onsir:SeedlingVigorIndex a owl:Class ;
+    rdfs:label "SeedlingVigorIndex"@en ;
+    rdfs:subClassOf onsir:Endpoint .
+
+onsir:ShootLength a owl:Class ;
+    rdfs:label "ShootLength"@en ;
+    rdfs:subClassOf onsir:Endpoint .
+
+onsir:SoilCondition a owl:Class ;
+    rdfs:label "Soil Condition"@en ;
+    rdfs:comment "Integration touchpoint: map to external 'SoilCondition' in farm ontologies."@en ;
+    rdfs:subClassOf onsir:Context ;
+    skos:closeMatch obo:ENVO_00001998 .
+
+onsir:StimulatoryOutcome a owl:Class ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( onsir:TreatmentOutcome [ a owl:Restriction ;
+                        owl:onProperty onsir:hasResponse ;
+                        owl:someValuesFrom onsir:HormeticResponse ] ) ] .
+
+onsir:Substrate a owl:Class ;
+    rdfs:label "Substrate"@en ;
+    rdfs:subClassOf onsir:Context .
+
+onsir:TemperatureCondition a owl:Class ;
+    rdfs:label "Temperature Condition"@en ;
+    rdfs:subClassOf onsir:Context ;
+    skos:closeMatch obo:PATO_0000146 .
+
+onsir:WaterQuality a owl:Class ;
+    rdfs:label "Water Quality"@en ;
+    rdfs:subClassOf onsir:Context ;
+    skos:closeMatch obo:CHEBI_15377 .
+
+onsir:bc_b a owl:DatatypeProperty ;
+    rdfs:label "BC parameter b"@en ;
+    rdfs:domain onsir:DoseResponseModel ;
+    rdfs:range xsd:double .
+
+onsir:bc_c a owl:DatatypeProperty ;
+    rdfs:label "BC parameter c"@en ;
+    rdfs:domain onsir:DoseResponseModel ;
+    rdfs:range xsd:double .
+
+onsir:bc_d a owl:DatatypeProperty ;
+    rdfs:label "BC parameter d"@en ;
+    rdfs:domain onsir:DoseResponseModel ;
+    rdfs:range xsd:double .
+
+onsir:bc_e a owl:DatatypeProperty ;
+    rdfs:label "BC parameter e"@en ;
+    rdfs:domain onsir:DoseResponseModel ;
+    rdfs:range xsd:double .
+
+onsir:bc_f a owl:DatatypeProperty ;
+    rdfs:label "BC parameter f"@en ;
+    rdfs:domain onsir:DoseResponseModel ;
+    rdfs:range xsd:double .
+
+onsir:doseLowerGy a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:comment "lower dose bound in gray" ;
+    rdfs:domain onsir:DoseRange ;
+    rdfs:range xsd:double .
+
+onsir:doseUpperGy a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:comment "upper dose bound in gray" ;
+    rdfs:domain onsir:DoseRange ;
+    rdfs:range xsd:double .
+
+onsir:forEndpoint a owl:ObjectProperty ;
+    rdfs:label "for endpoint"@en ;
+    rdfs:domain onsir:TreatmentOutcome ;
+    rdfs:range onsir:Endpoint .
+
+onsir:germinationRateIncrease a owl:DatatypeProperty ;
+    rdfs:label "germination rate increase"@en ;
+    rdfs:domain onsir:HormeticResponse ;
+    rdfs:range xsd:double .
+
+onsir:hasBiochemicalChange a owl:ObjectProperty ;
+    rdfs:label "has biochemical change"@en ;
+    rdfs:domain onsir:SeedIrradiationTreatment ;
+    rdfs:range onsir:BiochemicalChange ;
+    rdfs:subPropertyOf onsir:induces .
+
+onsir:hasContext a owl:ObjectProperty ;
+    rdfs:label "has context"@en ;
+    rdfs:domain onsir:TreatmentOutcome ;
+    rdfs:range onsir:Context .
+
+onsir:hasDoseRange a owl:ObjectProperty ;
+    rdfs:label "has dose range"@en ;
+    rdfs:domain onsir:SeedIrradiationTreatment ;
+    rdfs:range onsir:DoseRange .
+
+onsir:hasDoseRate a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "has dose rate"@en ;
+    rdfs:domain onsir:SeedIrradiationTreatment ;
+    rdfs:range qudt:QuantityValue .
+
+onsir:hasDoseRateCategory a owl:ObjectProperty ;
+    rdfs:label "has dose-rate category"@en ;
+    rdfs:domain onsir:TreatmentOutcome ;
+    rdfs:range onsir:DoseRateCategory .
+
+onsir:hasExposureTime a owl:ObjectProperty ;
+    rdfs:label "has exposure time"@en ;
+    rdfs:domain onsir:SeedIrradiationTreatment ;
+    rdfs:range qudt:QuantityValue .
+
+onsir:hasFluence a owl:ObjectProperty ;
+    rdfs:label "has fluence"@en ;
+    rdfs:domain onsir:SeedIrradiationTreatment ;
+    rdfs:range qudt:QuantityValue .
+
+onsir:hasModel a owl:ObjectProperty ;
+    rdfs:label "has model"@en ;
+    rdfs:domain onsir:TreatmentOutcome ;
+    rdfs:range onsir:DoseResponseModel .
+
+onsir:hasSourceIsotope a owl:ObjectProperty ;
+    rdfs:domain onsir:SeedIrradiationTreatment ;
+    rdfs:range onsir:Isotope .
+
+onsir:hasSubject a owl:ObjectProperty ;
+    rdfs:label "has subject"@en ;
+    rdfs:domain onsir:TreatmentOutcome ;
+    rdfs:range onsir:PlantSeed .
+
+onsir:hasWavelength a owl:ObjectProperty ;
+    rdfs:label "has wavelength"@en ;
+    rdfs:domain onsir:SeedIrradiationTreatment ;
+    rdfs:range qudt:QuantityValue .
+
+onsir:inducedBy a owl:ObjectProperty ;
+    owl:inverseOf onsir:induces .
+
+onsir:isTreatmentOf a owl:ObjectProperty ;
+    owl:inverseOf onsir:hasTreatment .
+
+onsir:mutationFrequency a owl:DatatypeProperty ;
+    rdfs:label "mutation frequency"@en ;
+    rdfs:domain onsir:MutagenicResponse ;
+    rdfs:range xsd:double .
+
+onsir:numericValue a owl:FunctionalProperty .
+
+onsir:rootGrowthStimulus a owl:DatatypeProperty ;
+    rdfs:label "root growth stimulus"@en ;
+    rdfs:domain onsir:HormeticResponse ;
+    rdfs:range xsd:double .
+
+onsir:sterilityRate a owl:DatatypeProperty ;
+    rdfs:label "sterility rate"@en ;
+    rdfs:domain onsir:SterilizationResponse ;
+    rdfs:range xsd:double .
+
+onsir:Am241 a owl:Class ;
+    rdfs:label "Am241"@en ;
+    rdfs:subClassOf onsir:Isotope .
+
+onsir:BrainCousensModel a owl:Class ;
+    rdfs:label "Brain–Cousens Model"@en ;
+    rdfs:subClassOf onsir:DoseResponseModel .
+
+onsir:Co60 a owl:Class ;
+    rdfs:label "Co60"@en ;
+    rdfs:subClassOf onsir:Isotope ;
+    skos:closeMatch obo:CHEBI_749374 .
+
+onsir:Cs137 a owl:Class ;
+    rdfs:label "Cs137"@en ;
+    rdfs:subClassOf onsir:Isotope ;
+    owl:equivalentClass obo:CHEBI_196959 .
+
+onsir:ElectronBeam a owl:Class ;
+    rdfs:label "ElectronBeam"@en ;
+    rdfs:subClassOf onsir:RadiationType .
+
+onsir:Gamma a owl:Class ;
+    rdfs:label "Gamma"@en ;
+    rdfs:subClassOf onsir:RadiationType .
+
+onsir:GerminationRate a owl:Class ;
+    rdfs:label "GerminationRate"@en ;
+    rdfs:subClassOf onsir:Endpoint .
+
+onsir:HighDoseRate a owl:Class ;
+    rdfs:label "High Dose-rate"@en ;
+    rdfs:subClassOf onsir:DoseRateCategory .
+
+onsir:Ir192 a owl:Class ;
+    rdfs:label "Ir192"@en ;
+    rdfs:subClassOf onsir:Isotope .
+
+onsir:LowDoseRate a owl:Class ;
+    rdfs:label "Low Dose-rate"@en ;
+    rdfs:subClassOf onsir:DoseRateCategory .
+
+onsir:Model_BC_Germination a onsir:BrainCousensModel ;
+    onsir:bc_b -2.148e+00 ;
+    onsir:bc_c 1.017e-03 ;
+    onsir:bc_d 2.433e-03 ;
+    onsir:bc_e 5.3e+01 ;
+    onsir:bc_f -3.747e-06 .
+
+onsir:MutagenicDoseRange a owl:Class ;
+    rdfs:label "Mutagenic Dose Range"@en ;
+    rdfs:subClassOf onsir:DoseRange .
+
+onsir:MutationFrequency a owl:Class ;
+    rdfs:label "MutationFrequency"@en ;
+    rdfs:subClassOf onsir:Endpoint .
+
+onsir:Neutron a owl:Class ;
+    rdfs:label "Neutron"@en ;
+    rdfs:subClassOf onsir:RadiationType .
+
+onsir:Proton a owl:Class ;
+    rdfs:label "Proton"@en ;
+    rdfs:subClassOf onsir:RadiationType .
+
+onsir:Resp_GerminationHormesis a onsir:HormeticResponse ;
+    onsir:germinationRateIncrease 2.2e-01 ;
+    onsir:rootGrowthStimulus 3e-01 .
+
+onsir:Resp_Mutagenesis a onsir:MutagenicResponse ;
+    onsir:mutationFrequency 1.2e-02 .
+
+onsir:Resp_Sterility a onsir:SterilizationResponse ;
+    onsir:sterilityRate 9.8e-01 .
+
+onsir:SeedSterility a owl:Class ;
+    rdfs:label "SeedSterility"@en ;
+    rdfs:subClassOf onsir:Endpoint .
+
+onsir:SeedTreatment a owl:Class ;
+    rdfs:label "Seed Treatment"@en ;
+    rdfs:comment "Any pre-sowing treatment applied to seeds."@en ;
+    rdfs:subClassOf obo:BFO_0000015 .
+
+onsir:SterilizationDoseRange a owl:Class ;
+    rdfs:label "Sterilization Dose Range"@en ;
+    rdfs:subClassOf onsir:DoseRange .
+
+onsir:Treat_Co60_Gamma_50Gy a onsir:SeedIrradiationTreatment ;
+    onsir:hasDose [ a qudt:QuantityValue ;
+            qudt:numericValue 5e+01 ;
+            qudt:unit <http://qudt.org/vocab/unit/Gray> ] ;
+    onsir:hasDoseRange [ a onsir:BeneficialDoseRange ;
+            onsir:maxDose [ a qudt:QuantityValue ;
+                    qudt:numericValue 1e+02 ;
+                    qudt:unit <http://qudt.org/vocab/unit/Gray> ] ;
+            onsir:minDose [ a qudt:QuantityValue ;
+                    qudt:numericValue 2.5e+01 ;
+                    qudt:unit <http://qudt.org/vocab/unit/Gray> ] ] ;
+    onsir:hasDoseRate [ a qudt:QuantityValue ;
+            qudt:numericValue 2.5e+00 ;
+            qudt:unit <http://qudt.org/vocab/unit/Gy-PER-HR> ] ;
+    onsir:hasExposureTime [ a qudt:QuantityValue ;
+            qudt:numericValue 3.33333e-01 ;
+            qudt:unit <http://qudt.org/vocab/unit/HR> ] ;
+    onsir:radiationType "gamma" ;
+    onsir:sourceIsotope "Co-60" .
+
+onsir:Treat_UVC_254nm_1200Jm2 a onsir:SeedIrradiationTreatment ;
+    onsir:hasFluence [ a qudt:QuantityValue ;
+            qudt:numericValue 1.2e+03 ;
+            qudt:unit <http://qudt.org/vocab/unit/J-PER-M2> ] ;
+    onsir:hasWavelength [ a qudt:QuantityValue ;
+            qudt:numericValue 2.54e+02 ;
+            qudt:unit <http://qudt.org/vocab/unit/NanoM> ] ;
+    onsir:radiationType "uv-c" .
+
+onsir:Treat_XRay_150Gy a onsir:SeedIrradiationTreatment ;
+    onsir:hasDose [ a qudt:QuantityValue ;
+            qudt:numericValue 1.5e+02 ;
+            qudt:unit <http://qudt.org/vocab/unit/Gray> ] ;
+    onsir:radiationType "x-ray" .
+
+onsir:UV_A a owl:Class ;
+    rdfs:label "UV_A"@en ;
+    rdfs:subClassOf onsir:RadiationType .
+
+onsir:UV_B a owl:Class ;
+    rdfs:label "UV_B"@en ;
+    rdfs:subClassOf onsir:RadiationType .
+
+onsir:UV_C a owl:Class ;
+    rdfs:label "UV_C"@en ;
+    rdfs:subClassOf onsir:RadiationType .
+
+onsir:XRay a owl:Class ;
+    rdfs:label "XRay"@en ;
+    rdfs:subClassOf onsir:RadiationType .
+
+onsir:Xe133 a owl:Class ;
+    rdfs:label "Xe133"@en ;
+    rdfs:subClassOf onsir:Isotope .
+
+onsir:hasRadiationType a owl:ObjectProperty ;
+    rdfs:domain onsir:SeedIrradiationTreatment ;
+    rdfs:range onsir:RadiationType .
+
+onsir:maxDose a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "max dose"@en ;
+    rdfs:domain onsir:DoseRange ;
+    rdfs:range qudt:QuantityValue .
+
+onsir:minDose a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "min dose"@en ;
+    rdfs:domain onsir:DoseRange ;
+    rdfs:range qudt:QuantityValue .
+
+onsir:BeneficialDoseRange a owl:Class ;
+    rdfs:label "Beneficial Dose Range"@en ;
+    rdfs:subClassOf onsir:DoseRange .
+
+onsir:StressResistance a owl:Class ;
+    rdfs:label "Stress Resistance"@en ;
+    rdfs:subClassOf onsir:HormeticResponse .
+
+onsir:hasDose a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "has absorbed dose"@en ;
+    rdfs:domain onsir:SeedIrradiationTreatment ;
+    rdfs:range qudt:QuantityValue .
+
+onsir:DoseRateCategory a owl:Class ;
+    rdfs:label "Dose-rate Category"@en .
+
+onsir:LifecycleStage a owl:Class ;
+    rdfs:label "Lifecycle Stage"@en ;
+    rdfs:comment "Integration touchpoint: map Seed/Germination/Seedling stages to external lifecycle hierarchies."@en .
+
+onsir:hasDoseCategory a owl:ObjectProperty ;
+    rdfs:label "has dose category"@en ;
+    rdfs:domain onsir:TreatmentOutcome ;
+    rdfs:range onsir:DoseCategory .
+
+onsir:hasTreatment a owl:ObjectProperty ;
+    rdfs:label "has treatment"@en ;
+    rdfs:domain onsir:TreatmentOutcome ;
+    rdfs:range onsir:SeedIrradiationTreatment .
+
+onsir:induces a owl:ObjectProperty ;
+    rdfs:label "induces"@en ;
+    rdfs:domain onsir:SeedIrradiationTreatment ;
+    rdfs:range onsir:Response .
+
+onsir:BiochemicalChange a owl:Class ;
+    rdfs:label "Biochemical Change"@en ;
+    rdfs:subClassOf onsir:HormeticResponse .
+
+onsir:DoseCategory a owl:Class ;
+    rdfs:label "Dose Category"@en ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:unionOf ( onsir:HormeticDose onsir:MutagenicDose onsir:SterilizationDose ) ] ;
+    skos:definition "A qualitative classification of an irradiation dose by its predominant biological effect." .
+
+onsir:HormeticDose a owl:Class ;
+    rdfs:label "Hormetic Dose"@en ;
+    rdfs:subClassOf onsir:DoseCategory ;
+    skos:definition "A dose in the range that elicits a stimulatory (hormetic) biological response." .
+
+onsir:MutagenicDose a owl:Class ;
+    rdfs:label "Mutagenic Dose"@en ;
+    rdfs:subClassOf onsir:DoseCategory ;
+    skos:definition "A dose in the range that elicits induced genetic variability (mutagenesis) without predominant sterilization." .
+
+onsir:PlantSeed a owl:Class ;
+    rdfs:label "Plant Seed"@en ;
+    rdfs:comment "Integration touchpoint suggestion: align to crop ontologies' seed class (e.g., TobaccoSeed) via skos:exactMatch/closeMatch."@en ;
+    rdfs:subClassOf obo:BFO_0000040 ;
+    owl:equivalentClass obo:PO_0009010 .
+
+onsir:QuantityValue rdfs:comment "dose rate values use gray per minute (UO_0010060)",
+        "dose values use unit gray (UO_0000134)" ;
+    skos:definition "A measured quantity with a numeric value and a unit (dose in gray, dose rate in gray per minute)." .
+
+onsir:SterilizationDose a owl:Class ;
+    rdfs:label "Sterilization Dose"@en ;
+    rdfs:subClassOf onsir:DoseCategory ;
+    skos:definition "A dose high enough to cause predominant loss of viability or reproductive capacity." .
+
+onsir:SterilizationResponse a owl:Class ;
+    rdfs:label "Sterilization Response"@en ;
+    rdfs:subClassOf onsir:Response .
+
+onsir:Context a owl:Class ;
+    rdfs:label "Context"@en ;
+    rdfs:comment "Experimental or environmental conditions relevant to outcomes."@en .
+
+onsir:Isotope a owl:Class ;
+    rdfs:label "Radioisotope"@en .
+
+onsir:MutagenicResponse a owl:Class ;
+    rdfs:label "Mutagenic Response"@en ;
+    rdfs:subClassOf onsir:Response .
+
+onsir:hasResponse a owl:ObjectProperty ;
+    rdfs:label "has response"@en ;
+    rdfs:domain onsir:TreatmentOutcome ;
+    rdfs:range onsir:Response .
+
+onsir:DoseResponseModel a owl:Class ;
+    rdfs:label "Dose–Response Model"@en ;
+    skos:definition "A parametric model describing how an endpoint varies with dose (e.g., the Brain-Cousens hormetic model)." .
+
+onsir:Response a owl:Class ;
+    rdfs:label "Response"@en ;
+    rdfs:subClassOf obo:BFO_0000019 ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:unionOf ( onsir:HormeticResponse onsir:MutagenicResponse onsir:SterilizationResponse ) ] .
+
+onsir:DoseRange a owl:Class ;
+    rdfs:label "Dose Range"@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty onsir:minDose ;
+            owl:someValuesFrom onsir:QuantityValue ],
+        [ a owl:Restriction ;
+            owl:onProperty onsir:maxDose ;
+            owl:someValuesFrom onsir:QuantityValue ] .
+
+onsir:HormeticResponse a owl:Class ;
+    rdfs:label "Hormetic Response"@en ;
+    rdfs:subClassOf onsir:Response ;
+    skos:definition "A beneficial, stimulatory response to low-dose irradiation (e.g., enhanced germination, vigour, or stress resistance)." .
+
+onsir:RadiationType a owl:Class ;
+    rdfs:label "Radiation Type"@en .
+
+onsir:Endpoint a owl:Class ;
+    rdfs:label "Endpoint"@en ;
+    rdfs:comment "Measured response variable used to assess treatment effects."@en ;
+    rdfs:subClassOf obo:BFO_0000019 ;
+    skos:definition "A measurable characteristic used to quantify an irradiation outcome (e.g., germination rate, root length, mutation frequency)." .
+
+qudt:QuantityValue a owl:Class .
+
+onsir:SeedIrradiationTreatment a owl:Class ;
+    rdfs:label "Seed Irradiation Treatment"@en ;
+    rdfs:comment "Integration touchpoint suggestion: align to external ontology class 'SeedTreatment' via skos:closeMatch."@en,
+        "Irradiation applied to seeds using ionizing or non-ionizing radiation."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass onsir:QuantityValue ;
+            owl:onProperty onsir:hasDose ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        [ a owl:Restriction ;
+            owl:onProperty onsir:induces ;
+            owl:someValuesFrom onsir:Response ],
+        [ a owl:Restriction ;
+            owl:onProperty onsir:hasDose ;
+            owl:someValuesFrom onsir:QuantityValue ],
+        [ a owl:Restriction ;
+            owl:onProperty onsir:hasRadiationType ;
+            owl:someValuesFrom onsir:RadiationType ],
+        obo:BFO_0000015,
+        onsir:SeedTreatment ;
+    skos:definition "A treatment process in which seeds are exposed to ionizing radiation of a specified type, source, dose and dose rate." .
+
+onsir:TreatmentOutcome a owl:Class ;
+    rdfs:label "Treatment Outcome"@en ;
+    rdfs:comment "Reifies the relationship between treatment, subject, endpoint, context, and response."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass onsir:SeedIrradiationTreatment ;
+            owl:onProperty onsir:hasTreatment ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        [ a owl:Restriction ;
+            owl:onProperty onsir:hasResponse ;
+            owl:someValuesFrom onsir:Response ],
+        [ a owl:Restriction ;
+            owl:onProperty onsir:hasTreatment ;
+            owl:someValuesFrom onsir:SeedIrradiationTreatment ] ;
+    skos:definition "The observed result of a seed-irradiation treatment on a subject seed under a context, characterized by a dose category and a biological response for a given endpoint." .
+
+[] a owl:AllDisjointClasses ;
+    owl:members ( onsir:BeneficialDoseRange onsir:MutagenicDoseRange onsir:SterilizationDoseRange ) .
+
+[] a owl:AllDisjointClasses ;
+    owl:members ( onsir:LowDoseRate onsir:HighDoseRate ) .
+
+[] a owl:AllDisjointClasses ;
+    owl:members ( onsir:HormeticDose onsir:MutagenicDose onsir:SterilizationDose ) .
+
+[] a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty onsir:hasResponse ;
+            owl:someValuesFrom onsir:HormeticResponse ] ;
+    owl:intersectionOf ( onsir:TreatmentOutcome [ a owl:Restriction ;
+                owl:onProperty onsir:hasDoseCategory ;
+                owl:someValuesFrom onsir:HormeticDose ] ) .
+
+[] a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty onsir:hasResponse ;
+            owl:someValuesFrom onsir:SterilizationResponse ] ;
+    owl:intersectionOf ( onsir:TreatmentOutcome [ a owl:Restriction ;
+                owl:onProperty onsir:hasDoseCategory ;
+                owl:someValuesFrom onsir:SterilizationDose ] ) .
+
+[] a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty onsir:hasResponse ;
+            owl:someValuesFrom onsir:MutagenicResponse ] ;
+    owl:intersectionOf ( onsir:TreatmentOutcome [ a owl:Restriction ;
+                owl:onProperty onsir:hasDoseCategory ;
+                owl:someValuesFrom onsir:MutagenicDose ] ) .
+
+[] a owl:AllDisjointClasses ;
+    owl:members ( onsir:Gamma onsir:XRay onsir:Neutron onsir:Proton onsir:ElectronBeam onsir:UV_A onsir:UV_B onsir:UV_C ) .
+
+[] a owl:AllDisjointClasses ;
+    owl:members ( onsir:HormeticResponse onsir:MutagenicResponse onsir:SterilizationResponse ) .
+
+[] a owl:AllDisjointClasses ;
+    owl:members ( onsir:Am241 onsir:Co60 onsir:Cs137 onsir:Ir192 onsir:Xe133 ) .
+

@@ -1,0 +1,62 @@
+# OnSIR — Ontology for Seed Irradiation and Plant Radiobiology
+
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
+
+**Canonical IRI:** `https://w3id.org/onsir` · **Version:** 1.0.0 · **License:** CC BY 4.0
+
+OnSIR is a FAIR OWL 2 DL ontology of **seed-irradiation treatments** and their dose-dependent
+biological effects — **hormetic**, **mutagenic**, and **sterilizing** — across crop and model
+plants. It models radiation types and isotopic sources, dose and dose-rate categories,
+dose–response models, lifecycle stages, endpoints, and the `TreatmentOutcome` that links a
+treatment to its subject, context, dose category, and response.
+
+## What is in this release (v1.0.0)
+
+- **72 named classes, 22 object properties, 11 datatype properties** (functional and inverse characteristics; the file also contains 7 anonymous class expressions).
+- **Logical axioms**: pairwise **disjointness** of dose categories, responses,
+  radiation types and isotopes; **existential restrictions** on treatments/outcomes/dose ranges;
+  **dose→effect axioms** (a hormetic dose entails a hormetic response, etc.) and the defined
+  classes `StimulatoryOutcome` / `MutagenicOutcome` that a reasoner uses to classify outcomes.
+- **External alignment** (verified IRIs): BFO (upper level), PO (`seed`, `seedling`),
+  NCBITaxon (species), ChEBI (isotopes), UO (`gray`), PATO (qualities). A gap analysis versus
+  the OBO Radiobiology Ontology (RBO) motivates OnSIR's seed-irradiation dose–effect classes.
+- **Reasoning:** the ontology is **consistent** under HermiT and Pellet; dose→effect
+  classification and disjointness are verified (`reason.py`).
+- **ABox + competency questions:** an ABox built from the **EICCAM 28-study systematic review**
+  (`abox_cq.py`) with 24/27 species aligned to NCBITaxon; competency questions are answered as
+  SPARQL with a coverage report.
+
+## Files
+
+| File | Description |
+|---|---|
+| `OnSIR.owl` / `OnSIR.ttl` | the ontology (RDF/XML and Turtle) |
+| `OnSIR_abox.ttl` | ABox from the EICCAM corpus (imports the core) |
+| `docs/index.html` | human-readable documentation (pyLODE) |
+| `build_ontology.py` | reproducible construction of the ontology |
+| `reason.py` | HermiT consistency + dose→effect classification |
+| `abox_cq.py` | ABox construction + SPARQL competency questions |
+
+## Reuse
+
+```turtle
+@prefix onsir: <https://w3id.org/onsir/> .
+```
+
+Load `OnSIR.ttl` in Protégé or any OWL API / rdflib / owlready2 pipeline. Requires Java for
+HermiT/Pellet.
+
+## Persistent identifier
+
+The ontology's term IRIs use the namespace `https://w3id.org/onsir/`, chosen so that it can be made
+permanent independently of any hosting provider.
+
+**Status: the `w3id.org/onsir` redirect is not yet registered, so that namespace does not currently
+resolve.** Registration requires a pull request to
+[perma-id/w3id.org](https://github.com/perma-id/w3id.org); until it is merged, the authoritative
+location of the files is this repository. An archival release with a DOI (e.g. Zenodo) is likewise
+still to be minted. Both steps are planned for the first tagged release.
+
+## How to cite
+
+See `CITATION.cff`.

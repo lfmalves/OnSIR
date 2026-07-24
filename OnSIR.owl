@@ -1,0 +1,1056 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:dct="http://purl.org/dc/terms/"
+   xmlns:onsir="https://w3id.org/onsir/"
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:qudt="http://qudt.org/schema/qudt/"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+   xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+>
+  <rdf:Description rdf:about="https://w3id.org/onsir/Treat_Co60_Gamma_50Gy">
+    <onsir:radiationType>gamma</onsir:radiationType>
+    <onsir:hasDose rdf:nodeID="N3ab27631dc7a481eb44c936972975bad"/>
+    <onsir:sourceIsotope>Co-60</onsir:sourceIsotope>
+    <rdf:type rdf:resource="https://w3id.org/onsir/SeedIrradiationTreatment"/>
+    <onsir:hasExposureTime rdf:nodeID="N325793e6a9d24746aab612f79a4b9ca7"/>
+    <onsir:hasDoseRange rdf:nodeID="N6e97b1a8f09d4ec4a691ae2ab41c45d2"/>
+    <onsir:hasDoseRate rdf:nodeID="N8543f9f3f879417daf20612282928b1a"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/CotyledonFreeing">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">CotyledonFreeing</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/onsir/Endpoint"/>
+    <skos:closeMatch rdf:resource="http://purl.obolibrary.org/obo/PO_0020030"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/Response">
+    <rdfs:label xml:lang="en">Response</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000019"/>
+    <owl:equivalentClass rdf:nodeID="Nc6c492dfaa964c40ab04c2a3b40f0974"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/SterilizationDoseRange">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Sterilization Dose Range</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/onsir/DoseRange"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/AntioxidantActivity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/onsir/Endpoint"/>
+    <rdfs:label xml:lang="en">AntioxidantActivity</rdfs:label>
+    <skos:closeMatch rdf:resource="http://purl.obolibrary.org/obo/CHEBI_22586"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/hasSourceIsotope">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="https://w3id.org/onsir/SeedIrradiationTreatment"/>
+    <rdfs:range rdf:resource="https://w3id.org/onsir/Isotope"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/MutationFrequency">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/onsir/Endpoint"/>
+    <rdfs:label xml:lang="en">MutationFrequency</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/hasFluence">
+    <rdfs:label xml:lang="en">has fluence</rdfs:label>
+    <rdfs:range rdf:resource="http://qudt.org/schema/qudt/QuantityValue"/>
+    <rdfs:domain rdf:resource="https://w3id.org/onsir/SeedIrradiationTreatment"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/MutagenicResponse">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Mutagenic Response</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/onsir/Response"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <owl:versionIRI rdf:resource="https://w3id.org/onsir/1.0.0"/>
+    <owl:versionInfo>1.0.0</owl:versionInfo>
+    <dct:title>OnSIR: Ontology for Seed Irradiation and Plant Radiobiology</dct:title>
+    <dct:description>A FAIR OWL 2 DL ontology of seed-irradiation treatments and their dose-dependent biological effects (hormetic, mutagenic, sterilizing), aligned to BFO, PO, NCBITaxon, ChEBI, UO and PATO, with dose-to-effect axioms supporting DL reasoning.</dct:description>
+    <dct:creator>Luis Felipe Medeiro Alves</dct:creator>
+    <dct:creator>Ferrucio de Franco Rosa</dct:creator>
+    <dct:creator>Valter Arthur</dct:creator>
+    <dct:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
+    <dct:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2025-09-21</dct:created>
+    <dct:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-07-24</dct:modified>
+    <rdfs:comment>Canonical IRI https://w3id.org/onsir; source at https://github.com/lfmalves/OnSIR</rdfs:comment>
+    <rdfs:seeAlso rdf:resource="http://purl.obolibrary.org/obo/rbo.owl"/>
+    <dct:source rdf:resource="https://doi.org/10.56238/sevened2025.039-003"/>
+    <dct:source rdf:resource="https://doi.org/10.22456/2175-2745.146658"/>
+    <dct:source rdf:resource="https://doi.org/10.69547/TSFJB.030203"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/numericValue">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N66b089ac63cf476bbd35a37d11641713">
+    <rdf:first rdf:resource="https://w3id.org/onsir/SterilizationDoseRange"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/doseLowerGy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://w3id.org/onsir/DoseRange"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    <rdfs:comment>lower dose bound in gray</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/SeedIrradiationTreatment">
+    <rdfs:comment xml:lang="en">Integration touchpoint suggestion: align to external ontology class 'SeedTreatment' via skos:closeMatch.</rdfs:comment>
+    <rdfs:comment xml:lang="en">Irradiation applied to seeds using ionizing or non-ionizing radiation.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/onsir/SeedTreatment"/>
+    <rdfs:subClassOf rdf:nodeID="Nc68685e7417f493da5b3fdf5b1627f55"/>
+    <rdfs:subClassOf rdf:nodeID="Ne72af920e04a4e5da1b38b3bb1b1a622"/>
+    <rdfs:subClassOf rdf:nodeID="N79b1f6ad833841a1b968d04374b66c78"/>
+    <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
+    <rdfs:subClassOf rdf:nodeID="N39673cd5fea546b7bdd0f33cd9e2f4a1"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Seed Irradiation Treatment</rdfs:label>
+    <skos:definition>A treatment process in which seeds are exposed to ionizing radiation of a specified type, source, dose and dose rate.</skos:definition>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/Model_BC_Germination">
+    <onsir:bc_b rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-2.148</onsir:bc_b>
+    <onsir:bc_c rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.001017</onsir:bc_c>
+    <onsir:bc_d rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.002433</onsir:bc_d>
+    <rdf:type rdf:resource="https://w3id.org/onsir/BrainCousensModel"/>
+    <onsir:bc_f rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-3.747e-06</onsir:bc_f>
+    <onsir:bc_e rdf:datatype="http://www.w3.org/2001/XMLSchema#double">53.0</onsir:bc_e>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N821633ab64c945cd874d03bca86c0e13">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/onsir/maxDose"/>
+    <owl:someValuesFrom rdf:resource="https://w3id.org/onsir/QuantityValue"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/AbioticStressResistance">
+    <rdfs:label xml:lang="en">Abiotic Stress Resistance</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/onsir/StressResistance"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/PlantSeed">
+    <rdfs:comment xml:lang="en">Integration touchpoint suggestion: align to crop ontologies' seed class (e.g., TobaccoSeed) via skos:exactMatch/closeMatch.</rdfs:comment>
+    <rdfs:label xml:lang="en">Plant Seed</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000040"/>
+    <owl:equivalentClass rdf:resource="http://purl.obolibrary.org/obo/PO_0009010"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/Seedling">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Seedling</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000040"/>
+    <owl:equivalentClass rdf:resource="http://purl.obolibrary.org/obo/PO_0008037"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N79b1f6ad833841a1b968d04374b66c78">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/onsir/induces"/>
+    <owl:someValuesFrom rdf:resource="https://w3id.org/onsir/Response"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/hasContext">
+    <rdfs:domain rdf:resource="https://w3id.org/onsir/TreatmentOutcome"/>
+    <rdfs:range rdf:resource="https://w3id.org/onsir/Context"/>
+    <rdfs:label xml:lang="en">has context</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/germinationRateIncrease">
+    <rdfs:label xml:lang="en">germination rate increase</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    <rdfs:domain rdf:resource="https://w3id.org/onsir/HormeticResponse"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N622476b760fa443badb6b3cd335241c3">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:intersectionOf rdf:nodeID="Nb43cfb0245a742368c915351615740b7"/>
+    <rdfs:subClassOf rdf:nodeID="Ned1569c27bfb4dffa92ef00f9f959f94"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N17a46336e52c4ff8856095d1c136e7e4">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+    <owl:members rdf:nodeID="N8af72391f6db44d3a0f6490fbff20614"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nf6a57a886d8846e9a21f98757ebe2128">
+    <rdf:first rdf:resource="https://w3id.org/onsir/HormeticResponse"/>
+    <rdf:rest rdf:nodeID="N39f3191edeae439a9d325e72e5ed26dc"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N4830ab2d3e07490998c282f7b7438b6a">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/onsir/hasTreatment"/>
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+    <owl:onClass rdf:resource="https://w3id.org/onsir/SeedIrradiationTreatment"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/hasDoseRange">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="https://w3id.org/onsir/DoseRange"/>
+    <rdfs:domain rdf:resource="https://w3id.org/onsir/SeedIrradiationTreatment"/>
+    <rdfs:label xml:lang="en">has dose range</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/hasExposureTime">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="http://qudt.org/schema/qudt/QuantityValue"/>
+    <rdfs:domain rdf:resource="https://w3id.org/onsir/SeedIrradiationTreatment"/>
+    <rdfs:label xml:lang="en">has exposure time</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N44908e7def794eb49da038a1503d06a6">
+    <qudt:unit rdf:resource="http://qudt.org/vocab/unit/J-PER-M2"/>
+    <rdf:type rdf:resource="http://qudt.org/schema/qudt/QuantityValue"/>
+    <qudt:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1200.0</qudt:numericValue>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/FreshMass">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">FreshMass</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/onsir/Endpoint"/>
+    <skos:closeMatch rdf:resource="http://purl.obolibrary.org/obo/PATO_0000125"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/hasRadiationType">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="https://w3id.org/onsir/SeedIrradiationTreatment"/>
+    <rdfs:range rdf:resource="https://w3id.org/onsir/RadiationType"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://qudt.org/schema/qudt/numericValue">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    <rdfs:label xml:lang="en">numeric value</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/doseUpperGy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://w3id.org/onsir/DoseRange"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    <rdfs:comment>upper dose bound in gray</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/DoseRange">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Dose Range</rdfs:label>
+    <rdfs:subClassOf rdf:nodeID="N03e251fe6c8c46b19d64f3da07bf8091"/>
+    <rdfs:subClassOf rdf:nodeID="N821633ab64c945cd874d03bca86c0e13"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nd57fface59df42bcb74d86bd93e7c965">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/onsir/hasDoseCategory"/>
+    <owl:someValuesFrom rdf:resource="https://w3id.org/onsir/HormeticDose"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/SterilizationResponse">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/onsir/Response"/>
+    <rdfs:label xml:lang="en">Sterilization Response</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/Endpoint">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment xml:lang="en">Measured response variable used to assess treatment effects.</rdfs:comment>
+    <rdfs:label xml:lang="en">Endpoint</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000019"/>
+    <skos:definition>A measurable characteristic used to quantify an irradiation outcome (e.g., germination rate, root length, mutation frequency).</skos:definition>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nfa6fc14ad70b459385f6728d293064c8">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+    <owl:members rdf:nodeID="Nb8ffeb1a0b8c48268c72f0c6ab8c1ebb"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ne72af920e04a4e5da1b38b3bb1b1a622">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/onsir/hasRadiationType"/>
+    <owl:someValuesFrom rdf:resource="https://w3id.org/onsir/RadiationType"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Na81b6b467376438395d7faded1757ed1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/onsir/hasDoseCategory"/>
+    <owl:someValuesFrom rdf:resource="https://w3id.org/onsir/SterilizationDose"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/UV_A">
+    <rdfs:subClassOf rdf:resource="https://w3id.org/onsir/RadiationType"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">UV_A</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N03e251fe6c8c46b19d64f3da07bf8091">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/onsir/minDose"/>
+    <owl:someValuesFrom rdf:resource="https://w3id.org/onsir/QuantityValue"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/RootLength">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/onsir/Endpoint"/>
+    <rdfs:label xml:lang="en">RootLength</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ne1de3724a1b54f57a877c57498f2b01a">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/onsir/hasTreatment"/>
+    <owl:someValuesFrom rdf:resource="https://w3id.org/onsir/SeedIrradiationTreatment"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/hasBiochemicalChange">
+    <rdfs:domain rdf:resource="https://w3id.org/onsir/SeedIrradiationTreatment"/>
+    <rdfs:subPropertyOf rdf:resource="https://w3id.org/onsir/induces"/>
+    <rdfs:range rdf:resource="https://w3id.org/onsir/BiochemicalChange"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">has biochemical change</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/Resp_Sterility">
+    <rdf:type rdf:resource="https://w3id.org/onsir/SterilizationResponse"/>
+    <onsir:sterilityRate rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.98</onsir:sterilityRate>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/Treat_XRay_150Gy">
+    <rdf:type rdf:resource="https://w3id.org/onsir/SeedIrradiationTreatment"/>
+    <onsir:hasDose rdf:nodeID="Ndd7665bc296f46269f8706f6a22ca3d9"/>
+    <onsir:radiationType>x-ray</onsir:radiationType>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N865d33727fa440728e697f53eb7259e0">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/onsir/hasResponse"/>
+    <owl:someValuesFrom rdf:resource="https://w3id.org/onsir/SterilizationResponse"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/EarlySeedlingStage">
+    <rdfs:subClassOf rdf:resource="https://w3id.org/onsir/LifecycleStage"/>
+    <rdfs:label xml:lang="en">Early Seedling Stage</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/bc_c">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="https://w3id.org/onsir/DoseResponseModel"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    <rdfs:label xml:lang="en">BC parameter c</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/DryMass">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/onsir/Endpoint"/>
+    <rdfs:label xml:lang="en">DryMass</rdfs:label>
+    <skos:closeMatch rdf:resource="http://purl.obolibrary.org/obo/PATO_0000125"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N8af72391f6db44d3a0f6490fbff20614">
+    <rdf:first rdf:resource="https://w3id.org/onsir/BeneficialDoseRange"/>
+    <rdf:rest rdf:nodeID="Na4fc119239f1467186fce352e9bcfb4c"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/AntioxidantIncrease">
+    <rdfs:label xml:lang="en">Antioxidant Increase</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/onsir/BiochemicalChange"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <skos:closeMatch rdf:resource="http://purl.obolibrary.org/obo/CHEBI_22586"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/DoseResponseModel">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Dose–Response Model</rdfs:label>
+    <skos:definition>A parametric model describing how an endpoint varies with dose (e.g., the Brain-Cousens hormetic model).</skos:definition>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Na7a33bbbb00d48d697f6e14f64c61018">
+    <rdf:type rdf:resource="http://qudt.org/schema/qudt/QuantityValue"/>
+    <qudt:unit rdf:resource="http://qudt.org/vocab/unit/Gray"/>
+    <qudt:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">25.0</qudt:numericValue>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/hasResponse">
+    <rdfs:range rdf:resource="https://w3id.org/onsir/Response"/>
+    <rdfs:domain rdf:resource="https://w3id.org/onsir/TreatmentOutcome"/>
+    <rdfs:label xml:lang="en">has response</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nad138805b50c47c4a2c57459c08ccaad">
+    <rdf:first rdf:resource="https://w3id.org/onsir/Co60"/>
+    <rdf:rest rdf:nodeID="N250a213fbb154c9c922f4ea300f72cd4"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nbd7233dfe27746dca05fb1c9c74fbd4c">
+    <rdf:first rdf:resource="https://w3id.org/onsir/HormeticDose"/>
+    <rdf:rest rdf:nodeID="N4f6bc8b0df314d94b366261a00a49cde"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/hasTreatment">
+    <rdfs:range rdf:resource="https://w3id.org/onsir/SeedIrradiationTreatment"/>
+    <rdfs:domain rdf:resource="https://w3id.org/onsir/TreatmentOutcome"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">has treatment</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/bc_f">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="https://w3id.org/onsir/DoseResponseModel"/>
+    <rdfs:label xml:lang="en">BC parameter f</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/UV_C">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">UV_C</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/onsir/RadiationType"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/hasDoseRateCategory">
+    <rdfs:label xml:lang="en">has dose-rate category</rdfs:label>
+    <rdfs:range rdf:resource="https://w3id.org/onsir/DoseRateCategory"/>
+    <rdfs:domain rdf:resource="https://w3id.org/onsir/TreatmentOutcome"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/DoseRateCategory">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Dose-rate Category</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N61a6281011214e6db9eca0f0b95c33e3">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="N2a6d1cb52ffd4649a2f7828e66f9a391"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/Outcome_XRay_Mutagenesis">
+    <onsir:forEndpoint rdf:resource="https://w3id.org/onsir/MutationFrequency"/>
+    <rdf:type rdf:resource="https://w3id.org/onsir/TreatmentOutcome"/>
+    <onsir:hasResponse rdf:resource="https://w3id.org/onsir/Resp_Mutagenesis"/>
+    <onsir:hasTreatment rdf:resource="https://w3id.org/onsir/Treat_XRay_150Gy"/>
+    <onsir:hasDoseCategory rdf:resource="https://w3id.org/onsir/MutagenicDose"/>
+    <onsir:hasSubject rdf:resource="https://w3id.org/onsir/PlantSeed"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N39673cd5fea546b7bdd0f33cd9e2f4a1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/onsir/hasDose"/>
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+    <owl:onClass rdf:resource="https://w3id.org/onsir/QuantityValue"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N8543f9f3f879417daf20612282928b1a">
+    <rdf:type rdf:resource="http://qudt.org/schema/qudt/QuantityValue"/>
+    <qudt:unit rdf:resource="http://qudt.org/vocab/unit/Gy-PER-HR"/>
+    <qudt:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">2.5</qudt:numericValue>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/XRay">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/onsir/RadiationType"/>
+    <rdfs:label xml:lang="en">XRay</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/Resp_GerminationHormesis">
+    <onsir:rootGrowthStimulus rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.3</onsir:rootGrowthStimulus>
+    <rdf:type rdf:resource="https://w3id.org/onsir/HormeticResponse"/>
+    <onsir:germinationRateIncrease rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.22</onsir:germinationRateIncrease>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nc142e4bc41d544f3a281378ff20389e1">
+    <rdf:first rdf:nodeID="Nfc8e9e056f994a53a3b3e8762cf2f630"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/Context">
+    <rdfs:label xml:lang="en">Context</rdfs:label>
+    <rdfs:comment xml:lang="en">Experimental or environmental conditions relevant to outcomes.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N1c3e46bb092d4acab133256b57a30e21">
+    <qudt:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">254.0</qudt:numericValue>
+    <rdf:type rdf:resource="http://qudt.org/schema/qudt/QuantityValue"/>
+    <qudt:unit rdf:resource="http://qudt.org/vocab/unit/NanoM"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/hasDose">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="http://qudt.org/schema/qudt/QuantityValue"/>
+    <rdfs:domain rdf:resource="https://w3id.org/onsir/SeedIrradiationTreatment"/>
+    <rdfs:label xml:lang="en">has absorbed dose</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/HormeticResponse">
+    <rdfs:subClassOf rdf:resource="https://w3id.org/onsir/Response"/>
+    <rdfs:label xml:lang="en">Hormetic Response</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <skos:definition>A beneficial, stimulatory response to low-dose irradiation (e.g., enhanced germination, vigour, or stress resistance).</skos:definition>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N2a937a0fc45b4e01a2b3f82b5cb13d7b">
+    <qudt:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">100.0</qudt:numericValue>
+    <qudt:unit rdf:resource="http://qudt.org/vocab/unit/Gray"/>
+    <rdf:type rdf:resource="http://qudt.org/schema/qudt/QuantityValue"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/SterilizationDose">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Sterilization Dose</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/onsir/DoseCategory"/>
+    <skos:definition>A dose high enough to cause predominant loss of viability or reproductive capacity.</skos:definition>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/Am241">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Am241</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/onsir/Isotope"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/Plant">
+    <rdfs:label xml:lang="en">Plant</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000040"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N290784e956e7432f865594fe03d4ce24">
+    <rdf:first rdf:resource="https://w3id.org/onsir/Gamma"/>
+    <rdf:rest rdf:nodeID="Ne042a6fa6ff54c2eb3c20258098c1747"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/Outcome_Co60_GerminationHormesis">
+    <onsir:hasResponse rdf:resource="https://w3id.org/onsir/Resp_GerminationHormesis"/>
+    <onsir:forEndpoint rdf:resource="https://w3id.org/onsir/GerminationRate"/>
+    <rdf:type rdf:resource="https://w3id.org/onsir/TreatmentOutcome"/>
+    <onsir:hasModel rdf:resource="https://w3id.org/onsir/Model_BC_Germination"/>
+    <onsir:hasTreatment rdf:resource="https://w3id.org/onsir/Treat_Co60_Gamma_50Gy"/>
+    <onsir:hasDoseCategory rdf:resource="https://w3id.org/onsir/HormeticDose"/>
+    <onsir:hasSubject rdf:resource="https://w3id.org/onsir/PlantSeed"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/BioticStressResistance">
+    <rdfs:subClassOf rdf:resource="https://w3id.org/onsir/StressResistance"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Biotic Stress Resistance</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/mutationFrequency">
+    <rdfs:domain rdf:resource="https://w3id.org/onsir/MutagenicResponse"/>
+    <rdfs:label xml:lang="en">mutation frequency</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/bc_d">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    <rdfs:label xml:lang="en">BC parameter d</rdfs:label>
+    <rdfs:domain rdf:resource="https://w3id.org/onsir/DoseResponseModel"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ndd7665bc296f46269f8706f6a22ca3d9">
+    <qudt:unit rdf:resource="http://qudt.org/vocab/unit/Gray"/>
+    <qudt:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">150.0</qudt:numericValue>
+    <rdf:type rdf:resource="http://qudt.org/schema/qudt/QuantityValue"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nd4b68e5490bd4f84853ae3a002acacbe">
+    <rdf:first rdf:nodeID="N30e647c4d1f948c39aa443e669ffc397"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N2a6d1cb52ffd4649a2f7828e66f9a391">
+    <rdf:first rdf:resource="https://w3id.org/onsir/HormeticDose"/>
+    <rdf:rest rdf:nodeID="N7283308f6bc64764b7bc3fcff5b96724"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/EnzymeActivityChange">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/onsir/BiochemicalChange"/>
+    <rdfs:label xml:lang="en">Enzyme Activity Change</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N9062a4924e0f45d083ecad61ad2969b2">
+    <rdf:first rdf:resource="https://w3id.org/onsir/SterilizationResponse"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/hasWavelength">
+    <rdfs:range rdf:resource="http://qudt.org/schema/qudt/QuantityValue"/>
+    <rdfs:domain rdf:resource="https://w3id.org/onsir/SeedIrradiationTreatment"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">has wavelength</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N1817e5a2063b4ca9898a7a74e9186512">
+    <rdf:first rdf:nodeID="Na81b6b467376438395d7faded1757ed1"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/SeedTreatment">
+    <rdfs:comment xml:lang="en">Any pre-sowing treatment applied to seeds.</rdfs:comment>
+    <rdfs:label xml:lang="en">Seed Treatment</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nb63c45fea39c44908cfafc03b8dffa43">
+    <rdf:first rdf:resource="https://w3id.org/onsir/TreatmentOutcome"/>
+    <rdf:rest rdf:nodeID="N1817e5a2063b4ca9898a7a74e9186512"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/HighDoseRate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">High Dose-rate</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/onsir/DoseRateCategory"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/PollenSterility">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/onsir/Endpoint"/>
+    <rdfs:label xml:lang="en">PollenSterility</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/hasModel">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">has model</rdfs:label>
+    <rdfs:domain rdf:resource="https://w3id.org/onsir/TreatmentOutcome"/>
+    <rdfs:range rdf:resource="https://w3id.org/onsir/DoseResponseModel"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N78282da34f6a4b4f98e20e9d90334fc8">
+    <rdf:first rdf:resource="https://w3id.org/onsir/LowDoseRate"/>
+    <rdf:rest rdf:nodeID="Nf2f4094a67a446ebafc69d7d55dcc1f2"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nb43cfb0245a742368c915351615740b7">
+    <rdf:first rdf:resource="https://w3id.org/onsir/TreatmentOutcome"/>
+    <rdf:rest rdf:nodeID="N4504fa8366bb40e7b6c999707a3b072e"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/StressResistance">
+    <rdfs:label xml:lang="en">Stress Resistance</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/onsir/HormeticResponse"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N358e023485774a0b9bbf4c7f7b0ef908">
+    <rdf:first rdf:resource="https://w3id.org/onsir/Xe133"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/SoilCondition">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/onsir/Context"/>
+    <rdfs:comment xml:lang="en">Integration touchpoint: map to external 'SoilCondition' in farm ontologies.</rdfs:comment>
+    <rdfs:label xml:lang="en">Soil Condition</rdfs:label>
+    <skos:closeMatch rdf:resource="http://purl.obolibrary.org/obo/ENVO_00001998"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/hasSubject">
+    <rdfs:range rdf:resource="https://w3id.org/onsir/PlantSeed"/>
+    <rdfs:domain rdf:resource="https://w3id.org/onsir/TreatmentOutcome"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">has subject</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/SeedStage">
+    <rdfs:label xml:lang="en">Seed Stage</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/onsir/LifecycleStage"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/sterilityRate">
+    <rdfs:label xml:lang="en">sterility rate</rdfs:label>
+    <rdfs:domain rdf:resource="https://w3id.org/onsir/SterilizationResponse"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/Isotope">
+    <rdfs:label xml:lang="en">Radioisotope</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N46bea777b3584c119c0a098fe16115d1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+    <owl:members rdf:nodeID="Nbd7233dfe27746dca05fb1c9c74fbd4c"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/TreatmentOutcome">
+    <rdfs:label xml:lang="en">Treatment Outcome</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment xml:lang="en">Reifies the relationship between treatment, subject, endpoint, context, and response.</rdfs:comment>
+    <rdfs:subClassOf rdf:nodeID="Ne1de3724a1b54f57a877c57498f2b01a"/>
+    <rdfs:subClassOf rdf:nodeID="N49c76d32079e4966826d955ee4176db5"/>
+    <rdfs:subClassOf rdf:nodeID="N4830ab2d3e07490998c282f7b7438b6a"/>
+    <skos:definition>The observed result of a seed-irradiation treatment on a subject seed under a context, characterized by a dose category and a biological response for a given endpoint.</skos:definition>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/GerminationStage">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/onsir/LifecycleStage"/>
+    <rdfs:label xml:lang="en">Germination Stage</rdfs:label>
+    <skos:closeMatch rdf:resource="http://purl.obolibrary.org/obo/PO_0007057"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/Outcome_UVC_Sterilization">
+    <onsir:forEndpoint rdf:resource="https://w3id.org/onsir/SeedSterility"/>
+    <onsir:hasDoseCategory rdf:resource="https://w3id.org/onsir/SterilizationDose"/>
+    <onsir:hasTreatment rdf:resource="https://w3id.org/onsir/Treat_UVC_254nm_1200Jm2"/>
+    <onsir:hasSubject rdf:resource="https://w3id.org/onsir/PlantSeed"/>
+    <onsir:hasResponse rdf:resource="https://w3id.org/onsir/Resp_Sterility"/>
+    <rdf:type rdf:resource="https://w3id.org/onsir/TreatmentOutcome"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/forEndpoint">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="https://w3id.org/onsir/TreatmentOutcome"/>
+    <rdfs:range rdf:resource="https://w3id.org/onsir/Endpoint"/>
+    <rdfs:label xml:lang="en">for endpoint</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/rootGrowthStimulus">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    <rdfs:domain rdf:resource="https://w3id.org/onsir/HormeticResponse"/>
+    <rdfs:label xml:lang="en">root growth stimulus</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/LowDoseRate">
+    <rdfs:subClassOf rdf:resource="https://w3id.org/onsir/DoseRateCategory"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Low Dose-rate</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N485a85fd053e4a7aa7e4ce35578f04cf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/onsir/hasResponse"/>
+    <owl:someValuesFrom rdf:resource="https://w3id.org/onsir/MutagenicResponse"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ncbdefcaddbfb4ca98de264934dfd3bb7">
+    <rdf:first rdf:resource="https://w3id.org/onsir/Neutron"/>
+    <rdf:rest rdf:nodeID="Na3a809f7e39d4836803231cdf9db2fe4"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/Proton">
+    <rdfs:subClassOf rdf:resource="https://w3id.org/onsir/RadiationType"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Proton</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N86c6dfe940794704b2ba38c9338720bc">
+    <rdf:first rdf:resource="https://w3id.org/onsir/TreatmentOutcome"/>
+    <rdf:rest rdf:nodeID="Nc142e4bc41d544f3a281378ff20389e1"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N715dc8e194d14b30a1d79e7fde6102a0">
+    <rdf:first rdf:resource="https://w3id.org/onsir/ElectronBeam"/>
+    <rdf:rest rdf:nodeID="N353c9b2991e8465ab3698c9618454b67"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/LifecycleStage">
+    <rdfs:label xml:lang="en">Lifecycle Stage</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment xml:lang="en">Integration touchpoint: map Seed/Germination/Seedling stages to external lifecycle hierarchies.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N38cc486f71dd463d92a20207b7e9504d">
+    <rdf:first rdf:resource="https://w3id.org/onsir/SterilizationResponse"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/bc_b">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    <rdfs:label xml:lang="en">BC parameter b</rdfs:label>
+    <rdfs:domain rdf:resource="https://w3id.org/onsir/DoseResponseModel"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/Neutron">
+    <rdfs:label xml:lang="en">Neutron</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/onsir/RadiationType"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N6eb79a7c865f4830832aecc38211987d">
+    <rdf:first rdf:resource="https://w3id.org/onsir/TreatmentOutcome"/>
+    <rdf:rest rdf:nodeID="N02cad48b220a436089b85360d855b2e0"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N5004db2ab1914fcc871c15d69e4178d8">
+    <rdf:first rdf:resource="https://w3id.org/onsir/Am241"/>
+    <rdf:rest rdf:nodeID="Nad138805b50c47c4a2c57459c08ccaad"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/GerminationRate">
+    <rdfs:label xml:lang="en">GerminationRate</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/onsir/Endpoint"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nf5521d229e31444285c2efe62b22efdc">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/onsir/hasResponse"/>
+    <owl:someValuesFrom rdf:resource="https://w3id.org/onsir/HormeticResponse"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N43cf97c9b8f6406f8cf25b2a35b646f8">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+    <owl:members rdf:nodeID="N78282da34f6a4b4f98e20e9d90334fc8"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/Xe133">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/onsir/Isotope"/>
+    <rdfs:label xml:lang="en">Xe133</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/minDose">
+    <rdfs:domain rdf:resource="https://w3id.org/onsir/DoseRange"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="http://qudt.org/schema/qudt/QuantityValue"/>
+    <rdfs:label xml:lang="en">min dose</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N6e97b1a8f09d4ec4a691ae2ab41c45d2">
+    <onsir:minDose rdf:nodeID="Na7a33bbbb00d48d697f6e14f64c61018"/>
+    <rdf:type rdf:resource="https://w3id.org/onsir/BeneficialDoseRange"/>
+    <onsir:maxDose rdf:nodeID="N2a937a0fc45b4e01a2b3f82b5cb13d7b"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N3ab27631dc7a481eb44c936972975bad">
+    <qudt:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">50.0</qudt:numericValue>
+    <rdf:type rdf:resource="http://qudt.org/schema/qudt/QuantityValue"/>
+    <qudt:unit rdf:resource="http://qudt.org/vocab/unit/Gray"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/hasDoseCategory">
+    <rdfs:label xml:lang="en">has dose category</rdfs:label>
+    <rdfs:domain rdf:resource="https://w3id.org/onsir/TreatmentOutcome"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="https://w3id.org/onsir/DoseCategory"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/MutagenicDose">
+    <rdfs:subClassOf rdf:resource="https://w3id.org/onsir/DoseCategory"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Mutagenic Dose</rdfs:label>
+    <skos:definition>A dose in the range that elicits induced genetic variability (mutagenesis) without predominant sterilization.</skos:definition>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/UV_B">
+    <rdfs:label xml:lang="en">UV_B</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/onsir/RadiationType"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N39f3191edeae439a9d325e72e5ed26dc">
+    <rdf:first rdf:resource="https://w3id.org/onsir/MutagenicResponse"/>
+    <rdf:rest rdf:nodeID="N38cc486f71dd463d92a20207b7e9504d"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N655b8d81e413402ea7141b8c7ac452bf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:intersectionOf rdf:nodeID="Nb63c45fea39c44908cfafc03b8dffa43"/>
+    <rdfs:subClassOf rdf:nodeID="N865d33727fa440728e697f53eb7259e0"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N02cad48b220a436089b85360d855b2e0">
+    <rdf:first rdf:nodeID="Nf5521d229e31444285c2efe62b22efdc"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/Gamma">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/onsir/RadiationType"/>
+    <rdfs:label xml:lang="en">Gamma</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/RadiationType">
+    <rdfs:label xml:lang="en">Radiation Type</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/DoseCategory">
+    <rdfs:label xml:lang="en">Dose Category</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:equivalentClass rdf:nodeID="N61a6281011214e6db9eca0f0b95c33e3"/>
+    <skos:definition>A qualitative classification of an irradiation dose by its predominant biological effect.</skos:definition>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/BeneficialDoseRange">
+    <rdfs:subClassOf rdf:resource="https://w3id.org/onsir/DoseRange"/>
+    <rdfs:label xml:lang="en">Beneficial Dose Range</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/Treat_UVC_254nm_1200Jm2">
+    <rdf:type rdf:resource="https://w3id.org/onsir/SeedIrradiationTreatment"/>
+    <onsir:hasFluence rdf:nodeID="N44908e7def794eb49da038a1503d06a6"/>
+    <onsir:hasWavelength rdf:nodeID="N1c3e46bb092d4acab133256b57a30e21"/>
+    <onsir:radiationType>uv-c</onsir:radiationType>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/bc_e">
+    <rdfs:domain rdf:resource="https://w3id.org/onsir/DoseResponseModel"/>
+    <rdfs:label xml:lang="en">BC parameter e</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/hasDoseRate">
+    <rdfs:label xml:lang="en">has dose rate</rdfs:label>
+    <rdfs:domain rdf:resource="https://w3id.org/onsir/SeedIrradiationTreatment"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="http://qudt.org/schema/qudt/QuantityValue"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/PlantPart">
+    <rdfs:label xml:lang="en">Plant Part</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000040"/>
+    <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/PO_0025131"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N1345fce348844c18bdfc05daf7d99750">
+    <rdf:first rdf:resource="https://w3id.org/onsir/SterilizationDose"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/Substrate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/onsir/Context"/>
+    <rdfs:label xml:lang="en">Substrate</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/WaterQuality">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/onsir/Context"/>
+    <rdfs:label xml:lang="en">Water Quality</rdfs:label>
+    <skos:closeMatch rdf:resource="http://purl.obolibrary.org/obo/CHEBI_15377"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/MutagenicDoseRange">
+    <rdfs:subClassOf rdf:resource="https://w3id.org/onsir/DoseRange"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Mutagenic Dose Range</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ne042a6fa6ff54c2eb3c20258098c1747">
+    <rdf:first rdf:resource="https://w3id.org/onsir/XRay"/>
+    <rdf:rest rdf:nodeID="Ncbdefcaddbfb4ca98de264934dfd3bb7"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/QuantityValue">
+    <rdfs:comment>dose values use unit gray (UO_0000134)</rdfs:comment>
+    <rdfs:comment>dose rate values use gray per minute (UO_0010060)</rdfs:comment>
+    <skos:definition>A measured quantity with a numeric value and a unit (dose in gray, dose rate in gray per minute).</skos:definition>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/LightCondition">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/onsir/Context"/>
+    <rdfs:label xml:lang="en">Light Condition</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nc68685e7417f493da5b3fdf5b1627f55">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/onsir/hasDose"/>
+    <owl:someValuesFrom rdf:resource="https://w3id.org/onsir/QuantityValue"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/TemperatureCondition">
+    <rdfs:subClassOf rdf:resource="https://w3id.org/onsir/Context"/>
+    <rdfs:label xml:lang="en">Temperature Condition</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <skos:closeMatch rdf:resource="http://purl.obolibrary.org/obo/PATO_0000146"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nc6c492dfaa964c40ab04c2a3b40f0974">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="Nf6a57a886d8846e9a21f98757ebe2128"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/SeedSterility">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/onsir/Endpoint"/>
+    <rdfs:label xml:lang="en">SeedSterility</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Neb1459dcab1f4b2abe1f3e44a9d418f2">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+    <owl:members rdf:nodeID="N290784e956e7432f865594fe03d4ce24"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/ElectronBeam">
+    <rdfs:subClassOf rdf:resource="https://w3id.org/onsir/RadiationType"/>
+    <rdfs:label xml:lang="en">ElectronBeam</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N2fed8b2419a948a8a090b81ab643b845">
+    <rdf:first rdf:resource="https://w3id.org/onsir/MutagenicResponse"/>
+    <rdf:rest rdf:nodeID="N9062a4924e0f45d083ecad61ad2969b2"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/maxDose">
+    <rdfs:domain rdf:resource="https://w3id.org/onsir/DoseRange"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="http://qudt.org/schema/qudt/QuantityValue"/>
+    <rdfs:label xml:lang="en">max dose</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/ROSBalanceShift">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/onsir/BiochemicalChange"/>
+    <rdfs:label xml:lang="en">ROS Balance Shift</rdfs:label>
+    <skos:closeMatch rdf:resource="http://purl.obolibrary.org/obo/CHEBI_26523"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/LipidPeroxidation">
+    <rdfs:subClassOf rdf:resource="https://w3id.org/onsir/Endpoint"/>
+    <rdfs:label xml:lang="en">LipidPeroxidation</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N401ff3b547904a2fbc47b5573d774d1c">
+    <rdf:first rdf:resource="https://w3id.org/onsir/SterilizationDose"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/MutagenicOutcome">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:equivalentClass rdf:nodeID="N36aababbe1e64d9a851d2606bc0c3bbf"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N36aababbe1e64d9a851d2606bc0c3bbf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:intersectionOf rdf:nodeID="Nccdedc2c5f2d4823971c3ad6421ab35e"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/Cs137">
+    <rdfs:subClassOf rdf:resource="https://w3id.org/onsir/Isotope"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Cs137</rdfs:label>
+    <owl:equivalentClass rdf:resource="http://purl.obolibrary.org/obo/CHEBI_196959"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N4f6bc8b0df314d94b366261a00a49cde">
+    <rdf:first rdf:resource="https://w3id.org/onsir/MutagenicDose"/>
+    <rdf:rest rdf:nodeID="N401ff3b547904a2fbc47b5573d774d1c"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nf2f4094a67a446ebafc69d7d55dcc1f2">
+    <rdf:first rdf:resource="https://w3id.org/onsir/HighDoseRate"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nfc8e9e056f994a53a3b3e8762cf2f630">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/onsir/hasDoseCategory"/>
+    <owl:someValuesFrom rdf:resource="https://w3id.org/onsir/MutagenicDose"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/HormeticDose">
+    <rdfs:label xml:lang="en">Hormetic Dose</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/onsir/DoseCategory"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <skos:definition>A dose in the range that elicits a stimulatory (hormetic) biological response.</skos:definition>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nb8ffeb1a0b8c48268c72f0c6ab8c1ebb">
+    <rdf:first rdf:resource="https://w3id.org/onsir/HormeticResponse"/>
+    <rdf:rest rdf:nodeID="N2fed8b2419a948a8a090b81ab643b845"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nccdedc2c5f2d4823971c3ad6421ab35e">
+    <rdf:first rdf:resource="https://w3id.org/onsir/TreatmentOutcome"/>
+    <rdf:rest rdf:nodeID="Nd4b68e5490bd4f84853ae3a002acacbe"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/SeedlingVigorIndex">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/onsir/Endpoint"/>
+    <rdfs:label xml:lang="en">SeedlingVigorIndex</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N30e647c4d1f948c39aa443e669ffc397">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/onsir/hasResponse"/>
+    <owl:someValuesFrom rdf:resource="https://w3id.org/onsir/MutagenicResponse"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/Resp_Mutagenesis">
+    <onsir:mutationFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.012</onsir:mutationFrequency>
+    <rdf:type rdf:resource="https://w3id.org/onsir/MutagenicResponse"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/Ir192">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Ir192</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/onsir/Isotope"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Na4fc119239f1467186fce352e9bcfb4c">
+    <rdf:first rdf:resource="https://w3id.org/onsir/MutagenicDoseRange"/>
+    <rdf:rest rdf:nodeID="N66b089ac63cf476bbd35a37d11641713"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ned1569c27bfb4dffa92ef00f9f959f94">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/onsir/hasResponse"/>
+    <owl:someValuesFrom rdf:resource="https://w3id.org/onsir/HormeticResponse"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/Co60">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/onsir/Isotope"/>
+    <rdfs:label xml:lang="en">Co60</rdfs:label>
+    <skos:closeMatch rdf:resource="http://purl.obolibrary.org/obo/CHEBI_749374"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/ShootLength">
+    <rdfs:subClassOf rdf:resource="https://w3id.org/onsir/Endpoint"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">ShootLength</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/induces">
+    <rdfs:domain rdf:resource="https://w3id.org/onsir/SeedIrradiationTreatment"/>
+    <rdfs:label xml:lang="en">induces</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="https://w3id.org/onsir/Response"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ne2e0ab811644416183219f51e7fa9603">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:intersectionOf rdf:nodeID="N86c6dfe940794704b2ba38c9338720bc"/>
+    <rdfs:subClassOf rdf:nodeID="N485a85fd053e4a7aa7e4ce35578f04cf"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://qudt.org/schema/qudt/QuantityValue">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://qudt.org/schema/qudt/unit">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">unit</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N4504fa8366bb40e7b6c999707a3b072e">
+    <rdf:first rdf:nodeID="Nd57fface59df42bcb74d86bd93e7c965"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N325793e6a9d24746aab612f79a4b9ca7">
+    <qudt:unit rdf:resource="http://qudt.org/vocab/unit/HR"/>
+    <rdf:type rdf:resource="http://qudt.org/schema/qudt/QuantityValue"/>
+    <qudt:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.333333</qudt:numericValue>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N353c9b2991e8465ab3698c9618454b67">
+    <rdf:first rdf:resource="https://w3id.org/onsir/UV_A"/>
+    <rdf:rest rdf:nodeID="N614fa27a44854d8196d35c4be380730c"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/BiochemicalChange">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Biochemical Change</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/onsir/HormeticResponse"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/StimulatoryOutcome">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:equivalentClass rdf:nodeID="N8be01e67afd94e55be69b94f21009d60"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N8be01e67afd94e55be69b94f21009d60">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:intersectionOf rdf:nodeID="N6eb79a7c865f4830832aecc38211987d"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/isTreatmentOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <owl:inverseOf rdf:resource="https://w3id.org/onsir/hasTreatment"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/ChlorophyllContent">
+    <rdfs:label xml:lang="en">ChlorophyllContent</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/onsir/Endpoint"/>
+    <skos:closeMatch rdf:resource="http://purl.obolibrary.org/obo/CHEBI_28966"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/BrainCousensModel">
+    <rdfs:subClassOf rdf:resource="https://w3id.org/onsir/DoseResponseModel"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Brain–Cousens Model</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N7283308f6bc64764b7bc3fcff5b96724">
+    <rdf:first rdf:resource="https://w3id.org/onsir/MutagenicDose"/>
+    <rdf:rest rdf:nodeID="N1345fce348844c18bdfc05daf7d99750"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N614fa27a44854d8196d35c4be380730c">
+    <rdf:first rdf:resource="https://w3id.org/onsir/UV_B"/>
+    <rdf:rest rdf:nodeID="N643d4b7a3f1c4ae18c24b38cd856112c"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nbce990faad8c497392bc31ab8ca72d84">
+    <rdf:first rdf:resource="https://w3id.org/onsir/Ir192"/>
+    <rdf:rest rdf:nodeID="N358e023485774a0b9bbf4c7f7b0ef908"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N49c76d32079e4966826d955ee4176db5">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/onsir/hasResponse"/>
+    <owl:someValuesFrom rdf:resource="https://w3id.org/onsir/Response"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nfc36888886e54111aaeaf51ea276b49b">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+    <owl:members rdf:nodeID="N5004db2ab1914fcc871c15d69e4178d8"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/inducedBy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <owl:inverseOf rdf:resource="https://w3id.org/onsir/induces"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Na3a809f7e39d4836803231cdf9db2fe4">
+    <rdf:first rdf:resource="https://w3id.org/onsir/Proton"/>
+    <rdf:rest rdf:nodeID="N715dc8e194d14b30a1d79e7fde6102a0"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N643d4b7a3f1c4ae18c24b38cd856112c">
+    <rdf:first rdf:resource="https://w3id.org/onsir/UV_C"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N250a213fbb154c9c922f4ea300f72cd4">
+    <rdf:first rdf:resource="https://w3id.org/onsir/Cs137"/>
+    <rdf:rest rdf:nodeID="Nbce990faad8c497392bc31ab8ca72d84"/>
+  </rdf:Description>
+</rdf:RDF>

@@ -1,0 +1,33 @@
+cff-version: 1.2.0
+message: "If you use OnSIR, please cite the ontology and the accompanying paper."
+title: "OnSIR: Ontology for Seed Irradiation and Plant Radiobiology"
+abstract: >-
+  A FAIR OWL 2 DL ontology of seed-irradiation treatments and their dose-dependent
+  biological effects (hormetic, mutagenic, sterilizing), aligned to BFO, PO, NCBITaxon,
+  ChEBI, UO and PATO, with dose-to-effect axioms supporting description-logic reasoning.
+type: dataset
+version: "1.0.0"
+date-released: "2026-07-24"
+license: CC-BY-4.0
+url: "https://w3id.org/onsir"
+repository-code: "https://github.com/lfmalves/OnSIR"
+keywords:
+  - ontology
+  - seed irradiation
+  - plant radiobiology
+  - radiohormesis
+  - mutation breeding
+  - OWL
+  - description logic
+authors:
+  - family-names: "Medeiro Alves"
+    given-names: "Luis Felipe"
+    orcid: "https://orcid.org/0009-0005-4227-5568"
+    affiliation: "IPEN, University of São Paulo (USP)"
+  - family-names: "de Franco Rosa"
+    given-names: "Ferrucio"
+    affiliation: "Renato Archer Information Technology Center (CTI), Campinas, Brazil"
+  - family-names: "Arthur"
+    given-names: "Valter"
+    orcid: "https://orcid.org/0000-0003-3521-9136"
+    affiliation: "CENA, University of São Paulo (USP)"

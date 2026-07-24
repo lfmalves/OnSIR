@@ -1,0 +1,17 @@
+# Third-party ontology fetched by rbo_gap.py (CC BY 3.0, ~29 MB) — not redistributed here.
+# Run `python rbo_gap.py` to download it from http://purl.obolibrary.org/obo/rbo.owl
+rbo.owl
+
+# Manuscript sources and drafts (not part of the released resource)
+paper/
+*_IEEE_ACCESS.pdf
+fig1.png
+fig2.png
+
+# Internal working notes
+FINDINGS.md
+
+# Python / editor cruft
+__pycache__/
+*.pyc
+.DS_Store
