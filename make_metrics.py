@@ -45,12 +45,15 @@ disj = len(set(g.subjects(RDF.type, OWL.AllDisjointClasses))) + \
     len(set(g.subject_objects(OWL.disjointWith)))
 
 align = set()
-for s, p, o in g:
-    if (isinstance(s, URIRef) and str(s).startswith(NS)
-            and isinstance(o, URIRef) and (str(o).startswith(OBO) or str(o).startswith(QUDT_UNIT))
-            and not str(o).endswith("rbo.owl")):
-        align.add((str(p), str(o)))
-targets = {o for _, o in align}
+for s_, p_, o_ in g:
+    if (isinstance(s_, URIRef) and str(s_).startswith(NS)
+            and isinstance(o_, URIRef) and (str(o_).startswith(OBO) or str(o_).startswith(QUDT_UNIT))
+            and not str(o_).endswith("rbo.owl")):
+        # the SUBJECT belongs in the key. Dropping it counted distinct (predicate, object) pairs and
+        # reported 21 where there are 28 triples -- and made the triple count coincide exactly with
+        # the distinct-target count, which the caption says should differ.
+        align.add((str(s_), str(p_), str(o_)))
+targets = {t[2] for t in align}
 fams = Counter()
 for o in targets:
     fams[o[len(OBO):].split("_")[0] if o.startswith(OBO) else "QUDT"] += 1

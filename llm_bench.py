@@ -8,10 +8,22 @@ windows, and those windows span more than an order of magnitude (Nicotiana tabac
 Trigonella foenum-graecum 150/350 Gy), so a species-blind answer is detectably wrong rather than
 merely vague.
 
-DESIGN. One model, two conditions, identical questions.
+DESIGN. One model, THREE conditions, identical questions.
   ungrounded : the question alone.
-  grounded   : the question preceded by the ontology context retrieved for it (the taxon windows
-               from OnSIR.ttl, or the SPARQL answer from the ABox).
+  grounded   : the question preceded by the retrieved values only -- the taxon windows from
+               OnSIR.ttl and the corpus summary from the ABox. Numbers and a decision rule, and
+               nothing about what may be asserted from them.
+  framed     : the same context plus one sentence of the ontology's own evidential semantics, that
+               the windows "are evidence-relative ... and carry no claim about the biological
+               outcome" -- which is what OnSIR encodes by making the dose-to-response link an
+               annotation (consistentWithResponse) instead of a subclass axiom.
+
+The third arm exists because the second one settled a question we had got wrong. We first ran
+`grounded` WITH that sentence, found the model stopped issuing species-independent verdicts, and
+took it for an effect of grounding. It is not: with the identical numbers and the sentence removed,
+the behaviour reverts completely. The sentence, not the data, is what changes what the model
+asserts. Reporting two arms would have credited the ontology's numbers with an effect belonging to
+its semantics.
 Three item types, all with ground truth generated from the artifact rather than hand-written:
   A  dose placement   (12): where does dose d fall for taxon t? Truth from the OWL datatype facets,
                             cross-checked against HermiT by reason_context.py.
@@ -27,8 +39,8 @@ false rather than incomplete.
 USAGE
   python llm_bench.py build    -> writes bench/questions.json, bench/prompt_ungrounded.txt,
                                   bench/prompt_grounded.txt
-  python llm_bench.py score    -> reads bench/answers_ungrounded.json, bench/answers_grounded.json
-                                  and writes bench/results.json + paper/tab_bench.tex
+  python llm_bench.py score    -> reads bench/answers_{ungrounded,grounded,framed}.json and writes
+                                  bench/results.json + paper/tab_bench.tex
 
 The answer files are produced by running the two prompts against the model under test and saving its
 JSON output verbatim. Nothing in this script calls a model, so the scoring is reproducible from the
@@ -40,6 +52,7 @@ from rdflib import RDF, RDFS, OWL, URIRef, XSD
 
 NS = "https://w3id.org/onsir/"
 BENCH = "bench"
+CONDITIONS = ("ungrounded", "grounded", "framed")
 PRETTY = {"Nicotiana_tabacum": "Nicotiana tabacum",
           "Vigna_unguiculata": "Vigna unguiculata",
           "Trigonella_foenum_graecum": "Trigonella foenum-graecum",
@@ -114,13 +127,15 @@ def corpus_facts(path="OnSIR_abox.ttl"):
     iso = {}
     for r in q("SELECT ?i (COUNT(?t) AS ?n) WHERE { ?t onsir:hasSourceIsotope ?i } GROUP BY ?i"):
         iso[str(r[0])[len(NS):]] = int(r[1])
-    taxa = {str(r[0]) for r in q(
-        "SELECT DISTINCT ?x WHERE { ?s onsir:hasTaxon ?x }")}
+    # count SEEDS carrying a resolved taxon, which is what competency question CQ5 reports.
+    # Counting distinct taxon individuals instead gives 24 and disagrees with the paper's Table 3.
+    seeds = {str(r[0]) for r in q(
+        "SELECT DISTINCT ?s WHERE { ?s onsir:hasTaxon ?x }")}
     return {"n_studies": len(set(g.subjects(URIRef(NS + "hasTreatment"), None))),
             "dose_min": min(doses), "dose_max": max(doses),
             "dose_mean": sum(doses) / len(doses),
             "n_above_500": sum(1 for d in doses if d > 500),
-            "isotopes": iso, "n_taxa_resolved": len(taxa)}
+            "isotopes": iso, "n_taxa_resolved": len(seeds)}
 
 
 # ---------------------------------------------------------------- build
@@ -180,17 +195,19 @@ def build():
     with open(f"{BENCH}/prompt_ungrounded.txt", "w") as fh:
         fh.write(head + body)
 
-    ctx = ["ONTOLOGY CONTEXT retrieved from OnSIR (https://w3id.org/onsir), release v1.1.0.",
+    # DATA ONLY. An earlier version of this context also stated that the windows are
+    # "evidence-relative and carry no claim about the biological outcome". That is an instruction
+    # about how to answer, and it was present on exactly the items scored for whether the model
+    # withholds a verdict -- so it confounded the one axis claimed as a result. It is removed:
+    # the grounded condition now receives numbers and a decision rule, nothing about what to assert.
+    ctx = ["ONTOLOGY CONTEXT retrieved from OnSIR (https://w3id.org/onsir).",
            "", "Taxon-specific dose windows, as encoded in OWL 2 datatype facets. A dose at or "
            "below the optimum is at_or_below_optimum; above the optimum but below the LD50 is "
            "above_optimum; at or above the LD50 is at_or_above_ld50.", ""]
     for t, w in sorted(W.items()):
         ctx.append(f"  {PRETTY[t]}: reported optimum {w['optimum']:g} Gy, "
                    f"reported LD50 {w['ld50']:g} Gy")
-    ctx += ["", "These windows are evidence-relative: they record where a dose falls with respect "
-            "to the values reported in the literature for that species, and carry no claim about "
-            "the biological outcome.", "",
-            "Curated corpus (28 coded studies, EICCAM systematic review):",
+    ctx += ["", "Curated corpus (EICCAM systematic review):",
             f"  studies: {facts['n_studies']}",
             f"  absorbed dose range: {facts['dose_min']:g}-{facts['dose_max']:g} Gy, "
             f"mean {facts['dose_mean']:.1f} Gy",
@@ -270,7 +287,7 @@ def score_one(it, ans):
 def score():
     Q = json.load(open(f"{BENCH}/questions.json"))
     res = {}
-    for cond in ("ungrounded", "grounded"):
+    for cond in CONDITIONS:
         path = f"{BENCH}/answers_{cond}.json"
         if not os.path.exists(path):
             sys.exit(f"missing {path}")
@@ -301,23 +318,27 @@ def score():
              "C": "Corpus facts (curated ABox)"}
     rows = []
     for k in ("A", "B", "B2", "C"):
-        u = res["ungrounded"]["per_type"][k]; g = res["grounded"]["per_type"][k]
-        rows.append(f"{names[k]} & {u[1]} & {u[0]}/{u[1]} & {g[0]}/{g[1]}\\\\")
-    tu = res["ungrounded"]["total"]; tg = res["grounded"]["total"]
-    rows.append(r"\midrule")
-    rows.append(f"All items & {tu[1]} & {tu[0]}/{tu[1]} & {tg[0]}/{tg[1]}\\\\")
+        cells = " & ".join(f"{res[c]['per_type'][k][0]}/{res[c]['per_type'][k][1]}"
+                           for c in CONDITIONS)
+        n = res["ungrounded"]["per_type"][k][1]
+        rows.append(f"{names[k]} & {n} & {cells}\\\\")
+
     tab = (r"""% GENERATED by llm_bench.py -- do not edit
 \begin{table}[t]\centering
-\caption{Grounding ablation. One model (Claude Opus~5), identical questions, with and without the
-ontology context retrieved for each item. Ground truth is generated from \texttt{OnSIR.ttl} and the
-ABox, not hand-written: dose placements come from the OWL datatype facets and the corpus facts from
-SPARQL. Row~B scores whether the answer refuses a species-independent verdict, which is the only
-defensible response when the same dose falls in different windows for different taxa; it does not
-score which verdict is chosen.}
+\caption{Grounding ablation, one model (Claude Opus~5), identical questions in three conditions.
+\emph{ungrounded}: question only. \emph{grounded}: preceded by the retrieved taxon windows and corpus
+summary --- values and a decision rule, nothing about what they license. \emph{framed}: the same values
+plus one sentence of the ontology's evidential semantics, that the windows record where a dose falls
+relative to the literature and carry no claim about the biological outcome. Ground truth is generated
+from \texttt{OnSIR.ttl} and the ABox. Rows A and C are answerable directly from the supplied context,
+so they check that it was used, not that anything was inferred. Row~B asks whether the answer flags
+species-dependence; row~B2 whether it also withholds a verdict the windows contradict, which is the
+only row that separates the three conditions. B2 was added after reading the answers, because B did
+not discriminate.}
 \label{tab:bench}
-\begin{tabular}{lccc}
+\begin{tabular}{lcccc}
 \toprule
-Item type & $n$ & ungrounded & grounded\\
+ & $n$ & ungrounded & grounded & framed\\
 \midrule
 """ + "\n".join(rows) + r"""
 \bottomrule
@@ -327,7 +348,7 @@ Item type & $n$ & ungrounded & grounded\\
     with open(os.path.join("paper", "tab_bench.tex"), "w") as fh:
         fh.write(tab)
     print("wrote bench/results.json and paper/tab_bench.tex\n")
-    for cond in ("ungrounded", "grounded"):
+    for cond in CONDITIONS:
         r = res[cond]
         print(f"{cond:11s} total {r['total'][0]}/{r['total'][1]}   " +
               "  ".join(f"{k}:{v[0]}/{v[1]}" for k, v in r["per_type"].items()))
@@ -335,10 +356,11 @@ Item type & $n$ & ungrounded & grounded\\
     for it in json.load(open(f"{BENCH}/questions.json"))["items"]:
         if it["type"] != "B":
             continue
-        du = next(d for d in res["ungrounded"]["detail"] if d["id"] == it["id"])
-        dg = next(d for d in res["grounded"]["detail"] if d["id"] == it["id"])
-        print(f"  {it['id']} {it['dose']:6g} Gy  ungrounded={'ok' if du['correct'] else 'FAIL'}"
-              f"  grounded={'ok' if dg['correct'] else 'FAIL'}   [{du['note'][:52]}]")
+        cells = []
+        for c in CONDITIONS:
+            d = next(x for x in res[c]["detail"] if x["id"] == it["id"])
+            cells.append(f"{c[:5]}:B2={'ok' if d.get('correct_b2') else 'FAIL'}")
+        print(f"  {it['id']} {it['dose']:6g} Gy  " + "  ".join(cells))
 
 
 if __name__ == "__main__":

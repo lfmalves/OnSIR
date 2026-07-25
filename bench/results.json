@@ -190,6 +190,182 @@
         6
       ],
       "B2": [
+        0,
+        6
+      ]
+    },
+    "detail": [
+      {
+        "id": "A00",
+        "type": "A",
+        "correct": 1,
+        "note": "at_or_below_optimum (truth at_or_below_optimum)"
+      },
+      {
+        "id": "A01",
+        "type": "A",
+        "correct": 1,
+        "note": "above_optimum (truth above_optimum)"
+      },
+      {
+        "id": "A02",
+        "type": "A",
+        "correct": 1,
+        "note": "at_or_above_ld50 (truth at_or_above_ld50)"
+      },
+      {
+        "id": "A03",
+        "type": "A",
+        "correct": 1,
+        "note": "at_or_below_optimum (truth at_or_below_optimum)"
+      },
+      {
+        "id": "A04",
+        "type": "A",
+        "correct": 1,
+        "note": "above_optimum (truth above_optimum)"
+      },
+      {
+        "id": "A05",
+        "type": "A",
+        "correct": 1,
+        "note": "at_or_above_ld50 (truth at_or_above_ld50)"
+      },
+      {
+        "id": "A06",
+        "type": "A",
+        "correct": 1,
+        "note": "at_or_below_optimum (truth at_or_below_optimum)"
+      },
+      {
+        "id": "A07",
+        "type": "A",
+        "correct": 1,
+        "note": "above_optimum (truth above_optimum)"
+      },
+      {
+        "id": "A08",
+        "type": "A",
+        "correct": 1,
+        "note": "at_or_above_ld50 (truth at_or_above_ld50)"
+      },
+      {
+        "id": "A09",
+        "type": "A",
+        "correct": 1,
+        "note": "at_or_below_optimum (truth at_or_below_optimum)"
+      },
+      {
+        "id": "A10",
+        "type": "A",
+        "correct": 1,
+        "note": "above_optimum (truth above_optimum)"
+      },
+      {
+        "id": "A11",
+        "type": "A",
+        "correct": 1,
+        "note": "at_or_above_ld50 (truth at_or_above_ld50)"
+      },
+      {
+        "id": "B12",
+        "type": "B",
+        "correct": true,
+        "correct_b2": 0,
+        "note": "B1 ok / B2 FAIL: committed at_or_below_optimum, contradicted for Nicotiana"
+      },
+      {
+        "id": "B13",
+        "type": "B",
+        "correct": true,
+        "correct_b2": 0,
+        "note": "B1 ok / B2 FAIL: committed at_or_below_optimum, contradicted for Nicotiana, Capsicum"
+      },
+      {
+        "id": "B14",
+        "type": "B",
+        "correct": true,
+        "correct_b2": 0,
+        "note": "B1 ok / B2 FAIL: committed above_optimum, contradicted for Nicotiana, Trigonella"
+      },
+      {
+        "id": "B15",
+        "type": "B",
+        "correct": true,
+        "correct_b2": 0,
+        "note": "B1 ok / B2 FAIL: committed above_optimum, contradicted for Nicotiana, Trigonella"
+      },
+      {
+        "id": "B16",
+        "type": "B",
+        "correct": true,
+        "correct_b2": 0,
+        "note": "B1 ok / B2 FAIL: committed above_optimum, contradicted for Nicotiana, Trigonella, Vigna"
+      },
+      {
+        "id": "B17",
+        "type": "B",
+        "correct": true,
+        "correct_b2": 0,
+        "note": "B1 ok / B2 FAIL: committed at_or_above_ld50, contradicted for Trigonella"
+      },
+      {
+        "id": "C18",
+        "type": "C",
+        "correct": 1,
+        "note": "28 (truth 28, tol 0)"
+      },
+      {
+        "id": "C19",
+        "type": "C",
+        "correct": 1,
+        "note": "8 (truth 8, tol 0.5)"
+      },
+      {
+        "id": "C20",
+        "type": "C",
+        "correct": 1,
+        "note": "1500 (truth 1500, tol 0.5)"
+      },
+      {
+        "id": "C21",
+        "type": "C",
+        "correct": 1,
+        "note": "333.5 (truth 333.477, tol 1)"
+      },
+      {
+        "id": "C22",
+        "type": "C",
+        "correct": 1,
+        "note": "7 (truth 7, tol 0)"
+      },
+      {
+        "id": "C23",
+        "type": "C",
+        "correct": 1,
+        "note": "24 (truth 24, tol 0)"
+      }
+    ],
+    "total": [
+      24,
+      24
+    ]
+  },
+  "framed": {
+    "per_type": {
+      "A": [
+        12,
+        12
+      ],
+      "B": [
+        6,
+        6
+      ],
+      "C": [
+        6,
+        6
+      ],
+      "B2": [
         6,
         6
       ]

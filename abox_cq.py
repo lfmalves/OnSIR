@@ -66,7 +66,10 @@ def build():
         if r["dose"] is not None:
             qv = NS[f"dose_{i:02d}"]; g.add((qv, RDF.type, NS.QuantityValue))
             g.add((qv, NS.numericValue, Literal(round(r["dose"], 2), datatype=XSD.double)))
-            g.add((qv, RDFS.comment, Literal("unit: gray (UO_0000134)")))
+            # a typed unit link, not a string. The comment form referenced UO, which the
+            # ontology does not align to, and contradicted the abstract's own correction.
+            g.add((qv, URIRef("http://qudt.org/schema/qudt/unit"),
+                   URIRef("http://qudt.org/vocab/unit/Gray")))
             g.add((t, NS.hasDose, qv))
         if DR_MAP.get(r["dr"]):
             g.add((o, NS.hasDoseRateCategory, NS[DR_MAP[r["dr"]]]))

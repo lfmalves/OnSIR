@@ -3,7 +3,8 @@ r"""Build the OnSIR ontology: take the class scaffold (OnSIR_base.owl) and assem
 OWL 2 DL ontology -- persistent IRIs, metadata, disjointness partitions, existential and
 cardinality restrictions, dose->effect GCIs and defined classes, object properties for radiation
 type / isotope, functional and inverse properties, covering axioms, SKOS definitions, and VERIFIED
-external alignments (BFO, PO, NCBITaxon, ChEBI, UO, PATO). Outputs OnSIR.ttl / OnSIR.owl.
+external alignments (BFO, PO, NCBITaxon, ChEBI, PATO, ENVO; units via QUDT).
+Outputs OnSIR.ttl / OnSIR.owl.
 """
 import rdflib
 from rdflib import Graph, Namespace, URIRef, Literal, BNode, RDF, RDFS, OWL, XSD
@@ -40,8 +41,8 @@ for pfx, n in [("", NS), ("onsir", NS), ("dct", DCT), ("skos", SKOS), ("obo", OB
 
 # ---- ontology header + real metadata ----
 g.add((ONT, RDF.type, OWL.Ontology))
-g.add((ONT, URIRef(str(OWL) + "versionIRI"), URIRef("https://w3id.org/onsir/1.1.0")))
-g.add((ONT, OWL.versionInfo, Literal("1.1.0")))
+g.add((ONT, URIRef(str(OWL) + "versionIRI"), URIRef("https://w3id.org/onsir/1.2.0")))
+g.add((ONT, OWL.versionInfo, Literal("1.2.0")))
 g.add((ONT, DCT.title, Literal("OnSIR: Ontology for Seed Irradiation and Plant Radiobiology")))
 g.add((ONT, DCT.description, Literal(
     "A FAIR OWL 2 DL ontology of seed-irradiation treatments and their dose-dependent "
@@ -108,6 +109,10 @@ for op, rng in [("hasRadiationType", "RadiationType"), ("hasSourceIsotope", "Iso
 for dp in ["radiationType", "sourceIsotope"]:
     for t in list(g.triples((C(dp), None, None))): g.remove(t)
     for t in list(g.triples((None, None, C(dp)))): g.remove(t)
+    # ...and where they are USED as predicates on the carried-over exemplar instances. Removing
+    # only the declaration left `Treat_... radiationType "gamma"` in the release, which is exactly
+    # the free-text modelling the paper says it eliminates.
+    for t in list(g.triples((None, C(dp), None))): g.remove(t)
 
 # ---- (3) existential restrictions (structural constraints) ----
 some(C("SeedIrradiationTreatment"), "hasDose", "QuantityValue")
@@ -151,7 +156,21 @@ def defined_class(name, prop, filler, base="TreatmentOutcome"):
 defined_class("StimulatoryOutcome", "hasResponse", "HormeticResponse")
 defined_class("MutagenicOutcome", "hasResponse", "MutagenicResponse")
 
-# ---- (5) functional / characteristics ----
+# ---- (5) declarations that the class expressions above depend on ----
+# QuantityValue appears in four class expressions (dose and dose-bound restrictions) and was never
+# declared, while qudt:QuantityValue was declared and used as the range of the same properties. An
+# undeclared IRI in a logical position is not legal OWL 2 DL, so declare it and state the identity.
+g.add((C("QuantityValue"), RDF.type, OWL.Class))
+g.add((C("QuantityValue"), RDFS.label, Literal("Quantity value", lang="en")))
+g.add((C("QuantityValue"), OWL.equivalentClass, QUDT.QuantityValue))
+g.add((QUDT.QuantityValue, RDF.type, OWL.Class))
+# numericValue was typed only as FunctionalProperty -- a characteristic with no property declaration.
+g.add((C("numericValue"), RDF.type, OWL.DatatypeProperty))
+g.add((C("numericValue"), RDFS.domain, C("QuantityValue")))
+g.add((C("numericValue"), RDFS.range, XSD.double))
+g.add((C("numericValue"), RDFS.label, Literal("numeric value", lang="en")))
+
+# ---- functional / characteristics ----
 for fp in ["hasDose", "hasDoseRate", "minDose", "maxDose", "numericValue"]:
     g.add((C(fp), RDF.type, OWL.FunctionalProperty))
 # dose-bound datatype properties (functional)
@@ -176,9 +195,14 @@ align("Seedling", str(OBO)+"PO_0008037", OWL.equivalentClass)    # seedling
 align("GerminationStage", str(OBO)+"PO_0007057", SKOS.closeMatch)  # (germination-related stage)
 # ChEBI isotopes (verified: Cs-137)
 align("Cs137", str(OBO)+"CHEBI_196959", OWL.equivalentClass)
-align("Co60", str(OBO)+"CHEBI_749374", SKOS.closeMatch)     # closeMatch (compound, not pure nuclide)
-# UO dose unit
-g.add((C("QuantityValue"), RDFS.comment, Literal("dose values use unit gray (UO_0000134)")))
+# ChEBI carries caesium-137 as a nuclide but has NO cobalt-60 class: searching it returns only
+# radiopharmaceuticals (cobaltous chloride co 60, cyanocobalamin co 60). An earlier build aligned
+# Co60 to CHEBI_749374 "cobaltous chloride co 60", reached through that class's "60co" synonym --
+# a labelled compound, not the source nuclide. The honest target is the element, as a BROADER term.
+align("Co60", str(OBO)+"CHEBI_27638", SKOS.broadMatch)      # cobalt atom (no Co-60 nuclide in ChEBI)
+# dose units, as typed QUDT links on the quantity restrictions
+g.add((C("QuantityValue"), RDFS.comment, Literal(
+    "dose values carry a typed qudt:unit link; absorbed dose is in gray")))
 align("TemperatureCondition", str(OBO)+"PATO_0000146", SKOS.closeMatch)  # temperature (PATO)
 # RBO gap note (Radiobiology Ontology has no seed-irradiation dose-effect classes -> OnSIR extends)
 g.add((ONT, RDFS.seeAlso, URIRef("http://purl.obolibrary.org/obo/rbo.owl")))
@@ -222,7 +246,8 @@ align("WaterQuality", O+"CHEBI_15377", SKOS.closeMatch)         # water
 align("FreshMass", O+"PATO_0000125", SKOS.closeMatch)           # mass
 align("DryMass", O+"PATO_0000125", SKOS.closeMatch)
 align("CotyledonFreeing", O+"PO_0020030", SKOS.closeMatch)      # cotyledon
-g.add((C("QuantityValue"), RDFS.comment, Literal("dose rate values use gray per minute (UO_0010060)")))
+g.add((C("QuantityValue"), RDFS.comment, Literal(
+    "dose rate values carry a typed qudt:unit link; the unit asserted is gray per hour")))
 
 # ---- (11) SKOS definitions for core classes ----
 DEFS = {
@@ -343,7 +368,7 @@ g.add((C("atStage"), RDFS.range, C("LifecycleStage")))
 g.add((C("doseGy"), RDF.type, OWL.DatatypeProperty))
 g.add((C("doseGy"), RDF.type, OWL.FunctionalProperty))
 g.add((C("doseGy"), RDFS.domain, C("DoseAssessment")))
-g.add((C("doseGy"), SKOS.definition, Literal("absorbed dose in gray (UO_0000134)")))
+g.add((C("doseGy"), SKOS.definition, Literal("absorbed dose, expressed in gray")))
 # a seed HAS a taxon; it is not a subclass of one
 g.add((C("hasTaxon"), RDF.type, OWL.ObjectProperty))
 g.add((C("hasTaxon"), RDFS.domain, C("PlantSeed")))
@@ -459,6 +484,35 @@ for acls, resp in [("AtOrBelowReportedOptimum", "HormeticResponse"),
                    ("AboveReportedOptimum", "MutagenicResponse"),
                    ("AtOrAboveReportedLD50", "SterilizationResponse")]:
     g.add((C(acls), C("consistentWithResponse"), C(resp)))
+
+# ---- every named class must carry a label: OBO practice, and the generated documentation renders
+# ---- bare IRIs without one. Derive from the local name where no explicit label was set.
+import re as _re
+def _human(local):
+    t = _re.sub(r"(?<=[a-z0-9])(?=[A-Z])", " ", local.replace("_", " "))
+    t = _re.sub(r"\s+", " ", t).strip()
+    # keep established acronyms and binomials readable
+    for a, b in [("Ld50", "LD50"), ("L D50", "LD50"), ("Ros", "ROS"), ("Uv", "UV"),
+                 ("Xray", "X-ray"), ("X Ray", "X-ray")]:
+        t = t.replace(a, b)
+    return t[:1].upper() + t[1:]
+
+_missing = 0
+for _c in sorted(set(g.subjects(RDF.type, OWL.Class))):
+    if not isinstance(_c, URIRef) or not str(_c).startswith(str(NS)):
+        continue
+    if g.value(_c, RDFS.label) is None:
+        g.add((_c, RDFS.label, Literal(_human(str(_c)[len(str(NS)):]), lang="en")))
+        _missing += 1
+for _p in sorted(set(g.subjects(RDF.type, OWL.ObjectProperty))
+                 | set(g.subjects(RDF.type, OWL.DatatypeProperty))):
+    if not isinstance(_p, URIRef) or not str(_p).startswith(str(NS)):
+        continue
+    if g.value(_p, RDFS.label) is None:
+        g.add((_p, RDFS.label, Literal(_human(str(_p)[len(str(NS)):]), lang="en")))
+        _missing += 1
+print(f"  labels added where missing: {_missing}")
+
 
 g.serialize("OnSIR.ttl", format="turtle")
 g.serialize("OnSIR.owl", format="xml")

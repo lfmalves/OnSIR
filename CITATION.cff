@@ -4,12 +4,12 @@ title: "OnSIR: Ontology for Seed Irradiation and Plant Radiobiology"
 abstract: >-
   A FAIR OWL 2 DL ontology of seed-irradiation treatments and their dose-dependent
   biological effects (hormetic, mutagenic, sterilizing), aligned to BFO, PO, NCBITaxon,
-  ChEBI, UO and PATO, with dose-to-effect axioms supporting description-logic reasoning.
+  ChEBI, PATO and ENVO, units in QUDT, with dose-to-effect axioms supporting description-logic reasoning.
 type: dataset
-version: "1.1.0"
+version: "1.2.0"
 date-released: "2026-07-24"
 license: CC-BY-4.0
-url: "https://w3id.org/onsir"
+url: "https://github.com/lfmalves/OnSIR"  # w3id redirect not yet registered
 repository-code: "https://github.com/lfmalves/OnSIR"
 keywords:
   - ontology

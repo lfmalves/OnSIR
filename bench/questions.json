@@ -4,13 +4,13 @@
       "optimum": 15.0,
       "ld50": 25.0
     },
-    "Trigonella_foenum_graecum": {
-      "optimum": 150.0,
-      "ld50": 350.0
-    },
     "Capsicum_annuum": {
       "optimum": 50.0,
       "ld50": 200.0
+    },
+    "Trigonella_foenum_graecum": {
+      "optimum": 150.0,
+      "ld50": 350.0
     },
     "Vigna_unguiculata": {
       "optimum": 80.0,
@@ -27,7 +27,7 @@
       "Cs137": 1,
       "Co60": 24
     },
-    "n_taxa_resolved": 24
+    "n_taxa_resolved": 25
   },
   "items": [
     {
@@ -148,8 +148,8 @@
         "species_dependent": true,
         "windows": {
           "Nicotiana_tabacum": "above_optimum",
-          "Trigonella_foenum_graecum": "at_or_below_optimum",
           "Capsicum_annuum": "at_or_below_optimum",
+          "Trigonella_foenum_graecum": "at_or_below_optimum",
           "Vigna_unguiculata": "at_or_below_optimum"
         }
       }
@@ -164,8 +164,8 @@
         "species_dependent": true,
         "windows": {
           "Nicotiana_tabacum": "at_or_above_ld50",
-          "Trigonella_foenum_graecum": "at_or_below_optimum",
           "Capsicum_annuum": "above_optimum",
+          "Trigonella_foenum_graecum": "at_or_below_optimum",
           "Vigna_unguiculata": "at_or_below_optimum"
         }
       }
@@ -180,8 +180,8 @@
         "species_dependent": true,
         "windows": {
           "Nicotiana_tabacum": "at_or_above_ld50",
-          "Trigonella_foenum_graecum": "at_or_below_optimum",
           "Capsicum_annuum": "above_optimum",
+          "Trigonella_foenum_graecum": "at_or_below_optimum",
           "Vigna_unguiculata": "above_optimum"
         }
       }
@@ -196,8 +196,8 @@
         "species_dependent": true,
         "windows": {
           "Nicotiana_tabacum": "at_or_above_ld50",
-          "Trigonella_foenum_graecum": "at_or_below_optimum",
           "Capsicum_annuum": "above_optimum",
+          "Trigonella_foenum_graecum": "at_or_below_optimum",
           "Vigna_unguiculata": "above_optimum"
         }
       }
@@ -212,8 +212,8 @@
         "species_dependent": true,
         "windows": {
           "Nicotiana_tabacum": "at_or_above_ld50",
-          "Trigonella_foenum_graecum": "at_or_below_optimum",
           "Capsicum_annuum": "above_optimum",
+          "Trigonella_foenum_graecum": "at_or_below_optimum",
           "Vigna_unguiculata": "at_or_above_ld50"
         }
       }
@@ -228,8 +228,8 @@
         "species_dependent": true,
         "windows": {
           "Nicotiana_tabacum": "at_or_above_ld50",
-          "Trigonella_foenum_graecum": "above_optimum",
           "Capsicum_annuum": "at_or_above_ld50",
+          "Trigonella_foenum_graecum": "above_optimum",
           "Vigna_unguiculata": "at_or_above_ld50"
         }
       }

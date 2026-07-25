@@ -1,3 +1,4 @@
+@prefix ns1: <http://qudt.org/schema/qudt/> .
 @prefix obo: <http://purl.obolibrary.org/obo/> .
 @prefix onsir: <https://w3id.org/onsir/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -199,115 +200,115 @@ onsir:outcome_27 a onsir:TreatmentOutcome ;
     onsir:hasTreatment onsir:treat_27 .
 
 onsir:dose_00 a onsir:QuantityValue ;
-    rdfs:comment "unit: gray (UO_0000134)" ;
+    ns1:unit <http://qudt.org/vocab/unit/Gray> ;
     onsir:numericValue 3e+02 .
 
 onsir:dose_01 a onsir:QuantityValue ;
-    rdfs:comment "unit: gray (UO_0000134)" ;
+    ns1:unit <http://qudt.org/vocab/unit/Gray> ;
     onsir:numericValue 1.315e+01 .
 
 onsir:dose_02 a onsir:QuantityValue ;
-    rdfs:comment "unit: gray (UO_0000134)" ;
+    ns1:unit <http://qudt.org/vocab/unit/Gray> ;
     onsir:numericValue 1e+02 .
 
 onsir:dose_03 a onsir:QuantityValue ;
-    rdfs:comment "unit: gray (UO_0000134)" ;
+    ns1:unit <http://qudt.org/vocab/unit/Gray> ;
     onsir:numericValue 6e+01 .
 
 onsir:dose_04 a onsir:QuantityValue ;
-    rdfs:comment "unit: gray (UO_0000134)" ;
+    ns1:unit <http://qudt.org/vocab/unit/Gray> ;
     onsir:numericValue 8e+01 .
 
 onsir:dose_05 a onsir:QuantityValue ;
-    rdfs:comment "unit: gray (UO_0000134)" ;
+    ns1:unit <http://qudt.org/vocab/unit/Gray> ;
     onsir:numericValue 1.5e+02 .
 
 onsir:dose_06 a onsir:QuantityValue ;
-    rdfs:comment "unit: gray (UO_0000134)" ;
+    ns1:unit <http://qudt.org/vocab/unit/Gray> ;
     onsir:numericValue 6e+02 .
 
 onsir:dose_07 a onsir:QuantityValue ;
-    rdfs:comment "unit: gray (UO_0000134)" ;
+    ns1:unit <http://qudt.org/vocab/unit/Gray> ;
     onsir:numericValue 2e+01 .
 
 onsir:dose_08 a onsir:QuantityValue ;
-    rdfs:comment "unit: gray (UO_0000134)" ;
+    ns1:unit <http://qudt.org/vocab/unit/Gray> ;
     onsir:numericValue 8e+02 .
 
 onsir:dose_09 a onsir:QuantityValue ;
-    rdfs:comment "unit: gray (UO_0000134)" ;
+    ns1:unit <http://qudt.org/vocab/unit/Gray> ;
     onsir:numericValue 1e+02 .
 
 onsir:dose_10 a onsir:QuantityValue ;
-    rdfs:comment "unit: gray (UO_0000134)" ;
+    ns1:unit <http://qudt.org/vocab/unit/Gray> ;
     onsir:numericValue 1e+02 .
 
 onsir:dose_11 a onsir:QuantityValue ;
-    rdfs:comment "unit: gray (UO_0000134)" ;
+    ns1:unit <http://qudt.org/vocab/unit/Gray> ;
     onsir:numericValue 5e+02 .
 
 onsir:dose_12 a onsir:QuantityValue ;
-    rdfs:comment "unit: gray (UO_0000134)" ;
+    ns1:unit <http://qudt.org/vocab/unit/Gray> ;
     onsir:numericValue 9e+02 .
 
 onsir:dose_13 a onsir:QuantityValue ;
-    rdfs:comment "unit: gray (UO_0000134)" ;
+    ns1:unit <http://qudt.org/vocab/unit/Gray> ;
     onsir:numericValue 1.5e+02 .
 
 onsir:dose_14 a onsir:QuantityValue ;
-    rdfs:comment "unit: gray (UO_0000134)" ;
+    ns1:unit <http://qudt.org/vocab/unit/Gray> ;
     onsir:numericValue 5e+01 .
 
 onsir:dose_15 a onsir:QuantityValue ;
-    rdfs:comment "unit: gray (UO_0000134)" ;
+    ns1:unit <http://qudt.org/vocab/unit/Gray> ;
     onsir:numericValue 1.5e+03 .
 
 onsir:dose_16 a onsir:QuantityValue ;
-    rdfs:comment "unit: gray (UO_0000134)" ;
+    ns1:unit <http://qudt.org/vocab/unit/Gray> ;
     onsir:numericValue 2.4e+02 .
 
 onsir:dose_17 a onsir:QuantityValue ;
-    rdfs:comment "unit: gray (UO_0000134)" ;
+    ns1:unit <http://qudt.org/vocab/unit/Gray> ;
     onsir:numericValue 5.262e+02 .
 
 onsir:dose_18 a onsir:QuantityValue ;
-    rdfs:comment "unit: gray (UO_0000134)" ;
+    ns1:unit <http://qudt.org/vocab/unit/Gray> ;
     onsir:numericValue 8e+00 .
 
 onsir:dose_19 a onsir:QuantityValue ;
-    rdfs:comment "unit: gray (UO_0000134)" ;
+    ns1:unit <http://qudt.org/vocab/unit/Gray> ;
     onsir:numericValue 9e+02 .
 
 onsir:dose_20 a onsir:QuantityValue ;
-    rdfs:comment "unit: gray (UO_0000134)" ;
+    ns1:unit <http://qudt.org/vocab/unit/Gray> ;
     onsir:numericValue 1e+03 .
 
 onsir:dose_21 a onsir:QuantityValue ;
-    rdfs:comment "unit: gray (UO_0000134)" ;
+    ns1:unit <http://qudt.org/vocab/unit/Gray> ;
     onsir:numericValue 1e+02 .
 
 onsir:dose_22 a onsir:QuantityValue ;
-    rdfs:comment "unit: gray (UO_0000134)" ;
+    ns1:unit <http://qudt.org/vocab/unit/Gray> ;
     onsir:numericValue 5e+02 .
 
 onsir:dose_23 a onsir:QuantityValue ;
-    rdfs:comment "unit: gray (UO_0000134)" ;
+    ns1:unit <http://qudt.org/vocab/unit/Gray> ;
     onsir:numericValue 2.5e+02 .
 
 onsir:dose_24 a onsir:QuantityValue ;
-    rdfs:comment "unit: gray (UO_0000134)" ;
+    ns1:unit <http://qudt.org/vocab/unit/Gray> ;
     onsir:numericValue 1.2e+02 .
 
 onsir:dose_25 a onsir:QuantityValue ;
-    rdfs:comment "unit: gray (UO_0000134)" ;
+    ns1:unit <http://qudt.org/vocab/unit/Gray> ;
     onsir:numericValue 3e+01 .
 
 onsir:dose_26 a onsir:QuantityValue ;
-    rdfs:comment "unit: gray (UO_0000134)" ;
+    ns1:unit <http://qudt.org/vocab/unit/Gray> ;
     onsir:numericValue 2e+02 .
 
 onsir:dose_27 a onsir:QuantityValue ;
-    rdfs:comment "unit: gray (UO_0000134)" ;
+    ns1:unit <http://qudt.org/vocab/unit/Gray> ;
     onsir:numericValue 4e+01 .
 
 onsir:seed_00 a onsir:PlantSeed ;

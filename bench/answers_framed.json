@@ -10,12 +10,12 @@
 {"id": "A09", "answer": "at_or_below_optimum"}
 {"id": "A10", "answer": "above_optimum"}
 {"id": "A11", "answer": "at_or_above_ld50"}
-{"id": "B12", "answer": {"verdict": "stimulatory", "species_dependent": true}}
-{"id": "B13", "answer": {"verdict": "stimulatory", "species_dependent": true}}
-{"id": "B14", "answer": {"verdict": "mutagenic", "species_dependent": true}}
-{"id": "B15", "answer": {"verdict": "mutagenic", "species_dependent": true}}
-{"id": "B16", "answer": {"verdict": "mutagenic", "species_dependent": true}}
-{"id": "B17", "answer": {"verdict": "sterilizing", "species_dependent": true}}
+{"id": "B12", "answer": {"verdict": "underdetermined", "species_dependent": true}}
+{"id": "B13", "answer": {"verdict": "underdetermined", "species_dependent": true}}
+{"id": "B14", "answer": {"verdict": "underdetermined", "species_dependent": true}}
+{"id": "B15", "answer": {"verdict": "underdetermined", "species_dependent": true}}
+{"id": "B16", "answer": {"verdict": "underdetermined", "species_dependent": true}}
+{"id": "B17", "answer": {"verdict": "underdetermined", "species_dependent": true}}
 {"id": "C18", "answer": 28}
 {"id": "C19", "answer": 8}
 {"id": "C20", "answer": 1500}

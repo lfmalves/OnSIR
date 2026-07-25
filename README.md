@@ -2,7 +2,7 @@
 
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 
-**Canonical IRI:** `https://w3id.org/onsir` · **Version:** 1.1.0 · **License:** CC BY 4.0
+**Canonical IRI:** `https://w3id.org/onsir` · **Version:** 1.2.0 · **License:** CC BY 4.0
 
 OnSIR is a FAIR OWL 2 DL ontology of **seed-irradiation treatments** and their dose-dependent
 biological effects — **hormetic**, **mutagenic**, and **sterilizing** — across crop and model
@@ -10,16 +10,16 @@ plants. It models radiation types and isotopic sources, dose and dose-rate categ
 dose–response models, lifecycle stages, endpoints, and the `TreatmentOutcome` that links a
 treatment to its subject, context, dose category, and response.
 
-## What is in this release (v1.1.0)
+## What is in this release (v1.2.0)
 
-- **88 named classes, 26 object properties, 12 datatype properties**, 4 named individuals
+- **96 named classes, 27 object properties, 13 datatype properties**, 4 named individuals
   (functional and inverse characteristics; anonymous class expressions are not counted as terms).
 - **Logical axioms**: pairwise **disjointness** of dose categories, responses,
   radiation types and isotopes; **existential restrictions** on treatments/outcomes/dose ranges;
   **dose→effect axioms** (a hormetic dose entails a hormetic response, etc.) and the defined
   classes `StimulatoryOutcome` / `MutagenicOutcome` that a reasoner uses to classify outcomes.
 - **External alignment** (verified IRIs): BFO (upper level), PO (`seed`, `seedling`),
-  NCBITaxon (species), ChEBI (isotopes), UO (`gray`), PATO (qualities). A gap analysis versus
+  NCBITaxon (species), ChEBI (isotopes), QUDT (units), PATO (qualities). A gap analysis versus
   the OBO Radiobiology Ontology (RBO) motivates OnSIR's seed-irradiation dose–effect classes.
 - **Context-dependent dose positioning:** a dose is not hormetic in itself, so taxon-specific
   numeric windows are encoded with OWL 2 datatype facets and the reasoner *derives* where a dose sits
