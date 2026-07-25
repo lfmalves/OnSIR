@@ -498,7 +498,7 @@
   <rdf:Description rdf:nodeID="Nccec60fe69d9481bb3939dda71a36363">
     <rdf:type rdf:resource="http://qudt.org/schema/qudt/QuantityValue"/>
     <qudt:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">2.5</qudt:numericValue>
-    <qudt:unit rdf:resource="http://qudt.org/vocab/unit/Gy-PER-HR"/>
+    <qudt:unit rdf:resource="http://qudt.org/vocab/unit/Gy-PER-MIN"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://example.org/SeedIrradCore#MutationFrequency">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
@@ -557,8 +557,8 @@
   </rdf:Description>
   <rdf:Description rdf:nodeID="N5a83b24a088543d0830dd89b1036fcab">
     <rdf:type rdf:resource="http://qudt.org/schema/qudt/QuantityValue"/>
-    <qudt:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.333333</qudt:numericValue>
-    <qudt:unit rdf:resource="http://qudt.org/vocab/unit/HR"/>
+    <qudt:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">20.0</qudt:numericValue>
+    <qudt:unit rdf:resource="http://qudt.org/vocab/unit/MIN"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://example.org/SeedIrradCore#LightCondition">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>

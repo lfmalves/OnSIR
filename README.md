@@ -12,7 +12,7 @@ treatment to its subject, context, dose category, and response.
 
 ## What is in this release (v1.3.0)
 
-- **96 named classes, 27 object properties, 13 datatype properties**; 3 legacy dose classes deprecated
+- **96 named classes, 26 object properties, 11 datatype properties**; 3 legacy dose classes deprecated
 - ABox: 28 studies, 136 declared individuals, shipped as Turtle **and** RDF/XML with an OWL catalogue
 - `verify_release.py` checks the release against the manuscript's claims in one command
   (functional and inverse characteristics; anonymous class expressions are not counted as terms).

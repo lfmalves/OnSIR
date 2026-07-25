@@ -28,7 +28,7 @@ th{background:#1f1f1f}.badge{background:#12261d;border-color:#1f4a35}a{color:#6a
 <tr><th style='width:9rem'>Modified</th><td class='mono'>2026-07-24</td></tr>
 <tr><th style='width:9rem'>Authors</th><td class='mono'>Ferrucio de Franco Rosa; https://orcid.org/0000-0003-3521-9136; https://orcid.org/0009-0005-4227-5568</td></tr>
 <tr><th style='width:9rem'>Provenance</th><td class='mono'>https://doi.org/10.22456/2175-2745.146658<br>https://doi.org/10.56238/sevened2025.039-003<br>https://doi.org/10.69547/TSFJB.030203</td></tr>
-<tr><th>Size</th><td>1284 triples &middot; 96 named classes &middot; 27 object properties &middot; 13 datatype properties</td></tr>
+<tr><th>Size</th><td>1268 triples &middot; 96 named classes &middot; 26 object properties &middot; 11 datatype properties</td></tr>
 </table>
 <h2>Taxon-specific dose windows</h2>
 <p>Dose categories are <em>not</em> asserted: each taxon carries numeric windows, so a reasoner derives the category of a dose from its value together with the taxon. Bounds are literature-derived and provenanced per class.</p><table><tr><th>Window class</th><th>Definition</th><th>Source</th></tr>
@@ -202,7 +202,7 @@ th{background:#1f1f1f}.badge{background:#12261d;border-color:#1f4a35}a{color:#6a
 <table><tr><th style='width:11rem'>subclass of</th><td class='ax'><a href="#Endpoint">Endpoint</a></td></tr></table>
 <h3 id='SeedIrradiationTreatment'>SeedIrradiationTreatment</h3>
 <p class='def'>A treatment process in which seeds are exposed to ionizing radiation of a specified type, source, dose and dose rate.</p>
-<table><tr><th style='width:11rem'>subclass of</th><td class='ax'>hasRadiationType <em>some</em> <a href="#RadiationType">RadiationType</a><br>hasDose <em>exactly</em> 1 <a href="#QuantityValue">QuantityValue</a><br>induces <em>some</em> <a href="#Response">Response</a><br>hasDose <em>some</em> <a href="#QuantityValue">QuantityValue</a><br>obo:BFO_0000015<br><a href="#SeedTreatment">SeedTreatment</a></td></tr><tr><th style='width:11rem'>external alignment</th><td class='ax'>obo:BFO_0000015</td></tr></table>
+<table><tr><th style='width:11rem'>subclass of</th><td class='ax'>hasDose <em>some</em> <a href="#QuantityValue">QuantityValue</a><br>hasRadiationType <em>some</em> <a href="#RadiationType">RadiationType</a><br>hasDose <em>exactly</em> 1 <a href="#QuantityValue">QuantityValue</a><br>induces <em>some</em> <a href="#Response">Response</a><br>obo:BFO_0000015<br><a href="#SeedTreatment">SeedTreatment</a></td></tr><tr><th style='width:11rem'>external alignment</th><td class='ax'>obo:BFO_0000015</td></tr></table>
 <h3 id='SeedStage'>SeedStage</h3>
 <table><tr><th style='width:11rem'>subclass of</th><td class='ax'><a href="#LifecycleStage">LifecycleStage</a></td></tr></table>
 <h3 id='SeedSterility'>SeedSterility</h3>
@@ -235,7 +235,7 @@ th{background:#1f1f1f}.badge{background:#12261d;border-color:#1f4a35}a{color:#6a
 <table><tr><th style='width:11rem'>subclass of</th><td class='ax'><a href="#Context">Context</a></td></tr><tr><th style='width:11rem'>external alignment</th><td class='ax'>obo:PATO_0000146</td></tr></table>
 <h3 id='TreatmentOutcome'>TreatmentOutcome</h3>
 <p class='def'>The observed result of a seed-irradiation treatment on a subject seed under a context, characterized by a dose category and a biological response for a given endpoint.</p>
-<table><tr><th style='width:11rem'>subclass of</th><td class='ax'>hasTreatment <em>exactly</em> 1 <a href="#SeedIrradiationTreatment">SeedIrradiationTreatment</a><br>hasResponse <em>some</em> <a href="#Response">Response</a><br>hasTreatment <em>some</em> <a href="#SeedIrradiationTreatment">SeedIrradiationTreatment</a></td></tr></table>
+<table><tr><th style='width:11rem'>subclass of</th><td class='ax'>hasTreatment <em>some</em> <a href="#SeedIrradiationTreatment">SeedIrradiationTreatment</a><br>hasTreatment <em>exactly</em> 1 <a href="#SeedIrradiationTreatment">SeedIrradiationTreatment</a><br>hasResponse <em>some</em> <a href="#Response">Response</a></td></tr></table>
 <h3 id='Trigonella_foenum_graecum_AboveOptimumDose'>Trigonella_foenum_graecum_AboveOptimumDose</h3>
 <p class='def'>dose interval &#x27;AboveOptimum&#x27; for Trigonella foenum-graecum, relative to the reported statistics; bounds from Latha et al. 2017, J. AgriSearch 4(1):28-33</p>
 <table><tr><th style='width:11rem'>equivalent to</th><td class='ax'>(<a href="#DoseAssessment">DoseAssessment</a> <b>and</b> forTaxon <em>value</em> <a href="#taxon_Trigonella_foenum_graecum">taxon_Trigonella_foenum_graecum</a> <b>and</b> doseGy <em>some</em> [minExclusive 150.0 and maxExclusive 350.0 (xsd:decimal, xsd:double)])</td></tr><tr><th style='width:11rem'>subclass of</th><td class='ax'><a href="#AboveReportedOptimum">AboveReportedOptimum</a></td></tr></table>
@@ -266,12 +266,10 @@ th{background:#1f1f1f}.badge{background:#12261d;border-color:#1f4a35}a{color:#6a
 <table><tr><th style='width:11rem'>subclass of</th><td class='ax'><a href="#RadiationType">RadiationType</a></td></tr></table>
 <h3 id='Xe133'>Xe133</h3>
 <table><tr><th style='width:11rem'>subclass of</th><td class='ax'><a href="#Isotope">Isotope</a></td></tr></table>
-<h2>Object properties <span class='badge'>27</span></h2>
-<p class='toc'><a href='#atStage'>atStage</a> <a href='#expectedResponse'>expectedResponse</a> <a href='#forEndpoint'>forEndpoint</a> <a href='#forTaxon'>forTaxon</a> <a href='#hasBiochemicalChange'>hasBiochemicalChange</a> <a href='#hasContext'>hasContext</a> <a href='#hasDose'>hasDose</a> <a href='#hasDoseCategory'>hasDoseCategory</a> <a href='#hasDoseRange'>hasDoseRange</a> <a href='#hasDoseRate'>hasDoseRate</a> <a href='#hasDoseRateCategory'>hasDoseRateCategory</a> <a href='#hasEndpointCategory'>hasEndpointCategory</a> <a href='#hasExposureTime'>hasExposureTime</a> <a href='#hasFluence'>hasFluence</a> <a href='#hasModel'>hasModel</a> <a href='#hasRadiationType'>hasRadiationType</a> <a href='#hasResponse'>hasResponse</a> <a href='#hasSourceIsotope'>hasSourceIsotope</a> <a href='#hasSubject'>hasSubject</a> <a href='#hasTaxon'>hasTaxon</a> <a href='#hasTreatment'>hasTreatment</a> <a href='#hasWavelength'>hasWavelength</a> <a href='#inducedBy'>inducedBy</a> <a href='#induces'>induces</a> <a href='#isTreatmentOf'>isTreatmentOf</a> <a href='#maxDose'>maxDose</a> <a href='#minDose'>minDose</a></p>
+<h2>Object properties <span class='badge'>26</span></h2>
+<p class='toc'><a href='#atStage'>atStage</a> <a href='#forEndpoint'>forEndpoint</a> <a href='#forTaxon'>forTaxon</a> <a href='#hasBiochemicalChange'>hasBiochemicalChange</a> <a href='#hasContext'>hasContext</a> <a href='#hasDose'>hasDose</a> <a href='#hasDoseCategory'>hasDoseCategory</a> <a href='#hasDoseRange'>hasDoseRange</a> <a href='#hasDoseRate'>hasDoseRate</a> <a href='#hasDoseRateCategory'>hasDoseRateCategory</a> <a href='#hasEndpointCategory'>hasEndpointCategory</a> <a href='#hasExposureTime'>hasExposureTime</a> <a href='#hasFluence'>hasFluence</a> <a href='#hasModel'>hasModel</a> <a href='#hasRadiationType'>hasRadiationType</a> <a href='#hasResponse'>hasResponse</a> <a href='#hasSourceIsotope'>hasSourceIsotope</a> <a href='#hasSubject'>hasSubject</a> <a href='#hasTaxon'>hasTaxon</a> <a href='#hasTreatment'>hasTreatment</a> <a href='#hasWavelength'>hasWavelength</a> <a href='#inducedBy'>inducedBy</a> <a href='#induces'>induces</a> <a href='#isTreatmentOf'>isTreatmentOf</a> <a href='#maxDose'>maxDose</a> <a href='#minDose'>minDose</a></p>
 <h3 id='atStage'>atStage</h3>
 <table><tr><th style='width:11rem'>domain</th><td class='ax'><a href="#DoseAssessment">DoseAssessment</a></td></tr><tr><th style='width:11rem'>range</th><td class='ax'><a href="#LifecycleStage">LifecycleStage</a></td></tr></table>
-<h3 id='expectedResponse'>expectedResponse</h3>
-<table><tr><th style='width:11rem'>domain</th><td class='ax'><a href="#DoseAssessment">DoseAssessment</a></td></tr><tr><th style='width:11rem'>range</th><td class='ax'><a href="#Response">Response</a></td></tr></table>
 <h3 id='forEndpoint'>forEndpoint</h3>
 <table><tr><th style='width:11rem'>domain</th><td class='ax'><a href="#DoseAssessment">DoseAssessment</a>, <a href="#TreatmentOutcome">TreatmentOutcome</a></td></tr><tr><th style='width:11rem'>range</th><td class='ax'><a href="#Endpoint">Endpoint</a></td></tr></table>
 <h3 id='forTaxon'>forTaxon</h3>
@@ -325,8 +323,8 @@ th{background:#1f1f1f}.badge{background:#12261d;border-color:#1f4a35}a{color:#6a
 <table><tr><th style='width:11rem'>domain</th><td class='ax'><a href="#DoseRange">DoseRange</a></td></tr><tr><th style='width:11rem'>range</th><td class='ax'>http://qudt.org/schema/qudt/QuantityValue</td></tr><tr><th style='width:11rem'>characteristics</th><td class='ax'>owl:FunctionalProperty</td></tr></table>
 <h3 id='minDose'>minDose</h3>
 <table><tr><th style='width:11rem'>domain</th><td class='ax'><a href="#DoseRange">DoseRange</a></td></tr><tr><th style='width:11rem'>range</th><td class='ax'>http://qudt.org/schema/qudt/QuantityValue</td></tr><tr><th style='width:11rem'>characteristics</th><td class='ax'>owl:FunctionalProperty</td></tr></table>
-<h2>Datatype properties <span class='badge'>13</span></h2>
-<p class='toc'><a href='#bc_b'>bc_b</a> <a href='#bc_c'>bc_c</a> <a href='#bc_d'>bc_d</a> <a href='#bc_e'>bc_e</a> <a href='#bc_f'>bc_f</a> <a href='#doseGy'>doseGy</a> <a href='#doseLowerGy'>doseLowerGy</a> <a href='#doseUpperGy'>doseUpperGy</a> <a href='#germinationRateIncrease'>germinationRateIncrease</a> <a href='#mutationFrequency'>mutationFrequency</a> <a href='#numericValue'>numericValue</a> <a href='#rootGrowthStimulus'>rootGrowthStimulus</a> <a href='#sterilityRate'>sterilityRate</a></p>
+<h2>Datatype properties <span class='badge'>11</span></h2>
+<p class='toc'><a href='#bc_b'>bc_b</a> <a href='#bc_c'>bc_c</a> <a href='#bc_d'>bc_d</a> <a href='#bc_e'>bc_e</a> <a href='#bc_f'>bc_f</a> <a href='#doseGy'>doseGy</a> <a href='#germinationRateIncrease'>germinationRateIncrease</a> <a href='#mutationFrequency'>mutationFrequency</a> <a href='#numericValue'>numericValue</a> <a href='#rootGrowthStimulus'>rootGrowthStimulus</a> <a href='#sterilityRate'>sterilityRate</a></p>
 <h3 id='bc_b'>bc_b</h3>
 <table><tr><th style='width:11rem'>domain</th><td class='ax'><a href="#DoseResponseModel">DoseResponseModel</a></td></tr><tr><th style='width:11rem'>range</th><td class='ax'>xsd:double</td></tr></table>
 <h3 id='bc_c'>bc_c</h3>
@@ -340,12 +338,6 @@ th{background:#1f1f1f}.badge{background:#12261d;border-color:#1f4a35}a{color:#6a
 <h3 id='doseGy'>doseGy</h3>
 <p class='def'>absorbed dose, expressed in gray</p>
 <table><tr><th style='width:11rem'>domain</th><td class='ax'><a href="#DoseAssessment">DoseAssessment</a></td></tr><tr><th style='width:11rem'>range</th><td class='ax'>xsd:decimal, xsd:double</td></tr><tr><th style='width:11rem'>characteristics</th><td class='ax'>owl:FunctionalProperty</td></tr></table>
-<h3 id='doseLowerGy'>doseLowerGy</h3>
-<p class='def'>lower dose bound in gray</p>
-<table><tr><th style='width:11rem'>domain</th><td class='ax'><a href="#DoseRange">DoseRange</a></td></tr><tr><th style='width:11rem'>range</th><td class='ax'>xsd:double</td></tr><tr><th style='width:11rem'>characteristics</th><td class='ax'>owl:FunctionalProperty</td></tr></table>
-<h3 id='doseUpperGy'>doseUpperGy</h3>
-<p class='def'>upper dose bound in gray</p>
-<table><tr><th style='width:11rem'>domain</th><td class='ax'><a href="#DoseRange">DoseRange</a></td></tr><tr><th style='width:11rem'>range</th><td class='ax'>xsd:double</td></tr><tr><th style='width:11rem'>characteristics</th><td class='ax'>owl:FunctionalProperty</td></tr></table>
 <h3 id='germinationRateIncrease'>germinationRateIncrease</h3>
 <table><tr><th style='width:11rem'>domain</th><td class='ax'><a href="#HormeticResponse">HormeticResponse</a></td></tr><tr><th style='width:11rem'>range</th><td class='ax'>xsd:double</td></tr></table>
 <h3 id='mutationFrequency'>mutationFrequency</h3>

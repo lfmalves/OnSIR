@@ -518,6 +518,19 @@ for acls, resp in [("AtOrBelowReportedOptimum", "HormeticResponse"),
                    ("AtOrAboveReportedLD50", "SterilizationResponse")]:
     g.add((C(acls), C("consistentWithResponse"), C(resp)))
 
+# ---- remove declared-but-unused terms ----
+# expectedResponse is a leftover from the pre-correction design, in which a dose category implied a
+# response. doseLowerGy and doseUpperGy were an alternative to expressing bounds as datatype facets;
+# the facets are what the ontology actually uses, and the manuscript's contribution rests on them.
+# A term declared and never used is dead weight that a reader has to rule out.
+for _dead in ("expectedResponse", "doseLowerGy", "doseUpperGy"):
+    for _t in list(g.triples((C(_dead), None, None))):
+        g.remove(_t)
+    for _t in list(g.triples((None, None, C(_dead)))):
+        g.remove(_t)
+    for _t in list(g.triples((None, C(_dead), None))):
+        g.remove(_t)
+
 # ---- every named class must carry a label: OBO practice, and the generated documentation renders
 # ---- bare IRIs without one. Derive from the local name where no explicit label was set.
 import re as _re

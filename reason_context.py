@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
-r"""Context-dependent dose classification: the reasoner derives the biological category of a
-NUMERIC dose from the dose value together with the taxon, rather than being told it.
+r"""Context-dependent dose classification: the reasoner places a NUMERIC dose relative to the
+values reported for a taxon, from the dose and the taxon rather than from an asserted label. The
+placement is evidence-relative: it says where the dose falls, not what it does.
 
 Three demonstrations:
   (A) the SAME dose (100 Gy) classifies differently for three taxa, because each taxon carries
       its own literature-derived dose windows;
-  (B) the same taxon classifies differently across doses, and the expected response follows;
+  (B) the same taxon classifies differently across doses;
   (C) an ENCODING conflict is detected: when a taxon's reported optimum exceeds its reported LD50
       (Triticum aestivum), the two statistics cannot both bound one dose ordering, and the record is
       flagged. This is a data-quality check on the encoding, not a claim that the observations are
@@ -70,9 +71,6 @@ if __name__ == "__main__":
     onto = o2.get_ontology(ONT).load()
     NS = onto.get_namespace(NSU)
     import rdflib
-    with onto:
-        # add the anomalous taxon windows, then an assessment inside the overlap
-        pass
     # build the overlapping encoding directly in RDF, then reason
     g = rdflib.Graph(); g.parse("OnSIR.owl")
     from rdflib import URIRef, BNode, Literal, RDF, RDFS, OWL, XSD, Namespace
@@ -109,7 +107,7 @@ if __name__ == "__main__":
         g.add((c, RDFS.subClassOf, N[parent]))
     defc("Triticum_aestivum_AtOrBelowOptimumDose", 0.0, 300.0, "AtOrBelowReportedOptimum")
     defc("Triticum_aestivum_AtOrAboveLD50Dose", 273.0, None, "AtOrAboveReportedLD50", lo_ex=False)
-    bad = N["tritium_overlap_case"]
+    bad = N["triticum_overlap_case"]
     g.add((bad, RDF.type, OWL.NamedIndividual)); g.add((bad, RDF.type, N["DoseAssessment"]))
     g.add((bad, N["forTaxon"], tri))
     g.add((bad, N["doseGy"], Literal(280.0, datatype=XSD.double)))

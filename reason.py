@@ -34,8 +34,30 @@ except o2.OwlReadyInconsistentOntologyError:
 
 print("\n=== after HermiT ===")
 print("  ontology CONSISTENT:", consistent)
-print("  outcome_hormetic inferred response:", [r.name for r in o_h.hasResponse]
-      or "(via some-restriction; see class membership)")
+# The response is entailed through an existential restriction, so it never appears as a property
+# value on the individual, and owlready2 does not list anonymous restriction classes in
+# INDIRECT_is_a either -- both of those checks report a misleading negative. The entailment has to be
+# tested by refutation: assert the NEGATION on a fresh copy and see whether the reasoner rejects it.
+def entails_response(dose_cls_name, resp_cls_name):
+    """True iff asserting NOT(hasResponse some <resp>) on the outcome makes the KB inconsistent."""
+    w2 = o2.World()
+    o2_ = w2.get_ontology("file://" + o2.os.path.abspath("OnSIR.owl")).load()
+    ns = o2_.get_namespace("https://w3id.org/onsir/")
+    with o2_:
+        x = ns["TreatmentOutcome"]("probe_" + dose_cls_name)
+        x.hasDoseCategory = [ns[dose_cls_name]("probe_dose_" + dose_cls_name)]
+        x.is_a.append(o2.Not(ns["hasResponse"].some(ns[resp_cls_name])))
+    try:
+        with o2_:
+            o2.sync_reasoner_hermit(x=w2, debug=0)
+        return False           # the negation is satisfiable -> not entailed
+    except o2.OwlReadyInconsistentOntologyError:
+        return True            # the negation is refuted -> entailed
+
+print("  entails (hasResponse some HormeticResponse) from HormeticDose  :",
+      entails_response("HormeticDose", "HormeticResponse"))
+print("  entails (hasResponse some MutagenicResponse) from MutagenicDose:",
+      entails_response("MutagenicDose", "MutagenicResponse"))
 print("  outcome_hormetic inferred classes:", [c.name for c in o_h.is_a])
 print("  is StimulatoryOutcome?:", StimulatoryOutcome in o_h.is_a
       or StimulatoryOutcome in o_h.INDIRECT_is_a)
