@@ -568,7 +568,7 @@ from rdflib import RDF as R
 print("OnSIR ontology built.")
 print("  triples:", len(g))
 # count NAMED classes in the OnSIR namespace only: counting all owl:Class subjects also counts
-# anonymous class expressions, which is how an inflated class count got into an earlier draft.
+# anonymous class expressions, which would inflate the reported class count.
 print("  classes (named, onsir namespace):",
       len([c for c in set(g.subjects(R.type, OWL.Class))
            if isinstance(c, URIRef) and str(c).startswith(str(NS))]))

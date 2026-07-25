@@ -6,8 +6,8 @@ import os, re, json, urllib.request, urllib.parse
 import rdflib
 from rdflib import Graph, Namespace, URIRef, Literal, BNode, RDF, RDFS, OWL, XSD
 
-# The coded corpus travels WITH the release. It used to be read from an absolute path outside the
-# repository, which made every ABox number in the paper unreproducible by anyone else.
+# The coded corpus travels WITH the release. Reading it from a path outside the repository would
+# make every ABox number in the paper unreproducible by anyone else.
 TEX = os.path.join(os.path.dirname(os.path.abspath(__file__)), "corpus", "eiccam_table_body.tex")
 NS = Namespace("https://w3id.org/onsir/")
 OBO = Namespace("http://purl.obolibrary.org/obo/")

@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
 r"""Generate the manuscript's ontology-metrics table directly from OnSIR.ttl.
 
-The table used to be maintained by hand and had drifted from the artifact (it reported the
-disjointness and restriction counts of an earlier build). Counting here means the table cannot
-disagree with the release it describes.
+A hand-maintained table can silently disagree with the release it describes -- a stale
+disjointness or restriction count looks perfectly plausible. Counting here removes the possibility.
 
 Counting rules, stated because every one of them is a choice:
   * named classes / properties: IRIs in the OnSIR namespace only, so anonymous class expressions
