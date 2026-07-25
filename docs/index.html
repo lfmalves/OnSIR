@@ -22,13 +22,13 @@ th{background:#1f1f1f}.badge{background:#12261d;border-color:#1f4a35}a{color:#6a
 <p class='sub'>A FAIR OWL 2 DL ontology of seed-irradiation treatments and their dose-dependent biological effects, aligned to BFO, PO, NCBITaxon, ChEBI, PATO and ENVO with verified IRIs and to QUDT for units, with dose-to-effect axioms supporting DL reasoning.</p>
 <table>
 <tr><th style='width:9rem'>Namespace</th><td class='mono'>https://w3id.org/onsir/</td></tr>
-<tr><th style='width:9rem'>Version</th><td class='mono'>1.2.0</td></tr>
+<tr><th style='width:9rem'>Version</th><td class='mono'>1.3.0</td></tr>
 <tr><th style='width:9rem'>License</th><td class='mono'>https://creativecommons.org/licenses/by/4.0/</td></tr>
 <tr><th style='width:9rem'>Created</th><td class='mono'>2025-09-21</td></tr>
 <tr><th style='width:9rem'>Modified</th><td class='mono'>2026-07-24</td></tr>
 <tr><th style='width:9rem'>Authors</th><td class='mono'>Ferrucio de Franco Rosa; https://orcid.org/0000-0003-3521-9136; https://orcid.org/0009-0005-4227-5568</td></tr>
 <tr><th style='width:9rem'>Provenance</th><td class='mono'>https://doi.org/10.22456/2175-2745.146658<br>https://doi.org/10.56238/sevened2025.039-003<br>https://doi.org/10.69547/TSFJB.030203</td></tr>
-<tr><th>Size</th><td>1279 triples &middot; 96 named classes &middot; 27 object properties &middot; 13 datatype properties</td></tr>
+<tr><th>Size</th><td>1284 triples &middot; 96 named classes &middot; 27 object properties &middot; 13 datatype properties</td></tr>
 </table>
 <h2>Taxon-specific dose windows</h2>
 <p>Dose categories are <em>not</em> asserted: each taxon carries numeric windows, so a reasoner derives the category of a dose from its value together with the taxon. Bounds are literature-derived and provenanced per class.</p><table><tr><th>Window class</th><th>Definition</th><th>Source</th></tr>
@@ -100,7 +100,7 @@ th{background:#1f1f1f}.badge{background:#12261d;border-color:#1f4a35}a{color:#6a
 <p class='def'>A qualitative classification of an irradiation dose by its predominant biological effect.</p>
 <table><tr><th style='width:11rem'>equivalent to</th><td class='ax'>(<a href="#HormeticDose">HormeticDose</a> <b>or</b> <a href="#MutagenicDose">MutagenicDose</a> <b>or</b> <a href="#SterilizationDose">SterilizationDose</a>)</td></tr></table>
 <h3 id='DoseRange'>DoseRange</h3>
-<table><tr><th style='width:11rem'>subclass of</th><td class='ax'>minDose <em>some</em> <a href="#QuantityValue">QuantityValue</a><br>maxDose <em>some</em> <a href="#QuantityValue">QuantityValue</a></td></tr></table>
+<table><tr><th style='width:11rem'>subclass of</th><td class='ax'>maxDose <em>some</em> <a href="#QuantityValue">QuantityValue</a><br>minDose <em>some</em> <a href="#QuantityValue">QuantityValue</a></td></tr></table>
 <h3 id='DoseRateCategory'>DoseRateCategory</h3>
 <h3 id='DoseResponseModel'>DoseResponseModel</h3>
 <p class='def'>A parametric model describing how an endpoint varies with dose (e.g., the Brain-Cousens hormetic model).</p>
@@ -143,7 +143,6 @@ th{background:#1f1f1f}.badge{background:#12261d;border-color:#1f4a35}a{color:#6a
 <table><tr><th style='width:11rem'>subclass of</th><td class='ax'><a href="#Isotope">Isotope</a></td></tr></table>
 <h3 id='Isotope'>Isotope</h3>
 <h3 id='LifecycleStage'>LifecycleStage</h3>
-<p class='def'>Integration touchpoint: map Seed/Germination/Seedling stages to external lifecycle hierarchies.</p>
 <h3 id='LightCondition'>LightCondition</h3>
 <table><tr><th style='width:11rem'>subclass of</th><td class='ax'><a href="#Context">Context</a></td></tr></table>
 <h3 id='LipidPeroxidation'>LipidPeroxidation</h3>
@@ -186,7 +185,6 @@ th{background:#1f1f1f}.badge{background:#12261d;border-color:#1f4a35}a{color:#6a
 <h3 id='PlantPart'>PlantPart</h3>
 <table><tr><th style='width:11rem'>subclass of</th><td class='ax'>obo:BFO_0000040<br>obo:PO_0025131</td></tr><tr><th style='width:11rem'>external alignment</th><td class='ax'>obo:BFO_0000040, obo:PO_0025131</td></tr></table>
 <h3 id='PlantSeed'>PlantSeed</h3>
-<p class='def'>Integration touchpoint suggestion: align to crop ontologies&#x27; seed class (e.g., TobaccoSeed) via skos:exactMatch/closeMatch.</p>
 <table><tr><th style='width:11rem'>equivalent to</th><td class='ax'>obo:PO_0009010</td></tr><tr><th style='width:11rem'>subclass of</th><td class='ax'>obo:BFO_0000040</td></tr><tr><th style='width:11rem'>external alignment</th><td class='ax'>obo:BFO_0000040, obo:PO_0009010</td></tr></table>
 <h3 id='PollenSterility'>PollenSterility</h3>
 <table><tr><th style='width:11rem'>subclass of</th><td class='ax'><a href="#Endpoint">Endpoint</a></td></tr></table>
@@ -199,12 +197,12 @@ th{background:#1f1f1f}.badge{background:#12261d;border-color:#1f4a35}a{color:#6a
 <table><tr><th style='width:11rem'>subclass of</th><td class='ax'><a href="#BiochemicalChange">BiochemicalChange</a></td></tr><tr><th style='width:11rem'>external alignment</th><td class='ax'>obo:CHEBI_26523</td></tr></table>
 <h3 id='RadiationType'>RadiationType</h3>
 <h3 id='Response'>Response</h3>
-<table><tr><th style='width:11rem'>equivalent to</th><td class='ax'>(<a href="#HormeticResponse">HormeticResponse</a> <b>or</b> <a href="#MutagenicResponse">MutagenicResponse</a> <b>or</b> <a href="#SterilizationResponse">SterilizationResponse</a>)</td></tr><tr><th style='width:11rem'>subclass of</th><td class='ax'>obo:BFO_0000019</td></tr><tr><th style='width:11rem'>external alignment</th><td class='ax'>obo:BFO_0000019</td></tr></table>
+<table><tr><th style='width:11rem'>equivalent to</th><td class='ax'>(<a href="#HormeticResponse">HormeticResponse</a> <b>or</b> <a href="#MutagenicResponse">MutagenicResponse</a> <b>or</b> <a href="#SterilizationResponse">SterilizationResponse</a>)</td></tr><tr><th style='width:11rem'>subclass of</th><td class='ax'>obo:BFO_0000015</td></tr><tr><th style='width:11rem'>external alignment</th><td class='ax'>obo:BFO_0000015</td></tr></table>
 <h3 id='RootLength'>RootLength</h3>
 <table><tr><th style='width:11rem'>subclass of</th><td class='ax'><a href="#Endpoint">Endpoint</a></td></tr></table>
 <h3 id='SeedIrradiationTreatment'>SeedIrradiationTreatment</h3>
 <p class='def'>A treatment process in which seeds are exposed to ionizing radiation of a specified type, source, dose and dose rate.</p>
-<table><tr><th style='width:11rem'>subclass of</th><td class='ax'>induces <em>some</em> <a href="#Response">Response</a><br>hasRadiationType <em>some</em> <a href="#RadiationType">RadiationType</a><br>hasDose <em>exactly</em> 1 <a href="#QuantityValue">QuantityValue</a><br>hasDose <em>some</em> <a href="#QuantityValue">QuantityValue</a><br>obo:BFO_0000015<br><a href="#SeedTreatment">SeedTreatment</a></td></tr><tr><th style='width:11rem'>external alignment</th><td class='ax'>obo:BFO_0000015</td></tr></table>
+<table><tr><th style='width:11rem'>subclass of</th><td class='ax'>hasRadiationType <em>some</em> <a href="#RadiationType">RadiationType</a><br>hasDose <em>exactly</em> 1 <a href="#QuantityValue">QuantityValue</a><br>induces <em>some</em> <a href="#Response">Response</a><br>hasDose <em>some</em> <a href="#QuantityValue">QuantityValue</a><br>obo:BFO_0000015<br><a href="#SeedTreatment">SeedTreatment</a></td></tr><tr><th style='width:11rem'>external alignment</th><td class='ax'>obo:BFO_0000015</td></tr></table>
 <h3 id='SeedStage'>SeedStage</h3>
 <table><tr><th style='width:11rem'>subclass of</th><td class='ax'><a href="#LifecycleStage">LifecycleStage</a></td></tr></table>
 <h3 id='SeedSterility'>SeedSterility</h3>
@@ -219,7 +217,6 @@ th{background:#1f1f1f}.badge{background:#12261d;border-color:#1f4a35}a{color:#6a
 <h3 id='ShootLength'>ShootLength</h3>
 <table><tr><th style='width:11rem'>subclass of</th><td class='ax'><a href="#Endpoint">Endpoint</a></td></tr></table>
 <h3 id='SoilCondition'>SoilCondition</h3>
-<p class='def'>Integration touchpoint: map to external &#x27;SoilCondition&#x27; in farm ontologies.</p>
 <table><tr><th style='width:11rem'>subclass of</th><td class='ax'><a href="#Context">Context</a></td></tr><tr><th style='width:11rem'>external alignment</th><td class='ax'>obo:ENVO_00001998</td></tr></table>
 <h3 id='SterilizationDose'>SterilizationDose</h3>
 <p class='def'>A dose high enough to cause predominant loss of viability or reproductive capacity.</p>
@@ -238,7 +235,7 @@ th{background:#1f1f1f}.badge{background:#12261d;border-color:#1f4a35}a{color:#6a
 <table><tr><th style='width:11rem'>subclass of</th><td class='ax'><a href="#Context">Context</a></td></tr><tr><th style='width:11rem'>external alignment</th><td class='ax'>obo:PATO_0000146</td></tr></table>
 <h3 id='TreatmentOutcome'>TreatmentOutcome</h3>
 <p class='def'>The observed result of a seed-irradiation treatment on a subject seed under a context, characterized by a dose category and a biological response for a given endpoint.</p>
-<table><tr><th style='width:11rem'>subclass of</th><td class='ax'>hasTreatment <em>some</em> <a href="#SeedIrradiationTreatment">SeedIrradiationTreatment</a><br>hasTreatment <em>exactly</em> 1 <a href="#SeedIrradiationTreatment">SeedIrradiationTreatment</a><br>hasResponse <em>some</em> <a href="#Response">Response</a></td></tr></table>
+<table><tr><th style='width:11rem'>subclass of</th><td class='ax'>hasTreatment <em>exactly</em> 1 <a href="#SeedIrradiationTreatment">SeedIrradiationTreatment</a><br>hasResponse <em>some</em> <a href="#Response">Response</a><br>hasTreatment <em>some</em> <a href="#SeedIrradiationTreatment">SeedIrradiationTreatment</a></td></tr></table>
 <h3 id='Trigonella_foenum_graecum_AboveOptimumDose'>Trigonella_foenum_graecum_AboveOptimumDose</h3>
 <p class='def'>dose interval &#x27;AboveOptimum&#x27; for Trigonella foenum-graecum, relative to the reported statistics; bounds from Latha et al. 2017, J. AgriSearch 4(1):28-33</p>
 <table><tr><th style='width:11rem'>equivalent to</th><td class='ax'>(<a href="#DoseAssessment">DoseAssessment</a> <b>and</b> forTaxon <em>value</em> <a href="#taxon_Trigonella_foenum_graecum">taxon_Trigonella_foenum_graecum</a> <b>and</b> doseGy <em>some</em> [minExclusive 150.0 and maxExclusive 350.0 (xsd:decimal, xsd:double)])</td></tr><tr><th style='width:11rem'>subclass of</th><td class='ax'><a href="#AboveReportedOptimum">AboveReportedOptimum</a></td></tr></table>

@@ -2,7 +2,7 @@
 
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 
-**Canonical IRI:** `https://w3id.org/onsir` · **Version:** 1.2.0 · **License:** CC BY 4.0
+**Canonical IRI:** `https://w3id.org/onsir` · **Version:** 1.3.0 · **License:** CC BY 4.0
 
 OnSIR is a FAIR OWL 2 DL ontology of **seed-irradiation treatments** and their dose-dependent
 biological effects — **hormetic**, **mutagenic**, and **sterilizing** — across crop and model
@@ -10,9 +10,11 @@ plants. It models radiation types and isotopic sources, dose and dose-rate categ
 dose–response models, lifecycle stages, endpoints, and the `TreatmentOutcome` that links a
 treatment to its subject, context, dose category, and response.
 
-## What is in this release (v1.2.0)
+## What is in this release (v1.3.0)
 
-- **96 named classes, 27 object properties, 13 datatype properties**, 4 named individuals
+- **96 named classes, 27 object properties, 13 datatype properties**; 3 legacy dose classes deprecated
+- ABox: 28 studies, 136 declared individuals, shipped as Turtle **and** RDF/XML with an OWL catalogue
+- `verify_release.py` checks the release against the manuscript's claims in one command
   (functional and inverse characteristics; anonymous class expressions are not counted as terms).
 - **Logical axioms**: pairwise **disjointness** of dose categories, responses,
   radiation types and isotopes; **existential restrictions** on treatments/outcomes/dose ranges;

@@ -8,596 +8,732 @@
 onsir:abox a owl:Ontology ;
     owl:imports <https://w3id.org/onsir> .
 
-onsir:outcome_00 a onsir:TreatmentOutcome ;
+onsir:outcome_00 a owl:NamedIndividual,
+        onsir:TreatmentOutcome ;
     rdfs:label "Phyllanthus odontadenius / Cs-137 / 300.0 Gy (2014)" ;
     onsir:hasDoseRateCategory onsir:LowDoseRate ;
     onsir:hasEndpointCategory onsir:BiochemicalEndpointCategory ;
     onsir:hasSubject onsir:seed_00 ;
     onsir:hasTreatment onsir:treat_00 .
 
-onsir:outcome_01 a onsir:TreatmentOutcome ;
+onsir:outcome_01 a owl:NamedIndividual,
+        onsir:TreatmentOutcome ;
     rdfs:label "Polianthes tuberosa / Co-60 / 13.155 Gy (2015)" ;
     onsir:hasDoseRateCategory onsir:LowDoseRate ;
     onsir:hasEndpointCategory onsir:MorphologicalEndpointCategory ;
     onsir:hasSubject onsir:seed_01 ;
     onsir:hasTreatment onsir:treat_01 .
 
-onsir:outcome_02 a onsir:TreatmentOutcome ;
+onsir:outcome_02 a owl:NamedIndividual,
+        onsir:TreatmentOutcome ;
     rdfs:label "Magnolia champaca / Co-60 / 100.0 Gy (2016)" ;
     onsir:hasDoseRateCategory onsir:LowDoseRate ;
     onsir:hasEndpointCategory onsir:EmergenceAndEarlyVigor ;
     onsir:hasSubject onsir:seed_02 ;
     onsir:hasTreatment onsir:treat_02 .
 
-onsir:outcome_03 a onsir:TreatmentOutcome ;
+onsir:outcome_03 a owl:NamedIndividual,
+        onsir:TreatmentOutcome ;
     rdfs:label "Vigna radiata / N.R. / 60.0 Gy (2016)" ;
     onsir:hasDoseRateCategory onsir:HighDoseRate ;
     onsir:hasEndpointCategory onsir:OtherPhysiologicalEndpointCategory ;
     onsir:hasSubject onsir:seed_03 ;
     onsir:hasTreatment onsir:treat_03 .
 
-onsir:outcome_04 a onsir:TreatmentOutcome ;
+onsir:outcome_04 a owl:NamedIndividual,
+        onsir:TreatmentOutcome ;
     rdfs:label "Datura stramonium / Co-60 / 80.0 Gy (2019)" ;
     onsir:hasDoseRateCategory onsir:HighDoseRate ;
     onsir:hasEndpointCategory onsir:BiochemicalEndpointCategory ;
     onsir:hasSubject onsir:seed_04 ;
     onsir:hasTreatment onsir:treat_04 .
 
-onsir:outcome_05 a onsir:TreatmentOutcome ;
+onsir:outcome_05 a owl:NamedIndividual,
+        onsir:TreatmentOutcome ;
     rdfs:label "Osmanthus fragrans / Co-60 / 150.0 Gy (2019)" ;
     onsir:hasDoseRateCategory onsir:HighDoseRate ;
     onsir:hasEndpointCategory onsir:BiochemicalEndpointCategory ;
     onsir:hasSubject onsir:seed_05 ;
     onsir:hasTreatment onsir:treat_05 .
 
-onsir:outcome_06 a onsir:TreatmentOutcome ;
+onsir:outcome_06 a owl:NamedIndividual,
+        onsir:TreatmentOutcome ;
     rdfs:label "Capsicum sp. / Co-60 / 600.0 Gy (2020)" ;
     onsir:hasDoseRateCategory onsir:LowDoseRate ;
     onsir:hasEndpointCategory onsir:EmergenceAndEarlyVigor ;
     onsir:hasSubject onsir:seed_06 ;
     onsir:hasTreatment onsir:treat_06 .
 
-onsir:outcome_07 a onsir:TreatmentOutcome ;
+onsir:outcome_07 a owl:NamedIndividual,
+        onsir:TreatmentOutcome ;
     rdfs:label "Hordeum vulgare / Co-60 / 20.0 Gy (2020)" ;
     onsir:hasEndpointCategory onsir:EmergenceAndEarlyVigor ;
     onsir:hasSubject onsir:seed_07 ;
     onsir:hasTreatment onsir:treat_07 .
 
-onsir:outcome_08 a onsir:TreatmentOutcome ;
+onsir:outcome_08 a owl:NamedIndividual,
+        onsir:TreatmentOutcome ;
     rdfs:label "Brassica napus / N.R. / 800.0 Gy (2021)" ;
     onsir:hasEndpointCategory onsir:GeneticEndpointCategory ;
     onsir:hasSubject onsir:seed_08 ;
     onsir:hasTreatment onsir:treat_08 .
 
-onsir:outcome_09 a onsir:TreatmentOutcome ;
+onsir:outcome_09 a owl:NamedIndividual,
+        onsir:TreatmentOutcome ;
     rdfs:label "Solanum lycopersicum / Co-60 / 100.0 Gy (2021)" ;
     onsir:hasDoseRateCategory onsir:LowDoseRate ;
     onsir:hasEndpointCategory onsir:EmergenceAndEarlyVigor ;
     onsir:hasSubject onsir:seed_09 ;
     onsir:hasTreatment onsir:treat_09 .
 
-onsir:outcome_10 a onsir:TreatmentOutcome ;
+onsir:outcome_10 a owl:NamedIndividual,
+        onsir:TreatmentOutcome ;
     rdfs:label "Toona sureni / Co-60 / 100.0 Gy (2021)" ;
     onsir:hasDoseRateCategory onsir:LowDoseRate ;
     onsir:hasEndpointCategory onsir:EmergenceAndEarlyVigor ;
     onsir:hasSubject onsir:seed_10 ;
     onsir:hasTreatment onsir:treat_10 .
 
-onsir:outcome_11 a onsir:TreatmentOutcome ;
+onsir:outcome_11 a owl:NamedIndividual,
+        onsir:TreatmentOutcome ;
     rdfs:label "Vigna mungo / Co-60 / 500.0 Gy (2021)" ;
     onsir:hasEndpointCategory onsir:OtherPhysiologicalEndpointCategory ;
     onsir:hasSubject onsir:seed_11 ;
     onsir:hasTreatment onsir:treat_11 .
 
-onsir:outcome_12 a onsir:TreatmentOutcome ;
+onsir:outcome_12 a owl:NamedIndividual,
+        onsir:TreatmentOutcome ;
     rdfs:label "Calotropis gigantea / Co-60 / 900.0 Gy (2022)" ;
     onsir:hasDoseRateCategory onsir:LowDoseRate ;
     onsir:hasEndpointCategory onsir:EmergenceAndEarlyVigor ;
     onsir:hasSubject onsir:seed_12 ;
     onsir:hasTreatment onsir:treat_12 .
 
-onsir:outcome_13 a onsir:TreatmentOutcome ;
+onsir:outcome_13 a owl:NamedIndividual,
+        onsir:TreatmentOutcome ;
     rdfs:label "Coriandrum sativum / Co-60 / 150.0 Gy (2022)" ;
     onsir:hasEndpointCategory onsir:GeneticEndpointCategory ;
     onsir:hasSubject onsir:seed_13 ;
     onsir:hasTreatment onsir:treat_13 .
 
-onsir:outcome_14 a onsir:TreatmentOutcome ;
+onsir:outcome_14 a owl:NamedIndividual,
+        onsir:TreatmentOutcome ;
     rdfs:label "Neolamarckia cadamba / Co-60 / 50.0 Gy (2022)" ;
     onsir:hasDoseRateCategory onsir:LowDoseRate ;
     onsir:hasEndpointCategory onsir:EmergenceAndEarlyVigor ;
     onsir:hasSubject onsir:seed_14 ;
     onsir:hasTreatment onsir:treat_14 .
 
-onsir:outcome_15 a onsir:TreatmentOutcome ;
+onsir:outcome_15 a owl:NamedIndividual,
+        onsir:TreatmentOutcome ;
     rdfs:label "Arabidopsis thaliana / Co-60 / 1500.0 Gy (2023)" ;
     onsir:hasDoseRateCategory onsir:HighDoseRate ;
     onsir:hasEndpointCategory onsir:GeneticEndpointCategory ;
     onsir:hasSubject onsir:seed_15 ;
     onsir:hasTreatment onsir:treat_15 .
 
-onsir:outcome_16 a onsir:TreatmentOutcome ;
+onsir:outcome_16 a owl:NamedIndividual,
+        onsir:TreatmentOutcome ;
     rdfs:label "Ficus variegata / Co-60 / 240.0 Gy (2023)" ;
     onsir:hasDoseRateCategory onsir:LowDoseRate ;
     onsir:hasEndpointCategory onsir:EmergenceAndEarlyVigor ;
     onsir:hasSubject onsir:seed_16 ;
     onsir:hasTreatment onsir:treat_16 .
 
-onsir:outcome_17 a onsir:TreatmentOutcome ;
+onsir:outcome_17 a owl:NamedIndividual,
+        onsir:TreatmentOutcome ;
     rdfs:label "Lablab purpureus / Co-60 / 526.1999999999999 Gy (2023)" ;
     onsir:hasDoseRateCategory onsir:LowDoseRate ;
     onsir:hasEndpointCategory onsir:GeneticEndpointCategory ;
     onsir:hasSubject onsir:seed_17 ;
     onsir:hasTreatment onsir:treat_17 .
 
-onsir:outcome_18 a onsir:TreatmentOutcome ;
+onsir:outcome_18 a owl:NamedIndividual,
+        onsir:TreatmentOutcome ;
     rdfs:label "Oryza sativa / Co-60 / 8.0 Gy (2023)" ;
     onsir:hasDoseRateCategory onsir:LowDoseRate ;
     onsir:hasEndpointCategory onsir:MorphologicalEndpointCategory ;
     onsir:hasSubject onsir:seed_18 ;
     onsir:hasTreatment onsir:treat_18 .
 
-onsir:outcome_19 a onsir:TreatmentOutcome ;
+onsir:outcome_19 a owl:NamedIndividual,
+        onsir:TreatmentOutcome ;
     rdfs:label "Plukenetia volubilis / Co-60 / 900.0 Gy (2023)" ;
     onsir:hasDoseRateCategory onsir:LowDoseRate ;
     onsir:hasEndpointCategory onsir:MorphologicalEndpointCategory ;
     onsir:hasSubject onsir:seed_19 ;
     onsir:hasTreatment onsir:treat_19 .
 
-onsir:outcome_20 a onsir:TreatmentOutcome ;
+onsir:outcome_20 a owl:NamedIndividual,
+        onsir:TreatmentOutcome ;
     rdfs:label "Reutealis trisperma / N.R. / 1000.0 Gy (2023)" ;
     onsir:hasDoseRateCategory onsir:LowDoseRate ;
     onsir:hasEndpointCategory onsir:EmergenceAndEarlyVigor ;
     onsir:hasSubject onsir:seed_20 ;
     onsir:hasTreatment onsir:treat_20 .
 
-onsir:outcome_21 a onsir:TreatmentOutcome ;
+onsir:outcome_21 a owl:NamedIndividual,
+        onsir:TreatmentOutcome ;
     rdfs:label "Solanum melongena / Co-60 / 100.0 Gy (2023)" ;
     onsir:hasEndpointCategory onsir:MorphologicalEndpointCategory ;
     onsir:hasSubject onsir:seed_21 ;
     onsir:hasTreatment onsir:treat_21 .
 
-onsir:outcome_22 a onsir:TreatmentOutcome ;
+onsir:outcome_22 a owl:NamedIndividual,
+        onsir:TreatmentOutcome ;
     rdfs:label "Catharanthus roseus / Co-60 / 500.0 Gy (2024)" ;
     onsir:hasDoseRateCategory onsir:LowDoseRate ;
     onsir:hasEndpointCategory onsir:EmergenceAndEarlyVigor ;
     onsir:hasSubject onsir:seed_22 ;
     onsir:hasTreatment onsir:treat_22 .
 
-onsir:outcome_23 a onsir:TreatmentOutcome ;
+onsir:outcome_23 a owl:NamedIndividual,
+        onsir:TreatmentOutcome ;
     rdfs:label "Salvia hispanica / Co-60 / 250.0 Gy (2024)" ;
     onsir:hasDoseRateCategory onsir:LowDoseRate ;
     onsir:hasEndpointCategory onsir:GeneticEndpointCategory ;
     onsir:hasSubject onsir:seed_23 ;
     onsir:hasTreatment onsir:treat_23 .
 
-onsir:outcome_24 a onsir:TreatmentOutcome ;
+onsir:outcome_24 a owl:NamedIndividual,
+        onsir:TreatmentOutcome ;
     rdfs:label "Solanum lycopersicum / Co-60 / 120.0 Gy (2024)" ;
     onsir:hasDoseRateCategory onsir:LowDoseRate ;
     onsir:hasEndpointCategory onsir:PlantHealthEndpointCategory ;
     onsir:hasSubject onsir:seed_24 ;
     onsir:hasTreatment onsir:treat_24 .
 
-onsir:outcome_25 a onsir:TreatmentOutcome ;
+onsir:outcome_25 a owl:NamedIndividual,
+        onsir:TreatmentOutcome ;
     rdfs:label "Dianthus caryophyllus / Co-60 / 30.0 Gy (2025)" ;
     onsir:hasDoseRateCategory onsir:HighDoseRate ;
     onsir:hasEndpointCategory onsir:OtherPhysiologicalEndpointCategory ;
     onsir:hasSubject onsir:seed_25 ;
     onsir:hasTreatment onsir:treat_25 .
 
-onsir:outcome_26 a onsir:TreatmentOutcome ;
+onsir:outcome_26 a owl:NamedIndividual,
+        onsir:TreatmentOutcome ;
     rdfs:label "Phaseolus vulgaris / Co-60 / 200.0 Gy (2025)" ;
     onsir:hasDoseRateCategory onsir:LowDoseRate ;
     onsir:hasEndpointCategory onsir:EmergenceAndEarlyVigor ;
     onsir:hasSubject onsir:seed_26 ;
     onsir:hasTreatment onsir:treat_26 .
 
-onsir:outcome_27 a onsir:TreatmentOutcome ;
+onsir:outcome_27 a owl:NamedIndividual,
+        onsir:TreatmentOutcome ;
     rdfs:label "Solanum tuberosum / Co-60 / 40.0 Gy (2025)" ;
     onsir:hasDoseRateCategory onsir:LowDoseRate ;
     onsir:hasEndpointCategory onsir:PlantHealthEndpointCategory ;
     onsir:hasSubject onsir:seed_27 ;
     onsir:hasTreatment onsir:treat_27 .
 
-onsir:dose_00 a onsir:QuantityValue ;
+onsir:dose_00 a owl:NamedIndividual,
+        onsir:QuantityValue ;
     ns1:unit <http://qudt.org/vocab/unit/Gray> ;
     onsir:numericValue 3e+02 .
 
-onsir:dose_01 a onsir:QuantityValue ;
+onsir:dose_01 a owl:NamedIndividual,
+        onsir:QuantityValue ;
     ns1:unit <http://qudt.org/vocab/unit/Gray> ;
     onsir:numericValue 1.315e+01 .
 
-onsir:dose_02 a onsir:QuantityValue ;
+onsir:dose_02 a owl:NamedIndividual,
+        onsir:QuantityValue ;
     ns1:unit <http://qudt.org/vocab/unit/Gray> ;
     onsir:numericValue 1e+02 .
 
-onsir:dose_03 a onsir:QuantityValue ;
+onsir:dose_03 a owl:NamedIndividual,
+        onsir:QuantityValue ;
     ns1:unit <http://qudt.org/vocab/unit/Gray> ;
     onsir:numericValue 6e+01 .
 
-onsir:dose_04 a onsir:QuantityValue ;
+onsir:dose_04 a owl:NamedIndividual,
+        onsir:QuantityValue ;
     ns1:unit <http://qudt.org/vocab/unit/Gray> ;
     onsir:numericValue 8e+01 .
 
-onsir:dose_05 a onsir:QuantityValue ;
+onsir:dose_05 a owl:NamedIndividual,
+        onsir:QuantityValue ;
     ns1:unit <http://qudt.org/vocab/unit/Gray> ;
     onsir:numericValue 1.5e+02 .
 
-onsir:dose_06 a onsir:QuantityValue ;
+onsir:dose_06 a owl:NamedIndividual,
+        onsir:QuantityValue ;
     ns1:unit <http://qudt.org/vocab/unit/Gray> ;
     onsir:numericValue 6e+02 .
 
-onsir:dose_07 a onsir:QuantityValue ;
+onsir:dose_07 a owl:NamedIndividual,
+        onsir:QuantityValue ;
     ns1:unit <http://qudt.org/vocab/unit/Gray> ;
     onsir:numericValue 2e+01 .
 
-onsir:dose_08 a onsir:QuantityValue ;
+onsir:dose_08 a owl:NamedIndividual,
+        onsir:QuantityValue ;
     ns1:unit <http://qudt.org/vocab/unit/Gray> ;
     onsir:numericValue 8e+02 .
 
-onsir:dose_09 a onsir:QuantityValue ;
+onsir:dose_09 a owl:NamedIndividual,
+        onsir:QuantityValue ;
     ns1:unit <http://qudt.org/vocab/unit/Gray> ;
     onsir:numericValue 1e+02 .
 
-onsir:dose_10 a onsir:QuantityValue ;
+onsir:dose_10 a owl:NamedIndividual,
+        onsir:QuantityValue ;
     ns1:unit <http://qudt.org/vocab/unit/Gray> ;
     onsir:numericValue 1e+02 .
 
-onsir:dose_11 a onsir:QuantityValue ;
+onsir:dose_11 a owl:NamedIndividual,
+        onsir:QuantityValue ;
     ns1:unit <http://qudt.org/vocab/unit/Gray> ;
     onsir:numericValue 5e+02 .
 
-onsir:dose_12 a onsir:QuantityValue ;
+onsir:dose_12 a owl:NamedIndividual,
+        onsir:QuantityValue ;
     ns1:unit <http://qudt.org/vocab/unit/Gray> ;
     onsir:numericValue 9e+02 .
 
-onsir:dose_13 a onsir:QuantityValue ;
+onsir:dose_13 a owl:NamedIndividual,
+        onsir:QuantityValue ;
     ns1:unit <http://qudt.org/vocab/unit/Gray> ;
     onsir:numericValue 1.5e+02 .
 
-onsir:dose_14 a onsir:QuantityValue ;
+onsir:dose_14 a owl:NamedIndividual,
+        onsir:QuantityValue ;
     ns1:unit <http://qudt.org/vocab/unit/Gray> ;
     onsir:numericValue 5e+01 .
 
-onsir:dose_15 a onsir:QuantityValue ;
+onsir:dose_15 a owl:NamedIndividual,
+        onsir:QuantityValue ;
     ns1:unit <http://qudt.org/vocab/unit/Gray> ;
     onsir:numericValue 1.5e+03 .
 
-onsir:dose_16 a onsir:QuantityValue ;
+onsir:dose_16 a owl:NamedIndividual,
+        onsir:QuantityValue ;
     ns1:unit <http://qudt.org/vocab/unit/Gray> ;
     onsir:numericValue 2.4e+02 .
 
-onsir:dose_17 a onsir:QuantityValue ;
+onsir:dose_17 a owl:NamedIndividual,
+        onsir:QuantityValue ;
     ns1:unit <http://qudt.org/vocab/unit/Gray> ;
     onsir:numericValue 5.262e+02 .
 
-onsir:dose_18 a onsir:QuantityValue ;
+onsir:dose_18 a owl:NamedIndividual,
+        onsir:QuantityValue ;
     ns1:unit <http://qudt.org/vocab/unit/Gray> ;
     onsir:numericValue 8e+00 .
 
-onsir:dose_19 a onsir:QuantityValue ;
+onsir:dose_19 a owl:NamedIndividual,
+        onsir:QuantityValue ;
     ns1:unit <http://qudt.org/vocab/unit/Gray> ;
     onsir:numericValue 9e+02 .
 
-onsir:dose_20 a onsir:QuantityValue ;
+onsir:dose_20 a owl:NamedIndividual,
+        onsir:QuantityValue ;
     ns1:unit <http://qudt.org/vocab/unit/Gray> ;
     onsir:numericValue 1e+03 .
 
-onsir:dose_21 a onsir:QuantityValue ;
+onsir:dose_21 a owl:NamedIndividual,
+        onsir:QuantityValue ;
     ns1:unit <http://qudt.org/vocab/unit/Gray> ;
     onsir:numericValue 1e+02 .
 
-onsir:dose_22 a onsir:QuantityValue ;
+onsir:dose_22 a owl:NamedIndividual,
+        onsir:QuantityValue ;
     ns1:unit <http://qudt.org/vocab/unit/Gray> ;
     onsir:numericValue 5e+02 .
 
-onsir:dose_23 a onsir:QuantityValue ;
+onsir:dose_23 a owl:NamedIndividual,
+        onsir:QuantityValue ;
     ns1:unit <http://qudt.org/vocab/unit/Gray> ;
     onsir:numericValue 2.5e+02 .
 
-onsir:dose_24 a onsir:QuantityValue ;
+onsir:dose_24 a owl:NamedIndividual,
+        onsir:QuantityValue ;
     ns1:unit <http://qudt.org/vocab/unit/Gray> ;
     onsir:numericValue 1.2e+02 .
 
-onsir:dose_25 a onsir:QuantityValue ;
+onsir:dose_25 a owl:NamedIndividual,
+        onsir:QuantityValue ;
     ns1:unit <http://qudt.org/vocab/unit/Gray> ;
     onsir:numericValue 3e+01 .
 
-onsir:dose_26 a onsir:QuantityValue ;
+onsir:dose_26 a owl:NamedIndividual,
+        onsir:QuantityValue ;
     ns1:unit <http://qudt.org/vocab/unit/Gray> ;
     onsir:numericValue 2e+02 .
 
-onsir:dose_27 a onsir:QuantityValue ;
+onsir:dose_27 a owl:NamedIndividual,
+        onsir:QuantityValue ;
     ns1:unit <http://qudt.org/vocab/unit/Gray> ;
     onsir:numericValue 4e+01 .
 
-onsir:seed_00 a onsir:PlantSeed ;
+onsir:seed_00 a owl:NamedIndividual,
+        onsir:PlantSeed ;
     rdfs:label "Phyllanthus odontadenius" .
 
-onsir:seed_01 a onsir:PlantSeed ;
+onsir:seed_01 a owl:NamedIndividual,
+        onsir:PlantSeed ;
     rdfs:label "Polianthes tuberosa" .
 
-onsir:seed_02 a onsir:PlantSeed ;
+onsir:seed_02 a owl:NamedIndividual,
+        onsir:PlantSeed ;
     rdfs:label "Magnolia champaca" ;
     onsir:hasTaxon onsir:taxon_Magnolia_champaca .
 
-onsir:seed_03 a onsir:PlantSeed ;
+onsir:seed_03 a owl:NamedIndividual,
+        onsir:PlantSeed ;
     rdfs:label "Vigna radiata" ;
     onsir:hasTaxon onsir:taxon_Vigna_radiata .
 
-onsir:seed_04 a onsir:PlantSeed ;
+onsir:seed_04 a owl:NamedIndividual,
+        onsir:PlantSeed ;
     rdfs:label "Datura stramonium" ;
     onsir:hasTaxon onsir:taxon_Datura_stramonium .
 
-onsir:seed_05 a onsir:PlantSeed ;
+onsir:seed_05 a owl:NamedIndividual,
+        onsir:PlantSeed ;
     rdfs:label "Osmanthus fragrans" ;
     onsir:hasTaxon onsir:taxon_Osmanthus_fragrans .
 
-onsir:seed_06 a onsir:PlantSeed ;
+onsir:seed_06 a owl:NamedIndividual,
+        onsir:PlantSeed ;
     rdfs:label "Capsicum sp." ;
     onsir:hasTaxon <https://w3id.org/onsir/taxon_Capsicum_sp.> .
 
-onsir:seed_07 a onsir:PlantSeed ;
+onsir:seed_07 a owl:NamedIndividual,
+        onsir:PlantSeed ;
     rdfs:label "Hordeum vulgare" ;
     onsir:hasTaxon onsir:taxon_Hordeum_vulgare .
 
-onsir:seed_08 a onsir:PlantSeed ;
+onsir:seed_08 a owl:NamedIndividual,
+        onsir:PlantSeed ;
     rdfs:label "Brassica napus" ;
     onsir:hasTaxon onsir:taxon_Brassica_napus .
 
-onsir:seed_09 a onsir:PlantSeed ;
+onsir:seed_09 a owl:NamedIndividual,
+        onsir:PlantSeed ;
     rdfs:label "Solanum lycopersicum" ;
     onsir:hasTaxon onsir:taxon_Solanum_lycopersicum .
 
-onsir:seed_10 a onsir:PlantSeed ;
+onsir:seed_10 a owl:NamedIndividual,
+        onsir:PlantSeed ;
     rdfs:label "Toona sureni" ;
     onsir:hasTaxon onsir:taxon_Toona_sureni .
 
-onsir:seed_11 a onsir:PlantSeed ;
+onsir:seed_11 a owl:NamedIndividual,
+        onsir:PlantSeed ;
     rdfs:label "Vigna mungo" ;
     onsir:hasTaxon onsir:taxon_Vigna_mungo .
 
-onsir:seed_12 a onsir:PlantSeed ;
+onsir:seed_12 a owl:NamedIndividual,
+        onsir:PlantSeed ;
     rdfs:label "Calotropis gigantea" ;
     onsir:hasTaxon onsir:taxon_Calotropis_gigantea .
 
-onsir:seed_13 a onsir:PlantSeed ;
+onsir:seed_13 a owl:NamedIndividual,
+        onsir:PlantSeed ;
     rdfs:label "Coriandrum sativum" ;
     onsir:hasTaxon onsir:taxon_Coriandrum_sativum .
 
-onsir:seed_14 a onsir:PlantSeed ;
+onsir:seed_14 a owl:NamedIndividual,
+        onsir:PlantSeed ;
     rdfs:label "Neolamarckia cadamba" ;
     onsir:hasTaxon onsir:taxon_Neolamarckia_cadamba .
 
-onsir:seed_15 a onsir:PlantSeed ;
+onsir:seed_15 a owl:NamedIndividual,
+        onsir:PlantSeed ;
     rdfs:label "Arabidopsis thaliana" ;
     onsir:hasTaxon onsir:taxon_Arabidopsis_thaliana .
 
-onsir:seed_16 a onsir:PlantSeed ;
+onsir:seed_16 a owl:NamedIndividual,
+        onsir:PlantSeed ;
     rdfs:label "Ficus variegata" .
 
-onsir:seed_17 a onsir:PlantSeed ;
+onsir:seed_17 a owl:NamedIndividual,
+        onsir:PlantSeed ;
     rdfs:label "Lablab purpureus" ;
     onsir:hasTaxon onsir:taxon_Lablab_purpureus .
 
-onsir:seed_18 a onsir:PlantSeed ;
+onsir:seed_18 a owl:NamedIndividual,
+        onsir:PlantSeed ;
     rdfs:label "Oryza sativa" ;
     onsir:hasTaxon onsir:taxon_Oryza_sativa .
 
-onsir:seed_19 a onsir:PlantSeed ;
+onsir:seed_19 a owl:NamedIndividual,
+        onsir:PlantSeed ;
     rdfs:label "Plukenetia volubilis" ;
     onsir:hasTaxon onsir:taxon_Plukenetia_volubilis .
 
-onsir:seed_20 a onsir:PlantSeed ;
+onsir:seed_20 a owl:NamedIndividual,
+        onsir:PlantSeed ;
     rdfs:label "Reutealis trisperma" ;
     onsir:hasTaxon onsir:taxon_Reutealis_trisperma .
 
-onsir:seed_21 a onsir:PlantSeed ;
+onsir:seed_21 a owl:NamedIndividual,
+        onsir:PlantSeed ;
     rdfs:label "Solanum melongena" ;
     onsir:hasTaxon onsir:taxon_Solanum_melongena .
 
-onsir:seed_22 a onsir:PlantSeed ;
+onsir:seed_22 a owl:NamedIndividual,
+        onsir:PlantSeed ;
     rdfs:label "Catharanthus roseus" ;
     onsir:hasTaxon onsir:taxon_Catharanthus_roseus .
 
-onsir:seed_23 a onsir:PlantSeed ;
+onsir:seed_23 a owl:NamedIndividual,
+        onsir:PlantSeed ;
     rdfs:label "Salvia hispanica" ;
     onsir:hasTaxon onsir:taxon_Salvia_hispanica .
 
-onsir:seed_24 a onsir:PlantSeed ;
+onsir:seed_24 a owl:NamedIndividual,
+        onsir:PlantSeed ;
     rdfs:label "Solanum lycopersicum" ;
     onsir:hasTaxon onsir:taxon_Solanum_lycopersicum .
 
-onsir:seed_25 a onsir:PlantSeed ;
+onsir:seed_25 a owl:NamedIndividual,
+        onsir:PlantSeed ;
     rdfs:label "Dianthus caryophyllus" ;
     onsir:hasTaxon onsir:taxon_Dianthus_caryophyllus .
 
-onsir:seed_26 a onsir:PlantSeed ;
+onsir:seed_26 a owl:NamedIndividual,
+        onsir:PlantSeed ;
     rdfs:label "Phaseolus vulgaris" ;
     onsir:hasTaxon onsir:taxon_Phaseolus_vulgaris .
 
-onsir:seed_27 a onsir:PlantSeed ;
+onsir:seed_27 a owl:NamedIndividual,
+        onsir:PlantSeed ;
     rdfs:label "Solanum tuberosum" ;
     onsir:hasTaxon onsir:taxon_Solanum_tuberosum .
 
-onsir:taxon_Arabidopsis_thaliana a obo:NCBITaxon_3702 ;
+onsir:taxon_Arabidopsis_thaliana a obo:NCBITaxon_3702,
+        owl:NamedIndividual ;
     rdfs:label "Arabidopsis thaliana" .
 
-onsir:taxon_Brassica_napus a obo:NCBITaxon_3708 ;
+onsir:taxon_Brassica_napus a obo:NCBITaxon_3708,
+        owl:NamedIndividual ;
     rdfs:label "Brassica napus" .
 
-onsir:taxon_Calotropis_gigantea a obo:NCBITaxon_4066 ;
+onsir:taxon_Calotropis_gigantea a obo:NCBITaxon_4066,
+        owl:NamedIndividual ;
     rdfs:label "Calotropis gigantea" .
 
-<https://w3id.org/onsir/taxon_Capsicum_sp.> a obo:NCBITaxon_3413428 ;
+<https://w3id.org/onsir/taxon_Capsicum_sp.> a obo:NCBITaxon_3413428,
+        owl:NamedIndividual ;
     rdfs:label "Capsicum sp." .
 
-onsir:taxon_Catharanthus_roseus a obo:NCBITaxon_4058 ;
+onsir:taxon_Catharanthus_roseus a obo:NCBITaxon_4058,
+        owl:NamedIndividual ;
     rdfs:label "Catharanthus roseus" .
 
-onsir:taxon_Coriandrum_sativum a obo:NCBITaxon_4047 ;
+onsir:taxon_Coriandrum_sativum a obo:NCBITaxon_4047,
+        owl:NamedIndividual ;
     rdfs:label "Coriandrum sativum" .
 
-onsir:taxon_Datura_stramonium a obo:NCBITaxon_4076 ;
+onsir:taxon_Datura_stramonium a obo:NCBITaxon_4076,
+        owl:NamedIndividual ;
     rdfs:label "Datura stramonium" .
 
-onsir:taxon_Dianthus_caryophyllus a obo:NCBITaxon_3570 ;
+onsir:taxon_Dianthus_caryophyllus a obo:NCBITaxon_3570,
+        owl:NamedIndividual ;
     rdfs:label "Dianthus caryophyllus" .
 
-onsir:taxon_Hordeum_vulgare a obo:NCBITaxon_4513 ;
+onsir:taxon_Hordeum_vulgare a obo:NCBITaxon_4513,
+        owl:NamedIndividual ;
     rdfs:label "Hordeum vulgare" .
 
-onsir:taxon_Lablab_purpureus a obo:NCBITaxon_35936 ;
+onsir:taxon_Lablab_purpureus a obo:NCBITaxon_35936,
+        owl:NamedIndividual ;
     rdfs:label "Lablab purpureus" .
 
-onsir:taxon_Magnolia_champaca a obo:NCBITaxon_86757 ;
+onsir:taxon_Magnolia_champaca a obo:NCBITaxon_86757,
+        owl:NamedIndividual ;
     rdfs:label "Magnolia champaca" .
 
-onsir:taxon_Neolamarckia_cadamba a obo:NCBITaxon_153762 ;
+onsir:taxon_Neolamarckia_cadamba a obo:NCBITaxon_153762,
+        owl:NamedIndividual ;
     rdfs:label "Neolamarckia cadamba" .
 
-onsir:taxon_Oryza_sativa a obo:NCBITaxon_4530 ;
+onsir:taxon_Oryza_sativa a obo:NCBITaxon_4530,
+        owl:NamedIndividual ;
     rdfs:label "Oryza sativa" .
 
-onsir:taxon_Osmanthus_fragrans a obo:NCBITaxon_93977 ;
+onsir:taxon_Osmanthus_fragrans a obo:NCBITaxon_93977,
+        owl:NamedIndividual ;
     rdfs:label "Osmanthus fragrans" .
 
-onsir:taxon_Phaseolus_vulgaris a obo:NCBITaxon_3885 ;
+onsir:taxon_Phaseolus_vulgaris a obo:NCBITaxon_3885,
+        owl:NamedIndividual ;
     rdfs:label "Phaseolus vulgaris" .
 
-onsir:taxon_Plukenetia_volubilis a obo:NCBITaxon_316893 ;
+onsir:taxon_Plukenetia_volubilis a obo:NCBITaxon_316893,
+        owl:NamedIndividual ;
     rdfs:label "Plukenetia volubilis" .
 
-onsir:taxon_Reutealis_trisperma a obo:NCBITaxon_1487825 ;
+onsir:taxon_Reutealis_trisperma a obo:NCBITaxon_1487825,
+        owl:NamedIndividual ;
     rdfs:label "Reutealis trisperma" .
 
-onsir:taxon_Salvia_hispanica a obo:NCBITaxon_49212 ;
+onsir:taxon_Salvia_hispanica a obo:NCBITaxon_49212,
+        owl:NamedIndividual ;
     rdfs:label "Salvia hispanica" .
 
-onsir:taxon_Solanum_melongena a obo:NCBITaxon_4111 ;
+onsir:taxon_Solanum_melongena a obo:NCBITaxon_4111,
+        owl:NamedIndividual ;
     rdfs:label "Solanum melongena" .
 
-onsir:taxon_Solanum_tuberosum a obo:NCBITaxon_4113 ;
+onsir:taxon_Solanum_tuberosum a obo:NCBITaxon_4113,
+        owl:NamedIndividual ;
     rdfs:label "Solanum tuberosum" .
 
-onsir:taxon_Toona_sureni a obo:NCBITaxon_1258759 ;
+onsir:taxon_Toona_sureni a obo:NCBITaxon_1258759,
+        owl:NamedIndividual ;
     rdfs:label "Toona sureni" .
 
-onsir:taxon_Vigna_mungo a obo:NCBITaxon_3915 ;
+onsir:taxon_Vigna_mungo a obo:NCBITaxon_3915,
+        owl:NamedIndividual ;
     rdfs:label "Vigna mungo" .
 
-onsir:taxon_Vigna_radiata a obo:NCBITaxon_157791 ;
+onsir:taxon_Vigna_radiata a obo:NCBITaxon_157791,
+        owl:NamedIndividual ;
     rdfs:label "Vigna radiata" .
 
-onsir:treat_00 a onsir:SeedIrradiationTreatment ;
+onsir:treat_00 a owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
     onsir:hasDose onsir:dose_00 ;
     onsir:hasSourceIsotope onsir:Cs137 .
 
-onsir:treat_01 a onsir:SeedIrradiationTreatment ;
+onsir:treat_01 a owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
     onsir:hasDose onsir:dose_01 ;
     onsir:hasSourceIsotope onsir:Co60 .
 
-onsir:treat_02 a onsir:SeedIrradiationTreatment ;
+onsir:treat_02 a owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
     onsir:hasDose onsir:dose_02 ;
     onsir:hasSourceIsotope onsir:Co60 .
 
-onsir:treat_03 a onsir:SeedIrradiationTreatment ;
+onsir:treat_03 a owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
     onsir:hasDose onsir:dose_03 .
 
-onsir:treat_04 a onsir:SeedIrradiationTreatment ;
+onsir:treat_04 a owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
     onsir:hasDose onsir:dose_04 ;
     onsir:hasSourceIsotope onsir:Co60 .
 
-onsir:treat_05 a onsir:SeedIrradiationTreatment ;
+onsir:treat_05 a owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
     onsir:hasDose onsir:dose_05 ;
     onsir:hasSourceIsotope onsir:Co60 .
 
-onsir:treat_06 a onsir:SeedIrradiationTreatment ;
+onsir:treat_06 a owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
     onsir:hasDose onsir:dose_06 ;
     onsir:hasSourceIsotope onsir:Co60 .
 
-onsir:treat_07 a onsir:SeedIrradiationTreatment ;
+onsir:treat_07 a owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
     onsir:hasDose onsir:dose_07 ;
     onsir:hasSourceIsotope onsir:Co60 .
 
-onsir:treat_08 a onsir:SeedIrradiationTreatment ;
+onsir:treat_08 a owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
     onsir:hasDose onsir:dose_08 .
 
-onsir:treat_09 a onsir:SeedIrradiationTreatment ;
+onsir:treat_09 a owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
     onsir:hasDose onsir:dose_09 ;
     onsir:hasSourceIsotope onsir:Co60 .
 
-onsir:treat_10 a onsir:SeedIrradiationTreatment ;
+onsir:treat_10 a owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
     onsir:hasDose onsir:dose_10 ;
     onsir:hasSourceIsotope onsir:Co60 .
 
-onsir:treat_11 a onsir:SeedIrradiationTreatment ;
+onsir:treat_11 a owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
     onsir:hasDose onsir:dose_11 ;
     onsir:hasSourceIsotope onsir:Co60 .
 
-onsir:treat_12 a onsir:SeedIrradiationTreatment ;
+onsir:treat_12 a owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
     onsir:hasDose onsir:dose_12 ;
     onsir:hasSourceIsotope onsir:Co60 .
 
-onsir:treat_13 a onsir:SeedIrradiationTreatment ;
+onsir:treat_13 a owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
     onsir:hasDose onsir:dose_13 ;
     onsir:hasSourceIsotope onsir:Co60 .
 
-onsir:treat_14 a onsir:SeedIrradiationTreatment ;
+onsir:treat_14 a owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
     onsir:hasDose onsir:dose_14 ;
     onsir:hasSourceIsotope onsir:Co60 .
 
-onsir:treat_15 a onsir:SeedIrradiationTreatment ;
+onsir:treat_15 a owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
     onsir:hasDose onsir:dose_15 ;
     onsir:hasSourceIsotope onsir:Co60 .
 
-onsir:treat_16 a onsir:SeedIrradiationTreatment ;
+onsir:treat_16 a owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
     onsir:hasDose onsir:dose_16 ;
     onsir:hasSourceIsotope onsir:Co60 .
 
-onsir:treat_17 a onsir:SeedIrradiationTreatment ;
+onsir:treat_17 a owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
     onsir:hasDose onsir:dose_17 ;
     onsir:hasSourceIsotope onsir:Co60 .
 
-onsir:treat_18 a onsir:SeedIrradiationTreatment ;
+onsir:treat_18 a owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
     onsir:hasDose onsir:dose_18 ;
     onsir:hasSourceIsotope onsir:Co60 .
 
-onsir:treat_19 a onsir:SeedIrradiationTreatment ;
+onsir:treat_19 a owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
     onsir:hasDose onsir:dose_19 ;
     onsir:hasSourceIsotope onsir:Co60 .
 
-onsir:treat_20 a onsir:SeedIrradiationTreatment ;
+onsir:treat_20 a owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
     onsir:hasDose onsir:dose_20 .
 
-onsir:treat_21 a onsir:SeedIrradiationTreatment ;
+onsir:treat_21 a owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
     onsir:hasDose onsir:dose_21 ;
     onsir:hasSourceIsotope onsir:Co60 .
 
-onsir:treat_22 a onsir:SeedIrradiationTreatment ;
+onsir:treat_22 a owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
     onsir:hasDose onsir:dose_22 ;
     onsir:hasSourceIsotope onsir:Co60 .
 
-onsir:treat_23 a onsir:SeedIrradiationTreatment ;
+onsir:treat_23 a owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
     onsir:hasDose onsir:dose_23 ;
     onsir:hasSourceIsotope onsir:Co60 .
 
-onsir:treat_24 a onsir:SeedIrradiationTreatment ;
+onsir:treat_24 a owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
     onsir:hasDose onsir:dose_24 ;
     onsir:hasSourceIsotope onsir:Co60 .
 
-onsir:treat_25 a onsir:SeedIrradiationTreatment ;
+onsir:treat_25 a owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
     onsir:hasDose onsir:dose_25 ;
     onsir:hasSourceIsotope onsir:Co60 .
 
-onsir:treat_26 a onsir:SeedIrradiationTreatment ;
+onsir:treat_26 a owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
     onsir:hasDose onsir:dose_26 ;
     onsir:hasSourceIsotope onsir:Co60 .
 
-onsir:treat_27 a onsir:SeedIrradiationTreatment ;
+onsir:treat_27 a owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
     onsir:hasDose onsir:dose_27 ;
     onsir:hasSourceIsotope onsir:Co60 .
 
-onsir:taxon_Solanum_lycopersicum a obo:NCBITaxon_4081 ;
+onsir:taxon_Solanum_lycopersicum a obo:NCBITaxon_4081,
+        owl:NamedIndividual ;
     rdfs:label "Solanum lycopersicum" .
 

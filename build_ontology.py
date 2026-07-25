@@ -41,8 +41,8 @@ for pfx, n in [("", NS), ("onsir", NS), ("dct", DCT), ("skos", SKOS), ("obo", OB
 
 # ---- ontology header + real metadata ----
 g.add((ONT, RDF.type, OWL.Ontology))
-g.add((ONT, URIRef(str(OWL) + "versionIRI"), URIRef("https://w3id.org/onsir/1.2.0")))
-g.add((ONT, OWL.versionInfo, Literal("1.2.0")))
+g.add((ONT, URIRef(str(OWL) + "versionIRI"), URIRef("https://w3id.org/onsir/1.3.0")))
+g.add((ONT, OWL.versionInfo, Literal("1.3.0")))
 g.add((ONT, DCT.title, Literal("OnSIR: Ontology for Seed Irradiation and Plant Radiobiology")))
 g.add((ONT, DCT.description, Literal(
     "A FAIR OWL 2 DL ontology of seed-irradiation treatments and their dose-dependent "
@@ -156,6 +156,35 @@ def defined_class(name, prop, filler, base="TreatmentOutcome"):
 defined_class("StimulatoryOutcome", "hasResponse", "HormeticResponse")
 defined_class("MutagenicOutcome", "hasResponse", "MutagenicResponse")
 
+# ---- strip editorial notes carried over from the source skeleton ----
+# The hand-authored base file contains "Integration touchpoint..." notes to the author. They are
+# rdfs:comments, so the generated documentation publishes them as if they were class definitions.
+# They are drafting notes, not content, and do not belong in a release.
+_removed = 0
+for _s, _p, _o in list(g.triples((None, RDFS.comment, None))):
+    if "Integration touchpoint" in str(_o):
+        g.remove((_s, _p, _o)); _removed += 1
+print(f"  removed {_removed} editorial note(s) carried over from the source skeleton")
+
+# ---- deprecate the dose classes that name a biological outcome ----
+# Section 5 argues that a class called "HormeticDose" reifies a context-dependent empirical outcome
+# as an intrinsic property of a dose. Keeping such classes while arguing against them is
+# indefensible; deleting them would break any user of an earlier release. We deprecate them the OBO
+# way: the IRI survives, is marked obsolete, and points at the evidence-relative replacement.
+LEGACY = {
+    "HormeticDose": "AtOrBelowReportedOptimum",
+    "MutagenicDose": "AboveReportedOptimum",
+    "SterilizationDose": "AtOrAboveReportedLD50",
+}
+for _old, _new in LEGACY.items():
+    g.add((C(_old), OWL.deprecated, Literal(True)))
+    g.add((C(_old), RDFS.comment, Literal(
+        "DEPRECATED. This class names a biological outcome as if it were a property of the dose, "
+        "which is context-dependent: the same absorbed dose falls in different windows for "
+        "different taxa. Use " + _new + ", which records where a dose falls relative to the values "
+        "reported for a given taxon and asserts nothing about the outcome.")))
+    g.add((C(_old), URIRef("http://purl.obolibrary.org/obo/IAO_0100001"), C(_new)))
+
 # ---- (5) declarations that the class expressions above depend on ----
 # QuantityValue appears in four class expressions (dose and dose-bound restrictions) and was never
 # declared, while qudt:QuantityValue was declared and used as the range of the same properties. An
@@ -187,7 +216,11 @@ align("SeedIrradiationTreatment", str(OBO)+"BFO_0000015")   # process
 align("SeedTreatment", str(OBO)+"BFO_0000015")
 for m in ["Plant", "PlantSeed", "PlantPart", "Seedling"]:
     align(m, str(OBO)+"BFO_0000040")                        # material entity
-for q in ["Endpoint", "Response"]:
+# BFO placement. A Response is something that HAPPENS -- it unfolds in time -- so it is a process,
+# not a quality. An Endpoint is the measurable characteristic being scored, which is a quality.
+# Asserting both as qualities (an earlier build did) is a category error a BFO-aware referee catches.
+align("Response", str(OBO)+"BFO_0000015", RDFS.subClassOf)      # process
+for q in ["Endpoint"]:
     align(q, str(OBO)+"BFO_0000019")                        # quality
 # PO
 align("PlantSeed", str(OBO)+"PO_0009010", OWL.equivalentClass)   # seed

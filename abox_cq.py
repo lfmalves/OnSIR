@@ -2,11 +2,13 @@
 r"""Populate OnSIR with a real ABox from the EICCAM 28-study systematic-review corpus, then
 answer competency questions as SPARQL and report coverage. Species are aligned to NCBITaxon by
 verified OLS lookup (no fabricated IRIs). Builds OnSIR_abox.ttl (imports the enriched core)."""
-import re, json, urllib.request, urllib.parse
+import os, re, json, urllib.request, urllib.parse
 import rdflib
 from rdflib import Graph, Namespace, URIRef, Literal, BNode, RDF, RDFS, OWL, XSD
 
-TEX = "/home/luis-alves/Desktop/papers_to_send/ready_to_go/EICCAM/table_body.tex"
+# The coded corpus travels WITH the release. It used to be read from an absolute path outside the
+# repository, which made every ABox number in the paper unreproducible by anyone else.
+TEX = os.path.join(os.path.dirname(os.path.abspath(__file__)), "corpus", "eiccam_table_body.tex")
 NS = Namespace("https://w3id.org/onsir/")
 OBO = Namespace("http://purl.obolibrary.org/obo/")
 DR_MAP = {"DR1": "LowDoseRate", "DR2": "LowDoseRate", "DR3": "HighDoseRate", "DR4": "HighDoseRate"}
@@ -16,7 +18,11 @@ def parse_dose(s):
     m = re.match(r"([\d.]+)\s*(kGy|Gy|kR|R)", s)
     if not m: return None
     v = float(m.group(1)); u = m.group(2)
-    return {"kGy": v*1000, "Gy": v, "kR": v*8.77, "R": v*0.00877}[u]   # kR->Gy air-kerma approx
+    # The roentgen factors are an air-kerma-to-absorbed-dose approximation (1 R ~ 8.77 mGy in air),
+    # not a measured conversion. Two of the 28 studies report in roentgens, and one of them
+    # (60 kR -> 526 Gy) crosses the 500 Gy threshold used by CQ2, so that answer depends on this
+    # factor. The manuscript states it.
+    return {"kGy": v*1000, "Gy": v, "kR": v*8.77, "R": v*0.00877}[u]
 
 # The corpus codes endpoints on a six-value axis (EICCAM axis EP): EP1 emergence and early vigour,
 # EP2 biochemistry, EP3 genetics, EP4 morphology/anatomy, EP5 plant health, EP6 other physiological.
@@ -38,6 +44,20 @@ def parse_rows():
         rows.append(dict(species=sp, year=cells[1], country=cells[2], dr=cells[5],
                          source=cells[7].strip(), dose=parse_dose(cells[8]), ep=cells[10].strip()))
     return rows
+
+# Species we could not resolve by EXACT label match, with what NCBITaxon actually holds. Checked
+# against OLS on 2026-07-24. All three are present; none is reachable by exact label. Resolving them
+# means accepting a disambiguated label or a taxonomic reclassification, which is a curator's call,
+# so we record the candidates rather than assert them.
+NEAR_MISSES = {
+    "Ficus variegata":          ("NCBITaxon:100579",  "Ficus variegata (in: eudicots)",
+                                 "homonym disambiguator in the label"),
+    "Phyllanthus odontadenius": ("NCBITaxon:2708486", "Moeroris odontadenia",
+                                 "reclassified; current name differs"),
+    "Polianthes tuberosa":      ("NCBITaxon:82206",   "Agave amica",
+                                 "reclassified; current name differs"),
+}
+
 
 def ols_ncbitaxon(species):
     try:
@@ -88,7 +108,24 @@ def build():
         g.add((o, RDF.type, NS.TreatmentOutcome))
         g.add((o, NS.hasTreatment, t)); g.add((o, NS.hasSubject, seed))
         g.add((o, RDFS.label, Literal(f"{r['species']} / {r['source']} / {r['dose']} Gy ({r['year']})")))
+    # Declare every ABox individual as owl:NamedIndividual before serializing. Without the
+    # declaration the graph is not a legal OWL 2 DL ontology, and an OWL API or owlready2 pipeline
+    # loads the file and reports ZERO individuals -- the assertions are silently invisible.
+    named = set()
+    for s_, p_, o_ in g:
+        for term in (s_, o_):
+            if isinstance(term, URIRef) and str(term).startswith(NS) and "#" not in str(term):
+                local = str(term)[len(str(NS)):]
+                if local.split("_")[0] in ("treat", "outcome", "seed", "dose", "taxon"):
+                    named.add(term)
+    for ind in sorted(named):
+        g.add((ind, RDF.type, OWL.NamedIndividual))
+    print(f"  declared {len(named)} owl:NamedIndividual")
+
     g.serialize("OnSIR_abox.ttl", format="turtle")
+    # owlready2 does not parse Turtle, so a Turtle-only ABox cannot be loaded in an owlready2
+    # pipeline. Ship RDF/XML alongside it.
+    g.serialize("OnSIR_abox.owl", format="xml")
     return g, rows, taxon
 
 def run_cqs(g, rows, taxon):
@@ -103,6 +140,22 @@ def run_cqs(g, rows, taxon):
     print(f"  endpoint category: {sum(1 for r in rows if EP_MAP.get(r['ep']))}/{n}")
     print(f"  source isotope: {sum(1 for r in rows if r['source'] in ('Co-60','Cs-137'))}/{n}")
     print(f"  dose-rate category: {sum(1 for r in rows if DR_MAP.get(r['dr']))}/{n}")
+    # Applicability of the taxon-specific dose windows (Section 7) to this corpus. Reported because
+    # it is currently zero, and a reader should learn that here rather than discover it.
+    windowed = {"Nicotiana tabacum", "Vigna unguiculata", "Trigonella foenum-graecum",
+                "Capsicum annuum"}
+    hit = sorted({r["species"] for r in rows if r["species"] in windowed})
+    print(f"  studies whose taxon carries encoded dose windows: {len(hit)}/{n} {hit or '(none)'}")
+    unres = sorted(sp for sp, iri in taxon.items() if not iri)
+    print(f"  species not resolved by exact-label matching: {len(unres)}")
+    for sp in unres:
+        nm = NEAR_MISSES.get(sp)
+        print(f"    {sp:26s} -> " + (f"{nm[0]} {nm[1]!r} ({nm[2]})" if nm else "no candidate found"))
+    print("    -> all three ARE in NCBITaxon; the limitation is the exact-label rule, not the")
+    print("       resource. Accepting them requires a curator decision on taxonomic synonymy.")
+    print("    -> the numeric-dose classification needs BOTH a reported optimum and a reported")
+    print("       LD50 for the taxon; the four taxa that have both do not appear in this corpus,")
+    print("       so the two reasoning contributions currently apply to disjoint data.")
 
     print("\n=== competency questions (SPARQL) ===")
     print("CQ1 sources used:")

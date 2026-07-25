@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- OASIS XML catalog. OnSIR_abox.owl imports https://w3id.org/onsir, and that redirect is not yet
+     registered, so the import cannot be resolved from the network. This catalog maps the canonical
+     IRI to the local file, which is the standard mechanism Protege and the OWL API use. With it in
+     the same directory, the ABox loads offline and without modification. -->
+<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+  <uri id="onsir-ttl" name="https://w3id.org/onsir" uri="OnSIR.owl"/>
+  <uri id="onsir-slash" name="https://w3id.org/onsir/" uri="OnSIR.owl"/>
+</catalog>
