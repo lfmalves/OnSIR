@@ -58,6 +58,12 @@ fams = Counter()
 for o in targets:
     fams[o[len(OBO):].split("_")[0] if o.startswith(OBO) else "QUDT"] += 1
 
+# The equivalence count mixes two different things: internal defined/covering classes and external
+# alignments asserted as equivalences. Reporting them together mislabels three of them.
+_eq = list(g.subject_objects(OWL.equivalentClass))
+n_eq_external = len([1 for _s, _o in _eq if str(_o).startswith(OBO)])
+n_eq_internal = len(_eq) - n_eq_external
+
 # nominals (owl:hasValue) push the expressivity past ALCQI(D)
 expr = r"$\mathcal{ALCOQI}(\mathcal{D})$" if hv else r"$\mathcal{ALCQI}(\mathcal{D})$"
 
@@ -70,8 +76,8 @@ rows = [
     ("Disjointness axioms", disj),
     ("Existential and cardinality restrictions", len(sv) + len(qc)),
     (r"Nominal (\texttt{hasValue}) restrictions", len(hv)),
-    ("Equivalences (covering, defined and dose-window classes)",
-     len(set(g.subject_objects(OWL.equivalentClass)))),
+    ("Equivalences: covering, defined and dose-window classes", n_eq_internal),
+    ("Equivalences: external alignments", n_eq_external),
     ("External alignment triples", len(align)),
     ("Distinct external terms aligned to", len(targets)),
 ]
