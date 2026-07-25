@@ -1,0 +1,286 @@
+{
+  "windows": {
+    "Nicotiana_tabacum": {
+      "optimum": 15.0,
+      "ld50": 25.0
+    },
+    "Trigonella_foenum_graecum": {
+      "optimum": 150.0,
+      "ld50": 350.0
+    },
+    "Capsicum_annuum": {
+      "optimum": 50.0,
+      "ld50": 200.0
+    },
+    "Vigna_unguiculata": {
+      "optimum": 80.0,
+      "ld50": 132.0
+    }
+  },
+  "facts": {
+    "n_studies": 28,
+    "dose_min": 8.0,
+    "dose_max": 1500.0,
+    "dose_mean": 333.4767857142857,
+    "n_above_500": 7,
+    "isotopes": {
+      "Cs137": 1,
+      "Co60": 24
+    },
+    "n_taxa_resolved": 24
+  },
+  "items": [
+    {
+      "id": "A00",
+      "type": "A",
+      "taxon": "Capsicum_annuum",
+      "dose": 25.0,
+      "question": "A seed lot of Capsicum annuum is irradiated with a 25.0 Gy acute gamma dose. Relative to the optimum stimulation dose and the LD50 reported for this species, where does 25.0 Gy fall?",
+      "answer_format": "one of: at_or_below_optimum | above_optimum | at_or_above_ld50",
+      "truth": "at_or_below_optimum"
+    },
+    {
+      "id": "A01",
+      "type": "A",
+      "taxon": "Capsicum_annuum",
+      "dose": 125.0,
+      "question": "A seed lot of Capsicum annuum is irradiated with a 125.0 Gy acute gamma dose. Relative to the optimum stimulation dose and the LD50 reported for this species, where does 125.0 Gy fall?",
+      "answer_format": "one of: at_or_below_optimum | above_optimum | at_or_above_ld50",
+      "truth": "above_optimum"
+    },
+    {
+      "id": "A02",
+      "type": "A",
+      "taxon": "Capsicum_annuum",
+      "dose": 300.0,
+      "question": "A seed lot of Capsicum annuum is irradiated with a 300.0 Gy acute gamma dose. Relative to the optimum stimulation dose and the LD50 reported for this species, where does 300.0 Gy fall?",
+      "answer_format": "one of: at_or_below_optimum | above_optimum | at_or_above_ld50",
+      "truth": "at_or_above_ld50"
+    },
+    {
+      "id": "A03",
+      "type": "A",
+      "taxon": "Nicotiana_tabacum",
+      "dose": 7.5,
+      "question": "A seed lot of Nicotiana tabacum is irradiated with a 7.5 Gy acute gamma dose. Relative to the optimum stimulation dose and the LD50 reported for this species, where does 7.5 Gy fall?",
+      "answer_format": "one of: at_or_below_optimum | above_optimum | at_or_above_ld50",
+      "truth": "at_or_below_optimum"
+    },
+    {
+      "id": "A04",
+      "type": "A",
+      "taxon": "Nicotiana_tabacum",
+      "dose": 20.0,
+      "question": "A seed lot of Nicotiana tabacum is irradiated with a 20.0 Gy acute gamma dose. Relative to the optimum stimulation dose and the LD50 reported for this species, where does 20.0 Gy fall?",
+      "answer_format": "one of: at_or_below_optimum | above_optimum | at_or_above_ld50",
+      "truth": "above_optimum"
+    },
+    {
+      "id": "A05",
+      "type": "A",
+      "taxon": "Nicotiana_tabacum",
+      "dose": 37.5,
+      "question": "A seed lot of Nicotiana tabacum is irradiated with a 37.5 Gy acute gamma dose. Relative to the optimum stimulation dose and the LD50 reported for this species, where does 37.5 Gy fall?",
+      "answer_format": "one of: at_or_below_optimum | above_optimum | at_or_above_ld50",
+      "truth": "at_or_above_ld50"
+    },
+    {
+      "id": "A06",
+      "type": "A",
+      "taxon": "Trigonella_foenum_graecum",
+      "dose": 75.0,
+      "question": "A seed lot of Trigonella foenum-graecum is irradiated with a 75.0 Gy acute gamma dose. Relative to the optimum stimulation dose and the LD50 reported for this species, where does 75.0 Gy fall?",
+      "answer_format": "one of: at_or_below_optimum | above_optimum | at_or_above_ld50",
+      "truth": "at_or_below_optimum"
+    },
+    {
+      "id": "A07",
+      "type": "A",
+      "taxon": "Trigonella_foenum_graecum",
+      "dose": 250.0,
+      "question": "A seed lot of Trigonella foenum-graecum is irradiated with a 250.0 Gy acute gamma dose. Relative to the optimum stimulation dose and the LD50 reported for this species, where does 250.0 Gy fall?",
+      "answer_format": "one of: at_or_below_optimum | above_optimum | at_or_above_ld50",
+      "truth": "above_optimum"
+    },
+    {
+      "id": "A08",
+      "type": "A",
+      "taxon": "Trigonella_foenum_graecum",
+      "dose": 525.0,
+      "question": "A seed lot of Trigonella foenum-graecum is irradiated with a 525.0 Gy acute gamma dose. Relative to the optimum stimulation dose and the LD50 reported for this species, where does 525.0 Gy fall?",
+      "answer_format": "one of: at_or_below_optimum | above_optimum | at_or_above_ld50",
+      "truth": "at_or_above_ld50"
+    },
+    {
+      "id": "A09",
+      "type": "A",
+      "taxon": "Vigna_unguiculata",
+      "dose": 40.0,
+      "question": "A seed lot of Vigna unguiculata is irradiated with a 40.0 Gy acute gamma dose. Relative to the optimum stimulation dose and the LD50 reported for this species, where does 40.0 Gy fall?",
+      "answer_format": "one of: at_or_below_optimum | above_optimum | at_or_above_ld50",
+      "truth": "at_or_below_optimum"
+    },
+    {
+      "id": "A10",
+      "type": "A",
+      "taxon": "Vigna_unguiculata",
+      "dose": 106.0,
+      "question": "A seed lot of Vigna unguiculata is irradiated with a 106.0 Gy acute gamma dose. Relative to the optimum stimulation dose and the LD50 reported for this species, where does 106.0 Gy fall?",
+      "answer_format": "one of: at_or_below_optimum | above_optimum | at_or_above_ld50",
+      "truth": "above_optimum"
+    },
+    {
+      "id": "A11",
+      "type": "A",
+      "taxon": "Vigna_unguiculata",
+      "dose": 198.0,
+      "question": "A seed lot of Vigna unguiculata is irradiated with a 198.0 Gy acute gamma dose. Relative to the optimum stimulation dose and the LD50 reported for this species, where does 198.0 Gy fall?",
+      "answer_format": "one of: at_or_below_optimum | above_optimum | at_or_above_ld50",
+      "truth": "at_or_above_ld50"
+    },
+    {
+      "id": "B12",
+      "type": "B",
+      "dose": 20.0,
+      "question": "Is a 20.0 Gy acute gamma dose to seeds a stimulatory dose, a mutagenic dose, or a sterilizing dose?",
+      "answer_format": "JSON with keys: verdict (string) and species_dependent (true/false)",
+      "truth": {
+        "species_dependent": true,
+        "windows": {
+          "Nicotiana_tabacum": "above_optimum",
+          "Trigonella_foenum_graecum": "at_or_below_optimum",
+          "Capsicum_annuum": "at_or_below_optimum",
+          "Vigna_unguiculata": "at_or_below_optimum"
+        }
+      }
+    },
+    {
+      "id": "B13",
+      "type": "B",
+      "dose": 60.0,
+      "question": "Is a 60.0 Gy acute gamma dose to seeds a stimulatory dose, a mutagenic dose, or a sterilizing dose?",
+      "answer_format": "JSON with keys: verdict (string) and species_dependent (true/false)",
+      "truth": {
+        "species_dependent": true,
+        "windows": {
+          "Nicotiana_tabacum": "at_or_above_ld50",
+          "Trigonella_foenum_graecum": "at_or_below_optimum",
+          "Capsicum_annuum": "above_optimum",
+          "Vigna_unguiculata": "at_or_below_optimum"
+        }
+      }
+    },
+    {
+      "id": "B14",
+      "type": "B",
+      "dose": 100.0,
+      "question": "Is a 100.0 Gy acute gamma dose to seeds a stimulatory dose, a mutagenic dose, or a sterilizing dose?",
+      "answer_format": "JSON with keys: verdict (string) and species_dependent (true/false)",
+      "truth": {
+        "species_dependent": true,
+        "windows": {
+          "Nicotiana_tabacum": "at_or_above_ld50",
+          "Trigonella_foenum_graecum": "at_or_below_optimum",
+          "Capsicum_annuum": "above_optimum",
+          "Vigna_unguiculata": "above_optimum"
+        }
+      }
+    },
+    {
+      "id": "B15",
+      "type": "B",
+      "dose": 120.0,
+      "question": "Is a 120.0 Gy acute gamma dose to seeds a stimulatory dose, a mutagenic dose, or a sterilizing dose?",
+      "answer_format": "JSON with keys: verdict (string) and species_dependent (true/false)",
+      "truth": {
+        "species_dependent": true,
+        "windows": {
+          "Nicotiana_tabacum": "at_or_above_ld50",
+          "Trigonella_foenum_graecum": "at_or_below_optimum",
+          "Capsicum_annuum": "above_optimum",
+          "Vigna_unguiculata": "above_optimum"
+        }
+      }
+    },
+    {
+      "id": "B16",
+      "type": "B",
+      "dose": 140.0,
+      "question": "Is a 140.0 Gy acute gamma dose to seeds a stimulatory dose, a mutagenic dose, or a sterilizing dose?",
+      "answer_format": "JSON with keys: verdict (string) and species_dependent (true/false)",
+      "truth": {
+        "species_dependent": true,
+        "windows": {
+          "Nicotiana_tabacum": "at_or_above_ld50",
+          "Trigonella_foenum_graecum": "at_or_below_optimum",
+          "Capsicum_annuum": "above_optimum",
+          "Vigna_unguiculata": "at_or_above_ld50"
+        }
+      }
+    },
+    {
+      "id": "B17",
+      "type": "B",
+      "dose": 250.0,
+      "question": "Is a 250.0 Gy acute gamma dose to seeds a stimulatory dose, a mutagenic dose, or a sterilizing dose?",
+      "answer_format": "JSON with keys: verdict (string) and species_dependent (true/false)",
+      "truth": {
+        "species_dependent": true,
+        "windows": {
+          "Nicotiana_tabacum": "at_or_above_ld50",
+          "Trigonella_foenum_graecum": "above_optimum",
+          "Capsicum_annuum": "at_or_above_ld50",
+          "Vigna_unguiculata": "at_or_above_ld50"
+        }
+      }
+    },
+    {
+      "id": "C18",
+      "type": "C",
+      "question": "How many irradiation studies are in the corpus?",
+      "answer_format": "a single number",
+      "truth": 28,
+      "tol": 0
+    },
+    {
+      "id": "C19",
+      "type": "C",
+      "question": "What is the lowest absorbed dose in the corpus, in Gy?",
+      "answer_format": "a single number",
+      "truth": 8.0,
+      "tol": 0.5
+    },
+    {
+      "id": "C20",
+      "type": "C",
+      "question": "What is the highest absorbed dose in the corpus, in Gy?",
+      "answer_format": "a single number",
+      "truth": 1500.0,
+      "tol": 0.5
+    },
+    {
+      "id": "C21",
+      "type": "C",
+      "question": "What is the mean absorbed dose across the corpus, in Gy?",
+      "answer_format": "a single number",
+      "truth": 333.4767857142857,
+      "tol": 1.0
+    },
+    {
+      "id": "C22",
+      "type": "C",
+      "question": "How many studies use a dose above 500 Gy?",
+      "answer_format": "a single number",
+      "truth": 7,
+      "tol": 0
+    },
+    {
+      "id": "C23",
+      "type": "C",
+      "question": "How many studies use a Cobalt-60 source?",
+      "answer_format": "a single number",
+      "truth": 24,
+      "tol": 0
+    }
+  ]
+}

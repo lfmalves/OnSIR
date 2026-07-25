@@ -1,0 +1,24 @@
+{"id": "A00", "answer": "at_or_below_optimum"}
+{"id": "A01", "answer": "above_optimum"}
+{"id": "A02", "answer": "at_or_above_ld50"}
+{"id": "A03", "answer": "at_or_below_optimum"}
+{"id": "A04", "answer": "above_optimum"}
+{"id": "A05", "answer": "at_or_above_ld50"}
+{"id": "A06", "answer": "at_or_below_optimum"}
+{"id": "A07", "answer": "above_optimum"}
+{"id": "A08", "answer": "at_or_above_ld50"}
+{"id": "A09", "answer": "at_or_below_optimum"}
+{"id": "A10", "answer": "above_optimum"}
+{"id": "A11", "answer": "at_or_above_ld50"}
+{"id": "B12", "answer": {"verdict": "underdetermined", "species_dependent": true}}
+{"id": "B13", "answer": {"verdict": "underdetermined", "species_dependent": true}}
+{"id": "B14", "answer": {"verdict": "underdetermined", "species_dependent": true}}
+{"id": "B15", "answer": {"verdict": "underdetermined", "species_dependent": true}}
+{"id": "B16", "answer": {"verdict": "underdetermined", "species_dependent": true}}
+{"id": "B17", "answer": {"verdict": "underdetermined", "species_dependent": true}}
+{"id": "C18", "answer": 28}
+{"id": "C19", "answer": 8}
+{"id": "C20", "answer": 1500}
+{"id": "C21", "answer": 333.5}
+{"id": "C22", "answer": 7}
+{"id": "C23", "answer": 24}

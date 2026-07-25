@@ -1,0 +1,93 @@
+ONTOLOGY CONTEXT retrieved from OnSIR (https://w3id.org/onsir), release v1.1.0.
+
+Taxon-specific dose windows, as encoded in OWL 2 datatype facets. A dose at or below the optimum is at_or_below_optimum; above the optimum but below the LD50 is above_optimum; at or above the LD50 is at_or_above_ld50.
+
+  Capsicum annuum: reported optimum 50 Gy, reported LD50 200 Gy
+  Nicotiana tabacum: reported optimum 15 Gy, reported LD50 25 Gy
+  Trigonella foenum-graecum: reported optimum 150 Gy, reported LD50 350 Gy
+  Vigna unguiculata: reported optimum 80 Gy, reported LD50 132 Gy
+
+These windows are evidence-relative: they record where a dose falls with respect to the values reported in the literature for that species, and carry no claim about the biological outcome.
+
+Curated corpus (28 coded studies, EICCAM systematic review):
+  studies: 28
+  absorbed dose range: 8-1500 Gy, mean 333.5 Gy
+  studies above 500 Gy: 7
+  source isotopes: Co60: 24, Cs137: 1
+  seeds with a resolved NCBITaxon class: 24
+
+---
+You are answering questions about gamma irradiation of plant seeds. Answer each item as JSON on one line: {"id": ..., "answer": ...}. Use exactly the answer format requested. Output nothing but the JSON lines.
+
+[A00] A seed lot of Capsicum annuum is irradiated with a 25.0 Gy acute gamma dose. Relative to the optimum stimulation dose and the LD50 reported for this species, where does 25.0 Gy fall?
+  format: one of: at_or_below_optimum | above_optimum | at_or_above_ld50
+
+[A01] A seed lot of Capsicum annuum is irradiated with a 125.0 Gy acute gamma dose. Relative to the optimum stimulation dose and the LD50 reported for this species, where does 125.0 Gy fall?
+  format: one of: at_or_below_optimum | above_optimum | at_or_above_ld50
+
+[A02] A seed lot of Capsicum annuum is irradiated with a 300.0 Gy acute gamma dose. Relative to the optimum stimulation dose and the LD50 reported for this species, where does 300.0 Gy fall?
+  format: one of: at_or_below_optimum | above_optimum | at_or_above_ld50
+
+[A03] A seed lot of Nicotiana tabacum is irradiated with a 7.5 Gy acute gamma dose. Relative to the optimum stimulation dose and the LD50 reported for this species, where does 7.5 Gy fall?
+  format: one of: at_or_below_optimum | above_optimum | at_or_above_ld50
+
+[A04] A seed lot of Nicotiana tabacum is irradiated with a 20.0 Gy acute gamma dose. Relative to the optimum stimulation dose and the LD50 reported for this species, where does 20.0 Gy fall?
+  format: one of: at_or_below_optimum | above_optimum | at_or_above_ld50
+
+[A05] A seed lot of Nicotiana tabacum is irradiated with a 37.5 Gy acute gamma dose. Relative to the optimum stimulation dose and the LD50 reported for this species, where does 37.5 Gy fall?
+  format: one of: at_or_below_optimum | above_optimum | at_or_above_ld50
+
+[A06] A seed lot of Trigonella foenum-graecum is irradiated with a 75.0 Gy acute gamma dose. Relative to the optimum stimulation dose and the LD50 reported for this species, where does 75.0 Gy fall?
+  format: one of: at_or_below_optimum | above_optimum | at_or_above_ld50
+
+[A07] A seed lot of Trigonella foenum-graecum is irradiated with a 250.0 Gy acute gamma dose. Relative to the optimum stimulation dose and the LD50 reported for this species, where does 250.0 Gy fall?
+  format: one of: at_or_below_optimum | above_optimum | at_or_above_ld50
+
+[A08] A seed lot of Trigonella foenum-graecum is irradiated with a 525.0 Gy acute gamma dose. Relative to the optimum stimulation dose and the LD50 reported for this species, where does 525.0 Gy fall?
+  format: one of: at_or_below_optimum | above_optimum | at_or_above_ld50
+
+[A09] A seed lot of Vigna unguiculata is irradiated with a 40.0 Gy acute gamma dose. Relative to the optimum stimulation dose and the LD50 reported for this species, where does 40.0 Gy fall?
+  format: one of: at_or_below_optimum | above_optimum | at_or_above_ld50
+
+[A10] A seed lot of Vigna unguiculata is irradiated with a 106.0 Gy acute gamma dose. Relative to the optimum stimulation dose and the LD50 reported for this species, where does 106.0 Gy fall?
+  format: one of: at_or_below_optimum | above_optimum | at_or_above_ld50
+
+[A11] A seed lot of Vigna unguiculata is irradiated with a 198.0 Gy acute gamma dose. Relative to the optimum stimulation dose and the LD50 reported for this species, where does 198.0 Gy fall?
+  format: one of: at_or_below_optimum | above_optimum | at_or_above_ld50
+
+[B12] Is a 20.0 Gy acute gamma dose to seeds a stimulatory dose, a mutagenic dose, or a sterilizing dose?
+  format: JSON with keys: verdict (string) and species_dependent (true/false)
+
+[B13] Is a 60.0 Gy acute gamma dose to seeds a stimulatory dose, a mutagenic dose, or a sterilizing dose?
+  format: JSON with keys: verdict (string) and species_dependent (true/false)
+
+[B14] Is a 100.0 Gy acute gamma dose to seeds a stimulatory dose, a mutagenic dose, or a sterilizing dose?
+  format: JSON with keys: verdict (string) and species_dependent (true/false)
+
+[B15] Is a 120.0 Gy acute gamma dose to seeds a stimulatory dose, a mutagenic dose, or a sterilizing dose?
+  format: JSON with keys: verdict (string) and species_dependent (true/false)
+
+[B16] Is a 140.0 Gy acute gamma dose to seeds a stimulatory dose, a mutagenic dose, or a sterilizing dose?
+  format: JSON with keys: verdict (string) and species_dependent (true/false)
+
+[B17] Is a 250.0 Gy acute gamma dose to seeds a stimulatory dose, a mutagenic dose, or a sterilizing dose?
+  format: JSON with keys: verdict (string) and species_dependent (true/false)
+
+[C18] How many irradiation studies are in the corpus?
+  format: a single number
+
+[C19] What is the lowest absorbed dose in the corpus, in Gy?
+  format: a single number
+
+[C20] What is the highest absorbed dose in the corpus, in Gy?
+  format: a single number
+
+[C21] What is the mean absorbed dose across the corpus, in Gy?
+  format: a single number
+
+[C22] How many studies use a dose above 500 Gy?
+  format: a single number
+
+[C23] How many studies use a Cobalt-60 source?
+  format: a single number
+
