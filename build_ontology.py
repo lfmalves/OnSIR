@@ -263,7 +263,7 @@ align("Cs137", str(OBO)+"CHEBI_196959", OWL.equivalentClass)
 align("Co60", str(OBO)+"CHEBI_27638", SKOS.broadMatch)      # cobalt atom (no Co-60 nuclide in ChEBI)
 # dose units, as typed QUDT links on the quantity restrictions
 g.add((C("QuantityValue"), RDFS.comment, Literal(
-    "dose values carry a typed qudt:unit link; absorbed dose is in gray")))
+    "dose values carry a typed qudt:hasUnit link; absorbed dose is in gray")))
 align("TemperatureCondition", str(OBO)+"PATO_0000146", SKOS.closeMatch)  # temperature (PATO)
 # RBO gap note (Radiobiology Ontology has no seed-irradiation dose-effect classes -> OnSIR extends)
 g.add((ONT, RDFS.seeAlso, URIRef("http://purl.obolibrary.org/obo/rbo.owl")))
@@ -308,7 +308,7 @@ align("FreshMass", O+"PATO_0000125", SKOS.closeMatch)           # mass
 align("DryMass", O+"PATO_0000125", SKOS.closeMatch)
 align("CotyledonFreeing", O+"PO_0020030", SKOS.closeMatch)      # cotyledon
 g.add((C("QuantityValue"), RDFS.comment, Literal(
-    "dose rate values carry a typed qudt:unit link; the unit asserted is gray per hour")))
+    "dose rate values carry a typed qudt:hasUnit link; the unit asserted is gray per hour")))
 
 # ---- (11) SKOS definitions for core classes ----
 DEFS = {

@@ -15,9 +15,6 @@ qudt:numericValue a owl:DatatypeProperty ;
     rdfs:label "numeric value"@en ;
     rdfs:range xsd:double .
 
-qudt:unit a owl:ObjectProperty ;
-    rdfs:label "unit"@en .
-
 <https://w3id.org/onsir> a owl:Ontology ;
     dct:created "2025-09-21"^^xsd:date ;
     dct:creator <https://orcid.org/0000-0001-9504-496X>,
@@ -764,10 +761,10 @@ foaf:Person a owl:Class .
 onsir:DoseRange a owl:Class ;
     rdfs:label "Dose Range"@en ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty onsir:maxDose ;
+            owl:onProperty onsir:minDose ;
             owl:someValuesFrom onsir:QuantityValue ],
         [ a owl:Restriction ;
-            owl:onProperty onsir:minDose ;
+            owl:onProperty onsir:maxDose ;
             owl:someValuesFrom onsir:QuantityValue ] .
 
 onsir:DoseRateCategory a owl:Class ;
@@ -850,8 +847,8 @@ onsir:PlantSeed a owl:Class ;
 
 onsir:QuantityValue a owl:Class ;
     rdfs:label "Quantity value"@en ;
-    rdfs:comment "dose rate values carry a typed qudt:unit link; the unit asserted is gray per hour",
-        "dose values carry a typed qudt:unit link; absorbed dose is in gray" ;
+    rdfs:comment "dose rate values carry a typed qudt:hasUnit link; the unit asserted is gray per hour",
+        "dose values carry a typed qudt:hasUnit link; absorbed dose is in gray" ;
     owl:equivalentClass qudt:QuantityValue ;
     skos:definition "A measured quantity with a numeric value and a unit (dose in gray, dose rate in gray per minute)." .
 
@@ -940,18 +937,18 @@ onsir:SeedIrradiationTreatment a owl:Class ;
     rdfs:label "Seed Irradiation Treatment"@en ;
     rdfs:comment "Irradiation applied to seeds using ionizing or non-ionizing radiation."@en ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty onsir:hasRadiationType ;
+            owl:someValuesFrom onsir:RadiationType ],
+        [ a owl:Restriction ;
+            owl:onProperty onsir:hasDose ;
+            owl:someValuesFrom onsir:QuantityValue ],
+        [ a owl:Restriction ;
             owl:onClass onsir:QuantityValue ;
             owl:onProperty onsir:hasDose ;
             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
         [ a owl:Restriction ;
             owl:onProperty onsir:induces ;
             owl:someValuesFrom onsir:Response ],
-        [ a owl:Restriction ;
-            owl:onProperty onsir:hasRadiationType ;
-            owl:someValuesFrom onsir:RadiationType ],
-        [ a owl:Restriction ;
-            owl:onProperty onsir:hasDose ;
-            owl:someValuesFrom onsir:QuantityValue ],
         obo:BFO_0000015,
         onsir:SeedTreatment ;
     skos:definition "A treatment process in which seeds are exposed to ionizing radiation of a specified type, source, dose and dose rate." .
@@ -977,20 +974,25 @@ onsir:DoseAssessment a owl:Class ;
 
 xsd:double a owl:Class .
 
+[] a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty onsir:hasResponse ;
+            owl:someValuesFrom onsir:HormeticResponse ] ;
+    owl:intersectionOf ( onsir:TreatmentOutcome [ a owl:Restriction ;
+                owl:onProperty onsir:hasDoseCategory ;
+                owl:someValuesFrom onsir:HormeticDose ] ) .
+
+[] a owl:AllDisjointClasses ;
+    owl:members ( onsir:EmergenceAndEarlyVigor onsir:BiochemicalEndpointCategory onsir:GeneticEndpointCategory onsir:MorphologicalEndpointCategory onsir:PlantHealthEndpointCategory onsir:OtherPhysiologicalEndpointCategory ) .
+
 [] a owl:AllDisjointClasses ;
     owl:members ( onsir:LowDoseRate onsir:HighDoseRate ) .
 
 [] a owl:AllDisjointClasses ;
-    owl:members ( onsir:AtOrBelowReportedOptimum onsir:AboveReportedOptimum onsir:AtOrAboveReportedLD50 ) .
+    owl:members ( onsir:HormeticDose onsir:MutagenicDose onsir:SterilizationDose ) .
 
 [] a owl:AllDisjointClasses ;
     owl:members ( onsir:HormeticResponse onsir:MutagenicResponse onsir:SterilizationResponse ) .
-
-[] a owl:AllDisjointClasses ;
-    owl:members ( onsir:Am241 onsir:Co60 onsir:Cs137 onsir:Ir192 onsir:Xe133 ) .
-
-[] a owl:AllDisjointClasses ;
-    owl:members ( onsir:Gamma onsir:XRay onsir:Neutron onsir:Proton onsir:ElectronBeam onsir:UV_A onsir:UV_B onsir:UV_C ) .
 
 [] a owl:Class ;
     rdfs:subClassOf [ a owl:Restriction ;
@@ -1009,16 +1011,11 @@ xsd:double a owl:Class .
                 owl:someValuesFrom onsir:MutagenicDose ] ) .
 
 [] a owl:AllDisjointClasses ;
-    owl:members ( onsir:EmergenceAndEarlyVigor onsir:BiochemicalEndpointCategory onsir:GeneticEndpointCategory onsir:MorphologicalEndpointCategory onsir:PlantHealthEndpointCategory onsir:OtherPhysiologicalEndpointCategory ) .
-
-[] a owl:Class ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty onsir:hasResponse ;
-            owl:someValuesFrom onsir:HormeticResponse ] ;
-    owl:intersectionOf ( onsir:TreatmentOutcome [ a owl:Restriction ;
-                owl:onProperty onsir:hasDoseCategory ;
-                owl:someValuesFrom onsir:HormeticDose ] ) .
+    owl:members ( onsir:Gamma onsir:XRay onsir:Neutron onsir:Proton onsir:ElectronBeam onsir:UV_A onsir:UV_B onsir:UV_C ) .
 
 [] a owl:AllDisjointClasses ;
-    owl:members ( onsir:HormeticDose onsir:MutagenicDose onsir:SterilizationDose ) .
+    owl:members ( onsir:AtOrBelowReportedOptimum onsir:AboveReportedOptimum onsir:AtOrAboveReportedLD50 ) .
+
+[] a owl:AllDisjointClasses ;
+    owl:members ( onsir:Am241 onsir:Co60 onsir:Cs137 onsir:Ir192 onsir:Xe133 ) .
 

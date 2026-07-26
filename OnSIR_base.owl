@@ -430,10 +430,6 @@
     <hasResponse rdf:resource="http://example.org/SeedIrradCore#Resp_GerminationHormesis"/>
     <hasModel rdf:resource="http://example.org/SeedIrradCore#Model_BC_Germination"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://qudt.org/schema/qudt/unit">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:label xml:lang="en">unit</rdfs:label>
-  </rdf:Description>
   <rdf:Description rdf:about="http://example.org/SeedIrradCore#sourceIsotope">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
     <rdfs:label xml:lang="en">source isotope</rdfs:label>

@@ -307,6 +307,27 @@ if core is not None:
     check("version agrees across versionInfo, versionIRI, CITATION.cff and README", agree,
           f"versionInfo {vinfo}, versionIRI {viri}, cff {cff}, readme {rdme}")
 
+    # Retired or non-existent external IRIs. Each of these was in the artifact and each 404s:
+    # qudt:unit was superseded by qudt:hasUnit, and QUDT spells the units GRAY / GRAY-PER-MIN,
+    # not Gray / Gy-PER-MIN. A dead DECLARATION counts: it is an assertion about an IRI that no
+    # longer resolves, and it is the form the first fix here missed.
+    RETIRED = ["http://qudt.org/schema/qudt/unit",
+               "http://qudt.org/vocab/unit/Gray",
+               "http://qudt.org/vocab/unit/Gy-PER-MIN"]
+    found = {}
+    for g_, nm in ((core, "OnSIR.ttl"), (abox, "OnSIR_abox.ttl")):
+        if g_ is None:
+            continue
+        for r in RETIRED:
+            n = sum(1 for t in g_ for x in t if str(x) == r)
+            if n:
+                found[f"{nm}:{r.rsplit('/', 1)[-1]}"] = n
+    check("no retired or non-dereferencing external IRI, used or declared", not found, f"{found}")
+    # ...and the same in the prose of any annotation, where a stale name misleads a reader
+    stale = [str(o)[:60] for _s, _p, o in (core or [])
+             if isinstance(o, str) and "qudt:unit " in str(o)]
+    check("no annotation names the retired property", not stale, f"{stale}")
+
 # ---------------------------------------------------------------- 9. the ablation is one sentence
 print("\ngrounding ablation")
 gp = os.path.join(HERE, "bench", "prompt_grounded.txt")
