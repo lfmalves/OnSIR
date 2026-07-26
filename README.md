@@ -2,7 +2,7 @@
 
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 
-**Canonical IRI:** `https://w3id.org/onsir` · **Version:** 1.3.0 · **License:** CC BY 4.0
+**Canonical IRI:** `https://w3id.org/onsir` · **Version:** 1.4.0 · **License:** CC BY 4.0
 
 OnSIR is a FAIR OWL 2 DL ontology of **seed-irradiation treatments** and their dose-dependent
 biological effects — **hormetic**, **mutagenic**, and **sterilizing** — across crop and model
@@ -10,19 +10,29 @@ plants. It models radiation types and isotopic sources, dose and dose-rate categ
 dose–response models, lifecycle stages, endpoints, and the `TreatmentOutcome` that links a
 treatment to its subject, context, dose category, and response.
 
-## What is in this release (v1.3.0)
+## What is in this release (v1.4.0)
 
-- **96 named classes, 26 object properties, 11 datatype properties**; 3 legacy dose classes deprecated
-- ABox: 28 studies, 136 declared individuals, shipped as Turtle **and** RDF/XML with an OWL catalogue
-- `verify_release.py` checks the release against the manuscript's claims in one command
-  (functional and inverse characteristics; anonymous class expressions are not counted as terms).
-- **Logical axioms**: pairwise **disjointness** of dose categories, responses,
-  radiation types and isotopes; **existential restrictions** on treatments/outcomes/dose ranges;
+- **93 named classes, 26 object properties, 11 datatype properties.** The three outcome-named dose
+  categories (`HormeticDose`, `MutagenicDose`, `SterilizationDose`) are kept **active** but marked
+  *not recommended for new annotation* — their axioms are load-bearing, and an obsolete OBO term may
+  carry none. The three outcome-named `*DoseRange` classes carried nothing and were **removed**.
+- ABox: 28 studies, 136 declared individuals, shipped as Turtle **and** RDF/XML with an OWL catalogue.
+  Every individual in **both** files is declared `owl:NamedIndividual`, and every external IRI used in
+  a logical position carries a bare MIREOT-style `owl:Class` stub so both graphs are in the OWL 2 DL
+  profile without importing NCBITaxon.
+- `verify_release.py` checks the release against the manuscript's claims in one command: every numeric
+  row of the metrics table, byte-identical regeneration of the generated files, HermiT consistency of
+  the merged graph with no unsatisfiable class, no undeclared IRI in a logical position, every
+  individual declared, functional and inverse characteristics, no property with two `rdfs:domain` or
+  two `rdfs:range` axioms, the one-sentence construction of the benchmark ablation, the owlready2 load
+  recipe, and release hygiene. Anonymous class expressions are not counted as terms.
+- **Logical axioms**: pairwise **disjointness** of dose categories, responses, radiation types,
+  isotopes and dose-rate categories; **existential restrictions** on treatments/outcomes/dose ranges;
   **dose→effect axioms** (a hormetic dose entails a hormetic response, etc.) and the defined
   classes `StimulatoryOutcome` / `MutagenicOutcome` that a reasoner uses to classify outcomes.
 - **External alignment** (verified IRIs): BFO (upper level), PO (`seed`, `seedling`),
   NCBITaxon (species), ChEBI (isotopes), QUDT (units), PATO (qualities). A gap analysis versus
-  the OBO Radiobiology Ontology (RBO) motivates OnSIR's seed-irradiation dose–effect classes.
+  the OBO Radiation Biology Ontology (RBO) motivates OnSIR's seed-irradiation dose–effect classes.
 - **Context-dependent dose positioning:** a dose is not hormetic in itself, so taxon-specific
   numeric windows are encoded with OWL 2 datatype facets and the reasoner *derives* where a dose sits
   relative to the statistics reported for its taxon. The same 100 Gy is placed **at/above the
@@ -57,8 +67,27 @@ treatment to its subject, context, dose category, and response.
 @prefix onsir: <https://w3id.org/onsir/> .
 ```
 
-Load `OnSIR.ttl` in Protégé or any OWL API / rdflib / owlready2 pipeline. Requires Java for
-HermiT.
+Load `OnSIR.ttl` in Protégé or any OWL API / rdflib / owlready2 pipeline. Requires Java for HermiT.
+
+### Loading the ABox
+
+`OnSIR_abox.owl` imports `https://w3id.org/onsir`, which does not resolve yet (see *Persistent
+identifier* below). Protégé and the OWL API resolve it through the shipped OASIS catalogue
+`catalog-v001.xml`. **owlready2 implements no catalogue**, so loading the ABox on its own raises
+`OwlReadyOntologyParsingError: Cannot download 'https://w3id.org/onsir/'`. Register the core under its
+canonical IRI in the same `World` first:
+
+```python
+import owlready2 as o2
+w = o2.World()
+core = w.get_ontology("https://w3id.org/onsir")
+core.load(only_local=False, fileobj=open("OnSIR.owl", "rb"))
+abox = w.get_ontology("file://" + os.path.abspath("OnSIR_abox.owl")).load()
+# 131 classes, 150 individuals
+```
+
+`verify_release.py` runs exactly this and fails if it stops working. For rdflib, parse the two files
+and merge them; `verify_release.py` does that too, dropping the unresolvable `owl:imports` triple.
 
 ## Persistent identifier
 
@@ -69,7 +98,7 @@ permanent independently of any hosting provider.
 resolve.** Registration requires a pull request to
 [perma-id/w3id.org](https://github.com/perma-id/w3id.org); until it is merged, the authoritative
 location of the files is this repository. An archival release with a DOI (e.g. Zenodo) is likewise
-still to be minted. Both steps are planned before publication; v1.1.0 does not yet have them.
+still to be minted. Both steps are planned before publication; this release does not have them.
 
 ## How to cite
 

@@ -19,7 +19,7 @@ Run:    python make_metrics.py
 import os
 from collections import Counter
 import rdflib
-from rdflib import RDF, RDFS, OWL, URIRef
+from rdflib import RDF, RDFS, OWL, URIRef, XSD
 
 NS = "https://w3id.org/onsir/"
 OBO = "http://purl.obolibrary.org/obo/"
@@ -59,12 +59,57 @@ for o in targets:
 
 # The equivalence count mixes two different things: internal defined/covering classes and external
 # alignments asserted as equivalences. Reporting them together mislabels three of them.
+# "external" means the target is outside the OnSIR namespace, not merely that it is an OBO IRI.
+# Testing for the OBO prefix alone counted :QuantityValue == qudt:QuantityValue as an INTERNAL
+# defined class, so the row label "covering, defined and dose-window classes" was false for one of
+# its members.
 _eq = list(g.subject_objects(OWL.equivalentClass))
-n_eq_external = len([1 for _s, _o in _eq if str(_o).startswith(OBO)])
+n_eq_external = len([1 for _s, _o in _eq
+                     if isinstance(_o, URIRef) and not str(_o).startswith(NS)])
 n_eq_internal = len(_eq) - n_eq_external
 
-# nominals (owl:hasValue) push the expressivity past ALCQI(D)
-expr = r"$\mathcal{ALCOQI}(\mathcal{D})$" if hv else r"$\mathcal{ALCQI}(\mathcal{D})$"
+# The description-logic name is DERIVED from the axioms present, not typed in. It used to be a
+# hard-coded string and was wrong: OnSIR carries a role hierarchy
+# (hasBiochemicalChange subPropertyOf induces), which contributes H, and no owl:complementOf --
+# negation enters through the disjointness axioms, which ALC already provides.
+_letters = ["ALC"]
+if list(g.subject_objects(RDFS.subPropertyOf)):
+    _letters.append("H")                        # role hierarchy
+if hv:
+    _letters.append("O")                        # nominals, via owl:hasValue
+if list(g.triples((None, OWL.inverseOf, None))):
+    _letters.append("I")                        # inverse roles
+if qc:
+    _letters.append("Q")                        # qualified cardinality
+_dl = "".join(_letters)
+_has_dtype = bool(list(g.triples((None, OWL.withRestrictions, None)))) or bool(
+    [1 for _s, _o in g.subject_objects(RDFS.range) if str(_o).startswith(str(XSD))])
+expr = r"$\mathcal{%s}%s$" % (_dl, r"(\mathcal{D})" if _has_dtype else "")
+
+# BFO reach. The paper says OnSIR builds on BFO; how much of it actually hangs off BFO is a fact
+# about the artifact, so it is counted rather than characterised. Transitive closure over
+# rdfs:subClassOf and owl:equivalentClass, since an equivalence to a PO class inherits PO's own BFO
+# placement only if that class is imported -- which it is not, so equivalences count only when the
+# chain reaches BFO inside this file.
+_BFO = "http://purl.obolibrary.org/obo/BFO_"
+_up = {}
+for _s, _o in list(g.subject_objects(RDFS.subClassOf)) + list(g.subject_objects(OWL.equivalentClass)):
+    if isinstance(_s, URIRef) and isinstance(_o, URIRef):
+        _up.setdefault(_s, set()).add(_o)
+
+
+def _has_bfo(c, seen=None):
+    seen = seen or set()
+    if c in seen:
+        return False
+    seen.add(c)
+    for par in _up.get(c, ()):
+        if str(par).startswith(_BFO) or _has_bfo(par, seen):
+            return True
+    return False
+
+
+n_bfo = len([c for c in named(OWL.Class) if _has_bfo(c)])
 
 rows = [
     ("Named classes", len(named(OWL.Class))),
@@ -78,6 +123,7 @@ rows = [
     ("Equivalences: covering, defined and dose-window classes", n_eq_internal),
     ("Equivalences: external alignments", n_eq_external),
     ("External alignment triples", len(align)),
+    ("Named classes with a BFO ancestor", n_bfo),
     ("Distinct external terms aligned to", len(targets)),
 ]
 

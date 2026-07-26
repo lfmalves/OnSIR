@@ -45,17 +45,16 @@
   <rdf:Description rdf:nodeID="N79f435bf96ac4125800c1ee94e0948ef">
     <rdf:type rdf:resource="http://qudt.org/schema/qudt/QuantityValue"/>
     <qudt:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">254.0</qudt:numericValue>
-    <qudt:unit rdf:resource="http://qudt.org/vocab/unit/NanoM"/>
+    <qudt:hasUnit rdf:resource="http://qudt.org/vocab/unit/NanoM"/>
   </rdf:Description>
   <rdf:Description rdf:nodeID="N1da56865f09f484fad386ed547b9af68">
     <rdf:type rdf:resource="http://qudt.org/schema/qudt/QuantityValue"/>
     <qudt:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1200.0</qudt:numericValue>
-    <qudt:unit rdf:resource="http://qudt.org/vocab/unit/J-PER-M2"/>
+    <qudt:hasUnit rdf:resource="http://qudt.org/vocab/unit/J-PER-M2"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://example.org/SeedIrradCore#PlantSeed">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
     <rdfs:label xml:lang="en">Plant Seed</rdfs:label>
-    <rdfs:comment xml:lang="en">Integration touchpoint suggestion: align to crop ontologies' seed class (e.g., TobaccoSeed) via skos:exactMatch/closeMatch.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="http://example.org/SeedIrradCore#induces">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
@@ -66,7 +65,7 @@
   <rdf:Description rdf:nodeID="Nf088edcdecb845a9a6c3c0ecc2020b5a">
     <rdf:type rdf:resource="http://qudt.org/schema/qudt/QuantityValue"/>
     <qudt:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">150.0</qudt:numericValue>
-    <qudt:unit rdf:resource="http://qudt.org/vocab/unit/Gray"/>
+    <qudt:hasUnit rdf:resource="http://qudt.org/vocab/unit/GRAY"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://example.org/SeedIrradCore#forEndpoint">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
@@ -136,7 +135,6 @@
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
     <rdfs:label xml:lang="en">Seed Irradiation Treatment</rdfs:label>
     <rdfs:comment xml:lang="en">Irradiation applied to seeds using ionizing or non-ionizing radiation.</rdfs:comment>
-    <rdfs:comment xml:lang="en">Integration touchpoint suggestion: align to external ontology class 'SeedTreatment' via skos:closeMatch.</rdfs:comment>
     <rdfs:subClassOf rdf:resource="http://example.org/SeedIrradCore#SeedTreatment"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://example.org/SeedIrradCore#HormeticResponse">
@@ -167,7 +165,7 @@
   <rdf:Description rdf:nodeID="Na5b56dfc96df423699e6530c1a8fb143">
     <rdf:type rdf:resource="http://qudt.org/schema/qudt/QuantityValue"/>
     <qudt:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">100.0</qudt:numericValue>
-    <qudt:unit rdf:resource="http://qudt.org/vocab/unit/Gray"/>
+    <qudt:hasUnit rdf:resource="http://qudt.org/vocab/unit/GRAY"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://example.org/SeedIrradCore#BrainCousensModel">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
@@ -248,7 +246,7 @@
   <rdf:Description rdf:nodeID="N41e94149afb547c18c29c71a7bb55ea0">
     <rdf:type rdf:resource="http://qudt.org/schema/qudt/QuantityValue"/>
     <qudt:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">25.0</qudt:numericValue>
-    <qudt:unit rdf:resource="http://qudt.org/vocab/unit/Gray"/>
+    <qudt:hasUnit rdf:resource="http://qudt.org/vocab/unit/GRAY"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://example.org/SeedIrradCore#hasFluence">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
@@ -407,7 +405,6 @@
   <rdf:Description rdf:about="http://example.org/SeedIrradCore#LifecycleStage">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
     <rdfs:label xml:lang="en">Lifecycle Stage</rdfs:label>
-    <rdfs:comment xml:lang="en">Integration touchpoint: map Seed/Germination/Seedling stages to external lifecycle hierarchies.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="http://example.org/SeedIrradCore#XRay">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
@@ -423,7 +420,6 @@
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
     <rdfs:label xml:lang="en">Soil Condition</rdfs:label>
     <rdfs:subClassOf rdf:resource="http://example.org/SeedIrradCore#Context"/>
-    <rdfs:comment xml:lang="en">Integration touchpoint: map to external 'SoilCondition' in farm ontologies.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="http://example.org/SeedIrradCore#Outcome_Co60_GerminationHormesis">
     <rdf:type rdf:resource="http://example.org/SeedIrradCore#TreatmentOutcome"/>
@@ -498,7 +494,7 @@
   <rdf:Description rdf:nodeID="Nccec60fe69d9481bb3939dda71a36363">
     <rdf:type rdf:resource="http://qudt.org/schema/qudt/QuantityValue"/>
     <qudt:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">2.5</qudt:numericValue>
-    <qudt:unit rdf:resource="http://qudt.org/vocab/unit/Gy-PER-MIN"/>
+    <qudt:hasUnit rdf:resource="http://qudt.org/vocab/unit/GRAY-PER-MIN"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://example.org/SeedIrradCore#MutationFrequency">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
@@ -558,7 +554,7 @@
   <rdf:Description rdf:nodeID="N5a83b24a088543d0830dd89b1036fcab">
     <rdf:type rdf:resource="http://qudt.org/schema/qudt/QuantityValue"/>
     <qudt:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">20.0</qudt:numericValue>
-    <qudt:unit rdf:resource="http://qudt.org/vocab/unit/MIN"/>
+    <qudt:hasUnit rdf:resource="http://qudt.org/vocab/unit/MIN"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://example.org/SeedIrradCore#LightCondition">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
@@ -590,7 +586,7 @@
   <rdf:Description rdf:nodeID="Nd561c67186a949e6a5adb4a1971f7ca7">
     <rdf:type rdf:resource="http://qudt.org/schema/qudt/QuantityValue"/>
     <qudt:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">50.0</qudt:numericValue>
-    <qudt:unit rdf:resource="http://qudt.org/vocab/unit/Gray"/>
+    <qudt:hasUnit rdf:resource="http://qudt.org/vocab/unit/GRAY"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://example.org/SeedIrradCore#Am241">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>

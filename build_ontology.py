@@ -41,27 +41,29 @@ for pfx, n in [("", NS), ("onsir", NS), ("dct", DCT), ("skos", SKOS), ("obo", OB
 
 # ---- ontology header + real metadata ----
 g.add((ONT, RDF.type, OWL.Ontology))
-g.add((ONT, URIRef(str(OWL) + "versionIRI"), URIRef("https://w3id.org/onsir/1.3.0")))
-g.add((ONT, OWL.versionInfo, Literal("1.3.0")))
+# The release version. It appears in the versionIRI, the versionInfo, CITATION.cff, the README
+# and the manuscript; verify_release.py asserts the four artifacts agree.
+VERSION = "1.4.0"
+g.add((ONT, URIRef(str(OWL) + "versionIRI"), URIRef("https://w3id.org/onsir/" + VERSION)))
+g.add((ONT, OWL.versionInfo, Literal(VERSION)))
 g.add((ONT, DCT.title, Literal("OnSIR: Ontology for Seed Irradiation and Plant Radiobiology")))
 g.add((ONT, DCT.description, Literal(
     "A FAIR OWL 2 DL ontology of seed-irradiation treatments and their dose-dependent "
     "biological effects, aligned to BFO, PO, NCBITaxon, ChEBI, PATO and ENVO with verified IRIs "
     "and to QUDT for units, with dose-to-effect axioms supporting DL reasoning.")))
+# Every creator is emitted as a resolvable ORCID agent IRI, not as a name string: a literal name
+# is not an identifier, and two people can share one. Each ORCID below was dereferenced against
+# pub.orcid.org and its registered name checked against the name here.
 for name, orcid in [("Luis Felipe Medeiro Alves", "0009-0005-4227-5568"),
-                    ("Ferrucio de Franco Rosa", None),
+                    ("Ferrucio de Franco Rosa", "0000-0001-9504-496X"),
                     ("Valter Arthur", "0000-0003-3521-9136")]:
-    if orcid:
-        # emit the ORCID as a resolvable agent IRI, not only as a name string
-        who = URIRef("https://orcid.org/" + orcid)
-        g.add((ONT, DCT.creator, who))
-        g.add((who, RDF.type, URIRef("http://xmlns.com/foaf/0.1/Person")))
-        g.add((who, RDFS.label, Literal(name)))
-    else:
-        g.add((ONT, DCT.creator, Literal(name)))
+    who = URIRef("https://orcid.org/" + orcid)
+    g.add((ONT, DCT.creator, who))
+    g.add((who, RDF.type, URIRef("http://xmlns.com/foaf/0.1/Person")))
+    g.add((who, RDFS.label, Literal(name)))
 g.add((ONT, DCT.license, URIRef("https://creativecommons.org/licenses/by/4.0/")))
 g.add((ONT, DCT.created, Literal("2025-09-21", datatype=XSD.date)))
-g.add((ONT, DCT.modified, Literal("2026-07-24", datatype=XSD.date)))
+g.add((ONT, DCT.modified, Literal("2026-07-25", datatype=XSD.date)))
 g.add((ONT, RDFS.comment, Literal("Canonical IRI https://w3id.org/onsir; source at "
                                   "https://github.com/lfmalves/OnSIR")))
 
@@ -95,7 +97,6 @@ def all_disjoint(members):
 # ---- (1) disjointness partitions ----
 all_disjoint(["HormeticDose", "MutagenicDose", "SterilizationDose"])
 all_disjoint(["HormeticResponse", "MutagenicResponse", "SterilizationResponse"])
-all_disjoint(["BeneficialDoseRange", "MutagenicDoseRange", "SterilizationDoseRange"])
 all_disjoint(["Gamma", "XRay", "Neutron", "Proton", "ElectronBeam", "UV_A", "UV_B", "UV_C"])
 all_disjoint(["Am241", "Co60", "Cs137", "Ir192", "Xe133"])
 all_disjoint(["LowDoseRate", "HighDoseRate"])
@@ -166,24 +167,44 @@ for _s, _p, _o in list(g.triples((None, RDFS.comment, None))):
         g.remove((_s, _p, _o)); _removed += 1
 print(f"  removed {_removed} editorial note(s) carried over from the source skeleton")
 
-# ---- deprecate the dose classes that name a biological outcome ----
-# Section 5 argues that a class called "HormeticDose" reifies a context-dependent empirical outcome
-# as an intrinsic property of a dose. Keeping such classes while arguing against them is
-# indefensible; deleting them would break any user of an earlier release. We deprecate them the OBO
-# way: the IRI survives, is marked obsolete, and points at the evidence-relative replacement.
-LEGACY = {
+# ---- the dose classes that name a biological outcome: retained, annotated as discouraged ----
+# Section 5 argues that a class called "HormeticDose" names a context-dependent empirical outcome as
+# if it were a property of the dose. An earlier build marked the three with owl:deprecated and
+# IAO:0100001. That was wrong on two counts, and the artifact is what showed it. First, OBO
+# obsoletion requires an obsolete term to carry no logical axioms and to appear in none; these three
+# are subclasses of DoseCategory, members of a disjointness axiom, disjuncts of the DoseCategory
+# covering axiom, and antecedents of the dose->effect GCIs -- so marking them obsolete while leaving
+# all of that in place asserts that every DoseCategory must be one of three obsolete classes.
+# Second, the evidence-relative classes are not substitutable: AtOrBelowReportedOptimum is a
+# DoseAssessment, not a DoseCategory, and hasDoseCategory has DoseCategory as its range, so
+# IAO:0100001 ("term replaced by") overstates what is at most a "consider" relation.
+#
+# The classes are therefore kept ACTIVE, with their axioms intact so that data already carrying a
+# dose category still reasons, and each carries a note recording why it is not the recommended way
+# to model a dose and what to use instead. The skos:definition is rewritten as well, because the
+# generated documentation renders the definition and not the note.
+DISCOURAGED = {
     "HormeticDose": "AtOrBelowReportedOptimum",
     "MutagenicDose": "AboveReportedOptimum",
     "SterilizationDose": "AtOrAboveReportedLD50",
 }
-for _old, _new in LEGACY.items():
-    g.add((C(_old), OWL.deprecated, Literal(True)))
-    g.add((C(_old), RDFS.comment, Literal(
-        "DEPRECATED. This class names a biological outcome as if it were a property of the dose, "
-        "which is context-dependent: the same absorbed dose falls in different windows for "
-        "different taxa. Use " + _new + ", which records where a dose falls relative to the values "
-        "reported for a given taxon and asserts nothing about the outcome.")))
-    g.add((C(_old), URIRef("http://purl.obolibrary.org/obo/IAO_0100001"), C(_new)))
+for _old, _new in DISCOURAGED.items():
+    for _t in list(g.triples((C(_old), SKOS.definition, None))):
+        g.remove(_t)
+    g.add((C(_old), SKOS.definition, Literal(
+        "A dose asserted by a curator to belong to this category. NOT RECOMMENDED for new "
+        "annotation: the category names a biological outcome, which is context-dependent -- the same "
+        "absorbed dose falls in different windows for different taxa, endpoints and stages. Retained "
+        "because its logical axioms are load-bearing for data that already carries a dose category. "
+        "For new curation use " + _new + " with a numeric doseGy and a taxon, which records where a "
+        "dose falls relative to the values reported for that taxon and asserts nothing about the "
+        "outcome.")))
+    g.add((C(_old), SKOS.note, Literal(
+        "Discouraged for new annotation; see the definition. Not deprecated: an obsolete OBO term "
+        "must carry no logical axioms, and this class is an antecedent of an active general class "
+        "inclusion. " + _new + " is a DoseAssessment rather than a DoseCategory, so it is a "
+        "modelling alternative and not a substitutable replacement.")))
+    g.add((C(_old), SKOS.related, C(_new)))
 
 # ---- (5) declarations that the class expressions above depend on ----
 # QuantityValue appears in four class expressions (dose and dose-bound restrictions) and was never
@@ -193,6 +214,13 @@ g.add((C("QuantityValue"), RDF.type, OWL.Class))
 g.add((C("QuantityValue"), RDFS.label, Literal("Quantity value", lang="en")))
 g.add((C("QuantityValue"), OWL.equivalentClass, QUDT.QuantityValue))
 g.add((QUDT.QuantityValue, RDF.type, OWL.Class))
+# qudt:hasUnit and qudt:numericValue are used in property assertions on the exemplar
+# quantity individuals, so they need declarations for OWL 2 DL. The source skeleton
+# used qudt:unit, which QUDT retired in favour of qudt:hasUnit and which no longer
+# dereferences; the unit IRIs unit/Gray and unit/Gy-PER-MIN do not exist either
+# (QUDT spells them GRAY and GRAY-PER-MIN). All four were checked by dereferencing.
+g.add((QUDT.hasUnit, RDF.type, OWL.ObjectProperty))
+g.add((QUDT.numericValue, RDF.type, OWL.DatatypeProperty))
 # numericValue was typed only as FunctionalProperty -- a characteristic with no property declaration.
 g.add((C("numericValue"), RDF.type, OWL.DatatypeProperty))
 g.add((C("numericValue"), RDFS.domain, C("QuantityValue")))
@@ -365,7 +393,19 @@ g.add((C("forTaxon"), RDF.type, OWL.ObjectProperty))
 g.add((C("forTaxon"), RDFS.domain, C("DoseAssessment")))
 g.add((C("forTaxon"), RDFS.comment, Literal("the taxon the assessment is relative to")))
 g.add((C("forEndpoint"), RDF.type, OWL.ObjectProperty))
-g.add((C("forEndpoint"), RDFS.domain, C("DoseAssessment")))
+# Two rdfs:domain axioms are read CONJUNCTIVELY, so declaring DoseAssessment here while the source
+# skeleton declares TreatmentOutcome forced every subject of forEndpoint to be both -- and the
+# property IS used, on the three exemplar outcomes, which were therefore inferred to be dose
+# assessments. An endpoint can legitimately be named on either, so the domain is their UNION.
+for _t in list(g.triples((C("forEndpoint"), RDFS.domain, None))):
+    g.remove(_t)
+_fe_dom = BNode()
+g.add((_fe_dom, RDF.type, OWL.Class))
+_l1 = BNode(); _l2 = BNode()
+g.add((_fe_dom, OWL.unionOf, _l1))
+g.add((_l1, RDF.first, C("DoseAssessment"))); g.add((_l1, RDF.rest, _l2))
+g.add((_l2, RDF.first, C("TreatmentOutcome"))); g.add((_l2, RDF.rest, RDF.nil))
+g.add((C("forEndpoint"), RDFS.domain, _fe_dom))
 g.add((C("forEndpoint"), RDFS.range, C("Endpoint")))
 # ---- endpoint categories (the review corpus's EP axis) ----
 # The coded corpus records endpoints at a coarser granularity than OnSIR's Endpoint classes: six
@@ -523,7 +563,13 @@ for acls, resp in [("AtOrBelowReportedOptimum", "HormeticResponse"),
 # response. doseLowerGy and doseUpperGy were an alternative to expressing bounds as datatype facets;
 # the facets are what the ontology actually uses, and the manuscript's contribution rests on them.
 # A term declared and never used is dead weight that a reader has to rule out.
-for _dead in ("expectedResponse", "doseLowerGy", "doseUpperGy"):
+# BeneficialDoseRange / MutagenicDoseRange / SterilizationDoseRange are the same modelling error
+# Section 5 argues against, applied to intervals instead of categories, and unlike the dose
+# categories they carry nothing: a subClassOf DoseRange and a disjointness axiom, no restrictions, no
+# instances, and no role in any inference. There is nothing to retain, so they are removed rather
+# than shipped as three unmarked outcome-named classes beside three that carry a caveat.
+for _dead in ("expectedResponse", "doseLowerGy", "doseUpperGy",
+              "BeneficialDoseRange", "MutagenicDoseRange", "SterilizationDoseRange"):
     for _t in list(g.triples((C(_dead), None, None))):
         g.remove(_t)
     for _t in list(g.triples((None, None, C(_dead)))):
@@ -559,6 +605,49 @@ for _p in sorted(set(g.subjects(RDF.type, OWL.ObjectProperty))
         _missing += 1
 print(f"  labels added where missing: {_missing}")
 
+
+# ---- stub declarations for the external classes used in logical positions ----
+# OWL 2 DL requires every IRI in a logical position to be declared somewhere in the imports closure.
+# OnSIR does not import BFO, PO, ChEBI, PATO, ENVO or NCBITaxon -- importing NCBITaxon alone would
+# add millions of axioms -- so the external targets of the alignment axioms were undeclared and the
+# file was not in the DL profile. A reasoner tolerates this; an OWL API profile validator does not.
+# We therefore emit a MIREOT-style stub declaration for each: the IRI is declared owl:Class and
+# nothing else is asserted about it, so no foreign axiom is smuggled in and no meaning is invented.
+_LOGICAL = (RDFS.subClassOf, OWL.equivalentClass, OWL.someValuesFrom, OWL.allValuesFrom,
+            OWL.onClass, OWL.complementOf, RDFS.domain, RDFS.range)
+_declared = set()
+for _t in (OWL.Class, OWL.ObjectProperty, OWL.DatatypeProperty, OWL.AnnotationProperty,
+           OWL.NamedIndividual, RDFS.Datatype):
+    _declared |= set(g.subjects(RDF.type, _t))
+_ext = set()
+for _s, _p, _o in g:
+    if _p in _LOGICAL:
+        for _term in (_s, _o):
+            if isinstance(_term, URIRef) and _term not in _declared and not str(_term).startswith(str(NS)):
+                _ext.add(_term)
+    elif _p == RDF.type and isinstance(_o, URIRef) and _o not in _declared \
+            and not str(_o).startswith(str(NS)) and not str(_o).startswith(str(OWL)) \
+            and not str(_o).startswith(str(RDFS)) and not str(_o).startswith(str(RDF)):
+        _ext.add(_o)
+for _e in sorted(_ext):
+    g.add((_e, RDF.type, OWL.Class))
+print(f"  external stub declarations emitted: {len(_ext)}")
+
+# ---- every individual must be declared owl:NamedIndividual ----
+# Without the declaration the graph is not legal OWL 2 DL and an OWL API pipeline reports zero
+# individuals with no error. The ABox builder does this for its own 136; the ten exemplar
+# individuals carried over from the source skeleton were left undeclared -- exactly the defect the
+# manuscript claims to have removed, applied to one of the two files.
+_named_cls = {c for c in g.subjects(RDF.type, OWL.Class)
+              if isinstance(c, URIRef) and str(c).startswith(str(NS))}
+_indiv = {s for s, _p, o in g.triples((None, RDF.type, None))
+          if isinstance(s, URIRef) and str(s).startswith(str(NS)) and o in _named_cls}
+_added_ni = 0
+for _i in sorted(_indiv):
+    if (_i, RDF.type, OWL.NamedIndividual) not in g:
+        g.add((_i, RDF.type, OWL.NamedIndividual)); _added_ni += 1
+print(f"  owl:NamedIndividual declarations added: {_added_ni} "
+      f"(individuals in the core file: {len(_indiv)})")
 
 g.serialize("OnSIR.ttl", format="turtle")
 g.serialize("OnSIR.owl", format="xml")

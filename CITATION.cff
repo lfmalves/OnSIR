@@ -6,8 +6,8 @@ abstract: >-
   biological effects (hormetic, mutagenic, sterilizing), aligned to BFO, PO, NCBITaxon,
   ChEBI, PATO and ENVO, units in QUDT, with dose-to-effect axioms supporting description-logic reasoning.
 type: dataset
-version: "1.3.0"
-date-released: "2026-07-24"
+version: "1.4.0"
+date-released: "2026-07-25"
 license: CC-BY-4.0
 url: "https://github.com/lfmalves/OnSIR"  # w3id redirect not yet registered
 repository-code: "https://github.com/lfmalves/OnSIR"
@@ -26,6 +26,7 @@ authors:
     affiliation: "IPEN, University of São Paulo (USP)"
   - family-names: "de Franco Rosa"
     given-names: "Ferrucio"
+    orcid: "https://orcid.org/0000-0001-9504-496X"
     affiliation: "Renato Archer Information Technology Center (CTI), Campinas, Brazil"
   - family-names: "Arthur"
     given-names: "Valter"

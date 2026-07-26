@@ -6,38 +6,27 @@
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
 >
-  <rdf:Description rdf:about="https://w3id.org/onsir/outcome_26">
-    <onsir:hasDoseRateCategory rdf:resource="https://w3id.org/onsir/LowDoseRate"/>
+  <rdf:Description rdf:about="https://w3id.org/onsir/outcome_20">
     <onsir:hasEndpointCategory rdf:resource="https://w3id.org/onsir/EmergenceAndEarlyVigor"/>
     <rdf:type rdf:resource="https://w3id.org/onsir/TreatmentOutcome"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <onsir:hasTreatment rdf:resource="https://w3id.org/onsir/treat_26"/>
-    <onsir:hasSubject rdf:resource="https://w3id.org/onsir/seed_26"/>
-    <rdfs:label>Phaseolus vulgaris / Co-60 / 200.0 Gy (2025)</rdfs:label>
+    <onsir:hasTreatment rdf:resource="https://w3id.org/onsir/treat_20"/>
+    <onsir:hasSubject rdf:resource="https://w3id.org/onsir/seed_20"/>
+    <rdfs:label>Reutealis trisperma / N.R. / 1000.0 Gy (2023)</rdfs:label>
   </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/outcome_18">
-    <onsir:hasDoseRateCategory rdf:resource="https://w3id.org/onsir/LowDoseRate"/>
-    <onsir:hasEndpointCategory rdf:resource="https://w3id.org/onsir/MorphologicalEndpointCategory"/>
-    <rdf:type rdf:resource="https://w3id.org/onsir/TreatmentOutcome"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <onsir:hasTreatment rdf:resource="https://w3id.org/onsir/treat_18"/>
-    <onsir:hasSubject rdf:resource="https://w3id.org/onsir/seed_18"/>
-    <rdfs:label>Oryza sativa / Co-60 / 8.0 Gy (2023)</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/dose_13">
+  <rdf:Description rdf:about="https://w3id.org/onsir/dose_27">
     <rdf:type rdf:resource="https://w3id.org/onsir/QuantityValue"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <onsir:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">150.0</onsir:numericValue>
-    <ns1:unit rdf:resource="http://qudt.org/vocab/unit/Gray"/>
+    <onsir:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">40.0</onsir:numericValue>
+    <ns1:hasUnit rdf:resource="http://qudt.org/vocab/unit/GRAY"/>
   </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/outcome_05">
-    <onsir:hasDoseRateCategory rdf:resource="https://w3id.org/onsir/HighDoseRate"/>
-    <onsir:hasEndpointCategory rdf:resource="https://w3id.org/onsir/BiochemicalEndpointCategory"/>
+  <rdf:Description rdf:about="https://w3id.org/onsir/outcome_23">
+    <onsir:hasEndpointCategory rdf:resource="https://w3id.org/onsir/GeneticEndpointCategory"/>
     <rdf:type rdf:resource="https://w3id.org/onsir/TreatmentOutcome"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <onsir:hasTreatment rdf:resource="https://w3id.org/onsir/treat_05"/>
-    <onsir:hasSubject rdf:resource="https://w3id.org/onsir/seed_05"/>
-    <rdfs:label>Osmanthus fragrans / Co-60 / 150.0 Gy (2019)</rdfs:label>
+    <onsir:hasTreatment rdf:resource="https://w3id.org/onsir/treat_23"/>
+    <onsir:hasSubject rdf:resource="https://w3id.org/onsir/seed_23"/>
+    <rdfs:label>Salvia hispanica / Co-60 / 250.0 Gy (2024)</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/onsir/outcome_08">
     <onsir:hasEndpointCategory rdf:resource="https://w3id.org/onsir/GeneticEndpointCategory"/>
@@ -47,13 +36,139 @@
     <onsir:hasSubject rdf:resource="https://w3id.org/onsir/seed_08"/>
     <rdfs:label>Brassica napus / N.R. / 800.0 Gy (2021)</rdfs:label>
   </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/taxon_Phaseolus_vulgaris">
-    <rdf:type rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_3885"/>
+  <rdf:Description rdf:about="https://w3id.org/onsir/seed_21">
+    <rdf:type rdf:resource="https://w3id.org/onsir/PlantSeed"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:label>Phaseolus vulgaris</rdfs:label>
+    <rdfs:label>Solanum melongena</rdfs:label>
+    <onsir:hasTaxon rdf:resource="https://w3id.org/onsir/taxon_Solanum_melongena"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/outcome_19">
+    <onsir:hasEndpointCategory rdf:resource="https://w3id.org/onsir/MorphologicalEndpointCategory"/>
+    <rdf:type rdf:resource="https://w3id.org/onsir/TreatmentOutcome"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <onsir:hasTreatment rdf:resource="https://w3id.org/onsir/treat_19"/>
+    <onsir:hasSubject rdf:resource="https://w3id.org/onsir/seed_19"/>
+    <rdfs:label>Plukenetia volubilis / Co-60 / 900.0 Gy (2023)</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/treat_21">
+    <rdf:type rdf:resource="https://w3id.org/onsir/SeedIrradiationTreatment"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <onsir:hasSourceIsotope rdf:resource="https://w3id.org/onsir/Co60"/>
+    <onsir:hasDose rdf:resource="https://w3id.org/onsir/dose_21"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/seed_07">
+    <rdf:type rdf:resource="https://w3id.org/onsir/PlantSeed"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label>Hordeum vulgare</rdfs:label>
+    <onsir:hasTaxon rdf:resource="https://w3id.org/onsir/taxon_Hordeum_vulgare"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/dose_06">
+    <rdf:type rdf:resource="https://w3id.org/onsir/QuantityValue"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <onsir:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">600.0</onsir:numericValue>
+    <ns1:hasUnit rdf:resource="http://qudt.org/vocab/unit/GRAY"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/dose_13">
+    <rdf:type rdf:resource="https://w3id.org/onsir/QuantityValue"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <onsir:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">150.0</onsir:numericValue>
+    <ns1:hasUnit rdf:resource="http://qudt.org/vocab/unit/GRAY"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/outcome_03">
+    <onsir:hasEndpointCategory rdf:resource="https://w3id.org/onsir/OtherPhysiologicalEndpointCategory"/>
+    <rdf:type rdf:resource="https://w3id.org/onsir/TreatmentOutcome"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <onsir:hasTreatment rdf:resource="https://w3id.org/onsir/treat_03"/>
+    <onsir:hasSubject rdf:resource="https://w3id.org/onsir/seed_03"/>
+    <rdfs:label>Vigna radiata / N.R. / 60.0 Gy (2016)</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/dose_11">
+    <rdf:type rdf:resource="https://w3id.org/onsir/QuantityValue"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <onsir:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">500.0</onsir:numericValue>
+    <ns1:hasUnit rdf:resource="http://qudt.org/vocab/unit/GRAY"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/outcome_17">
+    <onsir:hasEndpointCategory rdf:resource="https://w3id.org/onsir/GeneticEndpointCategory"/>
+    <rdf:type rdf:resource="https://w3id.org/onsir/TreatmentOutcome"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <onsir:hasTreatment rdf:resource="https://w3id.org/onsir/treat_17"/>
+    <onsir:hasSubject rdf:resource="https://w3id.org/onsir/seed_17"/>
+    <rdfs:label>Lablab purpureus / Co-60 / 526.1999999999999 Gy (2023)</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/outcome_11">
+    <onsir:hasEndpointCategory rdf:resource="https://w3id.org/onsir/OtherPhysiologicalEndpointCategory"/>
+    <rdf:type rdf:resource="https://w3id.org/onsir/TreatmentOutcome"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <onsir:hasTreatment rdf:resource="https://w3id.org/onsir/treat_11"/>
+    <onsir:hasSubject rdf:resource="https://w3id.org/onsir/seed_11"/>
+    <rdfs:label>Vigna mungo / Co-60 / 500.0 Gy (2021)</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/taxon_Toona_sureni">
+    <rdf:type rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_1258759"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label>Toona sureni</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/treat_02">
+    <rdf:type rdf:resource="https://w3id.org/onsir/SeedIrradiationTreatment"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <onsir:hasSourceIsotope rdf:resource="https://w3id.org/onsir/Co60"/>
+    <onsir:hasDose rdf:resource="https://w3id.org/onsir/dose_02"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/outcome_26">
+    <onsir:hasEndpointCategory rdf:resource="https://w3id.org/onsir/EmergenceAndEarlyVigor"/>
+    <rdf:type rdf:resource="https://w3id.org/onsir/TreatmentOutcome"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <onsir:hasTreatment rdf:resource="https://w3id.org/onsir/treat_26"/>
+    <onsir:hasSubject rdf:resource="https://w3id.org/onsir/seed_26"/>
+    <rdfs:label>Phaseolus vulgaris / Co-60 / 200.0 Gy (2025)</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/dose_23">
+    <rdf:type rdf:resource="https://w3id.org/onsir/QuantityValue"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <onsir:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">250.0</onsir:numericValue>
+    <ns1:hasUnit rdf:resource="http://qudt.org/vocab/unit/GRAY"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/dose_20">
+    <rdf:type rdf:resource="https://w3id.org/onsir/QuantityValue"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <onsir:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1000.0</onsir:numericValue>
+    <ns1:hasUnit rdf:resource="http://qudt.org/vocab/unit/GRAY"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/outcome_18">
+    <onsir:hasEndpointCategory rdf:resource="https://w3id.org/onsir/MorphologicalEndpointCategory"/>
+    <rdf:type rdf:resource="https://w3id.org/onsir/TreatmentOutcome"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <onsir:hasTreatment rdf:resource="https://w3id.org/onsir/treat_18"/>
+    <onsir:hasSubject rdf:resource="https://w3id.org/onsir/seed_18"/>
+    <rdfs:label>Oryza sativa / Co-60 / 8.0 Gy (2023)</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/treat_14">
+    <rdf:type rdf:resource="https://w3id.org/onsir/SeedIrradiationTreatment"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <onsir:hasSourceIsotope rdf:resource="https://w3id.org/onsir/Co60"/>
+    <onsir:hasDose rdf:resource="https://w3id.org/onsir/dose_14"/>
+    <onsir:hasDoseRateCategory rdf:resource="https://w3id.org/onsir/HighDoseRate"/>
+    <onsir:hasDoseRate rdf:resource="https://w3id.org/onsir/doserate_14"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/dose_16">
+    <rdf:type rdf:resource="https://w3id.org/onsir/QuantityValue"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <onsir:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">240.0</onsir:numericValue>
+    <ns1:hasUnit rdf:resource="http://qudt.org/vocab/unit/GRAY"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/dose_10">
+    <rdf:type rdf:resource="https://w3id.org/onsir/QuantityValue"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <onsir:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">100.0</onsir:numericValue>
+    <ns1:hasUnit rdf:resource="http://qudt.org/vocab/unit/GRAY"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/treat_03">
+    <rdf:type rdf:resource="https://w3id.org/onsir/SeedIrradiationTreatment"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <onsir:hasDose rdf:resource="https://w3id.org/onsir/dose_03"/>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/onsir/outcome_14">
-    <onsir:hasDoseRateCategory rdf:resource="https://w3id.org/onsir/LowDoseRate"/>
     <onsir:hasEndpointCategory rdf:resource="https://w3id.org/onsir/EmergenceAndEarlyVigor"/>
     <rdf:type rdf:resource="https://w3id.org/onsir/TreatmentOutcome"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -61,8 +176,39 @@
     <onsir:hasSubject rdf:resource="https://w3id.org/onsir/seed_14"/>
     <rdfs:label>Neolamarckia cadamba / Co-60 / 50.0 Gy (2022)</rdfs:label>
   </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/taxon_Reutealis_trisperma">
+    <rdf:type rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_1487825"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label>Reutealis trisperma</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/seed_16">
+    <rdf:type rdf:resource="https://w3id.org/onsir/PlantSeed"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label>Ficus variegata</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/taxon_Arabidopsis_thaliana">
+    <rdf:type rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_3702"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label>Arabidopsis thaliana</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/dose_12">
+    <rdf:type rdf:resource="https://w3id.org/onsir/QuantityValue"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <onsir:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">900.0</onsir:numericValue>
+    <ns1:hasUnit rdf:resource="http://qudt.org/vocab/unit/GRAY"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/taxon_Solanum_lycopersicum">
+    <rdf:type rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_4081"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label>Solanum lycopersicum</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/dose_15">
+    <rdf:type rdf:resource="https://w3id.org/onsir/QuantityValue"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <onsir:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1500.0</onsir:numericValue>
+    <ns1:hasUnit rdf:resource="http://qudt.org/vocab/unit/GRAY"/>
+  </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/onsir/outcome_22">
-    <onsir:hasDoseRateCategory rdf:resource="https://w3id.org/onsir/LowDoseRate"/>
     <onsir:hasEndpointCategory rdf:resource="https://w3id.org/onsir/EmergenceAndEarlyVigor"/>
     <rdf:type rdf:resource="https://w3id.org/onsir/TreatmentOutcome"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -70,14 +216,134 @@
     <onsir:hasSubject rdf:resource="https://w3id.org/onsir/seed_22"/>
     <rdfs:label>Catharanthus roseus / Co-60 / 500.0 Gy (2024)</rdfs:label>
   </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/seed_14">
+  <rdf:Description rdf:about="https://w3id.org/onsir/dose_05">
+    <rdf:type rdf:resource="https://w3id.org/onsir/QuantityValue"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <onsir:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">150.0</onsir:numericValue>
+    <ns1:hasUnit rdf:resource="http://qudt.org/vocab/unit/GRAY"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/taxon_Solanum_melongena">
+    <rdf:type rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_4111"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label>Solanum melongena</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/outcome_00">
+    <onsir:hasEndpointCategory rdf:resource="https://w3id.org/onsir/BiochemicalEndpointCategory"/>
+    <rdf:type rdf:resource="https://w3id.org/onsir/TreatmentOutcome"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <onsir:hasTreatment rdf:resource="https://w3id.org/onsir/treat_00"/>
+    <onsir:hasSubject rdf:resource="https://w3id.org/onsir/seed_00"/>
+    <rdfs:label>Phyllanthus odontadenius / Cs-137 / 300.0 Gy (2014)</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/treat_24">
+    <rdf:type rdf:resource="https://w3id.org/onsir/SeedIrradiationTreatment"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <onsir:hasSourceIsotope rdf:resource="https://w3id.org/onsir/Co60"/>
+    <onsir:hasDose rdf:resource="https://w3id.org/onsir/dose_24"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/dose_24">
+    <rdf:type rdf:resource="https://w3id.org/onsir/QuantityValue"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <onsir:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">120.0</onsir:numericValue>
+    <ns1:hasUnit rdf:resource="http://qudt.org/vocab/unit/GRAY"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/doserate_07">
+    <rdf:type rdf:resource="https://w3id.org/onsir/QuantityValue"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <onsir:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">60.0</onsir:numericValue>
+    <ns1:hasUnit rdf:resource="http://qudt.org/vocab/unit/GRAY-PER-HR"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/outcome_27">
+    <onsir:hasEndpointCategory rdf:resource="https://w3id.org/onsir/PlantHealthEndpointCategory"/>
+    <rdf:type rdf:resource="https://w3id.org/onsir/TreatmentOutcome"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <onsir:hasTreatment rdf:resource="https://w3id.org/onsir/treat_27"/>
+    <onsir:hasSubject rdf:resource="https://w3id.org/onsir/seed_27"/>
+    <rdfs:label>Solanum tuberosum / Co-60 / 40.0 Gy (2025)</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/treat_13">
+    <rdf:type rdf:resource="https://w3id.org/onsir/SeedIrradiationTreatment"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <onsir:hasSourceIsotope rdf:resource="https://w3id.org/onsir/Co60"/>
+    <onsir:hasDose rdf:resource="https://w3id.org/onsir/dose_13"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/taxon_Calotropis_gigantea">
+    <rdf:type rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_4066"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label>Calotropis gigantea</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/seed_01">
     <rdf:type rdf:resource="https://w3id.org/onsir/PlantSeed"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label>Polianthes tuberosa</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/treat_10">
+    <rdf:type rdf:resource="https://w3id.org/onsir/SeedIrradiationTreatment"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <onsir:hasSourceIsotope rdf:resource="https://w3id.org/onsir/Co60"/>
+    <onsir:hasDose rdf:resource="https://w3id.org/onsir/dose_10"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/doserate_05">
+    <rdf:type rdf:resource="https://w3id.org/onsir/QuantityValue"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <onsir:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">78.0</onsir:numericValue>
+    <ns1:hasUnit rdf:resource="http://qudt.org/vocab/unit/GRAY-PER-HR"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/seed_22">
+    <rdf:type rdf:resource="https://w3id.org/onsir/PlantSeed"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label>Catharanthus roseus</rdfs:label>
+    <onsir:hasTaxon rdf:resource="https://w3id.org/onsir/taxon_Catharanthus_roseus"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/taxon_Capsicum_sp.">
+    <rdf:type rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_3413428"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label>Capsicum sp.</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/treat_07">
+    <rdf:type rdf:resource="https://w3id.org/onsir/SeedIrradiationTreatment"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <onsir:hasSourceIsotope rdf:resource="https://w3id.org/onsir/Co60"/>
+    <onsir:hasDose rdf:resource="https://w3id.org/onsir/dose_07"/>
+    <onsir:hasDoseRateCategory rdf:resource="https://w3id.org/onsir/LowDoseRate"/>
+    <onsir:hasDoseRate rdf:resource="https://w3id.org/onsir/doserate_07"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/dose_18">
+    <rdf:type rdf:resource="https://w3id.org/onsir/QuantityValue"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <onsir:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">8.0</onsir:numericValue>
+    <ns1:hasUnit rdf:resource="http://qudt.org/vocab/unit/GRAY"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/dose_09">
+    <rdf:type rdf:resource="https://w3id.org/onsir/QuantityValue"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <onsir:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">100.0</onsir:numericValue>
+    <ns1:hasUnit rdf:resource="http://qudt.org/vocab/unit/GRAY"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/doserate_00">
+    <rdf:type rdf:resource="https://w3id.org/onsir/QuantityValue"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <onsir:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">72.6</onsir:numericValue>
+    <ns1:hasUnit rdf:resource="http://qudt.org/vocab/unit/GRAY-PER-HR"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/taxon_Neolamarckia_cadamba">
+    <rdf:type rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_153762"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <rdfs:label>Neolamarckia cadamba</rdfs:label>
-    <onsir:hasTaxon rdf:resource="https://w3id.org/onsir/taxon_Neolamarckia_cadamba"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/treat_17">
+    <rdf:type rdf:resource="https://w3id.org/onsir/SeedIrradiationTreatment"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <onsir:hasSourceIsotope rdf:resource="https://w3id.org/onsir/Co60"/>
+    <onsir:hasDose rdf:resource="https://w3id.org/onsir/dose_17"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/seed_18">
+    <rdf:type rdf:resource="https://w3id.org/onsir/PlantSeed"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label>Oryza sativa</rdfs:label>
+    <onsir:hasTaxon rdf:resource="https://w3id.org/onsir/taxon_Oryza_sativa"/>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/onsir/outcome_25">
-    <onsir:hasDoseRateCategory rdf:resource="https://w3id.org/onsir/HighDoseRate"/>
     <onsir:hasEndpointCategory rdf:resource="https://w3id.org/onsir/OtherPhysiologicalEndpointCategory"/>
     <rdf:type rdf:resource="https://w3id.org/onsir/TreatmentOutcome"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -85,39 +351,163 @@
     <onsir:hasSubject rdf:resource="https://w3id.org/onsir/seed_25"/>
     <rdfs:label>Dianthus caryophyllus / Co-60 / 30.0 Gy (2025)</rdfs:label>
   </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/seed_11">
+  <rdf:Description rdf:about="https://w3id.org/onsir/doserate_19">
+    <rdf:type rdf:resource="https://w3id.org/onsir/QuantityValue"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <onsir:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1964.3</onsir:numericValue>
+    <ns1:hasUnit rdf:resource="http://qudt.org/vocab/unit/GRAY-PER-HR"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/seed_20">
     <rdf:type rdf:resource="https://w3id.org/onsir/PlantSeed"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:label>Vigna mungo</rdfs:label>
-    <onsir:hasTaxon rdf:resource="https://w3id.org/onsir/taxon_Vigna_mungo"/>
+    <rdfs:label>Reutealis trisperma</rdfs:label>
+    <onsir:hasTaxon rdf:resource="https://w3id.org/onsir/taxon_Reutealis_trisperma"/>
   </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/treat_26">
+  <rdf:Description rdf:about="https://w3id.org/onsir/taxon_Plukenetia_volubilis">
+    <rdf:type rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_316893"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label>Plukenetia volubilis</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/treat_18">
     <rdf:type rdf:resource="https://w3id.org/onsir/SeedIrradiationTreatment"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <onsir:hasSourceIsotope rdf:resource="https://w3id.org/onsir/Co60"/>
-    <onsir:hasDose rdf:resource="https://w3id.org/onsir/dose_26"/>
+    <onsir:hasDose rdf:resource="https://w3id.org/onsir/dose_18"/>
   </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/taxon_Catharanthus_roseus">
-    <rdf:type rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_4058"/>
+  <rdf:Description rdf:about="https://w3id.org/onsir/treat_09">
+    <rdf:type rdf:resource="https://w3id.org/onsir/SeedIrradiationTreatment"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:label>Catharanthus roseus</rdfs:label>
+    <onsir:hasSourceIsotope rdf:resource="https://w3id.org/onsir/Co60"/>
+    <onsir:hasDose rdf:resource="https://w3id.org/onsir/dose_09"/>
+    <onsir:hasDoseRateCategory rdf:resource="https://w3id.org/onsir/HighDoseRate"/>
+    <onsir:hasDoseRate rdf:resource="https://w3id.org/onsir/doserate_09"/>
   </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/outcome_21">
-    <onsir:hasEndpointCategory rdf:resource="https://w3id.org/onsir/MorphologicalEndpointCategory"/>
+  <rdf:Description rdf:about="https://w3id.org/onsir/treat_22">
+    <rdf:type rdf:resource="https://w3id.org/onsir/SeedIrradiationTreatment"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <onsir:hasSourceIsotope rdf:resource="https://w3id.org/onsir/Co60"/>
+    <onsir:hasDose rdf:resource="https://w3id.org/onsir/dose_22"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/taxon_Phaseolus_vulgaris">
+    <rdf:type rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_3885"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label>Phaseolus vulgaris</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/dose_22">
+    <rdf:type rdf:resource="https://w3id.org/onsir/QuantityValue"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <onsir:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">500.0</onsir:numericValue>
+    <ns1:hasUnit rdf:resource="http://qudt.org/vocab/unit/GRAY"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/doserate_25">
+    <rdf:type rdf:resource="https://w3id.org/onsir/QuantityValue"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <onsir:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">720.0</onsir:numericValue>
+    <ns1:hasUnit rdf:resource="http://qudt.org/vocab/unit/GRAY-PER-HR"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/taxon_Oryza_sativa">
+    <rdf:type rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_4530"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label>Oryza sativa</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/outcome_15">
+    <onsir:hasEndpointCategory rdf:resource="https://w3id.org/onsir/GeneticEndpointCategory"/>
     <rdf:type rdf:resource="https://w3id.org/onsir/TreatmentOutcome"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <onsir:hasTreatment rdf:resource="https://w3id.org/onsir/treat_21"/>
-    <onsir:hasSubject rdf:resource="https://w3id.org/onsir/seed_21"/>
-    <rdfs:label>Solanum melongena / Co-60 / 100.0 Gy (2023)</rdfs:label>
+    <onsir:hasTreatment rdf:resource="https://w3id.org/onsir/treat_15"/>
+    <onsir:hasSubject rdf:resource="https://w3id.org/onsir/seed_15"/>
+    <rdfs:label>Arabidopsis thaliana / Co-60 / 1500.0 Gy (2023)</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/treat_19">
+    <rdf:type rdf:resource="https://w3id.org/onsir/SeedIrradiationTreatment"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <onsir:hasSourceIsotope rdf:resource="https://w3id.org/onsir/Co60"/>
+    <onsir:hasDose rdf:resource="https://w3id.org/onsir/dose_19"/>
+    <onsir:hasDoseRateCategory rdf:resource="https://w3id.org/onsir/HighDoseRate"/>
+    <onsir:hasDoseRate rdf:resource="https://w3id.org/onsir/doserate_19"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.obolibrary.org/obo/NCBITaxon_153762">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/seed_15">
+    <rdf:type rdf:resource="https://w3id.org/onsir/PlantSeed"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label>Arabidopsis thaliana</rdfs:label>
+    <onsir:hasTaxon rdf:resource="https://w3id.org/onsir/taxon_Arabidopsis_thaliana"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/seed_03">
+    <rdf:type rdf:resource="https://w3id.org/onsir/PlantSeed"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label>Vigna radiata</rdfs:label>
+    <onsir:hasTaxon rdf:resource="https://w3id.org/onsir/taxon_Vigna_radiata"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/seed_05">
+    <rdf:type rdf:resource="https://w3id.org/onsir/PlantSeed"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label>Osmanthus fragrans</rdfs:label>
+    <onsir:hasTaxon rdf:resource="https://w3id.org/onsir/taxon_Osmanthus_fragrans"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/outcome_04">
+    <onsir:hasEndpointCategory rdf:resource="https://w3id.org/onsir/BiochemicalEndpointCategory"/>
+    <rdf:type rdf:resource="https://w3id.org/onsir/TreatmentOutcome"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <onsir:hasTreatment rdf:resource="https://w3id.org/onsir/treat_04"/>
+    <onsir:hasSubject rdf:resource="https://w3id.org/onsir/seed_04"/>
+    <rdfs:label>Datura stramonium / Co-60 / 80.0 Gy (2019)</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.obolibrary.org/obo/NCBITaxon_3702">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/outcome_16">
+    <onsir:hasEndpointCategory rdf:resource="https://w3id.org/onsir/EmergenceAndEarlyVigor"/>
+    <rdf:type rdf:resource="https://w3id.org/onsir/TreatmentOutcome"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <onsir:hasTreatment rdf:resource="https://w3id.org/onsir/treat_16"/>
+    <onsir:hasSubject rdf:resource="https://w3id.org/onsir/seed_16"/>
+    <rdfs:label>Ficus variegata / Co-60 / 240.0 Gy (2023)</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/outcome_09">
+    <onsir:hasEndpointCategory rdf:resource="https://w3id.org/onsir/EmergenceAndEarlyVigor"/>
+    <rdf:type rdf:resource="https://w3id.org/onsir/TreatmentOutcome"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <onsir:hasTreatment rdf:resource="https://w3id.org/onsir/treat_09"/>
+    <onsir:hasSubject rdf:resource="https://w3id.org/onsir/seed_09"/>
+    <rdfs:label>Solanum lycopersicum / Co-60 / 100.0 Gy (2021)</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/treat_20">
+    <rdf:type rdf:resource="https://w3id.org/onsir/SeedIrradiationTreatment"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <onsir:hasDose rdf:resource="https://w3id.org/onsir/dose_20"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/outcome_24">
+    <onsir:hasEndpointCategory rdf:resource="https://w3id.org/onsir/PlantHealthEndpointCategory"/>
+    <rdf:type rdf:resource="https://w3id.org/onsir/TreatmentOutcome"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <onsir:hasTreatment rdf:resource="https://w3id.org/onsir/treat_24"/>
+    <onsir:hasSubject rdf:resource="https://w3id.org/onsir/seed_24"/>
+    <rdfs:label>Solanum lycopersicum / Co-60 / 120.0 Gy (2024)</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/seed_08">
+    <rdf:type rdf:resource="https://w3id.org/onsir/PlantSeed"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label>Brassica napus</rdfs:label>
+    <onsir:hasTaxon rdf:resource="https://w3id.org/onsir/taxon_Brassica_napus"/>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/onsir/outcome_10">
-    <onsir:hasDoseRateCategory rdf:resource="https://w3id.org/onsir/LowDoseRate"/>
     <onsir:hasEndpointCategory rdf:resource="https://w3id.org/onsir/EmergenceAndEarlyVigor"/>
     <rdf:type rdf:resource="https://w3id.org/onsir/TreatmentOutcome"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <onsir:hasTreatment rdf:resource="https://w3id.org/onsir/treat_10"/>
     <onsir:hasSubject rdf:resource="https://w3id.org/onsir/seed_10"/>
     <rdfs:label>Toona sureni / Co-60 / 100.0 Gy (2021)</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/outcome_12">
+    <onsir:hasEndpointCategory rdf:resource="https://w3id.org/onsir/EmergenceAndEarlyVigor"/>
+    <rdf:type rdf:resource="https://w3id.org/onsir/TreatmentOutcome"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <onsir:hasTreatment rdf:resource="https://w3id.org/onsir/treat_12"/>
+    <onsir:hasSubject rdf:resource="https://w3id.org/onsir/seed_12"/>
+    <rdfs:label>Calotropis gigantea / Co-60 / 900.0 Gy (2022)</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/onsir/treat_12">
     <rdf:type rdf:resource="https://w3id.org/onsir/SeedIrradiationTreatment"/>
@@ -131,162 +521,93 @@
     <onsir:hasSourceIsotope rdf:resource="https://w3id.org/onsir/Co60"/>
     <onsir:hasDose rdf:resource="https://w3id.org/onsir/dose_23"/>
   </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/outcome_01">
-    <onsir:hasDoseRateCategory rdf:resource="https://w3id.org/onsir/LowDoseRate"/>
-    <onsir:hasEndpointCategory rdf:resource="https://w3id.org/onsir/MorphologicalEndpointCategory"/>
-    <rdf:type rdf:resource="https://w3id.org/onsir/TreatmentOutcome"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <onsir:hasTreatment rdf:resource="https://w3id.org/onsir/treat_01"/>
-    <onsir:hasSubject rdf:resource="https://w3id.org/onsir/seed_01"/>
-    <rdfs:label>Polianthes tuberosa / Co-60 / 13.155 Gy (2015)</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/outcome_17">
-    <onsir:hasDoseRateCategory rdf:resource="https://w3id.org/onsir/LowDoseRate"/>
-    <onsir:hasEndpointCategory rdf:resource="https://w3id.org/onsir/GeneticEndpointCategory"/>
-    <rdf:type rdf:resource="https://w3id.org/onsir/TreatmentOutcome"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <onsir:hasTreatment rdf:resource="https://w3id.org/onsir/treat_17"/>
-    <onsir:hasSubject rdf:resource="https://w3id.org/onsir/seed_17"/>
-    <rdfs:label>Lablab purpureus / Co-60 / 526.1999999999999 Gy (2023)</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/dose_22">
-    <rdf:type rdf:resource="https://w3id.org/onsir/QuantityValue"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <onsir:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">500.0</onsir:numericValue>
-    <ns1:unit rdf:resource="http://qudt.org/vocab/unit/Gray"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/treat_00">
-    <rdf:type rdf:resource="https://w3id.org/onsir/SeedIrradiationTreatment"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <onsir:hasSourceIsotope rdf:resource="https://w3id.org/onsir/Cs137"/>
-    <onsir:hasDose rdf:resource="https://w3id.org/onsir/dose_00"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/seed_07">
-    <rdf:type rdf:resource="https://w3id.org/onsir/PlantSeed"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:label>Hordeum vulgare</rdfs:label>
-    <onsir:hasTaxon rdf:resource="https://w3id.org/onsir/taxon_Hordeum_vulgare"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/taxon_Vigna_radiata">
-    <rdf:type rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_157791"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:label>Vigna radiata</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/dose_05">
-    <rdf:type rdf:resource="https://w3id.org/onsir/QuantityValue"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <onsir:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">150.0</onsir:numericValue>
-    <ns1:unit rdf:resource="http://qudt.org/vocab/unit/Gray"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/outcome_20">
-    <onsir:hasDoseRateCategory rdf:resource="https://w3id.org/onsir/LowDoseRate"/>
-    <onsir:hasEndpointCategory rdf:resource="https://w3id.org/onsir/EmergenceAndEarlyVigor"/>
-    <rdf:type rdf:resource="https://w3id.org/onsir/TreatmentOutcome"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <onsir:hasTreatment rdf:resource="https://w3id.org/onsir/treat_20"/>
-    <onsir:hasSubject rdf:resource="https://w3id.org/onsir/seed_20"/>
-    <rdfs:label>Reutealis trisperma / N.R. / 1000.0 Gy (2023)</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/taxon_Magnolia_champaca">
-    <rdf:type rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_86757"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:label>Magnolia champaca</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/seed_22">
-    <rdf:type rdf:resource="https://w3id.org/onsir/PlantSeed"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:label>Catharanthus roseus</rdfs:label>
-    <onsir:hasTaxon rdf:resource="https://w3id.org/onsir/taxon_Catharanthus_roseus"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/dose_17">
-    <rdf:type rdf:resource="https://w3id.org/onsir/QuantityValue"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <onsir:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">526.2</onsir:numericValue>
-    <ns1:unit rdf:resource="http://qudt.org/vocab/unit/Gray"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/taxon_Lablab_purpureus">
-    <rdf:type rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_35936"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:label>Lablab purpureus</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/taxon_Arabidopsis_thaliana">
-    <rdf:type rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_3702"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:label>Arabidopsis thaliana</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/dose_08">
-    <rdf:type rdf:resource="https://w3id.org/onsir/QuantityValue"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <onsir:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">800.0</onsir:numericValue>
-    <ns1:unit rdf:resource="http://qudt.org/vocab/unit/Gray"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/seed_02">
-    <rdf:type rdf:resource="https://w3id.org/onsir/PlantSeed"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:label>Magnolia champaca</rdfs:label>
-    <onsir:hasTaxon rdf:resource="https://w3id.org/onsir/taxon_Magnolia_champaca"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/seed_06">
-    <rdf:type rdf:resource="https://w3id.org/onsir/PlantSeed"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:label>Capsicum sp.</rdfs:label>
-    <onsir:hasTaxon rdf:resource="https://w3id.org/onsir/taxon_Capsicum_sp."/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/treat_21">
+  <rdf:Description rdf:about="https://w3id.org/onsir/treat_04">
     <rdf:type rdf:resource="https://w3id.org/onsir/SeedIrradiationTreatment"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <onsir:hasSourceIsotope rdf:resource="https://w3id.org/onsir/Co60"/>
-    <onsir:hasDose rdf:resource="https://w3id.org/onsir/dose_21"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/outcome_09">
+    <onsir:hasDose rdf:resource="https://w3id.org/onsir/dose_04"/>
     <onsir:hasDoseRateCategory rdf:resource="https://w3id.org/onsir/LowDoseRate"/>
+    <onsir:hasDoseRate rdf:resource="https://w3id.org/onsir/doserate_04"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/taxon_Datura_stramonium">
+    <rdf:type rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_4076"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label>Datura stramonium</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/treat_01">
+    <rdf:type rdf:resource="https://w3id.org/onsir/SeedIrradiationTreatment"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <onsir:hasSourceIsotope rdf:resource="https://w3id.org/onsir/Co60"/>
+    <onsir:hasDose rdf:resource="https://w3id.org/onsir/dose_01"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/outcome_02">
     <onsir:hasEndpointCategory rdf:resource="https://w3id.org/onsir/EmergenceAndEarlyVigor"/>
     <rdf:type rdf:resource="https://w3id.org/onsir/TreatmentOutcome"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <onsir:hasTreatment rdf:resource="https://w3id.org/onsir/treat_09"/>
-    <onsir:hasSubject rdf:resource="https://w3id.org/onsir/seed_09"/>
-    <rdfs:label>Solanum lycopersicum / Co-60 / 100.0 Gy (2021)</rdfs:label>
+    <onsir:hasTreatment rdf:resource="https://w3id.org/onsir/treat_02"/>
+    <onsir:hasSubject rdf:resource="https://w3id.org/onsir/seed_02"/>
+    <rdfs:label>Magnolia champaca / Co-60 / 100.0 Gy (2016)</rdfs:label>
   </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/dose_09">
+  <rdf:Description rdf:about="https://w3id.org/onsir/treat_08">
+    <rdf:type rdf:resource="https://w3id.org/onsir/SeedIrradiationTreatment"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <onsir:hasDose rdf:resource="https://w3id.org/onsir/dose_08"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/taxon_Dianthus_caryophyllus">
+    <rdf:type rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_3570"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label>Dianthus caryophyllus</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/seed_11">
+    <rdf:type rdf:resource="https://w3id.org/onsir/PlantSeed"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label>Vigna mungo</rdfs:label>
+    <onsir:hasTaxon rdf:resource="https://w3id.org/onsir/taxon_Vigna_mungo"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/dose_04">
     <rdf:type rdf:resource="https://w3id.org/onsir/QuantityValue"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <onsir:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">100.0</onsir:numericValue>
-    <ns1:unit rdf:resource="http://qudt.org/vocab/unit/Gray"/>
+    <onsir:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">80.0</onsir:numericValue>
+    <ns1:hasUnit rdf:resource="http://qudt.org/vocab/unit/GRAY"/>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/onsir/treat_25">
     <rdf:type rdf:resource="https://w3id.org/onsir/SeedIrradiationTreatment"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <onsir:hasSourceIsotope rdf:resource="https://w3id.org/onsir/Co60"/>
     <onsir:hasDose rdf:resource="https://w3id.org/onsir/dose_25"/>
+    <onsir:hasDoseRateCategory rdf:resource="https://w3id.org/onsir/HighDoseRate"/>
+    <onsir:hasDoseRate rdf:resource="https://w3id.org/onsir/doserate_25"/>
   </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/outcome_19">
-    <onsir:hasDoseRateCategory rdf:resource="https://w3id.org/onsir/LowDoseRate"/>
-    <onsir:hasEndpointCategory rdf:resource="https://w3id.org/onsir/MorphologicalEndpointCategory"/>
-    <rdf:type rdf:resource="https://w3id.org/onsir/TreatmentOutcome"/>
+  <rdf:Description rdf:about="https://w3id.org/onsir/seed_10">
+    <rdf:type rdf:resource="https://w3id.org/onsir/PlantSeed"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <onsir:hasTreatment rdf:resource="https://w3id.org/onsir/treat_19"/>
-    <onsir:hasSubject rdf:resource="https://w3id.org/onsir/seed_19"/>
-    <rdfs:label>Plukenetia volubilis / Co-60 / 900.0 Gy (2023)</rdfs:label>
+    <rdfs:label>Toona sureni</rdfs:label>
+    <onsir:hasTaxon rdf:resource="https://w3id.org/onsir/taxon_Toona_sureni"/>
   </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/taxon_Oryza_sativa">
-    <rdf:type rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_4530"/>
+  <rdf:Description rdf:about="https://w3id.org/onsir/taxon_Catharanthus_roseus">
+    <rdf:type rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_4058"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:label>Oryza sativa</rdfs:label>
+    <rdfs:label>Catharanthus roseus</rdfs:label>
   </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/dose_01">
+  <rdf:Description rdf:about="https://w3id.org/onsir/doserate_14">
     <rdf:type rdf:resource="https://w3id.org/onsir/QuantityValue"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <onsir:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">13.15</onsir:numericValue>
-    <ns1:unit rdf:resource="http://qudt.org/vocab/unit/Gray"/>
+    <onsir:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6645.7</onsir:numericValue>
+    <ns1:hasUnit rdf:resource="http://qudt.org/vocab/unit/GRAY-PER-HR"/>
   </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/outcome_24">
-    <onsir:hasDoseRateCategory rdf:resource="https://w3id.org/onsir/LowDoseRate"/>
-    <onsir:hasEndpointCategory rdf:resource="https://w3id.org/onsir/PlantHealthEndpointCategory"/>
-    <rdf:type rdf:resource="https://w3id.org/onsir/TreatmentOutcome"/>
+  <rdf:Description rdf:about="https://w3id.org/onsir/treat_26">
+    <rdf:type rdf:resource="https://w3id.org/onsir/SeedIrradiationTreatment"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <onsir:hasTreatment rdf:resource="https://w3id.org/onsir/treat_24"/>
-    <onsir:hasSubject rdf:resource="https://w3id.org/onsir/seed_24"/>
-    <rdfs:label>Solanum lycopersicum / Co-60 / 120.0 Gy (2024)</rdfs:label>
+    <onsir:hasSourceIsotope rdf:resource="https://w3id.org/onsir/Co60"/>
+    <onsir:hasDose rdf:resource="https://w3id.org/onsir/dose_26"/>
+    <onsir:hasDoseRateCategory rdf:resource="https://w3id.org/onsir/LowDoseRate"/>
+    <onsir:hasDoseRate rdf:resource="https://w3id.org/onsir/doserate_26"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/treat_27">
+    <rdf:type rdf:resource="https://w3id.org/onsir/SeedIrradiationTreatment"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <onsir:hasSourceIsotope rdf:resource="https://w3id.org/onsir/Co60"/>
+    <onsir:hasDose rdf:resource="https://w3id.org/onsir/dose_27"/>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/onsir/seed_23">
     <rdf:type rdf:resource="https://w3id.org/onsir/PlantSeed"/>
@@ -294,149 +615,39 @@
     <rdfs:label>Salvia hispanica</rdfs:label>
     <onsir:hasTaxon rdf:resource="https://w3id.org/onsir/taxon_Salvia_hispanica"/>
   </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/seed_18">
+  <rdf:Description rdf:about="https://w3id.org/onsir/outcome_21">
+    <onsir:hasEndpointCategory rdf:resource="https://w3id.org/onsir/MorphologicalEndpointCategory"/>
+    <rdf:type rdf:resource="https://w3id.org/onsir/TreatmentOutcome"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <onsir:hasTreatment rdf:resource="https://w3id.org/onsir/treat_21"/>
+    <onsir:hasSubject rdf:resource="https://w3id.org/onsir/seed_21"/>
+    <rdfs:label>Solanum melongena / Co-60 / 100.0 Gy (2023)</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/seed_25">
     <rdf:type rdf:resource="https://w3id.org/onsir/PlantSeed"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:label>Oryza sativa</rdfs:label>
-    <onsir:hasTaxon rdf:resource="https://w3id.org/onsir/taxon_Oryza_sativa"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/dose_06">
-    <rdf:type rdf:resource="https://w3id.org/onsir/QuantityValue"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <onsir:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">600.0</onsir:numericValue>
-    <ns1:unit rdf:resource="http://qudt.org/vocab/unit/Gray"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/dose_21">
-    <rdf:type rdf:resource="https://w3id.org/onsir/QuantityValue"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <onsir:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">100.0</onsir:numericValue>
-    <ns1:unit rdf:resource="http://qudt.org/vocab/unit/Gray"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/taxon_Capsicum_sp.">
-    <rdf:type rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_3413428"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:label>Capsicum sp.</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/taxon_Dianthus_caryophyllus">
-    <rdf:type rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_3570"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <rdfs:label>Dianthus caryophyllus</rdfs:label>
+    <onsir:hasTaxon rdf:resource="https://w3id.org/onsir/taxon_Dianthus_caryophyllus"/>
   </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/outcome_16">
-    <onsir:hasDoseRateCategory rdf:resource="https://w3id.org/onsir/LowDoseRate"/>
-    <onsir:hasEndpointCategory rdf:resource="https://w3id.org/onsir/EmergenceAndEarlyVigor"/>
-    <rdf:type rdf:resource="https://w3id.org/onsir/TreatmentOutcome"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <onsir:hasTreatment rdf:resource="https://w3id.org/onsir/treat_16"/>
-    <onsir:hasSubject rdf:resource="https://w3id.org/onsir/seed_16"/>
-    <rdfs:label>Ficus variegata / Co-60 / 240.0 Gy (2023)</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/dose_24">
-    <rdf:type rdf:resource="https://w3id.org/onsir/QuantityValue"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <onsir:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">120.0</onsir:numericValue>
-    <ns1:unit rdf:resource="http://qudt.org/vocab/unit/Gray"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/treat_04">
+  <rdf:Description rdf:about="https://w3id.org/onsir/treat_16">
     <rdf:type rdf:resource="https://w3id.org/onsir/SeedIrradiationTreatment"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <onsir:hasSourceIsotope rdf:resource="https://w3id.org/onsir/Co60"/>
-    <onsir:hasDose rdf:resource="https://w3id.org/onsir/dose_04"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/taxon_Brassica_napus">
-    <rdf:type rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_3708"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:label>Brassica napus</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/seed_03">
-    <rdf:type rdf:resource="https://w3id.org/onsir/PlantSeed"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:label>Vigna radiata</rdfs:label>
-    <onsir:hasTaxon rdf:resource="https://w3id.org/onsir/taxon_Vigna_radiata"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/outcome_12">
-    <onsir:hasDoseRateCategory rdf:resource="https://w3id.org/onsir/LowDoseRate"/>
-    <onsir:hasEndpointCategory rdf:resource="https://w3id.org/onsir/EmergenceAndEarlyVigor"/>
-    <rdf:type rdf:resource="https://w3id.org/onsir/TreatmentOutcome"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <onsir:hasTreatment rdf:resource="https://w3id.org/onsir/treat_12"/>
-    <onsir:hasSubject rdf:resource="https://w3id.org/onsir/seed_12"/>
-    <rdfs:label>Calotropis gigantea / Co-60 / 900.0 Gy (2022)</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/treat_15">
-    <rdf:type rdf:resource="https://w3id.org/onsir/SeedIrradiationTreatment"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <onsir:hasSourceIsotope rdf:resource="https://w3id.org/onsir/Co60"/>
-    <onsir:hasDose rdf:resource="https://w3id.org/onsir/dose_15"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/treat_13">
-    <rdf:type rdf:resource="https://w3id.org/onsir/SeedIrradiationTreatment"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <onsir:hasSourceIsotope rdf:resource="https://w3id.org/onsir/Co60"/>
-    <onsir:hasDose rdf:resource="https://w3id.org/onsir/dose_13"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/seed_27">
-    <rdf:type rdf:resource="https://w3id.org/onsir/PlantSeed"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:label>Solanum tuberosum</rdfs:label>
-    <onsir:hasTaxon rdf:resource="https://w3id.org/onsir/taxon_Solanum_tuberosum"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/dose_26">
-    <rdf:type rdf:resource="https://w3id.org/onsir/QuantityValue"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <onsir:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">200.0</onsir:numericValue>
-    <ns1:unit rdf:resource="http://qudt.org/vocab/unit/Gray"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/outcome_15">
+    <onsir:hasDose rdf:resource="https://w3id.org/onsir/dose_16"/>
     <onsir:hasDoseRateCategory rdf:resource="https://w3id.org/onsir/HighDoseRate"/>
-    <onsir:hasEndpointCategory rdf:resource="https://w3id.org/onsir/GeneticEndpointCategory"/>
-    <rdf:type rdf:resource="https://w3id.org/onsir/TreatmentOutcome"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <onsir:hasTreatment rdf:resource="https://w3id.org/onsir/treat_15"/>
-    <onsir:hasSubject rdf:resource="https://w3id.org/onsir/seed_15"/>
-    <rdfs:label>Arabidopsis thaliana / Co-60 / 1500.0 Gy (2023)</rdfs:label>
+    <onsir:hasDoseRate rdf:resource="https://w3id.org/onsir/doserate_16"/>
   </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/taxon_Datura_stramonium">
-    <rdf:type rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_4076"/>
+  <rdf:Description rdf:about="https://w3id.org/onsir/seed_24">
+    <rdf:type rdf:resource="https://w3id.org/onsir/PlantSeed"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label>Solanum lycopersicum</rdfs:label>
+    <onsir:hasTaxon rdf:resource="https://w3id.org/onsir/taxon_Solanum_lycopersicum"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/seed_04">
+    <rdf:type rdf:resource="https://w3id.org/onsir/PlantSeed"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <rdfs:label>Datura stramonium</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/taxon_Neolamarckia_cadamba">
-    <rdf:type rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_153762"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:label>Neolamarckia cadamba</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/dose_00">
-    <rdf:type rdf:resource="https://w3id.org/onsir/QuantityValue"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <onsir:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">300.0</onsir:numericValue>
-    <ns1:unit rdf:resource="http://qudt.org/vocab/unit/Gray"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/taxon_Plukenetia_volubilis">
-    <rdf:type rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_316893"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:label>Plukenetia volubilis</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/outcome_27">
-    <onsir:hasDoseRateCategory rdf:resource="https://w3id.org/onsir/LowDoseRate"/>
-    <onsir:hasEndpointCategory rdf:resource="https://w3id.org/onsir/PlantHealthEndpointCategory"/>
-    <rdf:type rdf:resource="https://w3id.org/onsir/TreatmentOutcome"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <onsir:hasTreatment rdf:resource="https://w3id.org/onsir/treat_27"/>
-    <onsir:hasSubject rdf:resource="https://w3id.org/onsir/seed_27"/>
-    <rdfs:label>Solanum tuberosum / Co-60 / 40.0 Gy (2025)</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/dose_04">
-    <rdf:type rdf:resource="https://w3id.org/onsir/QuantityValue"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <onsir:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">80.0</onsir:numericValue>
-    <ns1:unit rdf:resource="http://qudt.org/vocab/unit/Gray"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/seed_21">
-    <rdf:type rdf:resource="https://w3id.org/onsir/PlantSeed"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:label>Solanum melongena</rdfs:label>
-    <onsir:hasTaxon rdf:resource="https://w3id.org/onsir/taxon_Solanum_melongena"/>
+    <onsir:hasTaxon rdf:resource="https://w3id.org/onsir/taxon_Datura_stramonium"/>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/onsir/outcome_13">
     <onsir:hasEndpointCategory rdf:resource="https://w3id.org/onsir/GeneticEndpointCategory"/>
@@ -446,247 +657,16 @@
     <onsir:hasSubject rdf:resource="https://w3id.org/onsir/seed_13"/>
     <rdfs:label>Coriandrum sativum / Co-60 / 150.0 Gy (2022)</rdfs:label>
   </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/treat_02">
-    <rdf:type rdf:resource="https://w3id.org/onsir/SeedIrradiationTreatment"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <onsir:hasSourceIsotope rdf:resource="https://w3id.org/onsir/Co60"/>
-    <onsir:hasDose rdf:resource="https://w3id.org/onsir/dose_02"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/dose_20">
-    <rdf:type rdf:resource="https://w3id.org/onsir/QuantityValue"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <onsir:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1000.0</onsir:numericValue>
-    <ns1:unit rdf:resource="http://qudt.org/vocab/unit/Gray"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/dose_23">
-    <rdf:type rdf:resource="https://w3id.org/onsir/QuantityValue"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <onsir:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">250.0</onsir:numericValue>
-    <ns1:unit rdf:resource="http://qudt.org/vocab/unit/Gray"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/outcome_00">
-    <onsir:hasDoseRateCategory rdf:resource="https://w3id.org/onsir/LowDoseRate"/>
-    <onsir:hasEndpointCategory rdf:resource="https://w3id.org/onsir/BiochemicalEndpointCategory"/>
-    <rdf:type rdf:resource="https://w3id.org/onsir/TreatmentOutcome"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <onsir:hasTreatment rdf:resource="https://w3id.org/onsir/treat_00"/>
-    <onsir:hasSubject rdf:resource="https://w3id.org/onsir/seed_00"/>
-    <rdfs:label>Phyllanthus odontadenius / Cs-137 / 300.0 Gy (2014)</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/seed_17">
+  <rdf:Description rdf:about="https://w3id.org/onsir/seed_12">
     <rdf:type rdf:resource="https://w3id.org/onsir/PlantSeed"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:label>Lablab purpureus</rdfs:label>
-    <onsir:hasTaxon rdf:resource="https://w3id.org/onsir/taxon_Lablab_purpureus"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/seed_13">
-    <rdf:type rdf:resource="https://w3id.org/onsir/PlantSeed"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:label>Coriandrum sativum</rdfs:label>
-    <onsir:hasTaxon rdf:resource="https://w3id.org/onsir/taxon_Coriandrum_sativum"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/seed_20">
-    <rdf:type rdf:resource="https://w3id.org/onsir/PlantSeed"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:label>Reutealis trisperma</rdfs:label>
-    <onsir:hasTaxon rdf:resource="https://w3id.org/onsir/taxon_Reutealis_trisperma"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/treat_20">
-    <rdf:type rdf:resource="https://w3id.org/onsir/SeedIrradiationTreatment"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <onsir:hasDose rdf:resource="https://w3id.org/onsir/dose_20"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/seed_16">
-    <rdf:type rdf:resource="https://w3id.org/onsir/PlantSeed"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:label>Ficus variegata</rdfs:label>
+    <rdfs:label>Calotropis gigantea</rdfs:label>
+    <onsir:hasTaxon rdf:resource="https://w3id.org/onsir/taxon_Calotropis_gigantea"/>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/onsir/seed_00">
     <rdf:type rdf:resource="https://w3id.org/onsir/PlantSeed"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <rdfs:label>Phyllanthus odontadenius</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/treat_08">
-    <rdf:type rdf:resource="https://w3id.org/onsir/SeedIrradiationTreatment"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <onsir:hasDose rdf:resource="https://w3id.org/onsir/dose_08"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/dose_14">
-    <rdf:type rdf:resource="https://w3id.org/onsir/QuantityValue"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <onsir:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">50.0</onsir:numericValue>
-    <ns1:unit rdf:resource="http://qudt.org/vocab/unit/Gray"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/treat_16">
-    <rdf:type rdf:resource="https://w3id.org/onsir/SeedIrradiationTreatment"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <onsir:hasSourceIsotope rdf:resource="https://w3id.org/onsir/Co60"/>
-    <onsir:hasDose rdf:resource="https://w3id.org/onsir/dose_16"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/treat_09">
-    <rdf:type rdf:resource="https://w3id.org/onsir/SeedIrradiationTreatment"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <onsir:hasSourceIsotope rdf:resource="https://w3id.org/onsir/Co60"/>
-    <onsir:hasDose rdf:resource="https://w3id.org/onsir/dose_09"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/treat_07">
-    <rdf:type rdf:resource="https://w3id.org/onsir/SeedIrradiationTreatment"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <onsir:hasSourceIsotope rdf:resource="https://w3id.org/onsir/Co60"/>
-    <onsir:hasDose rdf:resource="https://w3id.org/onsir/dose_07"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/seed_09">
-    <rdf:type rdf:resource="https://w3id.org/onsir/PlantSeed"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:label>Solanum lycopersicum</rdfs:label>
-    <onsir:hasTaxon rdf:resource="https://w3id.org/onsir/taxon_Solanum_lycopersicum"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/outcome_02">
-    <onsir:hasDoseRateCategory rdf:resource="https://w3id.org/onsir/LowDoseRate"/>
-    <onsir:hasEndpointCategory rdf:resource="https://w3id.org/onsir/EmergenceAndEarlyVigor"/>
-    <rdf:type rdf:resource="https://w3id.org/onsir/TreatmentOutcome"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <onsir:hasTreatment rdf:resource="https://w3id.org/onsir/treat_02"/>
-    <onsir:hasSubject rdf:resource="https://w3id.org/onsir/seed_02"/>
-    <rdfs:label>Magnolia champaca / Co-60 / 100.0 Gy (2016)</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/treat_27">
-    <rdf:type rdf:resource="https://w3id.org/onsir/SeedIrradiationTreatment"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <onsir:hasSourceIsotope rdf:resource="https://w3id.org/onsir/Co60"/>
-    <onsir:hasDose rdf:resource="https://w3id.org/onsir/dose_27"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/seed_24">
-    <rdf:type rdf:resource="https://w3id.org/onsir/PlantSeed"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:label>Solanum lycopersicum</rdfs:label>
-    <onsir:hasTaxon rdf:resource="https://w3id.org/onsir/taxon_Solanum_lycopersicum"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/dose_16">
-    <rdf:type rdf:resource="https://w3id.org/onsir/QuantityValue"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <onsir:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">240.0</onsir:numericValue>
-    <ns1:unit rdf:resource="http://qudt.org/vocab/unit/Gray"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/taxon_Solanum_tuberosum">
-    <rdf:type rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_4113"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:label>Solanum tuberosum</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/outcome_06">
-    <onsir:hasDoseRateCategory rdf:resource="https://w3id.org/onsir/LowDoseRate"/>
-    <onsir:hasEndpointCategory rdf:resource="https://w3id.org/onsir/EmergenceAndEarlyVigor"/>
-    <rdf:type rdf:resource="https://w3id.org/onsir/TreatmentOutcome"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <onsir:hasTreatment rdf:resource="https://w3id.org/onsir/treat_06"/>
-    <onsir:hasSubject rdf:resource="https://w3id.org/onsir/seed_06"/>
-    <rdfs:label>Capsicum sp. / Co-60 / 600.0 Gy (2020)</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/treat_17">
-    <rdf:type rdf:resource="https://w3id.org/onsir/SeedIrradiationTreatment"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <onsir:hasSourceIsotope rdf:resource="https://w3id.org/onsir/Co60"/>
-    <onsir:hasDose rdf:resource="https://w3id.org/onsir/dose_17"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/taxon_Calotropis_gigantea">
-    <rdf:type rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_4066"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:label>Calotropis gigantea</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/outcome_23">
-    <onsir:hasDoseRateCategory rdf:resource="https://w3id.org/onsir/LowDoseRate"/>
-    <onsir:hasEndpointCategory rdf:resource="https://w3id.org/onsir/GeneticEndpointCategory"/>
-    <rdf:type rdf:resource="https://w3id.org/onsir/TreatmentOutcome"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <onsir:hasTreatment rdf:resource="https://w3id.org/onsir/treat_23"/>
-    <onsir:hasSubject rdf:resource="https://w3id.org/onsir/seed_23"/>
-    <rdfs:label>Salvia hispanica / Co-60 / 250.0 Gy (2024)</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/dose_03">
-    <rdf:type rdf:resource="https://w3id.org/onsir/QuantityValue"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <onsir:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">60.0</onsir:numericValue>
-    <ns1:unit rdf:resource="http://qudt.org/vocab/unit/Gray"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/outcome_04">
-    <onsir:hasDoseRateCategory rdf:resource="https://w3id.org/onsir/HighDoseRate"/>
-    <onsir:hasEndpointCategory rdf:resource="https://w3id.org/onsir/BiochemicalEndpointCategory"/>
-    <rdf:type rdf:resource="https://w3id.org/onsir/TreatmentOutcome"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <onsir:hasTreatment rdf:resource="https://w3id.org/onsir/treat_04"/>
-    <onsir:hasSubject rdf:resource="https://w3id.org/onsir/seed_04"/>
-    <rdfs:label>Datura stramonium / Co-60 / 80.0 Gy (2019)</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/taxon_Salvia_hispanica">
-    <rdf:type rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_49212"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:label>Salvia hispanica</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/seed_08">
-    <rdf:type rdf:resource="https://w3id.org/onsir/PlantSeed"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:label>Brassica napus</rdfs:label>
-    <onsir:hasTaxon rdf:resource="https://w3id.org/onsir/taxon_Brassica_napus"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/seed_25">
-    <rdf:type rdf:resource="https://w3id.org/onsir/PlantSeed"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:label>Dianthus caryophyllus</rdfs:label>
-    <onsir:hasTaxon rdf:resource="https://w3id.org/onsir/taxon_Dianthus_caryophyllus"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/outcome_11">
-    <onsir:hasEndpointCategory rdf:resource="https://w3id.org/onsir/OtherPhysiologicalEndpointCategory"/>
-    <rdf:type rdf:resource="https://w3id.org/onsir/TreatmentOutcome"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <onsir:hasTreatment rdf:resource="https://w3id.org/onsir/treat_11"/>
-    <onsir:hasSubject rdf:resource="https://w3id.org/onsir/seed_11"/>
-    <rdfs:label>Vigna mungo / Co-60 / 500.0 Gy (2021)</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/treat_19">
-    <rdf:type rdf:resource="https://w3id.org/onsir/SeedIrradiationTreatment"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <onsir:hasSourceIsotope rdf:resource="https://w3id.org/onsir/Co60"/>
-    <onsir:hasDose rdf:resource="https://w3id.org/onsir/dose_19"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/treat_22">
-    <rdf:type rdf:resource="https://w3id.org/onsir/SeedIrradiationTreatment"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <onsir:hasSourceIsotope rdf:resource="https://w3id.org/onsir/Co60"/>
-    <onsir:hasDose rdf:resource="https://w3id.org/onsir/dose_22"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/taxon_Hordeum_vulgare">
-    <rdf:type rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_4513"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:label>Hordeum vulgare</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/dose_18">
-    <rdf:type rdf:resource="https://w3id.org/onsir/QuantityValue"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <onsir:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">8.0</onsir:numericValue>
-    <ns1:unit rdf:resource="http://qudt.org/vocab/unit/Gray"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/seed_19">
-    <rdf:type rdf:resource="https://w3id.org/onsir/PlantSeed"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:label>Plukenetia volubilis</rdfs:label>
-    <onsir:hasTaxon rdf:resource="https://w3id.org/onsir/taxon_Plukenetia_volubilis"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/seed_15">
-    <rdf:type rdf:resource="https://w3id.org/onsir/PlantSeed"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:label>Arabidopsis thaliana</rdfs:label>
-    <onsir:hasTaxon rdf:resource="https://w3id.org/onsir/taxon_Arabidopsis_thaliana"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/seed_04">
-    <rdf:type rdf:resource="https://w3id.org/onsir/PlantSeed"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:label>Datura stramonium</rdfs:label>
-    <onsir:hasTaxon rdf:resource="https://w3id.org/onsir/taxon_Datura_stramonium"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/taxon_Vigna_mungo">
-    <rdf:type rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_3915"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:label>Vigna mungo</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/onsir/outcome_07">
     <onsir:hasEndpointCategory rdf:resource="https://w3id.org/onsir/EmergenceAndEarlyVigor"/>
@@ -696,95 +676,67 @@
     <onsir:hasSubject rdf:resource="https://w3id.org/onsir/seed_07"/>
     <rdfs:label>Hordeum vulgare / Co-60 / 20.0 Gy (2020)</rdfs:label>
   </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/dose_10">
-    <rdf:type rdf:resource="https://w3id.org/onsir/QuantityValue"/>
+  <rdf:Description rdf:about="https://w3id.org/onsir/taxon_Lablab_purpureus">
+    <rdf:type rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_35936"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <onsir:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">100.0</onsir:numericValue>
-    <ns1:unit rdf:resource="http://qudt.org/vocab/unit/Gray"/>
+    <rdfs:label>Lablab purpureus</rdfs:label>
   </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/taxon_Solanum_lycopersicum">
-    <rdf:type rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_4081"/>
+  <rdf:Description rdf:about="https://w3id.org/onsir/seed_09">
+    <rdf:type rdf:resource="https://w3id.org/onsir/PlantSeed"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <rdfs:label>Solanum lycopersicum</rdfs:label>
+    <onsir:hasTaxon rdf:resource="https://w3id.org/onsir/taxon_Solanum_lycopersicum"/>
   </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/taxon_Reutealis_trisperma">
-    <rdf:type rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_1487825"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:label>Reutealis trisperma</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/treat_06">
-    <rdf:type rdf:resource="https://w3id.org/onsir/SeedIrradiationTreatment"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <onsir:hasSourceIsotope rdf:resource="https://w3id.org/onsir/Co60"/>
-    <onsir:hasDose rdf:resource="https://w3id.org/onsir/dose_06"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/dose_25">
+  <rdf:Description rdf:about="https://w3id.org/onsir/dose_19">
     <rdf:type rdf:resource="https://w3id.org/onsir/QuantityValue"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <onsir:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">30.0</onsir:numericValue>
-    <ns1:unit rdf:resource="http://qudt.org/vocab/unit/Gray"/>
+    <onsir:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">900.0</onsir:numericValue>
+    <ns1:hasUnit rdf:resource="http://qudt.org/vocab/unit/GRAY"/>
   </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/seed_05">
+  <rdf:Description rdf:about="https://w3id.org/onsir/seed_27">
     <rdf:type rdf:resource="https://w3id.org/onsir/PlantSeed"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:label>Osmanthus fragrans</rdfs:label>
-    <onsir:hasTaxon rdf:resource="https://w3id.org/onsir/taxon_Osmanthus_fragrans"/>
+    <rdfs:label>Solanum tuberosum</rdfs:label>
+    <onsir:hasTaxon rdf:resource="https://w3id.org/onsir/taxon_Solanum_tuberosum"/>
   </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/treat_18">
+  <rdf:Description rdf:about="https://w3id.org/onsir/seed_06">
+    <rdf:type rdf:resource="https://w3id.org/onsir/PlantSeed"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label>Capsicum sp.</rdfs:label>
+    <onsir:hasTaxon rdf:resource="https://w3id.org/onsir/taxon_Capsicum_sp."/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/taxon_Solanum_tuberosum">
+    <rdf:type rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_4113"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label>Solanum tuberosum</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/treat_00">
     <rdf:type rdf:resource="https://w3id.org/onsir/SeedIrradiationTreatment"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <onsir:hasSourceIsotope rdf:resource="https://w3id.org/onsir/Co60"/>
-    <onsir:hasDose rdf:resource="https://w3id.org/onsir/dose_18"/>
+    <onsir:hasSourceIsotope rdf:resource="https://w3id.org/onsir/Cs137"/>
+    <onsir:hasDose rdf:resource="https://w3id.org/onsir/dose_00"/>
+    <onsir:hasDoseRateCategory rdf:resource="https://w3id.org/onsir/LowDoseRate"/>
+    <onsir:hasDoseRate rdf:resource="https://w3id.org/onsir/doserate_00"/>
   </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/outcome_03">
-    <onsir:hasDoseRateCategory rdf:resource="https://w3id.org/onsir/HighDoseRate"/>
-    <onsir:hasEndpointCategory rdf:resource="https://w3id.org/onsir/OtherPhysiologicalEndpointCategory"/>
+  <rdf:Description rdf:about="https://w3id.org/onsir/outcome_05">
+    <onsir:hasEndpointCategory rdf:resource="https://w3id.org/onsir/BiochemicalEndpointCategory"/>
     <rdf:type rdf:resource="https://w3id.org/onsir/TreatmentOutcome"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <onsir:hasTreatment rdf:resource="https://w3id.org/onsir/treat_03"/>
-    <onsir:hasSubject rdf:resource="https://w3id.org/onsir/seed_03"/>
-    <rdfs:label>Vigna radiata / N.R. / 60.0 Gy (2016)</rdfs:label>
+    <onsir:hasTreatment rdf:resource="https://w3id.org/onsir/treat_05"/>
+    <onsir:hasSubject rdf:resource="https://w3id.org/onsir/seed_05"/>
+    <rdfs:label>Osmanthus fragrans / Co-60 / 150.0 Gy (2019)</rdfs:label>
   </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/dose_15">
+  <rdf:Description rdf:about="https://w3id.org/onsir/doserate_16">
     <rdf:type rdf:resource="https://w3id.org/onsir/QuantityValue"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <onsir:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1500.0</onsir:numericValue>
-    <ns1:unit rdf:resource="http://qudt.org/vocab/unit/Gray"/>
+    <onsir:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6645.7</onsir:numericValue>
+    <ns1:hasUnit rdf:resource="http://qudt.org/vocab/unit/GRAY-PER-HR"/>
   </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/seed_12">
-    <rdf:type rdf:resource="https://w3id.org/onsir/PlantSeed"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:label>Calotropis gigantea</rdfs:label>
-    <onsir:hasTaxon rdf:resource="https://w3id.org/onsir/taxon_Calotropis_gigantea"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/treat_01">
+  <rdf:Description rdf:about="https://w3id.org/onsir/treat_15">
     <rdf:type rdf:resource="https://w3id.org/onsir/SeedIrradiationTreatment"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <onsir:hasSourceIsotope rdf:resource="https://w3id.org/onsir/Co60"/>
-    <onsir:hasDose rdf:resource="https://w3id.org/onsir/dose_01"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/treat_14">
-    <rdf:type rdf:resource="https://w3id.org/onsir/SeedIrradiationTreatment"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <onsir:hasSourceIsotope rdf:resource="https://w3id.org/onsir/Co60"/>
-    <onsir:hasDose rdf:resource="https://w3id.org/onsir/dose_14"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/dose_27">
-    <rdf:type rdf:resource="https://w3id.org/onsir/QuantityValue"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <onsir:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">40.0</onsir:numericValue>
-    <ns1:unit rdf:resource="http://qudt.org/vocab/unit/Gray"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/treat_10">
-    <rdf:type rdf:resource="https://w3id.org/onsir/SeedIrradiationTreatment"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <onsir:hasSourceIsotope rdf:resource="https://w3id.org/onsir/Co60"/>
-    <onsir:hasDose rdf:resource="https://w3id.org/onsir/dose_10"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/taxon_Coriandrum_sativum">
-    <rdf:type rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_4047"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:label>Coriandrum sativum</rdfs:label>
+    <onsir:hasDose rdf:resource="https://w3id.org/onsir/dose_15"/>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/onsir/treat_11">
     <rdf:type rdf:resource="https://w3id.org/onsir/SeedIrradiationTreatment"/>
@@ -792,22 +744,40 @@
     <onsir:hasSourceIsotope rdf:resource="https://w3id.org/onsir/Co60"/>
     <onsir:hasDose rdf:resource="https://w3id.org/onsir/dose_11"/>
   </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/dose_19">
+  <rdf:Description rdf:about="https://w3id.org/onsir/treat_05">
+    <rdf:type rdf:resource="https://w3id.org/onsir/SeedIrradiationTreatment"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <onsir:hasSourceIsotope rdf:resource="https://w3id.org/onsir/Co60"/>
+    <onsir:hasDose rdf:resource="https://w3id.org/onsir/dose_05"/>
+    <onsir:hasDoseRateCategory rdf:resource="https://w3id.org/onsir/LowDoseRate"/>
+    <onsir:hasDoseRate rdf:resource="https://w3id.org/onsir/doserate_05"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.obolibrary.org/obo/NCBITaxon_3885">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/dose_02">
     <rdf:type rdf:resource="https://w3id.org/onsir/QuantityValue"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <onsir:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">900.0</onsir:numericValue>
-    <ns1:unit rdf:resource="http://qudt.org/vocab/unit/Gray"/>
+    <onsir:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">100.0</onsir:numericValue>
+    <ns1:hasUnit rdf:resource="http://qudt.org/vocab/unit/GRAY"/>
   </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/dose_07">
+  <rdf:Description rdf:about="http://purl.obolibrary.org/obo/NCBITaxon_4058">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.obolibrary.org/obo/NCBITaxon_4111">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/doserate_26">
     <rdf:type rdf:resource="https://w3id.org/onsir/QuantityValue"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <onsir:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">20.0</onsir:numericValue>
-    <ns1:unit rdf:resource="http://qudt.org/vocab/unit/Gray"/>
+    <onsir:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">60.0</onsir:numericValue>
+    <ns1:hasUnit rdf:resource="http://qudt.org/vocab/unit/GRAY-PER-HR"/>
   </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/taxon_Osmanthus_fragrans">
-    <rdf:type rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_93977"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:label>Osmanthus fragrans</rdfs:label>
+  <rdf:Description rdf:about="http://purl.obolibrary.org/obo/NCBITaxon_4530">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.obolibrary.org/obo/NCBITaxon_4113">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/onsir/seed_26">
     <rdf:type rdf:resource="https://w3id.org/onsir/PlantSeed"/>
@@ -815,64 +785,223 @@
     <rdfs:label>Phaseolus vulgaris</rdfs:label>
     <onsir:hasTaxon rdf:resource="https://w3id.org/onsir/taxon_Phaseolus_vulgaris"/>
   </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/dose_02">
+  <rdf:Description rdf:about="https://w3id.org/onsir/dose_14">
+    <rdf:type rdf:resource="https://w3id.org/onsir/QuantityValue"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <onsir:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">50.0</onsir:numericValue>
+    <ns1:hasUnit rdf:resource="http://qudt.org/vocab/unit/GRAY"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/taxon_Osmanthus_fragrans">
+    <rdf:type rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_93977"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label>Osmanthus fragrans</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/dose_26">
+    <rdf:type rdf:resource="https://w3id.org/onsir/QuantityValue"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <onsir:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">200.0</onsir:numericValue>
+    <ns1:hasUnit rdf:resource="http://qudt.org/vocab/unit/GRAY"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/seed_17">
+    <rdf:type rdf:resource="https://w3id.org/onsir/PlantSeed"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label>Lablab purpureus</rdfs:label>
+    <onsir:hasTaxon rdf:resource="https://w3id.org/onsir/taxon_Lablab_purpureus"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/dose_21">
     <rdf:type rdf:resource="https://w3id.org/onsir/QuantityValue"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <onsir:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">100.0</onsir:numericValue>
-    <ns1:unit rdf:resource="http://qudt.org/vocab/unit/Gray"/>
+    <ns1:hasUnit rdf:resource="http://qudt.org/vocab/unit/GRAY"/>
   </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/treat_24">
+  <rdf:Description rdf:about="https://w3id.org/onsir/treat_06">
     <rdf:type rdf:resource="https://w3id.org/onsir/SeedIrradiationTreatment"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <onsir:hasSourceIsotope rdf:resource="https://w3id.org/onsir/Co60"/>
-    <onsir:hasDose rdf:resource="https://w3id.org/onsir/dose_24"/>
+    <onsir:hasDose rdf:resource="https://w3id.org/onsir/dose_06"/>
   </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/treat_03">
-    <rdf:type rdf:resource="https://w3id.org/onsir/SeedIrradiationTreatment"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <onsir:hasDose rdf:resource="https://w3id.org/onsir/dose_03"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/seed_10">
-    <rdf:type rdf:resource="https://w3id.org/onsir/PlantSeed"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:label>Toona sureni</rdfs:label>
-    <onsir:hasTaxon rdf:resource="https://w3id.org/onsir/taxon_Toona_sureni"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/treat_05">
-    <rdf:type rdf:resource="https://w3id.org/onsir/SeedIrradiationTreatment"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <onsir:hasSourceIsotope rdf:resource="https://w3id.org/onsir/Co60"/>
-    <onsir:hasDose rdf:resource="https://w3id.org/onsir/dose_05"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/dose_11">
+  <rdf:Description rdf:about="https://w3id.org/onsir/doserate_09">
     <rdf:type rdf:resource="https://w3id.org/onsir/QuantityValue"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <onsir:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">500.0</onsir:numericValue>
-    <ns1:unit rdf:resource="http://qudt.org/vocab/unit/Gray"/>
+    <onsir:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">800.0</onsir:numericValue>
+    <ns1:hasUnit rdf:resource="http://qudt.org/vocab/unit/GRAY-PER-HR"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.obolibrary.org/obo/NCBITaxon_4081">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/seed_14">
+    <rdf:type rdf:resource="https://w3id.org/onsir/PlantSeed"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label>Neolamarckia cadamba</rdfs:label>
+    <onsir:hasTaxon rdf:resource="https://w3id.org/onsir/taxon_Neolamarckia_cadamba"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/taxon_Hordeum_vulgare">
+    <rdf:type rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_4513"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label>Hordeum vulgare</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/dose_01">
+    <rdf:type rdf:resource="https://w3id.org/onsir/QuantityValue"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <onsir:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">13.15</onsir:numericValue>
+    <ns1:hasUnit rdf:resource="http://qudt.org/vocab/unit/GRAY"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/outcome_01">
+    <onsir:hasEndpointCategory rdf:resource="https://w3id.org/onsir/MorphologicalEndpointCategory"/>
+    <rdf:type rdf:resource="https://w3id.org/onsir/TreatmentOutcome"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <onsir:hasTreatment rdf:resource="https://w3id.org/onsir/treat_01"/>
+    <onsir:hasSubject rdf:resource="https://w3id.org/onsir/seed_01"/>
+    <rdfs:label>Polianthes tuberosa / Co-60 / 13.155 Gy (2015)</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.obolibrary.org/obo/NCBITaxon_4047">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/taxon_Vigna_radiata">
+    <rdf:type rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_157791"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label>Vigna radiata</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.obolibrary.org/obo/NCBITaxon_1258759">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/dose_03">
+    <rdf:type rdf:resource="https://w3id.org/onsir/QuantityValue"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <onsir:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">60.0</onsir:numericValue>
+    <ns1:hasUnit rdf:resource="http://qudt.org/vocab/unit/GRAY"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.obolibrary.org/obo/NCBITaxon_49212">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/taxon_Vigna_mungo">
+    <rdf:type rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_3915"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label>Vigna mungo</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/dose_07">
+    <rdf:type rdf:resource="https://w3id.org/onsir/QuantityValue"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <onsir:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">20.0</onsir:numericValue>
+    <ns1:hasUnit rdf:resource="http://qudt.org/vocab/unit/GRAY"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/seed_13">
+    <rdf:type rdf:resource="https://w3id.org/onsir/PlantSeed"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label>Coriandrum sativum</rdfs:label>
+    <onsir:hasTaxon rdf:resource="https://w3id.org/onsir/taxon_Coriandrum_sativum"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.obolibrary.org/obo/NCBITaxon_3708">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/outcome_06">
+    <onsir:hasEndpointCategory rdf:resource="https://w3id.org/onsir/EmergenceAndEarlyVigor"/>
+    <rdf:type rdf:resource="https://w3id.org/onsir/TreatmentOutcome"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <onsir:hasTreatment rdf:resource="https://w3id.org/onsir/treat_06"/>
+    <onsir:hasSubject rdf:resource="https://w3id.org/onsir/seed_06"/>
+    <rdfs:label>Capsicum sp. / Co-60 / 600.0 Gy (2020)</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/taxon_Coriandrum_sativum">
+    <rdf:type rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_4047"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label>Coriandrum sativum</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/seed_19">
+    <rdf:type rdf:resource="https://w3id.org/onsir/PlantSeed"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label>Plukenetia volubilis</rdfs:label>
+    <onsir:hasTaxon rdf:resource="https://w3id.org/onsir/taxon_Plukenetia_volubilis"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/dose_00">
+    <rdf:type rdf:resource="https://w3id.org/onsir/QuantityValue"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <onsir:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">300.0</onsir:numericValue>
+    <ns1:hasUnit rdf:resource="http://qudt.org/vocab/unit/GRAY"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.obolibrary.org/obo/NCBITaxon_86757">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/taxon_Brassica_napus">
+    <rdf:type rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_3708"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label>Brassica napus</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/dose_08">
+    <rdf:type rdf:resource="https://w3id.org/onsir/QuantityValue"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <onsir:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">800.0</onsir:numericValue>
+    <ns1:hasUnit rdf:resource="http://qudt.org/vocab/unit/GRAY"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/taxon_Salvia_hispanica">
+    <rdf:type rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_49212"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label>Salvia hispanica</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/doserate_04">
+    <rdf:type rdf:resource="https://w3id.org/onsir/QuantityValue"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <onsir:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">37.38</onsir:numericValue>
+    <ns1:hasUnit rdf:resource="http://qudt.org/vocab/unit/GRAY-PER-HR"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/taxon_Magnolia_champaca">
+    <rdf:type rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_86757"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label>Magnolia champaca</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.obolibrary.org/obo/NCBITaxon_1487825">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/onsir/abox">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
     <owl:imports rdf:resource="https://w3id.org/onsir"/>
   </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/taxon_Solanum_melongena">
-    <rdf:type rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_4111"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:label>Solanum melongena</rdfs:label>
+  <rdf:Description rdf:about="http://purl.obolibrary.org/obo/NCBITaxon_93977">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
   </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/taxon_Toona_sureni">
-    <rdf:type rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_1258759"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:label>Toona sureni</rdfs:label>
+  <rdf:Description rdf:about="http://purl.obolibrary.org/obo/NCBITaxon_4066">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
   </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/dose_12">
-    <rdf:type rdf:resource="https://w3id.org/onsir/QuantityValue"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <onsir:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">900.0</onsir:numericValue>
-    <ns1:unit rdf:resource="http://qudt.org/vocab/unit/Gray"/>
+  <rdf:Description rdf:about="http://purl.obolibrary.org/obo/NCBITaxon_3915">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
   </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/seed_01">
+  <rdf:Description rdf:about="https://w3id.org/onsir/seed_02">
     <rdf:type rdf:resource="https://w3id.org/onsir/PlantSeed"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:label>Polianthes tuberosa</rdfs:label>
+    <rdfs:label>Magnolia champaca</rdfs:label>
+    <onsir:hasTaxon rdf:resource="https://w3id.org/onsir/taxon_Magnolia_champaca"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/dose_25">
+    <rdf:type rdf:resource="https://w3id.org/onsir/QuantityValue"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <onsir:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">30.0</onsir:numericValue>
+    <ns1:hasUnit rdf:resource="http://qudt.org/vocab/unit/GRAY"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/dose_17">
+    <rdf:type rdf:resource="https://w3id.org/onsir/QuantityValue"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <onsir:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">526.2</onsir:numericValue>
+    <ns1:hasUnit rdf:resource="http://qudt.org/vocab/unit/GRAY"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.obolibrary.org/obo/NCBITaxon_4076">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.obolibrary.org/obo/NCBITaxon_35936">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.obolibrary.org/obo/NCBITaxon_3413428">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.obolibrary.org/obo/NCBITaxon_4513">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.obolibrary.org/obo/NCBITaxon_3570">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.obolibrary.org/obo/NCBITaxon_316893">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.obolibrary.org/obo/NCBITaxon_157791">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
   </rdf:Description>
 </rdf:RDF>

@@ -37,14 +37,15 @@ DIFFERENT window for at least two of the four taxa, which is what makes an uncon
 false rather than incomplete.
 
 USAGE
-  python llm_bench.py build    -> writes bench/questions.json, bench/prompt_ungrounded.txt,
-                                  bench/prompt_grounded.txt
+  python llm_bench.py build    -> writes bench/questions.json and the three prompt files
+                                  bench/prompt_{ungrounded,grounded,framed}.txt
   python llm_bench.py score    -> reads bench/answers_{ungrounded,grounded,framed}.json and writes
                                   bench/results.json + paper/tab_bench.tex
 
-The answer files are produced by running the two prompts against the model under test and saving its
-JSON output verbatim. Nothing in this script calls a model, so the scoring is reproducible from the
-saved answers by anyone.
+The answer files are produced by running the three prompts against the model under test and saving
+its JSON output verbatim. Nothing in this script calls a model, so the scoring is reproducible from
+the saved answers by anyone; and because build() emits all three prompts and asserts that framed
+differs from grounded by exactly the FRAMING string, the ablation itself is reproducible too.
 """
 import json, os, re, sys
 import rdflib
@@ -57,6 +58,13 @@ PRETTY = {"Nicotiana_tabacum": "Nicotiana tabacum",
           "Vigna_unguiculata": "Vigna unguiculata",
           "Trigonella_foenum_graecum": "Trigonella foenum-graecum",
           "Capsicum_annuum": "Capsicum annuum"}
+# The one sentence that separates the `framed` condition from `grounded`. It is the ontology's own
+# evidential semantics stated in prose: OnSIR records dose POSITIONS relative to reported statistics
+# and links them to responses only through a non-entailing annotation. Kept as a module constant so
+# that the prompt file, the assertion below and the manuscript quote cannot drift apart.
+FRAMING = ("These windows are evidence-relative: they record where a dose falls relative to the "
+           "values reported in the literature for a given taxon, and carry no claim about the "
+           "biological outcome.")
 LABEL = {"AtOrBelowOptimum": "at_or_below_optimum",
          "AboveOptimum": "above_optimum",
          "AtOrAboveLD50": "at_or_above_ld50"}
@@ -123,7 +131,9 @@ def corpus_facts(path="OnSIR_abox.ttl"):
     g = rdflib.Graph(); g.parse(path, format="turtle")
     q = lambda s: list(g.query(s, initNs={"onsir": rdflib.Namespace(NS), "rdfs": RDFS}))
     doses = [float(r[0]) for r in q(
-        "SELECT ?v WHERE { ?d onsir:numericValue ?v }")]
+        # hasDose must appear in the pattern: dose RATES are also QuantityValues
+        # carrying numericValue, so matching numericValue alone mixes Gy with Gy/h.
+        "SELECT ?v WHERE { ?t onsir:hasDose ?d . ?d onsir:numericValue ?v }")]
     iso = {}
     for r in q("SELECT ?i (COUNT(?t) AS ?n) WHERE { ?t onsir:hasSourceIsotope ?i } GROUP BY ?i"):
         iso[str(r[0])[len(NS):]] = int(r[1])
@@ -217,6 +227,21 @@ def build():
             f"  seeds with a resolved NCBITaxon class: {facts['n_taxa_resolved']}", "", "---", ""]
     with open(f"{BENCH}/prompt_grounded.txt", "w") as fh:
         fh.write("\n".join(ctx) + head + body)
+
+    # --- framed: the grounded context plus FRAMING, and nothing else changed.
+    # This is the arm that isolates the effect. The grounded prompt supplies numbers and a decision
+    # rule; the framed prompt adds one sentence of the ontology's own evidential semantics -- the
+    # thing OnSIR encodes by making the dose-to-response link an annotation
+    # (consistentWithResponse) rather than a subclass axiom. The two prompts differ by exactly this
+    # string and by nothing else, which is what makes the comparison a one-sentence ablation.
+    with open(f"{BENCH}/prompt_framed.txt", "w") as fh:
+        fh.write("\n".join(ctx[:-3] + [FRAMING, "", "---", ""]) + head + body)
+
+    # assert the ablation is literally a one-sentence difference, so the claim in the manuscript
+    # cannot drift from the files
+    _gr = open(f"{BENCH}/prompt_grounded.txt").read()
+    _fr = open(f"{BENCH}/prompt_framed.txt").read()
+    assert _fr.replace(FRAMING + "\n", "") == _gr, "framed != grounded + FRAMING"
 
     print(f"built {len(items)} items "
           f"({sum(i['type']=='A' for i in items)}A / {sum(i['type']=='B' for i in items)}B / "
