@@ -328,6 +328,36 @@ if core is not None:
              if isinstance(o, str) and "qudt:unit " in str(o)]
     check("no annotation names the retired property", not stale, f"{stale}")
 
+# ---------------------------------------------------------------- 8c. the docs say something
+# Regenerating byte-identically shows the generator is deterministic; it does not show the output is
+# worth reading. A broken generator that emits a list of bare headings reproduces perfectly. So the
+# rendered documentation is checked for content: most terms must carry a definition, and the terms
+# that carry a curation caveat must show it.
+print("\ngenerated documentation content")
+dp = os.path.join(HERE, "docs", "index.html")
+if core is not None and os.path.exists(dp):
+    dh = open(dp, errors="ignore").read()
+    # Exact, not a threshold: the docs must render a definition for every term that HAS one in the
+    # ontology. A fraction would have to be guessed, and a guess low enough to pass today is a guess
+    # that would also pass an empty shell.
+    n_h3 = dh.count("<h3 id=")
+    n_def = dh.count("<p class='def'>")
+    SKOSDEF = URIRef("http://www.w3.org/2004/02/skos/core#definition")
+    described = {s_ for s_, _o in core.subject_objects(SKOSDEF)} | \
+                {s_ for s_, _o in core.subject_objects(RDFS.comment)}
+    want = len([x for x in described
+                if isinstance(x, URIRef) and str(x).startswith(NS)
+                and f"<h3 id='{str(x)[len(NS):]}'>" in dh])
+    check("documentation renders every definition the ontology carries", n_def >= want,
+          f"{n_def} rendered, {want} terms have one, {n_h3} terms total")
+    SKOSNS = URIRef("http://www.w3.org/2004/02/skos/core#note")
+    noted = [str(s_)[len(NS):] for s_, _o in core.subject_objects(SKOSNS)
+             if str(s_).startswith(NS)]
+    missing = [t for t in noted if "curation note" not in
+               dh[dh.find(f"<h3 id='{t}'>"):dh.find(f"<h3 id='{t}'>") + 2000]] if noted else []
+    check("every term with a curation note shows it in the documentation",
+          noted and not missing, f"{len(noted)} noted, missing {missing}" if noted else "no notes")
+
 # ---------------------------------------------------------------- 9. the ablation is one sentence
 print("\ngrounding ablation")
 gp = os.path.join(HERE, "bench", "prompt_grounded.txt")

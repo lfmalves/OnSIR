@@ -166,15 +166,15 @@ def entity_section(title, items, kind):
     for i in items:
         P.append(f"<h3 id='{esc(loc(i))}'>{esc(loc(i))}</h3>")
         d = one(i, SKOS.definition) or one(i, RDFS.comment)
-    # A class that carries a curation caveat must show it. skos:definition wins over rdfs:comment
-    # above, so a note recorded only in skos:note or owl:deprecated was invisible in the rendered
-    # documentation -- which is exactly the drift the manuscript claims cannot happen.
-    _note = one(i, SKOS.note)
-    _dep = g.value(i, OWL.deprecated)
-    if _dep is not None and str(_dep).lower() in ("true", "1"):
-        d = "DEPRECATED. " + (d or "")
-    if _note:
-        d = ((d + " ") if d else "") + "[curation note] " + _note
+        # A term carrying a curation caveat must show it. skos:definition wins over rdfs:comment
+        # above, so a caveat recorded only in skos:note or owl:deprecated would be invisible in the
+        # rendered documentation -- exactly the drift the manuscript says cannot happen.
+        dep = g.value(i, OWL.deprecated)
+        if dep is not None and str(dep).lower() in ("true", "1"):
+            d = "DEPRECATED. " + (d or "")
+        note = one(i, SKOS.note)
+        if note:
+            d = ((d + " ") if d else "") + "[curation note] " + note
         if d: P.append(f"<p class='def'>{esc(d)}</p>")
         rows = []
         if kind == "class":
