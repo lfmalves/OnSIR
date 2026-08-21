@@ -4,9 +4,14 @@ values reported for a taxon, from the dose and the taxon rather than from an ass
 placement is evidence-relative: it says where the dose falls, not what it does.
 
 Three demonstrations:
-  (A) the SAME dose (100 Gy) classifies differently for three taxa, because each taxon carries
-      its own literature-derived dose windows;
-  (B) the same taxon classifies differently across doses;
+  (A) the SAME dose (140 Gy) classifies differently for three taxa, because each taxon carries
+      its own literature-derived dose windows. 140 Gy is used rather than 100 because Nicotiana
+      tabacum has no reported LD50 (see build_ontology.py), so it carries two windows and 100 Gy
+      places it and Vigna in the SAME window: the three-way contrast needs a dose that separates
+      all three, and 140 does.
+  (B) the same taxon classifies differently across doses. Vigna unguiculata is used rather than
+      Nicotiana tabacum because it has all three windows, so the walk crosses two boundaries
+      instead of one;
   (C) an ENCODING conflict is detected: when a taxon's reported optimum exceeds its reported LD50
       (Triticum aestivum), the two statistics cannot both bound one dose ordering, and the record is
       flagged. This is a data-quality check on the encoding, not a claim that the observations are
@@ -50,16 +55,18 @@ def classify(cases):
 
 
 if __name__ == "__main__":
-    print("=== (A) ONE dose, THREE taxa: 100 Gy ===")
-    cases = [(f"a_{i}", t, 100.0) for i, t in enumerate(TAXA.values())]
+    DEMO_A_DOSE = 140.0
+    print(f"=== (A) ONE dose, THREE taxa: {DEMO_A_DOSE:.0f} Gy ===")
+    cases = [(f"a_{i}", t, DEMO_A_DOSE) for i, t in enumerate(TAXA.values())]
     res = classify(cases)
     for (name, tax, dose), lbl in zip(cases, TAXA.keys()):
         cats, resp = res[name]
         print(f"  {lbl:28s} @ {dose:6.1f} Gy -> {cats if cats else ['(none)']}")
 
-    print("\n=== (B) ONE taxon (Nicotiana tabacum), FOUR doses ===")
-    doses = [5.0, 12.0, 20.0, 40.0]
-    cases = [(f"b_{i}", TAXA["Nicotiana tabacum"], d) for i, d in enumerate(doses)]
+    DEMO_B_TAXON = "Vigna unguiculata"
+    print(f"\n=== (B) ONE taxon ({DEMO_B_TAXON}), FOUR doses ===")
+    doses = [40.0, 70.0, 100.0, 140.0]
+    cases = [(f"b_{i}", TAXA[DEMO_B_TAXON], d) for i, d in enumerate(doses)]
     res = classify(cases)
     for (name, _, d) in cases:
         cats, resp = res[name]
@@ -67,7 +74,7 @@ if __name__ == "__main__":
 
     print("\n=== (C) contradiction detection: a reported optimum ABOVE the reported LD50 ===")
     print("  Triticum aestivum is reported with optimum 250-300 Gy but LD50 273-279 Gy")
-    print("  (Chauhan et al. 2023), so the at-or-below-optimum and at-or-above-LD50 windows would overlap.")
+    print("  (Chakraborty et al. 2023, Braz. Arch. Biol. Technol. 66:e23220294), so the at-or-below-optimum and at-or-above-LD50 windows would overlap.")
     onto = o2.get_ontology(ONT).load()
     NS = onto.get_namespace(NSU)
     import rdflib

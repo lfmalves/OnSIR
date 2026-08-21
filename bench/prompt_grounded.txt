@@ -3,7 +3,7 @@ ONTOLOGY CONTEXT retrieved from OnSIR (https://w3id.org/onsir).
 Taxon-specific dose windows, as encoded in OWL 2 datatype facets. A dose at or below the optimum is at_or_below_optimum; above the optimum but below the LD50 is above_optimum; at or above the LD50 is at_or_above_ld50.
 
   Capsicum annuum: reported optimum 50 Gy, reported LD50 200 Gy
-  Nicotiana tabacum: reported optimum 15 Gy, reported LD50 25 Gy
+  Nicotiana tabacum: reported optimum 15 Gy, no LD50 reported (so no at_or_above_ld50 window for this taxon)
   Trigonella foenum-graecum: reported optimum 150 Gy, reported LD50 350 Gy
   Vigna unguiculata: reported optimum 80 Gy, reported LD50 132 Gy
 
@@ -30,9 +30,6 @@ You are answering questions about gamma irradiation of plant seeds. Answer each 
   format: one of: at_or_below_optimum | above_optimum | at_or_above_ld50
 
 [A04] A seed lot of Nicotiana tabacum is irradiated with a 20.0 Gy acute gamma dose. Relative to the optimum stimulation dose and the LD50 reported for this species, where does 20.0 Gy fall?
-  format: one of: at_or_below_optimum | above_optimum | at_or_above_ld50
-
-[A05] A seed lot of Nicotiana tabacum is irradiated with a 37.5 Gy acute gamma dose. Relative to the optimum stimulation dose and the LD50 reported for this species, where does 37.5 Gy fall?
   format: one of: at_or_below_optimum | above_optimum | at_or_above_ld50
 
 [A06] A seed lot of Trigonella foenum-graecum is irradiated with a 75.0 Gy acute gamma dose. Relative to the optimum stimulation dose and the LD50 reported for this species, where does 75.0 Gy fall?

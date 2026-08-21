@@ -420,6 +420,34 @@ check("no example.org IRI reaches the published graphs",
       not any("example.org" in open(os.path.join(HERE, f), errors="ignore").read()
               for f in ("OnSIR.ttl", "OnSIR_abox.ttl") if os.path.exists(os.path.join(HERE, f))))
 
+# ---------------------------------------------------------------- 12. README numeric claims
+print("\nREADME numeric claims (hand-written prose, pinned against the artifact)")
+readme = open(os.path.join(HERE, "README.md"), errors="ignore").read()
+_g = rdflib.Graph(); _g.parse(os.path.join(HERE, "OnSIR.ttl"), format="turtle")
+_NS = "https://w3id.org/onsir/"
+_n_cls = len({s for s in _g.subjects(RDF.type, OWL.Class)
+              if isinstance(s, URIRef) and str(s).startswith(_NS)})
+_n_op = len({s for s in _g.subjects(RDF.type, OWL.ObjectProperty) if str(s).startswith(_NS)})
+_n_dp = len({s for s in _g.subjects(RDF.type, OWL.DatatypeProperty) if str(s).startswith(_NS)})
+_ga = rdflib.Graph(); _ga.parse(os.path.join(HERE, "OnSIR_abox.owl"), format="xml")
+_n_ind = len({s for s in _ga.subjects(RDF.type, OWL.NamedIndividual)})
+_n_out = len({s for s in _ga.subjects(RDF.type, URIRef(_NS + "TreatmentOutcome"))})
+_m = re.search(r"\*\*(\d+) named classes, (\d+) object properties, (\d+) datatype properties", readme)
+check("README headline counts match the artifact",
+      bool(_m) and tuple(map(int, _m.groups())) == (_n_cls, _n_op, _n_dp),
+      f"README {_m.groups() if _m else None} vs artifact ({_n_cls}, {_n_op}, {_n_dp})")
+_m = re.search(r"ABox: (\d+) studies, (\d+) declared individuals", readme)
+check("README ABox counts match the artifact",
+      bool(_m) and tuple(map(int, _m.groups())) == (_n_out, _n_ind),
+      f"README {_m.groups() if _m else None} vs artifact ({_n_out}, {_n_ind})")
+_m = re.search(r"# (\d+) classes, (\d+) individuals", readme)
+try:
+    check("README loading-recipe comment matches the owlready2 counts",
+          bool(_m) and tuple(map(int, _m.groups())) == (n_c, n_i),
+          f"README {_m.groups() if _m else None} vs measured ({n_c}, {n_i})")
+except NameError:
+    print("  [skip] owlready2 counts unavailable")
+
 print("\n" + "=" * 64)
 print("RELEASE VERIFIED" if not FAIL else f"{len(FAIL)} FAILURE(S): {FAIL}")
 sys.exit(1 if FAIL else 0)

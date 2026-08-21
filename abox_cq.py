@@ -239,7 +239,7 @@ def run_cqs(g, rows, taxon):
     print("    -> all three ARE in NCBITaxon; the limitation is the exact-label rule, not the")
     print("       resource. Accepting them requires a curator decision on taxonomic synonymy.")
     print("    -> the numeric-dose classification needs BOTH a reported optimum and a reported")
-    print("       LD50 for the taxon; the four taxa that have both do not appear in this corpus,")
+    print("       LD50 for the taxon; the three taxa that have both do not appear in this corpus,")
     print("       so the two reasoning contributions currently apply to disjoint data.")
 
     print("\n=== competency questions (SPARQL) ===")

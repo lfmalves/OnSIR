@@ -22,15 +22,15 @@ qudt:numericValue a owl:DatatypeProperty ;
         <https://orcid.org/0009-0005-4227-5568> ;
     dct:description "A FAIR OWL 2 DL ontology of seed-irradiation treatments and their dose-dependent biological effects, aligned to BFO, PO, NCBITaxon, ChEBI, PATO and ENVO with verified IRIs and to QUDT for units, with dose-to-effect axioms supporting DL reasoning." ;
     dct:license <https://creativecommons.org/licenses/by/4.0/> ;
-    dct:modified "2026-07-25"^^xsd:date ;
+    dct:modified "2026-08-17"^^xsd:date ;
     dct:source <https://doi.org/10.22456/2175-2745.146658>,
         <https://doi.org/10.56238/sevened2025.039-003>,
         <https://doi.org/10.69547/TSFJB.030203> ;
     dct:title "OnSIR: Ontology for Seed Irradiation and Plant Radiobiology" ;
     rdfs:comment "Canonical IRI https://w3id.org/onsir; source at https://github.com/lfmalves/OnSIR" ;
     rdfs:seeAlso obo:rbo.owl ;
-    owl:versionIRI onsir:1.4.0 ;
-    owl:versionInfo "1.4.0" .
+    owl:versionIRI onsir:1.5.0 ;
+    owl:versionInfo "1.5.0" .
 
 onsir:AbioticStressResistance a owl:Class ;
     rdfs:label "Abiotic Stress Resistance"@en ;
@@ -151,8 +151,8 @@ onsir:MutagenicOutcome a owl:Class ;
 
 onsir:Nicotiana_tabacum_AboveOptimumDose a owl:Class ;
     rdfs:label "Nicotiana tabacum Above Optimum Dose"@en ;
-    dct:source "Alves & Arthur 2025, TSF J. Biol. 3(2):26-51" ;
-    rdfs:comment "dose interval 'AboveOptimum' for Nicotiana tabacum, relative to the reported statistics; bounds from Alves & Arthur 2025, TSF J. Biol. 3(2):26-51" ;
+    dct:source "Alves & Arthur 2025, TSF J. Biol. 3(2):26-51 (stimulation optimum only; that study reports no LD50 and its dose series ends at 20 Gy)" ;
+    rdfs:comment "dose interval 'AboveOptimum' for Nicotiana tabacum, relative to the reported statistics; bounds from Alves & Arthur 2025, TSF J. Biol. 3(2):26-51 (stimulation optimum only; that study reports no LD50 and its dose series ends at 20 Gy)" ;
     rdfs:subClassOf onsir:AboveReportedOptimum ;
     owl:equivalentClass [ a owl:Class ;
             owl:intersectionOf ( onsir:DoseAssessment [ a owl:Restriction ;
@@ -162,31 +162,14 @@ onsir:Nicotiana_tabacum_AboveOptimumDose a owl:Class ;
                         owl:someValuesFrom [ a rdfs:Datatype ;
                                 owl:unionOf ( [ a rdfs:Datatype ;
                                             owl:onDatatype xsd:decimal ;
-                                            owl:withRestrictions ( [ xsd:minExclusive 15.0 ] [ xsd:maxExclusive 25.0 ] ) ] [ a rdfs:Datatype ;
+                                            owl:withRestrictions ( [ xsd:minExclusive 15.0 ] ) ] [ a rdfs:Datatype ;
                                             owl:onDatatype xsd:double ;
-                                            owl:withRestrictions ( [ xsd:minExclusive 1.5e+01 ] [ xsd:maxExclusive 2.5e+01 ] ) ] ) ] ] ) ] .
-
-onsir:Nicotiana_tabacum_AtOrAboveLD50Dose a owl:Class ;
-    rdfs:label "Nicotiana tabacum At Or Above LD50 Dose"@en ;
-    dct:source "Alves & Arthur 2025, TSF J. Biol. 3(2):26-51" ;
-    rdfs:comment "dose interval 'AtOrAboveLD50' for Nicotiana tabacum, relative to the reported statistics; bounds from Alves & Arthur 2025, TSF J. Biol. 3(2):26-51" ;
-    rdfs:subClassOf onsir:AtOrAboveReportedLD50 ;
-    owl:equivalentClass [ a owl:Class ;
-            owl:intersectionOf ( onsir:DoseAssessment [ a owl:Restriction ;
-                        owl:hasValue onsir:taxon_Nicotiana_tabacum ;
-                        owl:onProperty onsir:forTaxon ] [ a owl:Restriction ;
-                        owl:onProperty onsir:doseGy ;
-                        owl:someValuesFrom [ a rdfs:Datatype ;
-                                owl:unionOf ( [ a rdfs:Datatype ;
-                                            owl:onDatatype xsd:decimal ;
-                                            owl:withRestrictions ( [ xsd:minInclusive 25.0 ] ) ] [ a rdfs:Datatype ;
-                                            owl:onDatatype xsd:double ;
-                                            owl:withRestrictions ( [ xsd:minInclusive 2.5e+01 ] ) ] ) ] ] ) ] .
+                                            owl:withRestrictions ( [ xsd:minExclusive 1.5e+01 ] ) ] ) ] ] ) ] .
 
 onsir:Nicotiana_tabacum_AtOrBelowOptimumDose a owl:Class ;
     rdfs:label "Nicotiana tabacum At Or Below Optimum Dose"@en ;
-    dct:source "Alves & Arthur 2025, TSF J. Biol. 3(2):26-51" ;
-    rdfs:comment "dose interval 'AtOrBelowOptimum' for Nicotiana tabacum, relative to the reported statistics; bounds from Alves & Arthur 2025, TSF J. Biol. 3(2):26-51" ;
+    dct:source "Alves & Arthur 2025, TSF J. Biol. 3(2):26-51 (stimulation optimum only; that study reports no LD50 and its dose series ends at 20 Gy)" ;
+    rdfs:comment "dose interval 'AtOrBelowOptimum' for Nicotiana tabacum, relative to the reported statistics; bounds from Alves & Arthur 2025, TSF J. Biol. 3(2):26-51 (stimulation optimum only; that study reports no LD50 and its dose series ends at 20 Gy)" ;
     rdfs:subClassOf onsir:AtOrBelowReportedOptimum ;
     owl:equivalentClass [ a owl:Class ;
             owl:intersectionOf ( onsir:DoseAssessment [ a owl:Restriction ;
@@ -754,6 +737,10 @@ onsir:hasDose a owl:FunctionalProperty,
     rdfs:domain onsir:SeedIrradiationTreatment ;
     rdfs:range qudt:QuantityValue .
 
+onsir:taxon_Nicotiana_tabacum a obo:NCBITaxon_4097,
+        owl:NamedIndividual ;
+    rdfs:label "Nicotiana tabacum" .
+
 obo:BFO_0000015 a owl:Class .
 
 foaf:Person a owl:Class .
@@ -761,10 +748,10 @@ foaf:Person a owl:Class .
 onsir:DoseRange a owl:Class ;
     rdfs:label "Dose Range"@en ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty onsir:minDose ;
+            owl:onProperty onsir:maxDose ;
             owl:someValuesFrom onsir:QuantityValue ],
         [ a owl:Restriction ;
-            owl:onProperty onsir:maxDose ;
+            owl:onProperty onsir:minDose ;
             owl:someValuesFrom onsir:QuantityValue ] .
 
 onsir:DoseRateCategory a owl:Class ;
@@ -788,10 +775,6 @@ onsir:induces a owl:ObjectProperty ;
 onsir:taxon_Capsicum_annuum a obo:NCBITaxon_4072,
         owl:NamedIndividual ;
     rdfs:label "Capsicum annuum" .
-
-onsir:taxon_Nicotiana_tabacum a obo:NCBITaxon_4097,
-        owl:NamedIndividual ;
-    rdfs:label "Nicotiana tabacum" .
 
 onsir:taxon_Trigonella_foenum_graecum a obo:NCBITaxon_78534,
         owl:NamedIndividual ;
@@ -840,6 +823,12 @@ onsir:SterilizationDose a owl:Class ;
     skos:note "Discouraged for new annotation; see the definition. Not deprecated: an obsolete OBO term must carry no logical axioms, and this class is an antecedent of an active general class inclusion. AtOrAboveReportedLD50 is a DoseAssessment rather than a DoseCategory, so it is a modelling alternative and not a substitutable replacement." ;
     skos:related onsir:AtOrAboveReportedLD50 .
 
+onsir:AtOrAboveReportedLD50 a owl:Class ;
+    rdfs:label "At Or Above Reported LD50"@en ;
+    rdfs:subClassOf onsir:DoseAssessment ;
+    skos:definition "A DoseAssessment whose dose reaches or exceeds the early-viability LD50 reported for its taxon. LD50 is a 50% lethality statistic, NOT a sterilization threshold; inferring sterility requires reproductive evidence, which this class does not assert." ;
+    onsir:consistentWithResponse onsir:SterilizationResponse .
+
 onsir:PlantSeed a owl:Class ;
     rdfs:label "Plant Seed"@en ;
     rdfs:subClassOf obo:BFO_0000040 ;
@@ -857,12 +846,6 @@ onsir:AboveReportedOptimum a owl:Class ;
     rdfs:subClassOf onsir:DoseAssessment ;
     skos:definition "A DoseAssessment whose dose exceeds the reported stimulation optimum but is below the reported early-viability LD50. This is not by itself evidence of mutagenesis: mutation induction may begin below the optimum and continue above the LD50, and depends on the endpoint." ;
     onsir:consistentWithResponse onsir:MutagenicResponse .
-
-onsir:AtOrAboveReportedLD50 a owl:Class ;
-    rdfs:label "At Or Above Reported LD50"@en ;
-    rdfs:subClassOf onsir:DoseAssessment ;
-    skos:definition "A DoseAssessment whose dose reaches or exceeds the early-viability LD50 reported for its taxon. LD50 is a 50% lethality statistic, NOT a sterilization threshold; inferring sterility requires reproductive evidence, which this class does not assert." ;
-    onsir:consistentWithResponse onsir:SterilizationResponse .
 
 onsir:AtOrBelowReportedOptimum a owl:Class ;
     rdfs:label "At Or Below Reported Optimum"@en ;
@@ -937,18 +920,18 @@ onsir:SeedIrradiationTreatment a owl:Class ;
     rdfs:label "Seed Irradiation Treatment"@en ;
     rdfs:comment "Irradiation applied to seeds using ionizing or non-ionizing radiation."@en ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty onsir:hasRadiationType ;
-            owl:someValuesFrom onsir:RadiationType ],
-        [ a owl:Restriction ;
-            owl:onProperty onsir:hasDose ;
-            owl:someValuesFrom onsir:QuantityValue ],
-        [ a owl:Restriction ;
             owl:onClass onsir:QuantityValue ;
             owl:onProperty onsir:hasDose ;
             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
         [ a owl:Restriction ;
             owl:onProperty onsir:induces ;
             owl:someValuesFrom onsir:Response ],
+        [ a owl:Restriction ;
+            owl:onProperty onsir:hasDose ;
+            owl:someValuesFrom onsir:QuantityValue ],
+        [ a owl:Restriction ;
+            owl:onProperty onsir:hasRadiationType ;
+            owl:someValuesFrom onsir:RadiationType ],
         obo:BFO_0000015,
         onsir:SeedTreatment ;
     skos:definition "A treatment process in which seeds are exposed to ionizing radiation of a specified type, source, dose and dose rate." .
@@ -961,11 +944,11 @@ onsir:TreatmentOutcome a owl:Class ;
             owl:onProperty onsir:hasTreatment ;
             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
         [ a owl:Restriction ;
-            owl:onProperty onsir:hasResponse ;
-            owl:someValuesFrom onsir:Response ],
-        [ a owl:Restriction ;
             owl:onProperty onsir:hasTreatment ;
-            owl:someValuesFrom onsir:SeedIrradiationTreatment ] ;
+            owl:someValuesFrom onsir:SeedIrradiationTreatment ],
+        [ a owl:Restriction ;
+            owl:onProperty onsir:hasResponse ;
+            owl:someValuesFrom onsir:Response ] ;
     skos:definition "The observed result of a seed-irradiation treatment on a subject seed under a context, characterized by a dose category and a biological response for a given endpoint." .
 
 onsir:DoseAssessment a owl:Class ;
@@ -983,24 +966,16 @@ xsd:double a owl:Class .
                 owl:someValuesFrom onsir:HormeticDose ] ) .
 
 [] a owl:AllDisjointClasses ;
-    owl:members ( onsir:EmergenceAndEarlyVigor onsir:BiochemicalEndpointCategory onsir:GeneticEndpointCategory onsir:MorphologicalEndpointCategory onsir:PlantHealthEndpointCategory onsir:OtherPhysiologicalEndpointCategory ) .
+    owl:members ( onsir:HormeticResponse onsir:MutagenicResponse onsir:SterilizationResponse ) .
 
 [] a owl:AllDisjointClasses ;
     owl:members ( onsir:LowDoseRate onsir:HighDoseRate ) .
 
 [] a owl:AllDisjointClasses ;
-    owl:members ( onsir:HormeticDose onsir:MutagenicDose onsir:SterilizationDose ) .
+    owl:members ( onsir:EmergenceAndEarlyVigor onsir:BiochemicalEndpointCategory onsir:GeneticEndpointCategory onsir:MorphologicalEndpointCategory onsir:PlantHealthEndpointCategory onsir:OtherPhysiologicalEndpointCategory ) .
 
 [] a owl:AllDisjointClasses ;
-    owl:members ( onsir:HormeticResponse onsir:MutagenicResponse onsir:SterilizationResponse ) .
-
-[] a owl:Class ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty onsir:hasResponse ;
-            owl:someValuesFrom onsir:SterilizationResponse ] ;
-    owl:intersectionOf ( onsir:TreatmentOutcome [ a owl:Restriction ;
-                owl:onProperty onsir:hasDoseCategory ;
-                owl:someValuesFrom onsir:SterilizationDose ] ) .
+    owl:members ( onsir:Am241 onsir:Co60 onsir:Cs137 onsir:Ir192 onsir:Xe133 ) .
 
 [] a owl:Class ;
     rdfs:subClassOf [ a owl:Restriction ;
@@ -1011,11 +986,19 @@ xsd:double a owl:Class .
                 owl:someValuesFrom onsir:MutagenicDose ] ) .
 
 [] a owl:AllDisjointClasses ;
-    owl:members ( onsir:Gamma onsir:XRay onsir:Neutron onsir:Proton onsir:ElectronBeam onsir:UV_A onsir:UV_B onsir:UV_C ) .
-
-[] a owl:AllDisjointClasses ;
     owl:members ( onsir:AtOrBelowReportedOptimum onsir:AboveReportedOptimum onsir:AtOrAboveReportedLD50 ) .
 
 [] a owl:AllDisjointClasses ;
-    owl:members ( onsir:Am241 onsir:Co60 onsir:Cs137 onsir:Ir192 onsir:Xe133 ) .
+    owl:members ( onsir:Gamma onsir:XRay onsir:Neutron onsir:Proton onsir:ElectronBeam onsir:UV_A onsir:UV_B onsir:UV_C ) .
+
+[] a owl:AllDisjointClasses ;
+    owl:members ( onsir:HormeticDose onsir:MutagenicDose onsir:SterilizationDose ) .
+
+[] a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty onsir:hasResponse ;
+            owl:someValuesFrom onsir:SterilizationResponse ] ;
+    owl:intersectionOf ( onsir:TreatmentOutcome [ a owl:Restriction ;
+                owl:onProperty onsir:hasDoseCategory ;
+                owl:someValuesFrom onsir:SterilizationDose ] ) .
 

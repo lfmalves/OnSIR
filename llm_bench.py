@@ -25,7 +25,7 @@ the behaviour reverts completely. The sentence, not the data, is what changes wh
 asserts. Reporting two arms would have credited the ontology's numbers with an effect belonging to
 its semantics.
 Three item types, all with ground truth generated from the artifact rather than hand-written:
-  A  dose placement   (12): where does dose d fall for taxon t? Truth from the OWL datatype facets,
+  A  dose placement   (11): where does dose d fall for taxon t? Truth from the OWL datatype facets,
                             cross-checked against HermiT by reason_context.py.
   B  overgeneralization (6): a dose is given with NO species. The only correct behaviour is to
                             decline a species-independent verdict and condition on taxon. Scored by
@@ -58,6 +58,10 @@ PRETTY = {"Nicotiana_tabacum": "Nicotiana tabacum",
           "Vigna_unguiculata": "Vigna unguiculata",
           "Trigonella_foenum_graecum": "Trigonella foenum-graecum",
           "Capsicum_annuum": "Capsicum annuum"}
+# Top of the dose series that established the optimum, for taxa carrying no reported LD50. Used to
+# place the single above-optimum probe of Type A at a dose the source study actually delivered,
+# instead of at an arbitrary multiple of the optimum. N. tabacum: the series runs 0-20 Gy.
+SERIES_TOP = {"Nicotiana_tabacum": 20.0}
 # The one sentence that separates the `framed` condition from `grounded`. It is the ontology's own
 # evidential semantics stated in prose: OnSIR records dose POSITIONS relative to reported statistics
 # and links them to responses only through a non-entailing annotation. Kept as a module constant so
@@ -111,18 +115,25 @@ def load_windows(path="OnSIR.ttl"):
         if m:
             win.setdefault(m.group(1), {})[m.group(2)] = facets(c)
     # collapse to (optimum, ld50)
+    # A taxon with no reported LD50 carries only two windows (see build_ontology.py), so ld50 is
+    # None for it and every consumer below has to branch on that rather than KeyError.
     out = {}
     for t, d in win.items():
         out[t] = {"optimum": d["AtOrBelowOptimum"]["maxInclusive"],
-                  "ld50": d["AtOrAboveLD50"]["minInclusive"]}
+                  "ld50": (d["AtOrAboveLD50"]["minInclusive"]
+                           if "AtOrAboveLD50" in d else None)}
     return out
 
 
 def place(dose, w):
-    """The window a dose falls in, by the same rule the OWL facets encode."""
+    """The window a dose falls in, by the same rule the OWL facets encode.
+
+    With no reported LD50 the above-optimum window is unbounded above, so every dose past the
+    optimum places there and no dose places at-or-above-LD50 for that taxon.
+    """
     if dose <= w["optimum"]:
         return "at_or_below_optimum"
-    if dose < w["ld50"]:
+    if w["ld50"] is None or dose < w["ld50"]:
         return "above_optimum"
     return "at_or_above_ld50"
 
@@ -156,11 +167,26 @@ def build():
     items = []
 
     # --- Type A: dose placement, one probe per window per taxon
-    for t, w in sorted(W.items()):
-        for dose in (round(w["optimum"] * 0.5, 1),
-                     round((w["optimum"] + w["ld50"]) / 2, 1),
-                     round(w["ld50"] * 1.5, 1)):
-            items.append({"id": f"A{len(items):02d}", "type": "A", "taxon": t, "dose": dose,
+    # A taxon with no reported LD50 has two windows, so it gets two probes, not three. Its
+    # above-optimum probe is placed at the TOP OF THE DOSE SERIES that established its optimum
+    # (SERIES_TOP), which is a real quantity from the source study rather than a multiple picked to
+    # fill the slot. A third probe would have to be "past the LD50" for a taxon that has none, and
+    # the question wording ("relative to ... the LD50 reported for this species") presupposes one,
+    # so it is not asked.
+    # IDs are FROZEN to the released slot numbering (three slots per taxon in sorted order:
+    # below-optimum, mid-window, past-LD50), not to a running counter. The released answer files in
+    # bench/ key on these ids, so a counter would silently re-point every id after a dropped item
+    # and score answers against the wrong questions. Dropping N. tabacum's past-LD50 probe therefore
+    # leaves a visible gap at A05 rather than renumbering A06-A11.
+    for i, (t, w) in enumerate(sorted(W.items())):
+        if w["ld50"] is None:
+            probes = ((0, round(w["optimum"] * 0.5, 1)), (1, SERIES_TOP[t]))
+        else:
+            probes = ((0, round(w["optimum"] * 0.5, 1)),
+                      (1, round((w["optimum"] + w["ld50"]) / 2, 1)),
+                      (2, round(w["ld50"] * 1.5, 1)))
+        for slot, dose in probes:
+            items.append({"id": f"A{3 * i + slot:02d}", "type": "A", "taxon": t, "dose": dose,
                           "question": (f"A seed lot of {PRETTY[t]} is irradiated with a "
                                        f"{dose} Gy acute gamma dose. Relative to the optimum "
                                        f"stimulation dose and the LD50 reported for this species, "
@@ -172,10 +198,11 @@ def build():
     # --- Type B: the same dose, no species named. Chosen so the window genuinely differs.
     # doses verified to place differently for at least two of the four taxa; the
     # assertion below is what caught 400 Gy, where all four are at or above the LD50
-    for dose in (20.0, 60.0, 100.0, 120.0, 140.0, 250.0):
+    B_ID0 = 12          # frozen: the released answer files use B12..B17
+    for k, dose in enumerate((20.0, 60.0, 100.0, 120.0, 140.0, 250.0)):
         by = {t: place(dose, w) for t, w in W.items()}
         assert len(set(by.values())) > 1, dose        # must be genuinely taxon-dependent
-        items.append({"id": f"B{len(items):02d}", "type": "B", "dose": dose,
+        items.append({"id": f"B{B_ID0 + k:02d}", "type": "B", "dose": dose,
                       "question": (f"Is a {dose} Gy acute gamma dose to seeds a stimulatory dose, "
                                    f"a mutagenic dose, or a sterilizing dose?"),
                       "answer_format": ("JSON with keys: verdict (string) and "
@@ -189,8 +216,9 @@ def build():
          ("What is the mean absorbed dose across the corpus, in Gy?", facts["dose_mean"], 1.0),
          ("How many studies use a dose above 500 Gy?", facts["n_above_500"], 0),
          ("How many studies use a Cobalt-60 source?", facts["isotopes"].get("Co60"), 0)]
-    for qtext, truth, tol in C:
-        items.append({"id": f"C{len(items):02d}", "type": "C", "question": qtext,
+    C_ID0 = 18          # frozen: the released answer files use C18..C23
+    for k, (qtext, truth, tol) in enumerate(C):
+        items.append({"id": f"C{C_ID0 + k:02d}", "type": "C", "question": qtext,
                       "answer_format": "a single number", "truth": truth, "tol": tol})
 
     with open(f"{BENCH}/questions.json", "w") as fh:
@@ -215,8 +243,14 @@ def build():
            "below the optimum is at_or_below_optimum; above the optimum but below the LD50 is "
            "above_optimum; at or above the LD50 is at_or_above_ld50.", ""]
     for t, w in sorted(W.items()):
-        ctx.append(f"  {PRETTY[t]}: reported optimum {w['optimum']:g} Gy, "
-                   f"reported LD50 {w['ld50']:g} Gy")
+        if w["ld50"] is None:
+            # Say so rather than omit the taxon: a reader of the prompt must be able to see that
+            # the window set is two-valued here, and why no at_or_above_ld50 verdict is available.
+            ctx.append(f"  {PRETTY[t]}: reported optimum {w['optimum']:g} Gy, "
+                       f"no LD50 reported (so no at_or_above_ld50 window for this taxon)")
+        else:
+            ctx.append(f"  {PRETTY[t]}: reported optimum {w['optimum']:g} Gy, "
+                       f"reported LD50 {w['ld50']:g} Gy")
     ctx += ["", "Curated corpus (EICCAM systematic review):",
             f"  studies: {facts['n_studies']}",
             f"  absorbed dose range: {facts['dose_min']:g}-{facts['dose_max']:g} Gy, "
@@ -247,7 +281,8 @@ def build():
           f"({sum(i['type']=='A' for i in items)}A / {sum(i['type']=='B' for i in items)}B / "
           f"{sum(i['type']=='C' for i in items)}C) -> {BENCH}/")
     for t, w in sorted(W.items()):
-        print(f"  {PRETTY[t]:28s} optimum {w['optimum']:6g} Gy   LD50 {w['ld50']:6g} Gy")
+        _ld = "none reported" if w["ld50"] is None else f"{w['ld50']:6g} Gy"
+        print(f"  {PRETTY[t]:28s} optimum {w['optimum']:6g} Gy   LD50 {_ld}")
 
 
 # ---------------------------------------------------------------- score
@@ -352,7 +387,7 @@ def score():
 \begin{table}[t]\centering
 \caption{Grounding ablation, one model (Claude Opus~5), identical questions in three conditions.
 \emph{ungrounded}: question only. \emph{grounded}: preceded by the retrieved taxon windows and corpus
-summary --- values and a decision rule, nothing about what they license. \emph{framed}: the same values
+summary, that is, values and a decision rule, nothing about what they license. \emph{framed}: the same values
 plus one sentence of the ontology's evidential semantics, that the windows record where a dose falls
 relative to the literature and carry no claim about the biological outcome. Ground truth is generated
 from \texttt{OnSIR.ttl} and the ABox. Rows A and C are answerable directly from the supplied context,

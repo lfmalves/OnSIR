@@ -43,7 +43,7 @@ for pfx, n in [("", NS), ("onsir", NS), ("dct", DCT), ("skos", SKOS), ("obo", OB
 g.add((ONT, RDF.type, OWL.Ontology))
 # The release version. It appears in the versionIRI, the versionInfo, CITATION.cff, the README
 # and the manuscript; verify_release.py asserts the four artifacts agree.
-VERSION = "1.4.0"
+VERSION = "1.5.0"
 g.add((ONT, URIRef(str(OWL) + "versionIRI"), URIRef("https://w3id.org/onsir/" + VERSION)))
 g.add((ONT, OWL.versionInfo, Literal(VERSION)))
 g.add((ONT, DCT.title, Literal("OnSIR: Ontology for Seed Irradiation and Plant Radiobiology")))
@@ -63,7 +63,7 @@ for name, orcid in [("Luis Felipe Medeiro Alves", "0009-0005-4227-5568"),
     g.add((who, RDFS.label, Literal(name)))
 g.add((ONT, DCT.license, URIRef("https://creativecommons.org/licenses/by/4.0/")))
 g.add((ONT, DCT.created, Literal("2025-09-21", datatype=XSD.date)))
-g.add((ONT, DCT.modified, Literal("2026-07-25", datatype=XSD.date)))
+g.add((ONT, DCT.modified, Literal("2026-08-17", datatype=XSD.date)))
 g.add((ONT, RDFS.comment, Literal("Canonical IRI https://w3id.org/onsir; source at "
                                   "https://github.com/lfmalves/OnSIR")))
 
@@ -348,9 +348,19 @@ g.add((ONT, DCT.source, URIRef("https://doi.org/10.69547/TSFJB.030203")))       
 # ============================================================================
 NCBI = "http://purl.obolibrary.org/obo/NCBITaxon_"
 
-# (taxon label, NCBITaxon id [OLS-verified], D*_upper Gy, LD50 Gy, provenance)
+# (taxon label, NCBITaxon id [OLS-verified], D*_upper Gy, LD50 Gy or None, provenance)
+#
+# LD50 = None means the taxon has NO reported LD50, and then it carries TWO windows rather than
+# three: at-or-below-optimum, and above-optimum unbounded above. Nicotiana tabacum is such a case.
+# Releases up to v1.4.0 gave it LD50 = 25.0 Gy with the provenance "Alves & Arthur 2025, TSF
+# J. Biol. 3(2):26-51". That paper never states an LD50 -- it does not use the term -- and its dose
+# series runs 0-20 Gy, so 25 Gy lies above its highest dose and cannot be one of its results. The
+# companion compilation (INTERMATHS) right-censors the same entry for the same reason: "LD50 not
+# reached: the dose series ends at 20 Gy with the response still stimulated". Encoding an
+# unsupported bound is exactly what the naming argument of the manuscript's Section 5 refuses to do,
+# so the window is dropped rather than guessed.
 TAXON_WINDOWS = [
-    ("Nicotiana tabacum",        "4097",  15.0,  25.0, "Alves & Arthur 2025, TSF J. Biol. 3(2):26-51"),
+    ("Nicotiana tabacum",        "4097",  15.0,  None, "Alves & Arthur 2025, TSF J. Biol. 3(2):26-51 (stimulation optimum only; that study reports no LD50 and its dose series ends at 20 Gy)"),
     ("Vigna unguiculata",        "3917",  80.0, 132.0, "Gnankambary et al. 2019, Int. J. Genet. Mol. Biol. 11(2):29-33"),
     ("Trigonella foenum-graecum","78534", 150.0, 350.0, "Latha et al. 2017, J. AgriSearch 4(1):28-33"),
     ("Capsicum annuum",          "4072",  50.0, 200.0, "Esmaiel et al. 2025, J. Agric. Biol. Res. 11(1):44-55"),
@@ -528,12 +538,19 @@ for label, tid, dstar_hi, ld50, prov in TAXON_WINDOWS:
     g.add((ind, RDF.type, OWL.NamedIndividual))
     g.add((ind, RDF.type, URIRef(NCBI + tid)))        # typed with the NCBITaxon class
     g.add((ind, RDFS.label, Literal(label)))
-    for cat, rng, parent in [
-        ("AtOrBelowOptimum", dose_range(0.0, dstar_hi), "AtOrBelowReportedOptimum"),
-        ("AboveOptimum",     dose_range(dstar_hi, ld50, lo_exclusive=True, hi_exclusive=True),
-         "AboveReportedOptimum"),
-        ("AtOrAboveLD50",    dose_range(ld50, None, lo_exclusive=False), "AtOrAboveReportedLD50"),
-    ]:
+    _windows = [("AtOrBelowOptimum", dose_range(0.0, dstar_hi), "AtOrBelowReportedOptimum")]
+    if ld50 is None:
+        # No reported LD50: above-optimum is unbounded above, and there is no at-or-above-LD50
+        # window to define. Two windows, and the pair still partitions the positive dose axis.
+        _windows.append(("AboveOptimum", dose_range(dstar_hi, None, lo_exclusive=True),
+                         "AboveReportedOptimum"))
+    else:
+        _windows.append(("AboveOptimum",
+                         dose_range(dstar_hi, ld50, lo_exclusive=True, hi_exclusive=True),
+                         "AboveReportedOptimum"))
+        _windows.append(("AtOrAboveLD50", dose_range(ld50, None, lo_exclusive=False),
+                         "AtOrAboveReportedLD50"))
+    for cat, rng, parent in _windows:
         cname = f"{slug}_{cat}Dose"
         defined_intersection(cname, [C("DoseAssessment"), has_value("forTaxon", ind),
                                      some_data("doseGy", rng)])

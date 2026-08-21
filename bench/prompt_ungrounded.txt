@@ -15,9 +15,6 @@ You are answering questions about gamma irradiation of plant seeds. Answer each 
 [A04] A seed lot of Nicotiana tabacum is irradiated with a 20.0 Gy acute gamma dose. Relative to the optimum stimulation dose and the LD50 reported for this species, where does 20.0 Gy fall?
   format: one of: at_or_below_optimum | above_optimum | at_or_above_ld50
 
-[A05] A seed lot of Nicotiana tabacum is irradiated with a 37.5 Gy acute gamma dose. Relative to the optimum stimulation dose and the LD50 reported for this species, where does 37.5 Gy fall?
-  format: one of: at_or_below_optimum | above_optimum | at_or_above_ld50
-
 [A06] A seed lot of Trigonella foenum-graecum is irradiated with a 75.0 Gy acute gamma dose. Relative to the optimum stimulation dose and the LD50 reported for this species, where does 75.0 Gy fall?
   format: one of: at_or_below_optimum | above_optimum | at_or_above_ld50
 

@@ -2,7 +2,7 @@
 
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 
-**Canonical IRI:** `https://w3id.org/onsir` · **Version:** 1.4.0 · **License:** CC BY 4.0
+**Canonical IRI:** `https://w3id.org/onsir` · **Version:** 1.5.0 · **License:** CC BY 4.0
 
 OnSIR is a FAIR OWL 2 DL ontology of **seed-irradiation treatments** and their dose-dependent
 biological effects — **hormetic**, **mutagenic**, and **sterilizing** — across crop and model
@@ -10,13 +10,13 @@ plants. It models radiation types and isotopic sources, dose and dose-rate categ
 dose–response models, lifecycle stages, endpoints, and the `TreatmentOutcome` that links a
 treatment to its subject, context, dose category, and response.
 
-## What is in this release (v1.4.0)
+## What is in this release (v1.5.0)
 
-- **93 named classes, 26 object properties, 11 datatype properties.** The three outcome-named dose
+- **92 named classes, 26 object properties, 11 datatype properties.** The three outcome-named dose
   categories (`HormeticDose`, `MutagenicDose`, `SterilizationDose`) are kept **active** but marked
   *not recommended for new annotation* — their axioms are load-bearing, and an obsolete OBO term may
   carry none. The three outcome-named `*DoseRange` classes carried nothing and were **removed**.
-- ABox: 28 studies, 136 declared individuals, shipped as Turtle **and** RDF/XML with an OWL catalogue.
+- ABox: 28 studies, 146 declared individuals, shipped as Turtle **and** RDF/XML with an OWL catalogue.
   Every individual in **both** files is declared `owl:NamedIndividual`, and every external IRI used in
   a logical position carries a bare MIREOT-style `owl:Class` stub so both graphs are in the OWL 2 DL
   profile without importing NCBITaxon.
@@ -83,7 +83,7 @@ w = o2.World()
 core = w.get_ontology("https://w3id.org/onsir")
 core.load(only_local=False, fileobj=open("OnSIR.owl", "rb"))
 abox = w.get_ontology("file://" + os.path.abspath("OnSIR_abox.owl")).load()
-# 131 classes, 150 individuals
+# 130 classes, 160 individuals
 ```
 
 `verify_release.py` runs exactly this and fails if it stops working. For rdflib, parse the two files

@@ -3,7 +3,7 @@
     "per_type": {
       "A": [
         10,
-        12
+        11
       ],
       "B": [
         6,
@@ -48,12 +48,6 @@
         "type": "A",
         "correct": 1,
         "note": "above_optimum (truth above_optimum)"
-      },
-      {
-        "id": "A05",
-        "type": "A",
-        "correct": 0,
-        "note": "above_optimum (truth at_or_above_ld50)"
       },
       {
         "id": "A06",
@@ -110,28 +104,28 @@
         "type": "B",
         "correct": true,
         "correct_b2": 0,
-        "note": "B1 ok / B2 FAIL: committed above_optimum, contradicted for Nicotiana, Trigonella"
+        "note": "B1 ok / B2 FAIL: committed above_optimum, contradicted for Trigonella"
       },
       {
         "id": "B15",
         "type": "B",
         "correct": true,
         "correct_b2": 0,
-        "note": "B1 ok / B2 FAIL: committed above_optimum, contradicted for Nicotiana, Trigonella"
+        "note": "B1 ok / B2 FAIL: committed above_optimum, contradicted for Trigonella"
       },
       {
         "id": "B16",
         "type": "B",
         "correct": true,
         "correct_b2": 0,
-        "note": "B1 ok / B2 FAIL: committed above_optimum, contradicted for Nicotiana, Trigonella, Vigna"
+        "note": "B1 ok / B2 FAIL: committed above_optimum, contradicted for Vigna, Trigonella"
       },
       {
         "id": "B17",
         "type": "B",
         "correct": true,
         "correct_b2": 0,
-        "note": "B1 ok / B2 FAIL: committed above_optimum, contradicted for Nicotiana, Capsicum, Vigna"
+        "note": "B1 ok / B2 FAIL: committed above_optimum, contradicted for Capsicum, Vigna"
       },
       {
         "id": "C18",
@@ -172,14 +166,14 @@
     ],
     "total": [
       16,
-      24
+      23
     ]
   },
   "grounded": {
     "per_type": {
       "A": [
-        12,
-        12
+        11,
+        11
       ],
       "B": [
         6,
@@ -224,12 +218,6 @@
         "type": "A",
         "correct": 1,
         "note": "above_optimum (truth above_optimum)"
-      },
-      {
-        "id": "A05",
-        "type": "A",
-        "correct": 1,
-        "note": "at_or_above_ld50 (truth at_or_above_ld50)"
       },
       {
         "id": "A06",
@@ -286,28 +274,28 @@
         "type": "B",
         "correct": true,
         "correct_b2": 0,
-        "note": "B1 ok / B2 FAIL: committed above_optimum, contradicted for Nicotiana, Trigonella"
+        "note": "B1 ok / B2 FAIL: committed above_optimum, contradicted for Trigonella"
       },
       {
         "id": "B15",
         "type": "B",
         "correct": true,
         "correct_b2": 0,
-        "note": "B1 ok / B2 FAIL: committed above_optimum, contradicted for Nicotiana, Trigonella"
+        "note": "B1 ok / B2 FAIL: committed above_optimum, contradicted for Trigonella"
       },
       {
         "id": "B16",
         "type": "B",
         "correct": true,
         "correct_b2": 0,
-        "note": "B1 ok / B2 FAIL: committed above_optimum, contradicted for Nicotiana, Trigonella, Vigna"
+        "note": "B1 ok / B2 FAIL: committed above_optimum, contradicted for Vigna, Trigonella"
       },
       {
         "id": "B17",
         "type": "B",
         "correct": true,
         "correct_b2": 0,
-        "note": "B1 ok / B2 FAIL: committed at_or_above_ld50, contradicted for Trigonella"
+        "note": "B1 ok / B2 FAIL: committed at_or_above_ld50, contradicted for Nicotiana, Trigonella"
       },
       {
         "id": "C18",
@@ -347,15 +335,15 @@
       }
     ],
     "total": [
-      24,
-      24
+      23,
+      23
     ]
   },
   "framed": {
     "per_type": {
       "A": [
-        12,
-        12
+        11,
+        11
       ],
       "B": [
         6,
@@ -400,12 +388,6 @@
         "type": "A",
         "correct": 1,
         "note": "above_optimum (truth above_optimum)"
-      },
-      {
-        "id": "A05",
-        "type": "A",
-        "correct": 1,
-        "note": "at_or_above_ld50 (truth at_or_above_ld50)"
       },
       {
         "id": "A06",
@@ -523,8 +505,8 @@
       }
     ],
     "total": [
-      24,
-      24
+      23,
+      23
     ]
   }
 }
