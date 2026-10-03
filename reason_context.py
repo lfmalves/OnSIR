@@ -1,36 +1,54 @@
 # -*- coding: utf-8 -*-
-r"""Context-dependent dose classification: the reasoner places a NUMERIC dose relative to the
-values reported for a taxon, from the dose and the taxon rather than from an asserted label. The
-placement is evidence-relative: it says where the dose falls, not what it does.
+r"""Taxon-relative dose classification: the reasoner places a numeric dose relative to the
+statistics reported for a taxon, from the dose and the taxon alone. The placement says where the dose
+lies on the dose axis of that taxon.
 
-Three demonstrations:
-  (A) the SAME dose (140 Gy) classifies differently for three taxa, because each taxon carries
-      its own literature-derived dose windows. 140 Gy is used rather than 100 because Nicotiana
-      tabacum has no reported LD50 (see build_ontology.py), so it carries two windows and 100 Gy
-      places it and Vigna in the SAME window: the three-way contrast needs a dose that separates
-      all three, and 140 does.
-  (B) the same taxon classifies differently across doses. Vigna unguiculata is used rather than
-      Nicotiana tabacum because it has all three windows, so the walk crosses two boundaries
-      instead of one;
-  (C) an ENCODING conflict is detected: when a taxon's reported optimum exceeds its reported LD50
-      (Triticum aestivum), the two statistics cannot both bound one dose ordering, and the record is
-      flagged. This is a data-quality check on the encoding, not a claim that the observations are
-      biologically contradictory.
+Five demonstrations, written to reason_context.json:
+  (A) one dose (200 Gy) for the three taxa with windows: Nicotiana tabacum carries a favourable band,
+      Vigna unguiculata an LD50 estimate and Trigonella foenum-graecum a lower bound on its LD50.
+  (B) the two sides of each boundary: Nicotiana tabacum at 4, 5, 15 and 16 Gy (both band ends are
+      included in the band) and Vigna unguiculata at 131 and 132 Gy (the LD50 is included in the
+      window at or above it).
+  (C) an encoding conflict. A constructed record codes a breeding dose range, 250 to 300 Gy, as a
+      favourable band, beside an LD50 of 273 Gy inside it: the pattern of the wheat breeding range
+      of Chakraborty et al. 2023, whose recommended 250 to 300 Gy brackets their LD50 estimates of
+      272.71 and 278.61 Gy. The windows overlap, and the disjointness of the band from the doses at
+      or above the LD50 makes an assessment inside the overlap inconsistent, so the record is
+      flagged for a curator.
+  (D) the doses of a study the windows were not built from: the twelve doses of Lumorh et al. 2025
+      (cowpea, 100 to 1200 Gy), read from the ABox and placed relative to the cowpea LD50.
+  (E) the datatype of the literal: one cowpea dose written as xsd:double, xsd:decimal, xsd:integer
+      and xsd:float. The windows are a union over xsd:decimal and xsd:double; xsd:integer lies in the
+      decimal value space and xsd:float in neither.
 """
+import copy
+import json
+import os
+import tempfile
+
 import owlready2 as o2
+import rdflib
+from rdflib import BNode, Literal, Namespace, OWL, RDF, RDFS, URIRef, XSD
 
 ONT = "file://" + o2.os.path.abspath("OnSIR.owl")
 NSU = "https://w3id.org/onsir/"
+N = Namespace(NSU)
 
 TAXA = {"Nicotiana tabacum": "taxon_Nicotiana_tabacum",
         "Vigna unguiculata": "taxon_Vigna_unguiculata",
         "Trigonella foenum-graecum": "taxon_Trigonella_foenum_graecum"}
-CATS = ["AtOrBelowReportedOptimum", "AboveReportedOptimum", "AtOrAboveReportedLD50"]
+CATS = ["BelowReportedFavourableBand", "WithinReportedFavourableBand", "AboveReportedFavourableBand",
+        "BelowReportedLD50", "AtOrAboveReportedLD50"]
+
+
+def positions(ind):
+    return sorted(c.name for c in ind.INDIRECT_is_a if getattr(c, "name", None) in CATS)
 
 
 def classify(cases):
-    """cases: list of (name, taxon_individual, dose_Gy). Returns {name: (categories, responses)}."""
-    onto = o2.get_ontology(ONT).load()
+    """cases: list of (name, taxon_individual, dose_Gy). Returns {name: positions}."""
+    w = o2.World()
+    onto = w.get_ontology(ONT).load()
     NS = onto.get_namespace(NSU)
     made = {}
     with onto:
@@ -40,60 +58,62 @@ def classify(cases):
             a.doseGy = float(dose)          # functional -> single value
             made[name] = a
     with onto:
-        o2.sync_reasoner_hermit(infer_property_values=True)
-    out = {}
-    for name, a in made.items():
-        cats = [c.name for c in a.INDIRECT_is_a if getattr(c, "name", None) in CATS]
-        resp = []
-        for c in a.INDIRECT_is_a:
-            # expected response comes through the subClassOf some-restriction
-            r = getattr(c, "value", None)
-            if getattr(r, "name", None):
-                resp.append(r.name)
-        out[name] = (cats, sorted(set(resp)))
-    return out
+        o2.sync_reasoner_hermit(w, infer_property_values=True)
+    return {name: positions(a) for name, a in made.items()}
+
+
+def reason_file(graph):
+    """Serialize an rdflib graph and run HermiT over it; returns (World, consistent)."""
+    tmp = os.path.join(tempfile.mkdtemp(), "onsir_context.owl")
+    graph.serialize(tmp, format="xml")
+    w = o2.World()
+    onto = w.get_ontology("file://" + tmp).load()
+    try:
+        with onto:
+            o2.sync_reasoner_hermit(w)
+        return w, True
+    except o2.OwlReadyInconsistentOntologyError:
+        return w, False
 
 
 if __name__ == "__main__":
-    DEMO_A_DOSE = 140.0
-    print(f"=== (A) ONE dose, THREE taxa: {DEMO_A_DOSE:.0f} Gy ===")
+    OUT = {}
+    DEMO_A_DOSE = 200.0
+    print(f"=== (A) one dose, three taxa: {DEMO_A_DOSE:.0f} Gy ===")
     cases = [(f"a_{i}", t, DEMO_A_DOSE) for i, t in enumerate(TAXA.values())]
     res = classify(cases)
+    OUT["A"] = []
     for (name, tax, dose), lbl in zip(cases, TAXA.keys()):
-        cats, resp = res[name]
-        print(f"  {lbl:28s} @ {dose:6.1f} Gy -> {cats if cats else ['(none)']}")
+        OUT["A"].append(dict(taxon=lbl, dose=dose, classes=res[name]))
+        print(f"  {lbl:28s} @ {dose:6.1f} Gy -> {res[name] or ['(none)']}")
 
-    DEMO_B_TAXON = "Vigna unguiculata"
-    print(f"\n=== (B) ONE taxon ({DEMO_B_TAXON}), FOUR doses ===")
-    doses = [40.0, 70.0, 100.0, 140.0]
-    cases = [(f"b_{i}", TAXA[DEMO_B_TAXON], d) for i, d in enumerate(doses)]
+    print("\n=== (B) the two sides of each boundary ===")
+    walk = [("Nicotiana tabacum", 4.0), ("Nicotiana tabacum", 5.0), ("Nicotiana tabacum", 15.0),
+            ("Nicotiana tabacum", 16.0), ("Vigna unguiculata", 131.0), ("Vigna unguiculata", 132.0)]
+    cases = [(f"b_{i}", TAXA[lbl], d) for i, (lbl, d) in enumerate(walk)]
     res = classify(cases)
-    for (name, _, d) in cases:
-        cats, resp = res[name]
-        print(f"  {d:6.1f} Gy -> {cats if cats else ['(none)']}")
+    OUT["B"] = []
+    for (name, _, d), (lbl, _) in zip(cases, walk):
+        OUT["B"].append(dict(taxon=lbl, dose=d, classes=res[name]))
+        print(f"  {lbl:28s} @ {d:6.1f} Gy -> {res[name] or ['(none)']}")
 
-    print("\n=== (C) contradiction detection: a reported optimum ABOVE the reported LD50 ===")
-    print("  Triticum aestivum is reported with optimum 250-300 Gy but LD50 273-279 Gy")
-    print("  (Chakraborty et al. 2023, Braz. Arch. Biol. Technol. 66:e23220294), so the at-or-below-optimum and at-or-above-LD50 windows would overlap.")
-    onto = o2.get_ontology(ONT).load()
-    NS = onto.get_namespace(NSU)
-    import rdflib
-    # build the overlapping encoding directly in RDF, then reason
+    print("\n=== (C) a coded favourable band that reaches the coded LD50 ===")
     g = rdflib.Graph(); g.parse("OnSIR.owl")
-    from rdflib import URIRef, BNode, Literal, RDF, RDFS, OWL, XSD, Namespace
-    N = Namespace(NSU); OBO = "http://purl.obolibrary.org/obo/NCBITaxon_"
-    tri = N["taxon_Triticum_aestivum"]
-    g.add((tri, RDF.type, OWL.NamedIndividual)); g.add((tri, RDF.type, URIRef(OBO+"4565")))
+    tri = N["taxon_conflict_test"]
+    g.add((tri, RDF.type, OWL.NamedIndividual))
+    g.add((tri, RDF.type, URIRef("http://purl.obolibrary.org/obo/NCBITaxon_4565")))
 
     def rlist(items):
         head = BNode(); cur = head
         for i, it in enumerate(items):
             g.add((cur, RDF.first, it))
-            if i < len(items)-1:
+            if i < len(items) - 1:
                 nxt = BNode(); g.add((cur, RDF.rest, nxt)); cur = nxt
-            else: g.add((cur, RDF.rest, RDF.nil))
+            else:
+                g.add((cur, RDF.rest, RDF.nil))
         return head
-    def drange(lo, hi, lo_ex=True, hi_ex=False):
+
+    def drange(lo, hi, lo_ex, hi_ex):
         dr = BNode(); g.add((dr, RDF.type, RDFS.Datatype)); g.add((dr, OWL.onDatatype, XSD.double))
         fs = []
         if lo is not None:
@@ -103,34 +123,66 @@ if __name__ == "__main__":
             f = BNode(); g.add((f, XSD.maxExclusive if hi_ex else XSD.maxInclusive,
                                 Literal(hi, datatype=XSD.double))); fs.append(f)
         g.add((dr, OWL.withRestrictions, rlist(fs))); return dr
-    def defc(name, lo, hi, parent, lo_ex=True, hi_ex=False):
+
+    def defc(name, lo, hi, parent, lo_ex, hi_ex):
         c = N[name]; g.add((c, RDF.type, OWL.Class))
         hv = BNode(); g.add((hv, RDF.type, OWL.Restriction))
         g.add((hv, OWL.onProperty, N["forTaxon"])); g.add((hv, OWL.hasValue, tri))
         sv = BNode(); g.add((sv, RDF.type, OWL.Restriction))
-        g.add((sv, OWL.onProperty, N["doseGy"])); g.add((sv, OWL.someValuesFrom, drange(lo, hi, lo_ex, hi_ex)))
+        g.add((sv, OWL.onProperty, N["doseGy"]))
+        g.add((sv, OWL.someValuesFrom, drange(lo, hi, lo_ex, hi_ex)))
         eq = BNode(); g.add((c, OWL.equivalentClass, eq)); g.add((eq, RDF.type, OWL.Class))
         g.add((eq, OWL.intersectionOf, rlist([N["DoseAssessment"], hv, sv])))
         g.add((c, RDFS.subClassOf, N[parent]))
-    defc("Triticum_aestivum_AtOrBelowOptimumDose", 0.0, 300.0, "AtOrBelowReportedOptimum")
-    defc("Triticum_aestivum_AtOrAboveLD50Dose", 273.0, None, "AtOrAboveReportedLD50", lo_ex=False)
-    bad = N["triticum_overlap_case"]
-    g.add((bad, RDF.type, OWL.NamedIndividual)); g.add((bad, RDF.type, N["DoseAssessment"]))
-    g.add((bad, N["forTaxon"], tri))
-    g.add((bad, N["doseGy"], Literal(280.0, datatype=XSD.double)))
-    g.serialize("/tmp/onsir_overlap.owl", format="xml")
 
-    onto2 = o2.get_ontology("file:///tmp/onsir_overlap.owl").load()
-    try:
-        with onto2:
-            o2.sync_reasoner_hermit()
-        print("  result: CONSISTENT  (unexpected -- the overlap was not detected)")
-    except o2.OwlReadyInconsistentOntologyError:
-        print("  result: INCONSISTENT as expected -> 280 Gy would fall BOTH at-or-below the")
-        print("          reported optimum AND at-or-above the reported LD50 for this taxon.")
-        print("          The two reported statistics therefore cannot both bound a single")
-        print("          dose ordering as encoded, so the RECORD is flagged for review.")
-        print("          NOTE: this is a data-quality signal about the encoding, NOT a proof")
-        print("          that the underlying observations are biologically contradictory --")
-        print("          they may concern different endpoints, stages, or the surviving")
-        print("          subpopulation, in which case both can be simultaneously true.")
+    CONFLICT = dict(band=[250.0, 300.0], ld50=273.0, dose=280.0)
+    defc("conflict_test_WithinFavourableBandDose", 250.0, 300.0, "WithinReportedFavourableBand",
+         lo_ex=False, hi_ex=False)
+    defc("conflict_test_AtOrAboveLD50Dose", CONFLICT["ld50"], None, "AtOrAboveReportedLD50",
+         lo_ex=False, hi_ex=False)
+    base = copy.deepcopy(g)
+    CONFLICT["runs"] = []
+    for dose in (260.0, CONFLICT["dose"], 320.0):
+        gg = copy.deepcopy(base)
+        case = N[f"conflict_test_case_{int(dose)}"]
+        gg.add((case, RDF.type, OWL.NamedIndividual)); gg.add((case, RDF.type, N["DoseAssessment"]))
+        gg.add((case, N["forTaxon"], tri))
+        gg.add((case, N["doseGy"], Literal(dose, datatype=XSD.double)))
+        _w, ok = reason_file(gg)
+        CONFLICT["runs"].append(dict(dose=dose, consistent=ok))
+        print(f"  assessment at {dose:5.1f} Gy: {'consistent' if ok else 'INCONSISTENT (flagged)'}")
+    OUT["C"] = CONFLICT
+
+    print("\n=== (D) the doses of Lumorh et al. 2025 from the ABox ===")
+    abox = rdflib.Graph(); abox.parse("OnSIR_abox.owl")
+    g = rdflib.Graph(); g.parse("OnSIR.owl")
+    found = sorted(abox.subjects(RDF.type, N["DoseAssessment"]), key=lambda a: float(abox.value(a, N["doseGy"])))
+    for a in found:
+        for t in abox.triples((a, None, None)):
+            g.add(t)
+    w, ok = reason_file(g)
+    assert ok
+    ns = w.get_namespace(NSU)
+    OUT["D"] = []
+    for a in found:
+        ind = ns[str(a)[len(NSU):]]
+        row = dict(individual=str(a)[len(NSU):], taxon=str(abox.value(abox.value(a, N["forTaxon"]), RDFS.label)),
+                   dose=float(abox.value(a, N["doseGy"])), source=str(abox.value(a, URIRef("http://purl.org/dc/terms/source"))),
+                   classes=positions(ind))
+        OUT["D"].append(row)
+        print(f"  {row['taxon']:20s} @ {row['dose']:7.1f} Gy -> {row['classes'] or ['(none)']}")
+
+    print("\n=== (E) the datatype of the dose literal ===")
+    OUT["E"] = []
+    for dt, lex in ((XSD.double, "200.0"), (XSD.decimal, "200.0"), (XSD.integer, "200"), (XSD.float, "200.0")):
+        g = rdflib.Graph(); g.parse("OnSIR.owl")
+        case = N["datatype_case"]
+        g.add((case, RDF.type, OWL.NamedIndividual)); g.add((case, RDF.type, N["DoseAssessment"]))
+        g.add((case, N["forTaxon"], N["taxon_Vigna_unguiculata"]))
+        g.add((case, N["doseGy"], Literal(lex, datatype=dt)))
+        w, ok = reason_file(g)
+        cls = positions(w.get_namespace(NSU)["datatype_case"]) if ok else None
+        OUT["E"].append(dict(datatype=str(dt).rsplit("#", 1)[-1], consistent=ok, classes=cls))
+        print(f"  xsd:{str(dt).rsplit('#', 1)[-1]:8s} -> {cls}")
+    json.dump(OUT, open("reason_context.json", "w"), indent=1)
+    print("wrote reason_context.json")

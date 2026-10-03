@@ -1,0 +1,229 @@
+{
+ "A": [
+  {
+   "taxon": "Nicotiana tabacum",
+   "dose": 200.0,
+   "classes": [
+    "AboveReportedFavourableBand"
+   ]
+  },
+  {
+   "taxon": "Vigna unguiculata",
+   "dose": 200.0,
+   "classes": [
+    "AtOrAboveReportedLD50"
+   ]
+  },
+  {
+   "taxon": "Trigonella foenum-graecum",
+   "dose": 200.0,
+   "classes": [
+    "BelowReportedLD50"
+   ]
+  }
+ ],
+ "B": [
+  {
+   "taxon": "Nicotiana tabacum",
+   "dose": 4.0,
+   "classes": [
+    "BelowReportedFavourableBand"
+   ]
+  },
+  {
+   "taxon": "Nicotiana tabacum",
+   "dose": 5.0,
+   "classes": [
+    "WithinReportedFavourableBand"
+   ]
+  },
+  {
+   "taxon": "Nicotiana tabacum",
+   "dose": 15.0,
+   "classes": [
+    "WithinReportedFavourableBand"
+   ]
+  },
+  {
+   "taxon": "Nicotiana tabacum",
+   "dose": 16.0,
+   "classes": [
+    "AboveReportedFavourableBand"
+   ]
+  },
+  {
+   "taxon": "Vigna unguiculata",
+   "dose": 131.0,
+   "classes": [
+    "BelowReportedLD50"
+   ]
+  },
+  {
+   "taxon": "Vigna unguiculata",
+   "dose": 132.0,
+   "classes": [
+    "AtOrAboveReportedLD50"
+   ]
+  }
+ ],
+ "C": {
+  "band": [
+   250.0,
+   300.0
+  ],
+  "ld50": 273.0,
+  "dose": 280.0,
+  "runs": [
+   {
+    "dose": 260.0,
+    "consistent": true
+   },
+   {
+    "dose": 280.0,
+    "consistent": false
+   },
+   {
+    "dose": 320.0,
+    "consistent": true
+   }
+  ]
+ },
+ "D": [
+  {
+   "individual": "assessment_lumorh2025_100Gy",
+   "taxon": "Vigna unguiculata",
+   "dose": 100.0,
+   "source": "https://doi.org/10.3329/ijarit.v15i1.82798",
+   "classes": [
+    "BelowReportedLD50"
+   ]
+  },
+  {
+   "individual": "assessment_lumorh2025_200Gy",
+   "taxon": "Vigna unguiculata",
+   "dose": 200.0,
+   "source": "https://doi.org/10.3329/ijarit.v15i1.82798",
+   "classes": [
+    "AtOrAboveReportedLD50"
+   ]
+  },
+  {
+   "individual": "assessment_lumorh2025_300Gy",
+   "taxon": "Vigna unguiculata",
+   "dose": 300.0,
+   "source": "https://doi.org/10.3329/ijarit.v15i1.82798",
+   "classes": [
+    "AtOrAboveReportedLD50"
+   ]
+  },
+  {
+   "individual": "assessment_lumorh2025_400Gy",
+   "taxon": "Vigna unguiculata",
+   "dose": 400.0,
+   "source": "https://doi.org/10.3329/ijarit.v15i1.82798",
+   "classes": [
+    "AtOrAboveReportedLD50"
+   ]
+  },
+  {
+   "individual": "assessment_lumorh2025_500Gy",
+   "taxon": "Vigna unguiculata",
+   "dose": 500.0,
+   "source": "https://doi.org/10.3329/ijarit.v15i1.82798",
+   "classes": [
+    "AtOrAboveReportedLD50"
+   ]
+  },
+  {
+   "individual": "assessment_lumorh2025_600Gy",
+   "taxon": "Vigna unguiculata",
+   "dose": 600.0,
+   "source": "https://doi.org/10.3329/ijarit.v15i1.82798",
+   "classes": [
+    "AtOrAboveReportedLD50"
+   ]
+  },
+  {
+   "individual": "assessment_lumorh2025_700Gy",
+   "taxon": "Vigna unguiculata",
+   "dose": 700.0,
+   "source": "https://doi.org/10.3329/ijarit.v15i1.82798",
+   "classes": [
+    "AtOrAboveReportedLD50"
+   ]
+  },
+  {
+   "individual": "assessment_lumorh2025_800Gy",
+   "taxon": "Vigna unguiculata",
+   "dose": 800.0,
+   "source": "https://doi.org/10.3329/ijarit.v15i1.82798",
+   "classes": [
+    "AtOrAboveReportedLD50"
+   ]
+  },
+  {
+   "individual": "assessment_lumorh2025_900Gy",
+   "taxon": "Vigna unguiculata",
+   "dose": 900.0,
+   "source": "https://doi.org/10.3329/ijarit.v15i1.82798",
+   "classes": [
+    "AtOrAboveReportedLD50"
+   ]
+  },
+  {
+   "individual": "assessment_lumorh2025_1000Gy",
+   "taxon": "Vigna unguiculata",
+   "dose": 1000.0,
+   "source": "https://doi.org/10.3329/ijarit.v15i1.82798",
+   "classes": [
+    "AtOrAboveReportedLD50"
+   ]
+  },
+  {
+   "individual": "assessment_lumorh2025_1100Gy",
+   "taxon": "Vigna unguiculata",
+   "dose": 1100.0,
+   "source": "https://doi.org/10.3329/ijarit.v15i1.82798",
+   "classes": [
+    "AtOrAboveReportedLD50"
+   ]
+  },
+  {
+   "individual": "assessment_lumorh2025_1200Gy",
+   "taxon": "Vigna unguiculata",
+   "dose": 1200.0,
+   "source": "https://doi.org/10.3329/ijarit.v15i1.82798",
+   "classes": [
+    "AtOrAboveReportedLD50"
+   ]
+  }
+ ],
+ "E": [
+  {
+   "datatype": "double",
+   "consistent": true,
+   "classes": [
+    "AtOrAboveReportedLD50"
+   ]
+  },
+  {
+   "datatype": "decimal",
+   "consistent": true,
+   "classes": [
+    "AtOrAboveReportedLD50"
+   ]
+  },
+  {
+   "datatype": "integer",
+   "consistent": true,
+   "classes": [
+    "AtOrAboveReportedLD50"
+   ]
+  },
+  {
+   "datatype": "float",
+   "consistent": true,
+   "classes": []
+  }
+ ]
+}

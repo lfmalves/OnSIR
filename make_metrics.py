@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-r"""Generate the manuscript's ontology-metrics table directly from OnSIR.ttl.
+r"""Generate the ontology-metrics table directly from OnSIR.ttl.
 
 A hand-maintained table can silently disagree with the release it describes -- a stale
 disjointness or restriction count looks perfectly plausible. Counting here removes the possibility.
@@ -86,8 +86,7 @@ _has_dtype = bool(list(g.triples((None, OWL.withRestrictions, None)))) or bool(
     [1 for _s, _o in g.subject_objects(RDFS.range) if str(_o).startswith(str(XSD))])
 expr = r"$\mathcal{%s}%s$" % (_dl, r"(\mathcal{D})" if _has_dtype else "")
 
-# BFO reach. The paper says OnSIR builds on BFO; how much of it actually hangs off BFO is a fact
-# about the artifact, so it is counted rather than characterised. Transitive closure over
+# BFO reach: how many named classes reach BFO is counted from the file. Transitive closure over
 # rdfs:subClassOf and owl:equivalentClass, since an equivalence to a PO class inherits PO's own BFO
 # placement only if that class is imported -- which it is not, so equivalences count only when the
 # chain reaches BFO inside this file.

@@ -5,8 +5,9 @@ Ontology (RBO) against OnSIR (Ontology for Seed Irradiation and Plant Radiobiolo
 
 Usage
 -----
-    # download RBO once (~29 MB); resolves via the OBO Foundry PURL
-    curl -sSL -o rbo.owl http://purl.obolibrary.org/obo/rbo.owl
+    # download the RBO release compared here once (~29 MB) and check its checksum
+    curl -sSL -o rbo.owl https://raw.githubusercontent.com/Radiobiology-Informatics-Consortium/RBO/v2026-07-23/rbo.owl
+    sha256sum rbo.owl   # ab2ff2f575e8857cabb3f5cd5ebefbd6fd02b4568949a4dae2cde356a4eb0c37
     python rbo_gap.py            # writes rbo_gap_analysis.md next to this script
 
 Requirements: rdflib >= 7.0 (tested with 7.6.0), Python >= 3.9. No network access is
@@ -15,23 +16,23 @@ about 15 s and peak memory about 1.5 GB (rbo.owl is ~354k triples).
 
 Method summary
 --------------
-1. Parse rbo.owl (RDF/XML) and OnSIR.ttl (Turtle) with rdflib. No reasoner is invoked:
-   every number reported is asserted, not inferred.
+1. Parse rbo.owl (RDF/XML) and OnSIR.ttl (Turtle) with rdflib. No reasoner is invoked,
+   so every number reported counts asserted triples.
 2. For every named owl:Class build the set of *surface forms*: rdfs:label, oboInOwl
    exact/broad/narrow/related synonyms, IAO_0000118 "alternative term", IAO_0000111
-   "editor preferred term", skos:prefLabel/skos:altLabel, plus -- for OnSIR only,
-   whose local names are informative -- the IRI local name.
+   "editor preferred term", skos:prefLabel/skos:altLabel, plus, for OnSIR only,
+   whose local names are informative, the IRI local name.
 3. Normalise each form: split camelCase and letter-digit boundaries, lowercase, map
-   every non-alphanumeric character (en dashes, hyphens, underscores) to a single
-   space, collapse whitespace.
+   every non-alphanumeric character (dashes, hyphens and `_` included) to a
+   single space, collapse whitespace.
 4. EXACT match = equality of normalised forms. NEAR match =
    difflib.SequenceMatcher(...).ratio() >= 0.85 on a non-exact pair; the token Jaccard
    index is reported alongside because a high ratio with Jaccard 0 (plant/planet,
-   neutron/neuron) is a string artifact, not a semantic match.
+   neutron/neuron) is a string coincidence.
 5. The distributed rbo.owl is a MERGED artifact: it inlines classes from GO, UBERON,
    ChEBI, ENVO, UO, CL, NCBITaxon, PATO, OBI, PO and others alongside its own RBO_*
-   IRIs. Every count is therefore reported twice -- against RBO-native classes and
-   against all classes in the file -- and deprecated classes are counted separately.
+   IRIs. Every count is therefore reported twice, against RBO-native classes and
+   against all classes in the file, and deprecated classes are counted separately.
 6. Concept probes (section 7) separate three distinct situations, because conflating
    them is the main way a gap analysis can mislead: (i) a class whose label or synonym
    denotes the concept; (ii) the concept absent from all labels but present in a
@@ -60,9 +61,15 @@ OUT_FILE = os.path.join(HERE, "rbo_gap_analysis.md")
 OBO = "http://purl.obolibrary.org/obo/"
 OIO = "http://www.geneontology.org/formats/oboInOwl#"
 ONSIR_NS = "https://w3id.org/onsir/"
-RBO_PURL = "http://purl.obolibrary.org/obo/rbo.owl"
+# The release compared here carries the version IRI .../rbo/releases/2026-07-16/rbo.owl. That PURL
+# redirects to a repository tag v2026-07-16, which does not exist (HTTP 404 on 2026-10-02); the same
+# file, byte for byte, is published under the tags v2026-07-17-provisional and v2026-07-23. The
+# script downloads it from the v2026-07-23 tag and checks its SHA-256, so the comparison stays tied
+# to one release while the unversioned PURL moves on.
+RBO_PURL = "http://purl.obolibrary.org/obo/rbo/releases/2026-07-16/rbo.owl"
 RBO_RESOLVED = ("https://raw.githubusercontent.com/"
-                "Radiobiology-Informatics-Consortium/RBO/master/rbo.owl")
+                "Radiobiology-Informatics-Consortium/RBO/v2026-07-23/rbo.owl")
+RBO_SHA256 = "ab2ff2f575e8857cabb3f5cd5ebefbd6fd02b4568949a4dae2cde356a4eb0c37"
 
 NEAR_THRESHOLD = 0.85
 
@@ -163,7 +170,12 @@ def surface_forms(g, cls, include_synonyms=True, include_local=True):
 def load_rbo():
     if not os.path.exists(RBO_FILE):
         sys.exit("ERROR: rbo.owl not found. Download it first:\n"
-                 "  curl -sSL -o rbo.owl %s" % RBO_PURL)
+                 "  curl -sSL -o rbo.owl %s" % RBO_RESOLVED)
+    import hashlib
+    digest = hashlib.sha256(open(RBO_FILE, "rb").read()).hexdigest()
+    if digest != RBO_SHA256:
+        sys.exit("ERROR: rbo.owl is not the release compared here (SHA-256 %s, expected %s)"
+                 % (digest, RBO_SHA256))
     g = Graph()
     g.parse(RBO_FILE, format="xml")
     return g
@@ -375,7 +387,7 @@ def main():
     st["rbo_distinct_norm_forms"] = len(exact_all)
 
     # free-text annotation index, over classes AND named individuals: a phrase that
-    # occurs only here is prose, not ontological coverage
+    # occurs only here is coverage in prose only
     rbo_inds = {s for s in grbo.subjects(RDF.type, OWL.NamedIndividual) if isinstance(s, URIRef)}
     def_index = []
     for e in (rbo_named | rbo_inds):
@@ -523,13 +535,13 @@ def write_report(ctx):
       "since OnSIR local names are informative (`GerminationRate`, `HormeticDose`) and two "
       "OnSIR classes carry no label at all. Each surface form was normalised by splitting "
       "camelCase and letter-digit boundaries, lowercasing, replacing every non-alphanumeric "
-      "character -- including en dashes and underscores -- with a single space, and "
+      "character, dashes and `_` included, with a single space, and "
       "collapsing whitespace; so `onsir:Co60` yields `co 60` and `Dose–Response Model` "
       "yields `dose response model`. An EXACT match is equality of two normalised forms. A "
       "NEAR match is `difflib.SequenceMatcher(None, a, b).ratio() >= %.2f` for a pair that "
       "is not already exact; the token Jaccard index of the same pair is reported beside "
       "the ratio, because a high character ratio with Jaccard 0 (*plant*/*planet*, "
-      "*neutron*/*neuron*) is an orthographic artifact and not a candidate alignment.\n"
+      "*neutron*/*neuron*) is an orthographic coincidence.\n"
       % NEAR_THRESHOLD)
     A("Two properties of the RBO release govern how the results must be read. First, the "
       "distributed `rbo.owl` is a fully merged artifact with no `owl:imports`: it inlines "
@@ -617,8 +629,8 @@ def write_report(ctx):
       "one is `qudt:QuantityValue`, re-declared locally but not an OnSIR term. (ii) A count "
       "of `owl:Class`-typed nodes that does not filter blank nodes returns %d, because %d "
       "anonymous class expressions (the intersections and restrictions used in the "
-      "equivalence axioms) are also typed `owl:Class`; that %d is a count of syntactic "
-      "nodes, not of named terms. The defensible figure for OnSIR's own named classes is "
+      "equivalence axioms) are also typed `owl:Class`; that %d counts syntactic "
+      "nodes. The figure for OnSIR's own named classes is "
       "**%d**."
       % (ons_stats["declared_named_all"],
          ons_stats["declared_named_all"] + ons_stats["anonymous"], ons_stats["anonymous"],
@@ -744,7 +756,7 @@ def write_report(ctx):
       "instrument records). **Related RBO-native label**: the nearest broader or adjacent RBO "
       "term when the concept itself is absent, so that a gap is not claimed where RBO merely "
       "uses different wording. **Prose only**: entities that mention the phrase in free-text "
-      "annotation while no entity denotes it by a label -- prose, not ontological coverage "
+      "annotation while no entity denotes it by a label, which is coverage in prose only "
       "(%d annotation strings over %d entities scanned).\n"
       % (st["classes_named"], st["definition_strings"], st["definition_entities"]))
     A("| Concept | Denoted in RBO-native? | RBO-native IRIs | Anywhere in file? | As individual | Related RBO-native label | Prose only |")
@@ -937,7 +949,7 @@ def write_report(ctx):
          st["individuals_also_typed_class"], st["individuals_pure"]))
 
     A("\n## 12. Reproduction\n")
-    A("```sh\ncurl -sSL -o rbo.owl %s\npython rbo_gap.py\n```\n" % RBO_PURL)
+    A("```sh\ncurl -sSL -o rbo.owl %s\npython rbo_gap.py\n```\n" % RBO_RESOLVED)
     A("`rbo.owl` SHA-256 `%s`. If that digest differs, the RBO release has changed and the "
       "counts above will differ with it." % st["sha256"])
 

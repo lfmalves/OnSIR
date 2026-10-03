@@ -1,0 +1,32 @@
+{
+ "_note": "Studies coded for the release in addition to the coded corpus of corpus/eiccam_table_body.tex, with the same coding scheme (FF phenological phase of the irradiated propagule, EP endpoint category). Each carries the doses it irradiated, so that the taxon dose windows classify doses from a source they were not built from.",
+ "studies": [
+  {
+   "key": "lumorh2025",
+   "species": "Vigna unguiculata",
+   "year": "2025",
+   "country": "Ghana",
+   "ff": "FF1",
+   "source": "Co-60",
+   "doses_gy": [
+    100,
+    200,
+    300,
+    400,
+    500,
+    600,
+    700,
+    800,
+    900,
+    1000,
+    1100,
+    1200
+   ],
+   "dose_rate": "303 Gy/h",
+   "ep": "EP1",
+   "first_author": "Lumorh",
+   "doi": "10.3329/ijarit.v15i1.82798",
+   "summary": "Five genotypes irradiated at 100 to 1200 Gy in 100 Gy steps, with an unirradiated control; germination LD50 of 531.0 to 903.0 Gy by genotype (Table 1)."
+  }
+ ]
+}

@@ -3,8 +3,8 @@ r"""Generate human-readable HTML documentation for OnSIR directly from OnSIR.ttl
 
 Written in-repo rather than delegated to a generic tool because OnSIR uses OWL 2 constructs
 (faceted data ranges and DataUnionOf for the taxon-specific dose windows) that off-the-shelf
-documentation generators do not render. Everything below is read from the ontology itself, so the
-documentation cannot drift from the artifact.
+documentation generators do not render. Everything below is read from the ontology itself, and
+the page is regenerated from OnSIR.ttl at each release.
 """
 import html
 from collections import defaultdict
@@ -150,14 +150,18 @@ for c in classes:
             windows[loc(c)].append(txt)
 if windows:
     P.append("<h2>Taxon-specific dose windows</h2>")
-    P.append("<p>Dose categories are <em>not</em> asserted: each taxon carries numeric windows, so a "
-             "reasoner derives the category of a dose from its value together with the taxon. "
-             "Bounds are literature-derived and provenanced per class.</p><table>"
-             "<tr><th>Window class</th><th>Definition</th><th>Source</th></tr>")
+    P.append("<p>Each taxon carries numeric dose windows, and a reasoner places a dose assessment in a "
+             "window from its dose and its taxon. Each window records its source, the strength of its "
+             "bound and the doses the source tested.</p><table>"
+             "<tr><th>Window class</th><th>Definition</th><th>Source</th><th>Strength of the bound</th>"
+             "<th>Doses tested</th></tr>")
     for k in sorted(windows):
         src = one(URIRef(NS + k), DCT.source) or ""
+        qual = one(URIRef(NS + k), URIRef(NS + "boundQualifier")) or ""
+        scope = one(URIRef(NS + k), SKOS.scopeNote) or ""
         P.append(f"<tr><td class='mono'><a href='#{esc(k)}'>{esc(k)}</a></td>"
-                 f"<td class='ax'>{windows[k][0]}</td><td class='ax'>{esc(src)}</td></tr>")
+                 f"<td class='ax'>{windows[k][0]}</td><td class='ax'>{esc(src)}</td>"
+                 f"<td class='ax'>{esc(qual)}</td><td class='ax'>{esc(scope)}</td></tr>")
     P.append("</table>")
 
 def entity_section(title, items, kind):
@@ -168,7 +172,7 @@ def entity_section(title, items, kind):
         d = one(i, SKOS.definition) or one(i, RDFS.comment)
         # A term carrying a curation caveat must show it. skos:definition wins over rdfs:comment
         # above, so a caveat recorded only in skos:note or owl:deprecated would be invisible in the
-        # rendered documentation -- exactly the drift the manuscript says cannot happen.
+        # rendered documentation.
         dep = g.value(i, OWL.deprecated)
         if dep is not None and str(dep).lower() in ("true", "1"):
             d = "DEPRECATED. " + (d or "")
@@ -210,7 +214,7 @@ if individuals:
         P.append(f"<tr><td class='mono'>{esc(loc(i))}</td><td class='ax'>{ts}</td></tr>")
     P.append("</table>")
 P.append("<h2>Reproducibility</h2><p>This page is generated from <code>OnSIR.ttl</code> by "
-         "<code>make_docs.py</code> in the repository, so it cannot drift from the ontology. "
+         "<code>make_docs.py</code>, regenerated from <code>OnSIR.ttl</code> at each release. "
          "The OWL/Turtle files are normative.</p>")
 P.append("</div></body></html>")
 

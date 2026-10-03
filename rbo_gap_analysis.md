@@ -1,13 +1,13 @@
 # Term-level gap analysis: OBO Radiation Biology Ontology (RBO) vs. OnSIR
 
-Generated 2026-08-17 by `rbo_gap.py` (rdflib 7.6.0, Python 3.12.3). All figures are produced by that script from the two source files and can be regenerated with the commands in section 11.
+Generated 2026-10-02 by `rbo_gap.py` (rdflib 7.6.0, Python 3.12.3). All figures are produced by that script from the two source files and can be regenerated with the commands in section 11.
 
 
 ## 1. Methods
 
-RBO was retrieved on 2026-08-17 from the OBO Foundry PURL `http://purl.obolibrary.org/obo/rbo.owl`, which redirects to `https://raw.githubusercontent.com/Radiobiology-Informatics-Consortium/RBO/master/rbo.owl` (29260285 bytes, SHA-256 `ab2ff2f575e8857cabb3f5cd5ebefbd6fd02b4568949a4dae2cde356a4eb0c37`). The release analysed carries `owl:versionInfo` **2026-07-16** and `owl:versionIRI` `http://purl.obolibrary.org/obo/rbo/releases/2026-07-16/rbo.owl`, and is distributed under `http://creativecommons.org/licenses/by/3.0/`. RBO was parsed as RDF/XML and OnSIR (`OnSIR.ttl`, namespace `https://w3id.org/onsir/`) as Turtle, both with rdflib; no reasoner was invoked, so every count below is asserted rather than inferred.
+RBO was retrieved on 2026-10-02 from the OBO Foundry PURL `http://purl.obolibrary.org/obo/rbo/releases/2026-07-16/rbo.owl`, which redirects to `https://raw.githubusercontent.com/Radiobiology-Informatics-Consortium/RBO/v2026-07-23/rbo.owl` (29260285 bytes, SHA-256 `ab2ff2f575e8857cabb3f5cd5ebefbd6fd02b4568949a4dae2cde356a4eb0c37`). The release analysed carries `owl:versionInfo` **2026-07-16** and `owl:versionIRI` `http://purl.obolibrary.org/obo/rbo/releases/2026-07-16/rbo.owl`, and is distributed under `http://creativecommons.org/licenses/by/3.0/`. RBO was parsed as RDF/XML and OnSIR (`OnSIR.ttl`, namespace `https://w3id.org/onsir/`) as Turtle, both with rdflib; no reasoner was invoked, so every count below is asserted rather than inferred.
 
-For each named `owl:Class` in both ontologies a set of surface forms was harvested: `rdfs:label`, the oboInOwl exact/broad/narrow/related synonym properties, `IAO_0000118` (alternative term), `IAO_0000111` (editor preferred term), and `skos:prefLabel`/`skos:altLabel`. For OnSIR the IRI local name was added as well, since OnSIR local names are informative (`GerminationRate`, `HormeticDose`) and two OnSIR classes carry no label at all. Each surface form was normalised by splitting camelCase and letter-digit boundaries, lowercasing, replacing every non-alphanumeric character -- including en dashes and underscores -- with a single space, and collapsing whitespace; so `onsir:Co60` yields `co 60` and `Dose–Response Model` yields `dose response model`. An EXACT match is equality of two normalised forms. A NEAR match is `difflib.SequenceMatcher(None, a, b).ratio() >= 0.85` for a pair that is not already exact; the token Jaccard index of the same pair is reported beside the ratio, because a high character ratio with Jaccard 0 (*plant*/*planet*, *neutron*/*neuron*) is an orthographic artifact and not a candidate alignment.
+For each named `owl:Class` in both ontologies a set of surface forms was harvested: `rdfs:label`, the oboInOwl exact/broad/narrow/related synonym properties, `IAO_0000118` (alternative term), `IAO_0000111` (editor preferred term), and `skos:prefLabel`/`skos:altLabel`. For OnSIR the IRI local name was added as well, since OnSIR local names are informative (`GerminationRate`, `HormeticDose`) and two OnSIR classes carry no label at all. Each surface form was normalised by splitting camelCase and letter-digit boundaries, lowercasing, replacing every non-alphanumeric character, dashes and `_` included, with a single space, and collapsing whitespace; so `onsir:Co60` yields `co 60` and `Dose–Response Model` yields `dose response model`. An EXACT match is equality of two normalised forms. A NEAR match is `difflib.SequenceMatcher(None, a, b).ratio() >= 0.85` for a pair that is not already exact; the token Jaccard index of the same pair is reported beside the ratio, because a high character ratio with Jaccard 0 (*plant*/*planet*, *neutron*/*neuron*) is an orthographic coincidence.
 
 Two properties of the RBO release govern how the results must be read. First, the distributed `rbo.owl` is a fully merged artifact with no `owl:imports`: it inlines 8775 classes from GO, UBERON, ChEBI, ENVO, UO, CL, NCBITaxon, PATO, OBI, PO and other ontologies alongside RBO's own 446 `obo:RBO_*` classes. A term found in the file is therefore not necessarily an RBO term, so every comparison is reported twice: against **RBO-native** classes and against **all** classes in the file. Second, 41 of the 446 RBO-native classes are flagged `owl:deprecated true` (they form retired/replacement pairs such as `RBO_010014`/`RBO_00010014` 'organ dose'), leaving 405 active RBO-native classes; deprecated hits are flagged where they occur.
 
@@ -69,123 +69,121 @@ The concept probes in section 7 distinguish three situations that a naive keywor
 | COB | 11 | 0.1% |
 | OBIB | 9 | 0.1% |
 | CARO | 8 | 0.1% |
-| NBO | 7 | 0.1% |
 | PCO | 7 | 0.1% |
+| NBO | 7 | 0.1% |
 | OBCS | 5 | 0.1% |
 | CHMO | 4 | 0.0% |
-| SO | 3 | 0.0% |
 | HANCESTRO | 3 | 0.0% |
-| OMRSE | 2 | 0.0% |
+| SO | 3 | 0.0% |
 | APOLLO | 2 | 0.0% |
-| http://www.w3.org/2002/07 | 1 | 0.0% |
+| OMRSE | 2 | 0.0% |
 | GENO | 1 | 0.0% |
+| http://www.w3.org/2002/07 | 1 | 0.0% |
+| http://www.geneontology.org/formats | 1 | 0.0% |
 | RO | 1 | 0.0% |
 | OGMS | 1 | 0.0% |
-| http://www.geneontology.org/formats | 1 | 0.0% |
 | **total** | **9221** | 100% |
 
 RBO's own terms are 4.8% of the classes in the file it distributes; the Plant Ontology fragment is 34 classes (0.37%). Two of the 9221 entries are technical rather than domain terms -- `owl:Thing` (redundantly typed `owl:Class`, the only unlabelled entry besides `NCBITaxon_Union_0000030`) and `oboInOwl:ObsoleteClass` -- so the domain-class total is 9219.
 
 ## 3. OnSIR terms compared
 
-OnSIR (`OnSIR.ttl`, 1235 triples) declares **92** named `owl:Class` entities in the `https://w3id.org/onsir/` namespace, plus 27 object properties and 12 datatype properties. These 92 classes are the comparison set.
+OnSIR (`OnSIR.ttl`, 1006 triples) declares **90** named `owl:Class` entities in the `https://w3id.org/onsir/` namespace, plus 27 object properties and 12 datatype properties. These 90 classes are the comparison set.
 
-Two counting notes, so the figures can be reconciled with other descriptions of OnSIR. (i) The file contains 106 named `owl:Class` declarations in total; the extra one is `qudt:QuantityValue`, re-declared locally but not an OnSIR term. (ii) A count of `owl:Class`-typed nodes that does not filter blank nodes returns 125, because 19 anonymous class expressions (the intersections and restrictions used in the equivalence axioms) are also typed `owl:Class`; that 125 is a count of syntactic nodes, not of named terms. The defensible figure for OnSIR's own named classes is **92**.
+Two counting notes, so the figures can be reconciled with other descriptions of OnSIR. (i) The file contains 103 named `owl:Class` declarations in total; the extra one is `qudt:QuantityValue`, re-declared locally but not an OnSIR term. (ii) A count of `owl:Class`-typed nodes that does not filter blank nodes returns 117, because 14 anonymous class expressions (the intersections and restrictions used in the equivalence axioms) are also typed `owl:Class`; that 117 counts syntactic nodes. The figure for OnSIR's own named classes is **90**.
 
 | # | OnSIR class | `rdfs:label` |
 |---|---|---|
-| 1 | `onsir:AbioticStressResistance` | Abiotic Stress Resistance |
-| 2 | `onsir:AboveReportedOptimum` | Above Reported Optimum |
-| 3 | `onsir:Am241` | Am241 |
-| 4 | `onsir:AntioxidantActivity` | AntioxidantActivity |
-| 5 | `onsir:AntioxidantIncrease` | Antioxidant Increase |
-| 6 | `onsir:AtOrAboveReportedLD50` | At Or Above Reported LD50 |
-| 7 | `onsir:AtOrBelowReportedOptimum` | At Or Below Reported Optimum |
-| 8 | `onsir:BiochemicalChange` | Biochemical Change |
-| 9 | `onsir:BiochemicalEndpointCategory` | Biochemical Endpoint Category |
-| 10 | `onsir:BioticStressResistance` | Biotic Stress Resistance |
-| 11 | `onsir:BrainCousensModel` | Brain–Cousens Model |
-| 12 | `onsir:Capsicum_annuum_AboveOptimumDose` | Capsicum annuum Above Optimum Dose |
-| 13 | `onsir:Capsicum_annuum_AtOrAboveLD50Dose` | Capsicum annuum At Or Above LD50 Dose |
-| 14 | `onsir:Capsicum_annuum_AtOrBelowOptimumDose` | Capsicum annuum At Or Below Optimum Dose |
-| 15 | `onsir:ChlorophyllContent` | ChlorophyllContent |
-| 16 | `onsir:Co60` | Co60 |
-| 17 | `onsir:Context` | Context |
-| 18 | `onsir:CotyledonFreeing` | CotyledonFreeing |
-| 19 | `onsir:Cs137` | Cs137 |
-| 20 | `onsir:DoseAssessment` | Dose Assessment |
-| 21 | `onsir:DoseCategory` | Dose Category |
-| 22 | `onsir:DoseRange` | Dose Range |
-| 23 | `onsir:DoseRateCategory` | Dose-rate Category |
-| 24 | `onsir:DoseResponseModel` | Dose–Response Model |
-| 25 | `onsir:DryMass` | DryMass |
-| 26 | `onsir:EarlySeedlingStage` | Early Seedling Stage |
-| 27 | `onsir:ElectronBeam` | ElectronBeam |
-| 28 | `onsir:EmergenceAndEarlyVigor` | Emergence And Early Vigor |
-| 29 | `onsir:Endpoint` | Endpoint |
-| 30 | `onsir:EndpointCategory` | Endpoint Category |
-| 31 | `onsir:EnzymeActivityChange` | Enzyme Activity Change |
-| 32 | `onsir:FreshMass` | FreshMass |
-| 33 | `onsir:Gamma` | Gamma |
-| 34 | `onsir:GeneticEndpointCategory` | Genetic Endpoint Category |
-| 35 | `onsir:GerminationRate` | GerminationRate |
-| 36 | `onsir:GerminationStage` | Germination Stage |
-| 37 | `onsir:HighDoseRate` | High Dose-rate |
-| 38 | `onsir:HormeticDose` | Hormetic Dose |
-| 39 | `onsir:HormeticResponse` | Hormetic Response |
-| 40 | `onsir:Ir192` | Ir192 |
-| 41 | `onsir:Isotope` | Radioisotope |
-| 42 | `onsir:LifecycleStage` | Lifecycle Stage |
-| 43 | `onsir:LightCondition` | Light Condition |
-| 44 | `onsir:LipidPeroxidation` | LipidPeroxidation |
-| 45 | `onsir:LowDoseRate` | Low Dose-rate |
-| 46 | `onsir:MorphologicalEndpointCategory` | Morphological Endpoint Category |
-| 47 | `onsir:MutagenicDose` | Mutagenic Dose |
-| 48 | `onsir:MutagenicOutcome` | Mutagenic Outcome |
-| 49 | `onsir:MutagenicResponse` | Mutagenic Response |
-| 50 | `onsir:MutationFrequency` | MutationFrequency |
-| 51 | `onsir:Neutron` | Neutron |
-| 52 | `onsir:Nicotiana_tabacum_AboveOptimumDose` | Nicotiana tabacum Above Optimum Dose |
-| 53 | `onsir:Nicotiana_tabacum_AtOrBelowOptimumDose` | Nicotiana tabacum At Or Below Optimum Dose |
-| 54 | `onsir:OtherPhysiologicalEndpointCategory` | Other Physiological Endpoint Category |
-| 55 | `onsir:Plant` | Plant |
-| 56 | `onsir:PlantHealthEndpointCategory` | Plant Health Endpoint Category |
-| 57 | `onsir:PlantPart` | Plant Part |
-| 58 | `onsir:PlantSeed` | Plant Seed |
-| 59 | `onsir:PollenSterility` | PollenSterility |
-| 60 | `onsir:Proton` | Proton |
-| 61 | `onsir:QuantityValue` | Quantity value |
-| 62 | `onsir:ROSBalanceShift` | ROS Balance Shift |
-| 63 | `onsir:RadiationType` | Radiation Type |
-| 64 | `onsir:Response` | Response |
-| 65 | `onsir:RootLength` | RootLength |
-| 66 | `onsir:SeedIrradiationTreatment` | Seed Irradiation Treatment |
-| 67 | `onsir:SeedStage` | Seed Stage |
-| 68 | `onsir:SeedSterility` | SeedSterility |
-| 69 | `onsir:SeedTreatment` | Seed Treatment |
-| 70 | `onsir:Seedling` | Seedling |
-| 71 | `onsir:SeedlingVigorIndex` | SeedlingVigorIndex |
-| 72 | `onsir:ShootLength` | ShootLength |
-| 73 | `onsir:SoilCondition` | Soil Condition |
-| 74 | `onsir:SterilizationDose` | Sterilization Dose |
-| 75 | `onsir:SterilizationResponse` | Sterilization Response |
-| 76 | `onsir:StimulatoryOutcome` | Stimulatory Outcome |
-| 77 | `onsir:StressResistance` | Stress Resistance |
-| 78 | `onsir:Substrate` | Substrate |
-| 79 | `onsir:TemperatureCondition` | Temperature Condition |
-| 80 | `onsir:TreatmentOutcome` | Treatment Outcome |
-| 81 | `onsir:Trigonella_foenum_graecum_AboveOptimumDose` | Trigonella foenum graecum Above Optimum Dose |
-| 82 | `onsir:Trigonella_foenum_graecum_AtOrAboveLD50Dose` | Trigonella foenum graecum At Or Above LD50 Dose |
-| 83 | `onsir:Trigonella_foenum_graecum_AtOrBelowOptimumDose` | Trigonella foenum graecum At Or Below Optimum Dose |
-| 84 | `onsir:UV_A` | UV_A |
-| 85 | `onsir:UV_B` | UV_B |
-| 86 | `onsir:UV_C` | UV_C |
-| 87 | `onsir:Vigna_unguiculata_AboveOptimumDose` | Vigna unguiculata Above Optimum Dose |
-| 88 | `onsir:Vigna_unguiculata_AtOrAboveLD50Dose` | Vigna unguiculata At Or Above LD50 Dose |
-| 89 | `onsir:Vigna_unguiculata_AtOrBelowOptimumDose` | Vigna unguiculata At Or Below Optimum Dose |
-| 90 | `onsir:WaterQuality` | Water Quality |
-| 91 | `onsir:XRay` | XRay |
-| 92 | `onsir:Xe133` | Xe133 |
+| 1 | `onsir:AbioticStressResistance` | abiotic stress resistance |
+| 2 | `onsir:AboveReportedFavourableBand` | above reported favourable band |
+| 3 | `onsir:Am241` | americium-241 |
+| 4 | `onsir:AntioxidantActivity` | antioxidant activity |
+| 5 | `onsir:AntioxidantIncrease` | antioxidant increase |
+| 6 | `onsir:AtOrAboveReportedLD50` | at or above reported LD50 |
+| 7 | `onsir:BelowReportedFavourableBand` | below reported favourable band |
+| 8 | `onsir:BelowReportedLD50` | below reported LD50 |
+| 9 | `onsir:BiochemicalChange` | biochemical change |
+| 10 | `onsir:BiochemicalEndpointCategory` | biochemical endpoint category |
+| 11 | `onsir:BioticStressResistance` | biotic stress resistance |
+| 12 | `onsir:BrainCousensModel` | Brain–Cousens model |
+| 13 | `onsir:ChlorophyllContent` | chlorophyll content |
+| 14 | `onsir:Co60` | cobalt-60 |
+| 15 | `onsir:Context` | context |
+| 16 | `onsir:CotyledonFreeing` | cotyledon freeing |
+| 17 | `onsir:Cs137` | caesium-137 |
+| 18 | `onsir:DoseAssessment` | dose assessment |
+| 19 | `onsir:DoseCategory` | dose category |
+| 20 | `onsir:DoseRange` | dose range |
+| 21 | `onsir:DoseRateCategory` | dose-rate category |
+| 22 | `onsir:DoseResponseModel` | dose–response model |
+| 23 | `onsir:DryMass` | dry mass |
+| 24 | `onsir:EarlySeedlingStage` | early seedling stage |
+| 25 | `onsir:ElectronBeam` | electron beam |
+| 26 | `onsir:EmergenceAndEarlyVigor` | emergence and early vigour |
+| 27 | `onsir:Endpoint` | endpoint |
+| 28 | `onsir:EndpointCategory` | endpoint category |
+| 29 | `onsir:EnzymeActivityChange` | enzyme activity change |
+| 30 | `onsir:FreshMass` | fresh mass |
+| 31 | `onsir:Gamma` | gamma |
+| 32 | `onsir:GeneticEndpointCategory` | genetic endpoint category |
+| 33 | `onsir:GerminationRate` | germination rate |
+| 34 | `onsir:GerminationStage` | germination stage |
+| 35 | `onsir:HighDoseRate` | high dose rate |
+| 36 | `onsir:HormeticDose` | hormetic dose |
+| 37 | `onsir:HormeticResponse` | hormetic response |
+| 38 | `onsir:Ir192` | iridium-192 |
+| 39 | `onsir:Isotope` | radioisotope |
+| 40 | `onsir:LifecycleStage` | life-cycle stage |
+| 41 | `onsir:LightCondition` | light condition |
+| 42 | `onsir:LipidPeroxidation` | lipid peroxidation |
+| 43 | `onsir:LowDoseRate` | low dose rate |
+| 44 | `onsir:MorphologicalEndpointCategory` | morphological endpoint category |
+| 45 | `onsir:MutagenicDose` | mutagenic dose |
+| 46 | `onsir:MutagenicOutcome` | mutagenic outcome |
+| 47 | `onsir:MutagenicResponse` | mutagenic response |
+| 48 | `onsir:MutationFrequency` | mutation frequency |
+| 49 | `onsir:Neutron` | neutron |
+| 50 | `onsir:Nicotiana_tabacum_AboveFavourableBandDose` | Nicotiana tabacum above favourable band dose |
+| 51 | `onsir:Nicotiana_tabacum_BelowFavourableBandDose` | Nicotiana tabacum below favourable band dose |
+| 52 | `onsir:Nicotiana_tabacum_WithinFavourableBandDose` | Nicotiana tabacum within favourable band dose |
+| 53 | `onsir:OtherPhysiologicalEndpointCategory` | other physiological endpoint category |
+| 54 | `onsir:Plant` | plant |
+| 55 | `onsir:PlantCallus` | plant callus |
+| 56 | `onsir:PlantHealthEndpointCategory` | plant health endpoint category |
+| 57 | `onsir:PlantPart` | plant part |
+| 58 | `onsir:PlantSeed` | plant seed |
+| 59 | `onsir:PollenSterility` | pollen sterility |
+| 60 | `onsir:Proton` | proton |
+| 61 | `onsir:QuantityValue` | quantity value |
+| 62 | `onsir:ROSBalanceShift` | ROS balance shift |
+| 63 | `onsir:RadiationType` | radiation type |
+| 64 | `onsir:Response` | response |
+| 65 | `onsir:RootLength` | root length |
+| 66 | `onsir:SeedIrradiationTreatment` | seed irradiation treatment |
+| 67 | `onsir:SeedStage` | seed stage |
+| 68 | `onsir:SeedSterility` | seed sterility |
+| 69 | `onsir:SeedTreatment` | seed treatment |
+| 70 | `onsir:Seedling` | seedling |
+| 71 | `onsir:SeedlingVigorIndex` | seedling vigour index |
+| 72 | `onsir:ShootLength` | shoot length |
+| 73 | `onsir:SoilCondition` | soil condition |
+| 74 | `onsir:SterilizationDose` | sterilization dose |
+| 75 | `onsir:SterilizationResponse` | sterilization response |
+| 76 | `onsir:StimulatoryOutcome` | stimulatory outcome |
+| 77 | `onsir:StressResistance` | stress resistance |
+| 78 | `onsir:Substrate` | substrate |
+| 79 | `onsir:TemperatureCondition` | temperature condition |
+| 80 | `onsir:TreatmentOutcome` | treatment outcome |
+| 81 | `onsir:Trigonella_foenum_graecum_BelowLD50Dose` | Trigonella foenum-graecum below LD50 dose |
+| 82 | `onsir:UV_A` | UV-A |
+| 83 | `onsir:UV_B` | UV-B |
+| 84 | `onsir:UV_C` | UV-C |
+| 85 | `onsir:Vigna_unguiculata_AtOrAboveLD50Dose` | Vigna unguiculata at or above LD50 dose |
+| 86 | `onsir:Vigna_unguiculata_BelowLD50Dose` | Vigna unguiculata below LD50 dose |
+| 87 | `onsir:WaterQuality` | water quality |
+| 88 | `onsir:WithinReportedFavourableBand` | within reported favourable band |
+| 89 | `onsir:XRay` | X-ray |
+| 90 | `onsir:Xe133` | xenon-133 |
 
 ## 4. (a) EXACT label matches
 
@@ -193,25 +191,27 @@ Two counting notes, so the figures can be reconciled with other descriptions of 
 
 | OnSIR class | OnSIR IRI | normalised string matched | RBO class | RBO IRI |
 |---|---|---|---|---|
-| Co60 | `https://w3id.org/onsir/Co60` | `co 60` | cobalt-60 gamma radiation | `http://purl.obolibrary.org/obo/RBO_00000052` |
-| Cs137 | `https://w3id.org/onsir/Cs137` | `cs 137` | cesium-137 gamma radiation | `http://purl.obolibrary.org/obo/RBO_00000051` |
-| XRay | `https://w3id.org/onsir/XRay` | `x ray` | x-ray radiation | `http://purl.obolibrary.org/obo/RBO_00005013` |
+| cobalt-60 | `https://w3id.org/onsir/Co60` | `co 60` | cobalt-60 gamma radiation | `http://purl.obolibrary.org/obo/RBO_00000052` |
+| caesium-137 | `https://w3id.org/onsir/Cs137` | `cs 137` | cesium-137 gamma radiation | `http://purl.obolibrary.org/obo/RBO_00000051` |
+| X-ray | `https://w3id.org/onsir/XRay` | `x ray` | x-ray radiation | `http://purl.obolibrary.org/obo/RBO_00005013` |
 
-**3 of 92 OnSIR classes (3.3%) have an exact label/synonym match among the 446 RBO-native classes.** All three are radionuclide or radiation-quality terms; the match is to RBO's *radiation* class (e.g. `onsir:Co60` to 'cobalt-60 gamma radiation'), which is a related but not identical concept -- OnSIR's `Co60` is the isotope, RBO's is the radiation emitted by it.
+**3 of 90 OnSIR classes (3.3%) have an exact label/synonym match among the 446 RBO-native classes.** All three are radionuclide or radiation-quality terms; the match is to RBO's *radiation* class (e.g. `onsir:Co60` to 'cobalt-60 gamma radiation'), which is a related but not identical concept -- OnSIR's `Co60` is the isotope, RBO's is the radiation emitted by it.
 
 ### 4.2 Against all 9221 classes in the merged rbo.owl file
 
 | OnSIR class | OnSIR IRI | string matched | matched class | IRI | source |
 |---|---|---|---|---|---|
-| Co60 | `https://w3id.org/onsir/Co60` | `co 60` | cobalt-60 gamma radiation | `http://purl.obolibrary.org/obo/RBO_00000052` | RBO |
-| Cs137 | `https://w3id.org/onsir/Cs137` | `cs 137` | cesium-137 gamma radiation | `http://purl.obolibrary.org/obo/RBO_00000051` | RBO |
-| Gamma | `https://w3id.org/onsir/Gamma` | `gamma` | photon | `http://purl.obolibrary.org/obo/CHEBI_30212` | CHEBI |
-| Neutron | `https://w3id.org/onsir/Neutron` | `neutron` | neutron | `http://purl.obolibrary.org/obo/CHEBI_30222` | CHEBI |
-| Plant | `https://w3id.org/onsir/Plant` | `plant` | plant-associated environment | `http://purl.obolibrary.org/obo/ENVO_01001001` | ENVO |
-| Proton | `https://w3id.org/onsir/Proton` | `proton` | proton | `http://purl.obolibrary.org/obo/CHEBI_24636` | CHEBI |
-| XRay | `https://w3id.org/onsir/XRay` | `x ray` | x-ray radiation | `http://purl.obolibrary.org/obo/RBO_00005013` | RBO |
+| cobalt-60 | `https://w3id.org/onsir/Co60` | `co 60` | cobalt-60 gamma radiation | `http://purl.obolibrary.org/obo/RBO_00000052` | RBO |
+| caesium-137 | `https://w3id.org/onsir/Cs137` | `cs 137` | cesium-137 gamma radiation | `http://purl.obolibrary.org/obo/RBO_00000051` | RBO |
+| gamma | `https://w3id.org/onsir/Gamma` | `gamma` | photon | `http://purl.obolibrary.org/obo/CHEBI_30212` | CHEBI |
+| life-cycle stage | `https://w3id.org/onsir/LifecycleStage` | `life cycle stage` | life cycle stage | `http://purl.obolibrary.org/obo/UBERON_0000105` | UBERON |
+| life-cycle stage | `https://w3id.org/onsir/LifecycleStage` | `life cycle stage` | developmental stage | `http://www.ebi.ac.uk/efo/EFO_0000399` | http://www.ebi.ac.uk/efo |
+| neutron | `https://w3id.org/onsir/Neutron` | `neutron` | neutron | `http://purl.obolibrary.org/obo/CHEBI_30222` | CHEBI |
+| plant | `https://w3id.org/onsir/Plant` | `plant` | plant-associated environment | `http://purl.obolibrary.org/obo/ENVO_01001001` | ENVO |
+| proton | `https://w3id.org/onsir/Proton` | `proton` | proton | `http://purl.obolibrary.org/obo/CHEBI_24636` | CHEBI |
+| X-ray | `https://w3id.org/onsir/XRay` | `x ray` | x-ray radiation | `http://purl.obolibrary.org/obo/RBO_00005013` | RBO |
 
-**7 of 92 OnSIR classes (7.6%) have an exact match somewhere in the merged file.** Note that `onsir:Plant` matches ENVO's 'plant-associated environment' through a synonym rather than a plant class, and `onsir:Gamma` matches ChEBI's 'photon' through the synonym 'gamma'; neither is a usable alignment.
+**8 of 90 OnSIR classes (8.9%) have an exact match somewhere in the merged file.** Note that `onsir:Plant` matches ENVO's 'plant-associated environment' through a synonym rather than a plant class, and `onsir:Gamma` matches ChEBI's 'photon' through the synonym 'gamma'; neither is a usable alignment.
 
 ## 5. (b) NEAR matches (SequenceMatcher ratio >= 0.85)
 
@@ -225,188 +225,188 @@ Rows are ordered by token Jaccard first, then ratio. Jaccard 0.000 means the two
 
 | OnSIR class | OnSIR form | matched class | IRI | source | ratio | Jaccard |
 |---|---|---|---|---|---|---|
-| Context | `context` | composition | `http://purl.obolibrary.org/obo/PATO_0000025` | PATO | 0.857 | 0.000 |
-| Lifecycle Stage | `lifecycle stage` | developmental stage | `http://www.ebi.ac.uk/efo/EFO_0000399` | http://www.ebi.ac.uk/efo | 0.968 | 0.250 |
-| Lifecycle Stage | `lifecycle stage` | life cycle stage | `http://purl.obolibrary.org/obo/UBERON_0000105` | UBERON | 0.968 | 0.250 |
-| Neutron | `neutron` | neuron | `http://purl.obolibrary.org/obo/CL_0000540` | CL | 0.923 | 0.000 |
-| Plant | `plant` | Embryophyta | `http://purl.obolibrary.org/obo/NCBITaxon_3193` | NCBITaxon | 0.909 | 0.000 |
-| Plant | `plant` | Viridiplantae | `http://purl.obolibrary.org/obo/NCBITaxon_33090` | NCBITaxon | 0.909 | 0.000 |
-| Plant | `plant` | planet | `http://purl.obolibrary.org/obo/ENVO_01000800` | ENVO | 0.909 | 0.000 |
-| Plant | `plant` | plan | `http://purl.obolibrary.org/obo/OBI_0000260` | OBI | 0.889 | 0.000 |
-| UV_A | `uv a` | microampere | `http://purl.obolibrary.org/obo/UO_0000038` | UO | 0.857 | 0.333 |
+| context | `context` | composition | `http://purl.obolibrary.org/obo/PATO_0000025` | PATO | 0.857 | 0.000 |
+| neutron | `neutron` | neuron | `http://purl.obolibrary.org/obo/CL_0000540` | CL | 0.923 | 0.000 |
+| plant | `plant` | Viridiplantae | `http://purl.obolibrary.org/obo/NCBITaxon_33090` | NCBITaxon | 0.909 | 0.000 |
+| plant | `plant` | Embryophyta | `http://purl.obolibrary.org/obo/NCBITaxon_3193` | NCBITaxon | 0.909 | 0.000 |
+| plant | `plant` | planet | `http://purl.obolibrary.org/obo/ENVO_01000800` | ENVO | 0.909 | 0.000 |
+| plant | `plant` | plan | `http://purl.obolibrary.org/obo/OBI_0000260` | OBI | 0.889 | 0.000 |
+| UV-A | `uv a` | microampere | `http://purl.obolibrary.org/obo/UO_0000038` | UO | 0.857 | 0.333 |
 
-5 OnSIR classes have at least one near match in the merged file, but only 2 share any token with their match (Lifecycle Stage, UV_A); the remainder are orthographic coincidences.
+4 OnSIR classes have at least one near match in the merged file, but only 1 share any token with their match (UV-A); the remainder are orthographic coincidences.
 
 ## 6. (c) OnSIR classes with no RBO counterpart
 
-Against **RBO-native** classes, **89 of 92** OnSIR classes (96.7%) have neither an exact nor a near (>= 0.85) counterpart. Groups are the top-level class reached by following `rdfs:subClassOf` upwards inside the OnSIR namespace.
+Against **RBO-native** classes, **87 of 90** OnSIR classes (96.7%) have neither an exact nor a near (>= 0.85) counterpart. Groups are the top-level class reached by following `rdfs:subClassOf` upwards inside the OnSIR namespace.
 
 | OnSIR top-level group | unmatched | members |
 |---|---|---|
-| DoseAssessment | 14 | `AboveReportedOptimum`, `AtOrAboveReportedLD50`, `AtOrBelowReportedOptimum`, `Capsicum_annuum_AboveOptimumDose`, `Capsicum_annuum_AtOrAboveLD50Dose`, `Capsicum_annuum_AtOrBelowOptimumDose`, `Nicotiana_tabacum_AboveOptimumDose`, `Nicotiana_tabacum_AtOrBelowOptimumDose`, `Trigonella_foenum_graecum_AboveOptimumDose`, `Trigonella_foenum_graecum_AtOrAboveLD50Dose`, `Trigonella_foenum_graecum_AtOrBelowOptimumDose`, `Vigna_unguiculata_AboveOptimumDose`, `Vigna_unguiculata_AtOrAboveLD50Dose`, `Vigna_unguiculata_AtOrBelowOptimumDose` |
+| Endpoint | 17 | `AntioxidantActivity`, `AntioxidantIncrease`, `BiochemicalChange`, `ChlorophyllContent`, `CotyledonFreeing`, `DryMass`, `EnzymeActivityChange`, `FreshMass`, `GerminationRate`, `LipidPeroxidation`, `MutationFrequency`, `PollenSterility`, `ROSBalanceShift`, `RootLength`, `SeedSterility`, `SeedlingVigorIndex`, `ShootLength` |
 | OnSIR root class, no asserted superclass | 14 | `Context`, `DoseAssessment`, `DoseCategory`, `DoseRange`, `DoseRateCategory`, `DoseResponseModel`, `EndpointCategory`, `Isotope`, `LifecycleStage`, `MutagenicOutcome`, `QuantityValue`, `RadiationType`, `StimulatoryOutcome`, `TreatmentOutcome` |
-| Endpoint | 13 | `AntioxidantActivity`, `ChlorophyllContent`, `CotyledonFreeing`, `DryMass`, `FreshMass`, `GerminationRate`, `LipidPeroxidation`, `MutationFrequency`, `PollenSterility`, `RootLength`, `SeedSterility`, `SeedlingVigorIndex`, `ShootLength` |
-| Response | 10 | `AbioticStressResistance`, `AntioxidantIncrease`, `BiochemicalChange`, `BioticStressResistance`, `EnzymeActivityChange`, `HormeticResponse`, `MutagenicResponse`, `ROSBalanceShift`, `SterilizationResponse`, `StressResistance` |
+| DoseAssessment | 11 | `AboveReportedFavourableBand`, `AtOrAboveReportedLD50`, `BelowReportedFavourableBand`, `BelowReportedLD50`, `Nicotiana_tabacum_AboveFavourableBandDose`, `Nicotiana_tabacum_BelowFavourableBandDose`, `Nicotiana_tabacum_WithinFavourableBandDose`, `Trigonella_foenum_graecum_BelowLD50Dose`, `Vigna_unguiculata_AtOrAboveLD50Dose`, `Vigna_unguiculata_BelowLD50Dose`, `WithinReportedFavourableBand` |
 | RadiationType | 7 | `ElectronBeam`, `Gamma`, `Neutron`, `Proton`, `UV_A`, `UV_B`, `UV_C` |
 | EndpointCategory | 6 | `BiochemicalEndpointCategory`, `EmergenceAndEarlyVigor`, `GeneticEndpointCategory`, `MorphologicalEndpointCategory`, `OtherPhysiologicalEndpointCategory`, `PlantHealthEndpointCategory` |
+| Response | 6 | `AbioticStressResistance`, `BioticStressResistance`, `HormeticResponse`, `MutagenicResponse`, `SterilizationResponse`, `StressResistance` |
 | Context | 5 | `LightCondition`, `SoilCondition`, `Substrate`, `TemperatureCondition`, `WaterQuality` |
 | DoseCategory | 3 | `HormeticDose`, `MutagenicDose`, `SterilizationDose` |
 | Isotope | 3 | `Am241`, `Ir192`, `Xe133` |
 | LifecycleStage | 3 | `EarlySeedlingStage`, `GerminationStage`, `SeedStage` |
-| OnSIR root class, parent outside OnSIR: BFO_0000040 | 3 | `Plant`, `PlantSeed`, `Seedling` |
 | DoseRateCategory | 2 | `HighDoseRate`, `LowDoseRate` |
 | OnSIR root class, parent outside OnSIR: BFO_0000015 | 2 | `Response`, `SeedTreatment` |
+| OnSIR root class, parent outside OnSIR: BFO_0000040 | 2 | `Plant`, `Seedling` |
+| PlantPart | 2 | `PlantCallus`, `PlantSeed` |
 | DoseResponseModel | 1 | `BrainCousensModel` |
 | OnSIR root class, parent outside OnSIR: BFO_0000019 | 1 | `Endpoint` |
 | OnSIR root class, parent outside OnSIR: BFO_0000040, PO_0025131 | 1 | `PlantPart` |
 | SeedTreatment | 1 | `SeedIrradiationTreatment` |
 
 
-**DoseAssessment** (14)
+**Endpoint** (17)
 
-- `onsir:AboveReportedOptimum` -- Above Reported Optimum
-- `onsir:AtOrAboveReportedLD50` -- At Or Above Reported LD50
-- `onsir:AtOrBelowReportedOptimum` -- At Or Below Reported Optimum
-- `onsir:Capsicum_annuum_AboveOptimumDose` -- Capsicum annuum Above Optimum Dose
-- `onsir:Capsicum_annuum_AtOrAboveLD50Dose` -- Capsicum annuum At Or Above LD50 Dose
-- `onsir:Capsicum_annuum_AtOrBelowOptimumDose` -- Capsicum annuum At Or Below Optimum Dose
-- `onsir:Nicotiana_tabacum_AboveOptimumDose` -- Nicotiana tabacum Above Optimum Dose
-- `onsir:Nicotiana_tabacum_AtOrBelowOptimumDose` -- Nicotiana tabacum At Or Below Optimum Dose
-- `onsir:Trigonella_foenum_graecum_AboveOptimumDose` -- Trigonella foenum graecum Above Optimum Dose
-- `onsir:Trigonella_foenum_graecum_AtOrAboveLD50Dose` -- Trigonella foenum graecum At Or Above LD50 Dose
-- `onsir:Trigonella_foenum_graecum_AtOrBelowOptimumDose` -- Trigonella foenum graecum At Or Below Optimum Dose
-- `onsir:Vigna_unguiculata_AboveOptimumDose` -- Vigna unguiculata Above Optimum Dose
-- `onsir:Vigna_unguiculata_AtOrAboveLD50Dose` -- Vigna unguiculata At Or Above LD50 Dose
-- `onsir:Vigna_unguiculata_AtOrBelowOptimumDose` -- Vigna unguiculata At Or Below Optimum Dose
+- `onsir:AntioxidantActivity` -- antioxidant activity
+- `onsir:AntioxidantIncrease` -- antioxidant increase
+- `onsir:BiochemicalChange` -- biochemical change
+- `onsir:ChlorophyllContent` -- chlorophyll content
+- `onsir:CotyledonFreeing` -- cotyledon freeing
+- `onsir:DryMass` -- dry mass
+- `onsir:EnzymeActivityChange` -- enzyme activity change
+- `onsir:FreshMass` -- fresh mass
+- `onsir:GerminationRate` -- germination rate
+- `onsir:LipidPeroxidation` -- lipid peroxidation
+- `onsir:MutationFrequency` -- mutation frequency
+- `onsir:PollenSterility` -- pollen sterility
+- `onsir:ROSBalanceShift` -- ROS balance shift
+- `onsir:RootLength` -- root length
+- `onsir:SeedSterility` -- seed sterility
+- `onsir:SeedlingVigorIndex` -- seedling vigour index
+- `onsir:ShootLength` -- shoot length
 
 **OnSIR root class, no asserted superclass** (14)
 
-- `onsir:Context` -- Context
-- `onsir:DoseAssessment` -- Dose Assessment
-- `onsir:DoseCategory` -- Dose Category
-- `onsir:DoseRange` -- Dose Range
-- `onsir:DoseRateCategory` -- Dose-rate Category
-- `onsir:DoseResponseModel` -- Dose–Response Model
-- `onsir:EndpointCategory` -- Endpoint Category
-- `onsir:Isotope` -- Radioisotope
-- `onsir:LifecycleStage` -- Lifecycle Stage
-- `onsir:MutagenicOutcome` -- Mutagenic Outcome
-- `onsir:QuantityValue` -- Quantity value
-- `onsir:RadiationType` -- Radiation Type
-- `onsir:StimulatoryOutcome` -- Stimulatory Outcome
-- `onsir:TreatmentOutcome` -- Treatment Outcome
+- `onsir:Context` -- context
+- `onsir:DoseAssessment` -- dose assessment
+- `onsir:DoseCategory` -- dose category
+- `onsir:DoseRange` -- dose range
+- `onsir:DoseRateCategory` -- dose-rate category
+- `onsir:DoseResponseModel` -- dose–response model
+- `onsir:EndpointCategory` -- endpoint category
+- `onsir:Isotope` -- radioisotope
+- `onsir:LifecycleStage` -- life-cycle stage
+- `onsir:MutagenicOutcome` -- mutagenic outcome
+- `onsir:QuantityValue` -- quantity value
+- `onsir:RadiationType` -- radiation type
+- `onsir:StimulatoryOutcome` -- stimulatory outcome
+- `onsir:TreatmentOutcome` -- treatment outcome
 
-**Endpoint** (13)
+**DoseAssessment** (11)
 
-- `onsir:AntioxidantActivity` -- AntioxidantActivity
-- `onsir:ChlorophyllContent` -- ChlorophyllContent
-- `onsir:CotyledonFreeing` -- CotyledonFreeing
-- `onsir:DryMass` -- DryMass
-- `onsir:FreshMass` -- FreshMass
-- `onsir:GerminationRate` -- GerminationRate
-- `onsir:LipidPeroxidation` -- LipidPeroxidation
-- `onsir:MutationFrequency` -- MutationFrequency
-- `onsir:PollenSterility` -- PollenSterility
-- `onsir:RootLength` -- RootLength
-- `onsir:SeedSterility` -- SeedSterility
-- `onsir:SeedlingVigorIndex` -- SeedlingVigorIndex
-- `onsir:ShootLength` -- ShootLength
-
-**Response** (10)
-
-- `onsir:AbioticStressResistance` -- Abiotic Stress Resistance
-- `onsir:AntioxidantIncrease` -- Antioxidant Increase
-- `onsir:BiochemicalChange` -- Biochemical Change
-- `onsir:BioticStressResistance` -- Biotic Stress Resistance
-- `onsir:EnzymeActivityChange` -- Enzyme Activity Change
-- `onsir:HormeticResponse` -- Hormetic Response
-- `onsir:MutagenicResponse` -- Mutagenic Response
-- `onsir:ROSBalanceShift` -- ROS Balance Shift
-- `onsir:SterilizationResponse` -- Sterilization Response
-- `onsir:StressResistance` -- Stress Resistance
+- `onsir:AboveReportedFavourableBand` -- above reported favourable band
+- `onsir:AtOrAboveReportedLD50` -- at or above reported LD50
+- `onsir:BelowReportedFavourableBand` -- below reported favourable band
+- `onsir:BelowReportedLD50` -- below reported LD50
+- `onsir:Nicotiana_tabacum_AboveFavourableBandDose` -- Nicotiana tabacum above favourable band dose
+- `onsir:Nicotiana_tabacum_BelowFavourableBandDose` -- Nicotiana tabacum below favourable band dose
+- `onsir:Nicotiana_tabacum_WithinFavourableBandDose` -- Nicotiana tabacum within favourable band dose
+- `onsir:Trigonella_foenum_graecum_BelowLD50Dose` -- Trigonella foenum-graecum below LD50 dose
+- `onsir:Vigna_unguiculata_AtOrAboveLD50Dose` -- Vigna unguiculata at or above LD50 dose
+- `onsir:Vigna_unguiculata_BelowLD50Dose` -- Vigna unguiculata below LD50 dose
+- `onsir:WithinReportedFavourableBand` -- within reported favourable band
 
 **RadiationType** (7)
 
-- `onsir:ElectronBeam` -- ElectronBeam
-- `onsir:Gamma` -- Gamma
-- `onsir:Neutron` -- Neutron
-- `onsir:Proton` -- Proton
-- `onsir:UV_A` -- UV_A
-- `onsir:UV_B` -- UV_B
-- `onsir:UV_C` -- UV_C
+- `onsir:ElectronBeam` -- electron beam
+- `onsir:Gamma` -- gamma
+- `onsir:Neutron` -- neutron
+- `onsir:Proton` -- proton
+- `onsir:UV_A` -- UV-A
+- `onsir:UV_B` -- UV-B
+- `onsir:UV_C` -- UV-C
 
 **EndpointCategory** (6)
 
-- `onsir:BiochemicalEndpointCategory` -- Biochemical Endpoint Category
-- `onsir:EmergenceAndEarlyVigor` -- Emergence And Early Vigor
-- `onsir:GeneticEndpointCategory` -- Genetic Endpoint Category
-- `onsir:MorphologicalEndpointCategory` -- Morphological Endpoint Category
-- `onsir:OtherPhysiologicalEndpointCategory` -- Other Physiological Endpoint Category
-- `onsir:PlantHealthEndpointCategory` -- Plant Health Endpoint Category
+- `onsir:BiochemicalEndpointCategory` -- biochemical endpoint category
+- `onsir:EmergenceAndEarlyVigor` -- emergence and early vigour
+- `onsir:GeneticEndpointCategory` -- genetic endpoint category
+- `onsir:MorphologicalEndpointCategory` -- morphological endpoint category
+- `onsir:OtherPhysiologicalEndpointCategory` -- other physiological endpoint category
+- `onsir:PlantHealthEndpointCategory` -- plant health endpoint category
+
+**Response** (6)
+
+- `onsir:AbioticStressResistance` -- abiotic stress resistance
+- `onsir:BioticStressResistance` -- biotic stress resistance
+- `onsir:HormeticResponse` -- hormetic response
+- `onsir:MutagenicResponse` -- mutagenic response
+- `onsir:SterilizationResponse` -- sterilization response
+- `onsir:StressResistance` -- stress resistance
 
 **Context** (5)
 
-- `onsir:LightCondition` -- Light Condition
-- `onsir:SoilCondition` -- Soil Condition
-- `onsir:Substrate` -- Substrate
-- `onsir:TemperatureCondition` -- Temperature Condition
-- `onsir:WaterQuality` -- Water Quality
+- `onsir:LightCondition` -- light condition
+- `onsir:SoilCondition` -- soil condition
+- `onsir:Substrate` -- substrate
+- `onsir:TemperatureCondition` -- temperature condition
+- `onsir:WaterQuality` -- water quality
 
 **DoseCategory** (3)
 
-- `onsir:HormeticDose` -- Hormetic Dose
-- `onsir:MutagenicDose` -- Mutagenic Dose
-- `onsir:SterilizationDose` -- Sterilization Dose
+- `onsir:HormeticDose` -- hormetic dose
+- `onsir:MutagenicDose` -- mutagenic dose
+- `onsir:SterilizationDose` -- sterilization dose
 
 **Isotope** (3)
 
-- `onsir:Am241` -- Am241
-- `onsir:Ir192` -- Ir192
-- `onsir:Xe133` -- Xe133
+- `onsir:Am241` -- americium-241
+- `onsir:Ir192` -- iridium-192
+- `onsir:Xe133` -- xenon-133
 
 **LifecycleStage** (3)
 
-- `onsir:EarlySeedlingStage` -- Early Seedling Stage
-- `onsir:GerminationStage` -- Germination Stage
-- `onsir:SeedStage` -- Seed Stage
-
-**OnSIR root class, parent outside OnSIR: BFO_0000040** (3)
-
-- `onsir:Plant` -- Plant
-- `onsir:PlantSeed` -- Plant Seed
-- `onsir:Seedling` -- Seedling
+- `onsir:EarlySeedlingStage` -- early seedling stage
+- `onsir:GerminationStage` -- germination stage
+- `onsir:SeedStage` -- seed stage
 
 **DoseRateCategory** (2)
 
-- `onsir:HighDoseRate` -- High Dose-rate
-- `onsir:LowDoseRate` -- Low Dose-rate
+- `onsir:HighDoseRate` -- high dose rate
+- `onsir:LowDoseRate` -- low dose rate
 
 **OnSIR root class, parent outside OnSIR: BFO_0000015** (2)
 
-- `onsir:Response` -- Response
-- `onsir:SeedTreatment` -- Seed Treatment
+- `onsir:Response` -- response
+- `onsir:SeedTreatment` -- seed treatment
+
+**OnSIR root class, parent outside OnSIR: BFO_0000040** (2)
+
+- `onsir:Plant` -- plant
+- `onsir:Seedling` -- seedling
+
+**PlantPart** (2)
+
+- `onsir:PlantCallus` -- plant callus
+- `onsir:PlantSeed` -- plant seed
 
 **DoseResponseModel** (1)
 
-- `onsir:BrainCousensModel` -- Brain–Cousens Model
+- `onsir:BrainCousensModel` -- Brain–Cousens model
 
 **OnSIR root class, parent outside OnSIR: BFO_0000019** (1)
 
-- `onsir:Endpoint` -- Endpoint
+- `onsir:Endpoint` -- endpoint
 
 **OnSIR root class, parent outside OnSIR: BFO_0000040, PO_0025131** (1)
 
-- `onsir:PlantPart` -- Plant Part
+- `onsir:PlantPart` -- plant part
 
 **SeedTreatment** (1)
 
-- `onsir:SeedIrradiationTreatment` -- Seed Irradiation Treatment
+- `onsir:SeedIrradiationTreatment` -- seed irradiation treatment
 
-Against **all** classes in the merged file, 82 of 92 OnSIR classes (89.1%) remain unmatched: `AbioticStressResistance`, `AboveReportedOptimum`, `Am241`, `AntioxidantActivity`, `AntioxidantIncrease`, `AtOrAboveReportedLD50`, `AtOrBelowReportedOptimum`, `BiochemicalChange`, `BiochemicalEndpointCategory`, `BioticStressResistance`, `BrainCousensModel`, `Capsicum_annuum_AboveOptimumDose`, `Capsicum_annuum_AtOrAboveLD50Dose`, `Capsicum_annuum_AtOrBelowOptimumDose`, `ChlorophyllContent`, `CotyledonFreeing`, `DoseAssessment`, `DoseCategory`, `DoseRange`, `DoseRateCategory`, `DoseResponseModel`, `DryMass`, `EarlySeedlingStage`, `ElectronBeam`, `EmergenceAndEarlyVigor`, `Endpoint`, `EndpointCategory`, `EnzymeActivityChange`, `FreshMass`, `GeneticEndpointCategory`, `GerminationRate`, `GerminationStage`, `HighDoseRate`, `HormeticDose`, `HormeticResponse`, `Ir192`, `Isotope`, `LightCondition`, `LipidPeroxidation`, `LowDoseRate`, `MorphologicalEndpointCategory`, `MutagenicDose`, `MutagenicOutcome`, `MutagenicResponse`, `MutationFrequency`, `Nicotiana_tabacum_AboveOptimumDose`, `Nicotiana_tabacum_AtOrBelowOptimumDose`, `OtherPhysiologicalEndpointCategory`, `PlantHealthEndpointCategory`, `PlantPart`, `PlantSeed`, `PollenSterility`, `QuantityValue`, `ROSBalanceShift`, `RadiationType`, `Response`, `RootLength`, `SeedIrradiationTreatment`, `SeedStage`, `SeedSterility`, `SeedTreatment`, `Seedling`, `SeedlingVigorIndex`, `ShootLength`, `SoilCondition`, `SterilizationDose`, `SterilizationResponse`, `StimulatoryOutcome`, `StressResistance`, `Substrate`, `TemperatureCondition`, `TreatmentOutcome`, `Trigonella_foenum_graecum_AboveOptimumDose`, `Trigonella_foenum_graecum_AtOrAboveLD50Dose`, `Trigonella_foenum_graecum_AtOrBelowOptimumDose`, `UV_B`, `UV_C`, `Vigna_unguiculata_AboveOptimumDose`, `Vigna_unguiculata_AtOrAboveLD50Dose`, `Vigna_unguiculata_AtOrBelowOptimumDose`, `WaterQuality`, `Xe133`.
+Against **all** classes in the merged file, 80 of 90 OnSIR classes (88.9%) remain unmatched: `AbioticStressResistance`, `AboveReportedFavourableBand`, `Am241`, `AntioxidantActivity`, `AntioxidantIncrease`, `AtOrAboveReportedLD50`, `BelowReportedFavourableBand`, `BelowReportedLD50`, `BiochemicalChange`, `BiochemicalEndpointCategory`, `BioticStressResistance`, `BrainCousensModel`, `ChlorophyllContent`, `CotyledonFreeing`, `DoseAssessment`, `DoseCategory`, `DoseRange`, `DoseRateCategory`, `DoseResponseModel`, `DryMass`, `EarlySeedlingStage`, `ElectronBeam`, `EmergenceAndEarlyVigor`, `Endpoint`, `EndpointCategory`, `EnzymeActivityChange`, `FreshMass`, `GeneticEndpointCategory`, `GerminationRate`, `GerminationStage`, `HighDoseRate`, `HormeticDose`, `HormeticResponse`, `Ir192`, `Isotope`, `LightCondition`, `LipidPeroxidation`, `LowDoseRate`, `MorphologicalEndpointCategory`, `MutagenicDose`, `MutagenicOutcome`, `MutagenicResponse`, `MutationFrequency`, `Nicotiana_tabacum_AboveFavourableBandDose`, `Nicotiana_tabacum_BelowFavourableBandDose`, `Nicotiana_tabacum_WithinFavourableBandDose`, `OtherPhysiologicalEndpointCategory`, `PlantCallus`, `PlantHealthEndpointCategory`, `PlantPart`, `PlantSeed`, `PollenSterility`, `QuantityValue`, `ROSBalanceShift`, `RadiationType`, `Response`, `RootLength`, `SeedIrradiationTreatment`, `SeedStage`, `SeedSterility`, `SeedTreatment`, `Seedling`, `SeedlingVigorIndex`, `ShootLength`, `SoilCondition`, `SterilizationDose`, `SterilizationResponse`, `StimulatoryOutcome`, `StressResistance`, `Substrate`, `TemperatureCondition`, `TreatmentOutcome`, `Trigonella_foenum_graecum_BelowLD50Dose`, `UV_B`, `UV_C`, `Vigna_unguiculata_AtOrAboveLD50Dose`, `Vigna_unguiculata_BelowLD50Dose`, `WaterQuality`, `WithinReportedFavourableBand`, `Xe133`.
 
 ## 7. (d) Targeted probe for seed-irradiation dose-effect concepts
 
-Column meanings. **Denoted in RBO-native**: an `obo:RBO_*` class whose `rdfs:label` or synonym denotes the concept. **Anywhere in file**: the same test over all 9221 named classes, with the contributing ontology named. **As individual**: named individuals whose label denotes the concept (RBO uses individuals for cohorts, facilities and instrument records). **Related RBO-native label**: the nearest broader or adjacent RBO term when the concept itself is absent, so that a gap is not claimed where RBO merely uses different wording. **Prose only**: entities that mention the phrase in free-text annotation while no entity denotes it by a label -- prose, not ontological coverage (10567 annotation strings over 10030 entities scanned).
+Column meanings. **Denoted in RBO-native**: an `obo:RBO_*` class whose `rdfs:label` or synonym denotes the concept. **Anywhere in file**: the same test over all 9221 named classes, with the contributing ontology named. **As individual**: named individuals whose label denotes the concept (RBO uses individuals for cohorts, facilities and instrument records). **Related RBO-native label**: the nearest broader or adjacent RBO term when the concept itself is absent, so that a gap is not claimed where RBO merely uses different wording. **Prose only**: entities that mention the phrase in free-text annotation while no entity denotes it by a label, which is coverage in prose only (10567 annotation strings over 10030 entities scanned).
 
 | Concept | Denoted in RBO-native? | RBO-native IRIs | Anywhere in file? | As individual | Related RBO-native label | Prose only |
 |---|---|---|---|---|---|---|
@@ -590,7 +590,7 @@ Provenance of the 38 plant-related classes in the merged file:
 
 ### 8.1 Do the external classes OnSIR aligns to exist in RBO?
 
-OnSIR asserts `skos:closeMatch`, `skos:exactMatch`, `owl:equivalentClass` or `rdfs:subClassOf` links to 16 classes in the `obo:` namespace. Their presence in the merged rbo.owl file bounds how much of OnSIR could be re-expressed inside RBO's existing import surface.
+OnSIR asserts `skos:closeMatch`, `skos:exactMatch`, `owl:equivalentClass` or `rdfs:subClassOf` links to 20 classes in the `obo:` namespace. Their presence in the merged rbo.owl file bounds how much of OnSIR could be re-expressed inside RBO's existing import surface.
 
 | External class OnSIR aligns to | Label in rbo.owl | Present in rbo.owl? | Used by OnSIR class |
 |---|---|---|---|
@@ -605,17 +605,21 @@ OnSIR asserts `skos:closeMatch`, `skos:exactMatch`, `owl:equivalentClass` or `rd
 | `http://purl.obolibrary.org/obo/ENVO_00001998` | soil | yes | `SoilCondition` |
 | `http://purl.obolibrary.org/obo/PATO_0000125` | mass | yes | `DryMass`, `FreshMass` |
 | `http://purl.obolibrary.org/obo/PATO_0000146` | temperature | yes | `TemperatureCondition` |
+| `http://purl.obolibrary.org/obo/PO_0005052` | _n/a_ | **no** | `PlantCallus` |
 | `http://purl.obolibrary.org/obo/PO_0007057` | _n/a_ | **no** | `GerminationStage` |
 | `http://purl.obolibrary.org/obo/PO_0008037` | _n/a_ | **no** | `Seedling` |
 | `http://purl.obolibrary.org/obo/PO_0009010` | _n/a_ | **no** | `PlantSeed` |
 | `http://purl.obolibrary.org/obo/PO_0020030` | _n/a_ | **no** | `CotyledonFreeing` |
 | `http://purl.obolibrary.org/obo/PO_0025131` | plant anatomical entity | yes | `PlantPart` |
+| `http://purl.obolibrary.org/obo/TO_0000227` | _n/a_ | **no** | `RootLength` |
+| `http://purl.obolibrary.org/obo/TO_0000280` | _n/a_ | **no** | `SeedlingVigorIndex` |
+| `http://purl.obolibrary.org/obo/TO_0000430` | _n/a_ | **no** | `GerminationRate` |
 
-**9 of 16** external alignment targets are present in rbo.owl; **7 are absent**. The absent ones are precisely the plant- and redox-specific anchors: the PO seed, seedling, germination-stage and cotyledon classes, and the ChEBI classes for the Co-60 and Cs-137 nuclides, chlorophyll and reactive oxygen species.
+**9 of 20** external alignment targets are present in rbo.owl; **11 are absent**. The absent ones are precisely the plant- and redox-specific anchors: the PO seed, seedling, germination-stage and cotyledon classes, and the ChEBI classes for the Co-60 and Cs-137 nuclides, chlorophyll and reactive oxygen species.
 
 ## 9. Factual summary
 
-RBO release 2026-07-16 is a single merged file of 27.9 MiB containing 354548 RDF triples, 9221 named `owl:Class` declarations and 1085 named individuals, of which only 446 classes (4.8%) carry RBO-native `obo:RBO_*` IRIs -- 405 active and 41 deprecated -- while the other 8775 are inlined from GO, UBERON, ChEBI, ENVO, UO, CL, NCBITaxon, PATO, OBI and PO. The RBO-native layer is a vocabulary of radiation physics, dosimetry, exposure environments and epidemiological study design: ion species and cosmic, accelerator and reactor sources, active and passive dosimeters, absorbed, equivalent, effective and organ dose, dose rate and dose fractionation, spaceflight habitats and cohort study types, which is why the physical side of a seed-irradiation protocol maps cleanly -- *dose rate* and *absorbed dose* are denoted by RBO-native classes (`RBO_00000029` dose rate, `RBO_00005010` absorbed radiation dose, `RBO_00010014` organ dose), while the *gray* itself is not an RBO term at all and resolves instead to the inlined UO unit fragment (`UO_0000134` gray, `UO_0010060` gray per minute, plus centigray and milligray variants), RBO's only native gray-derived class being the deprecated and misspelled `RBO_00005066` 'miligray per second'. The biological-effect side has no representation whatsoever: the substrings *hormes*, *hormetic*, *germinat*, *steriliz*, *mutation breeding*, *cultivar* occur nowhere in the file -- zero matches for each by independent `grep`, in labels, synonyms and prose alike -- and *dose-response* (or *dose-effect*) appears only inside the free-text definitions of 3 RBO named individuals recording epidemiology and effects-database resources (`RBO_00120047` FREDERICA; `RBO_00120058` The German uranium miners cohort study (WISMUT cohort); `RBO_00120095` LDRadStatsNet - Network of statisticians interested in low dose IR research), with no class or individual denoting the concept. Plant biology is likewise absent from RBO proper -- 0 of 446 RBO-native classes mention plant, seed, germination, crop or cultivar, the 38 plant-related classes in the file all come from the inlined ENVO, PO, NCBITaxon, PATO and ChEBI fragments, and 7 of the 16 external classes OnSIR aligns to (the PO seed, seedling, germination-stage and cotyledon terms, and the ChEBI Co-60, Cs-137, chlorophyll and ROS terms) are not in the file at all. Consequently 89 of OnSIR's 92 classes (96.7%) have no exact or near counterpart among RBO-native classes and 82 (89.1%) have none anywhere in the merged release, the residue being concentrated in the dose-category, response, endpoint, dose-response-model and experimental-context branches that carry the dose-effect semantics of the domain.
+RBO release 2026-07-16 is a single merged file of 27.9 MiB containing 354548 RDF triples, 9221 named `owl:Class` declarations and 1085 named individuals, of which only 446 classes (4.8%) carry RBO-native `obo:RBO_*` IRIs -- 405 active and 41 deprecated -- while the other 8775 are inlined from GO, UBERON, ChEBI, ENVO, UO, CL, NCBITaxon, PATO, OBI and PO. The RBO-native layer is a vocabulary of radiation physics, dosimetry, exposure environments and epidemiological study design: ion species and cosmic, accelerator and reactor sources, active and passive dosimeters, absorbed, equivalent, effective and organ dose, dose rate and dose fractionation, spaceflight habitats and cohort study types, which is why the physical side of a seed-irradiation protocol maps cleanly -- *dose rate* and *absorbed dose* are denoted by RBO-native classes (`RBO_00000029` dose rate, `RBO_00005010` absorbed radiation dose, `RBO_00010014` organ dose), while the *gray* itself is not an RBO term at all and resolves instead to the inlined UO unit fragment (`UO_0000134` gray, `UO_0010060` gray per minute, plus centigray and milligray variants), RBO's only native gray-derived class being the deprecated and misspelled `RBO_00005066` 'miligray per second'. The biological-effect side has no representation whatsoever: the substrings *hormes*, *hormetic*, *germinat*, *steriliz*, *mutation breeding*, *cultivar* occur nowhere in the file -- zero matches for each by independent `grep`, in labels, synonyms and prose alike -- and *dose-response* (or *dose-effect*) appears only inside the free-text definitions of 3 RBO named individuals recording epidemiology and effects-database resources (`RBO_00120047` FREDERICA; `RBO_00120058` The German uranium miners cohort study (WISMUT cohort); `RBO_00120095` LDRadStatsNet - Network of statisticians interested in low dose IR research), with no class or individual denoting the concept. Plant biology is likewise absent from RBO proper -- 0 of 446 RBO-native classes mention plant, seed, germination, crop or cultivar, the 38 plant-related classes in the file all come from the inlined ENVO, PO, NCBITaxon, PATO and ChEBI fragments, and 11 of the 20 external classes OnSIR aligns to (the PO seed, seedling, germination-stage and cotyledon terms, and the ChEBI Co-60, Cs-137, chlorophyll and ROS terms) are not in the file at all. Consequently 87 of OnSIR's 90 classes (96.7%) have no exact or near counterpart among RBO-native classes and 80 (88.9%) have none anywhere in the merged release, the residue being concentrated in the dose-category, response, endpoint, dose-response-model and experimental-context branches that carry the dose-effect semantics of the domain.
 
 ## 10. Limitations
 
@@ -631,7 +635,7 @@ The structural counts were reproduced with owlready2, an independent OWL parser,
 ## 12. Reproduction
 
 ```sh
-curl -sSL -o rbo.owl http://purl.obolibrary.org/obo/rbo.owl
+curl -sSL -o rbo.owl https://raw.githubusercontent.com/Radiobiology-Informatics-Consortium/RBO/v2026-07-23/rbo.owl
 python rbo_gap.py
 ```
 

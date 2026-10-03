@@ -1,10 +1,9 @@
 # -*- coding: utf-8 -*-
 r"""Search the public ontology registries for a prior seed-irradiation ontology.
 
-The manuscript claims OnSIR is the first reasoning-enabled ontology dedicated to seed irradiation.
-A comparison against one incumbent (RBO) does not establish that, so this script performs the
-registry search the claim needs, and prints the numbers the paper quotes. It hits the network; the
-output is reproducible in the sense that anyone can re-run it and see the registries' current state.
+A comparison with one neighbouring ontology (RBO) leaves open whether another registered ontology
+covers seed irradiation, so this script searches the OBO Foundry registry and the EBI Ontology
+Lookup Service. It reads the network, so a re-run shows the registries' state on the day it runs.
 
 Run:  python registry_search.py
 """

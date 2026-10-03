@@ -1,29 +1,31 @@
 # -*- coding: utf-8 -*-
-r"""One-command verification of the release: does the published artifact say what the paper claims?
+r"""One-command verification of the release: does the published artifact say what its README and
+the accompanying paper state?
 
 Checks, in order:
-  1. every file the manuscript names is present;
-  2. the ontology and the ABox parse, in both serializations, and the two serializations agree;
+  1. every file of the release is present;
+  2. the ontology, the ABox and the examples parse, in both serializations, and the serializations
+     agree;
   3. the merged ontology + ABox is consistent under HermiT, and no class is unsatisfiable;
   4. every generated file regenerates byte-identically from the artifact;
-  5. every numeric row of the manuscript's metrics table matches the artifact;
-  6. no IRI sits undeclared in a logical position, counting the imports closure -- an OWL 2 DL
-     requirement that a reasoner will tolerate and an OWL API profile validator will not;
-  7. every individual in either file is declared owl:NamedIndividual;
+  5. every numeric row of the metrics table matches the artifact;
+  6. no IRI sits undeclared in a logical position, counting the imports closure;
+  7. every individual in the three files is declared owl:NamedIndividual, and the core carries no
+     individual besides the taxa of the dose windows;
   8. the property characteristics the README advertises are present, and no property carries two
-     rdfs:domain or two rdfs:range axioms (they are read conjunctively, not as alternatives);
-  9. the grounding ablation is a one-sentence difference, as Section 9 claims;
+     rdfs:domain or two rdfs:range axioms (they are read conjunctively);
+  9. ROBOT validates each file against the OWL 2 DL profile, the ABox and the examples with their
+     import resolved through the shipped catalogue;
  10. owlready2 can load the ABox by the recipe the README documents;
- 11. no drafting note or placeholder survives anywhere in the release, the source skeleton included.
+ 11. no drafting note or placeholder survives anywhere in the release, the source skeleton included;
+ 12. the counts the README states match the artifact;
+ 13. the examples show the dose-to-effect inference: an example outcome with a typed dose category
+     and no asserted response is classified by HermiT into the matching defined class.
 
-An earlier version of this script passed on checks 5-7 vacuously: it verified 3 of the 11 metric
-rows, filtered undeclared IRIs to the OnSIR namespace (so it saw none of the 35 external ones), and
-tested `individuals > 100` on one of the two files. Those are the checks that now do work.
-
-HermiT is invoked through its own command line rather than through owlready2's `sync_reasoner`,
-because owlready2 encodes subsumption as Python inheritance and raises on an inferred equivalence
-(`Seedling` is equivalent to `PO:0008037`) before it reports the reasoner's verdict. The exception is
-an artefact of that encoding, not a DL result, so the verdict is taken from HermiT directly.
+HermiT is invoked through its own command line, because owlready2 encodes subsumption as Python
+inheritance and raises on an inferred equivalence (Seedling is equivalent to PO:0008037) before it
+reports the reasoner's verdict. ROBOT is found through the ROBOT_JAR environment variable, a robot
+command on the PATH, or a robot.jar next to this script; without it check 9 fails.
 
 Run:  python verify_release.py     (exit code 0 = every check passed)
 """
@@ -53,26 +55,22 @@ def check(label, ok, detail=""):
 
 # ---------------------------------------------------------------- 1. files present
 print("release contents")
-REQUIRED = ["OnSIR.ttl", "OnSIR.owl", "OnSIR_abox.ttl", "OnSIR_abox.owl", "OnSIR_base.owl",
+REQUIRED = ["OnSIR.ttl", "OnSIR.owl", "OnSIR_abox.ttl", "OnSIR_abox.owl", "OnSIR_examples.ttl",
+            "OnSIR_examples.owl", "OnSIR_base.owl",
             "catalog-v001.xml", "build_ontology.py", "reason.py", "reason_context.py",
             "abox_cq.py", "rbo_recheck.py", "rbo_gap.py", "make_metrics.py", "make_docs.py",
-            "llm_bench.py", "registry_search.py", "verify_calculus.py" if False else "README.md",
-            "CITATION.cff", "LICENSE",
-            os.path.join("corpus", "eiccam_table_body.tex"), os.path.join("docs", "index.html"),
-            os.path.join("bench", "PROVENANCE.md")]
+            "registry_search.py", "README.md", "CITATION.cff", "LICENSE",
+            os.path.join("corpus", "eiccam_table_body.tex"), os.path.join("corpus", "added_studies.json"),
+            os.path.join("docs", "index.html")]
 missing = [f for f in REQUIRED if not os.path.exists(os.path.join(HERE, f))]
-check("every file the manuscript names is present", not missing, f"missing {missing}")
-for cond in ("ungrounded", "grounded", "framed"):
-    for kind in ("answers", "prompt"):
-        ext = "json" if kind == "answers" else "txt"
-        p = os.path.join(HERE, "bench", f"{kind}_{cond}.{ext}")
-        check(f"benchmark {kind} ({cond})", os.path.exists(p))
+check("every file of the release is present", not missing, f"missing {missing}")
 
 # ---------------------------------------------------------------- 2. parses
 print("\nserializations")
 graphs = {}
 for f, fmt in [("OnSIR.ttl", "turtle"), ("OnSIR.owl", "xml"),
-               ("OnSIR_abox.ttl", "turtle"), ("OnSIR_abox.owl", "xml")]:
+               ("OnSIR_abox.ttl", "turtle"), ("OnSIR_abox.owl", "xml"),
+               ("OnSIR_examples.ttl", "turtle"), ("OnSIR_examples.owl", "xml")]:
     try:
         g = rdflib.Graph()
         g.parse(os.path.join(HERE, f), format=fmt)
@@ -82,7 +80,9 @@ for f, fmt in [("OnSIR.ttl", "turtle"), ("OnSIR.owl", "xml"),
         check(f"{f} parses", False, str(e)[:70])
 
 core, abox = graphs.get("OnSIR.ttl"), graphs.get("OnSIR_abox.ttl")
-for a, b in (("OnSIR.ttl", "OnSIR.owl"), ("OnSIR_abox.ttl", "OnSIR_abox.owl")):
+examples = graphs.get("OnSIR_examples.ttl")
+for a, b in (("OnSIR.ttl", "OnSIR.owl"), ("OnSIR_abox.ttl", "OnSIR_abox.owl"),
+             ("OnSIR_examples.ttl", "OnSIR_examples.owl")):
     if a in graphs and b in graphs:
         check(f"{a} and {b} agree in size", abs(len(graphs[a]) - len(graphs[b])) <= 1,
               f"{len(graphs[a])} vs {len(graphs[b])}")
@@ -218,7 +218,7 @@ else:
     print("  [skip] metrics table not present (manuscript source not in the release)")
 
 # ---------------------------------------------------------------- 6. declarations
-print("\nOWL 2 DL declarations (every IRI, not only the OnSIR ones)")
+print("\nOWL 2 DL declarations (every IRI, external ones included)")
 LOGICAL = {RDFS.subClassOf, OWL.equivalentClass, OWL.onProperty, OWL.someValuesFrom,
            OWL.allValuesFrom, OWL.hasValue, OWL.onClass, OWL.complementOf, OWL.disjointWith,
            RDFS.domain, RDFS.range, OWL.inverseOf, RDFS.subPropertyOf}
@@ -253,7 +253,8 @@ if core is not None and abox is not None:
 
     # ---------------------------------------------------------- 7. every individual declared
     print("\nowl:NamedIndividual declarations")
-    for label, g_ in (("OnSIR.ttl", core), ("OnSIR_abox.ttl", abox)):
+    for label, g_ in (("OnSIR.ttl", core), ("OnSIR_abox.ttl", abox),
+                      ("OnSIR_examples.ttl", examples if examples is not None else rdflib.Graph())):
         cls = {c for c in both.subjects(RDF.type, OWL.Class)}
         declared = set(g_.subjects(RDF.type, OWL.NamedIndividual))
         used = {s for s, p, o in g_.triples((None, RDF.type, None))
@@ -261,6 +262,11 @@ if core is not None and abox is not None:
         miss = sorted(str(x)[len(NS):] for x in used - declared)
         check(f"every individual in {label} is declared", not miss,
               f"{len(declared)} declared, missing {miss}" if miss else f"{len(declared)} declared")
+    # The illustrative individuals of the scaffold carry invented values and live in the examples
+    # file; the core carries only the taxon individuals that the dose windows name.
+    core_ind = sorted(str(x)[len(NS):] for x in core.subjects(RDF.type, OWL.NamedIndividual))
+    check("the core carries only the taxon individuals of the dose windows",
+          core_ind and all(x.startswith("taxon_") for x in core_ind), f"{core_ind}")
 
     # ---------------------------------------------------------- 8. property characteristics
     print("\nproperty characteristics")
@@ -358,18 +364,37 @@ if core is not None and os.path.exists(dp):
     check("every term with a curation note shows it in the documentation",
           noted and not missing, f"{len(noted)} noted, missing {missing}" if noted else "no notes")
 
-# ---------------------------------------------------------------- 9. the ablation is one sentence
-print("\ngrounding ablation")
-gp = os.path.join(HERE, "bench", "prompt_grounded.txt")
-fp = os.path.join(HERE, "bench", "prompt_framed.txt")
-if os.path.exists(gp) and os.path.exists(fp):
-    gtxt, ftxt = open(gp).read(), open(fp).read()
-    extra = [l for l in ftxt.splitlines() if l and l not in gtxt.splitlines()]
-    check("framed differs from grounded by exactly one sentence", len(extra) == 1,
-          f"{len(extra)} differing lines")
-    check("the differing sentence is the evidential-semantics framing",
-          bool(extra) and "carry no claim about the biological outcome" in extra[0],
-          extra[0][:60] if extra else "")
+# ---------------------------------------------------------------- 9. ROBOT DL profile
+print("\nOWL 2 DL profile (ROBOT validate-profile)")
+
+
+def robot_cmd():
+    if os.environ.get("ROBOT_JAR") and os.path.exists(os.environ["ROBOT_JAR"]):
+        return ["java", "-jar", os.environ["ROBOT_JAR"]]
+    if shutil.which("robot"):
+        return ["robot"]
+    if os.path.exists(os.path.join(HERE, "robot.jar")):
+        return ["java", "-jar", os.path.join(HERE, "robot.jar")]
+    return None
+
+
+_robot = robot_cmd()
+if _robot is None:
+    check("ROBOT is available for the DL profile check", False,
+          "set ROBOT_JAR to a robot.jar (https://github.com/ontodev/robot/releases)")
+else:
+    for f in ("OnSIR.owl", "OnSIR.ttl", "OnSIR_abox.owl", "OnSIR_abox.ttl", "OnSIR_examples.owl",
+              "OnSIR_examples.ttl"):
+        try:
+            r = subprocess.run(_robot + ["--catalog", "catalog-v001.xml", "validate-profile",
+                                         "--profile", "DL", "--input", f],
+                               cwd=HERE, capture_output=True, text=True, timeout=600)
+            txt = (r.stdout or "") + (r.stderr or "")
+            good = r.returncode == 0 and "[Ontology and imports closure in profile]" in txt
+            first = next((l for l in txt.splitlines() if l.strip()), "")
+            check(f"{f} is in the OWL 2 DL profile", good, "" if good else first[:110])
+        except subprocess.TimeoutExpired:
+            check(f"{f} is in the OWL 2 DL profile", False, "ROBOT timed out")
 
 # ---------------------------------------------------------------- 10. owlready2 recipe
 print("\nowlready2 load recipe (README section 'Loading the ABox')")
@@ -389,6 +414,29 @@ except Exception as e:
     check("owlready2 loads core-then-ABox in one World", False,
           f"{type(e).__name__}: {str(e)[:80]}")
 
+# ---------------------------------------------------------------- 13. the examples reason
+print("\nexamples: dose-to-effect inference")
+try:
+    import owlready2 as o2
+    w = o2.World()
+    _core = w.get_ontology("https://w3id.org/onsir")
+    with open(os.path.join(HERE, "OnSIR.owl"), "rb") as fh:
+        _core.load(only_local=False, fileobj=fh)
+    _ex = w.get_ontology("file://" + os.path.join(HERE, "OnSIR_examples.owl")).load()
+    with _ex:
+        o2.sync_reasoner_hermit(w, infer_property_values=False, debug=0)
+    _ns = w.get_namespace(NS)
+    _x = _ns["Outcome_XRay_Mutagenesis"]
+    _no_resp = not list(examples.objects(URIRef(NS + "Outcome_XRay_Mutagenesis"), URIRef(NS + "hasResponse")))
+    _cls = sorted(c.name for c in _x.INDIRECT_is_a if hasattr(c, "name"))
+    check("an example outcome with no asserted response is classified MutagenicOutcome",
+          _no_resp and "MutagenicOutcome" in _cls, f"{_cls}")
+except ImportError:
+    print("  [skip] owlready2 not installed")
+except Exception as e:
+    check("an example outcome with no asserted response is classified MutagenicOutcome", False,
+          f"{type(e).__name__}: {str(e)[:80]}")
+
 # ---------------------------------------------------------------- 11. no drafting residue
 print("\nrelease hygiene")
 # "example.org/..." is NOT in this list. The source skeleton was authored under that ontology IRI
@@ -401,7 +449,8 @@ PATTERNS = ["Integration touchpoint", "You + Assistant", "TODO", "FIXME", "XXX",
 # hygiene check covers the published artifacts and documentation, not the build tooling. The source
 # skeleton IS covered: it is shipped, and it was the one file the earlier version of this check
 # required but did not scan.
-ARTIFACTS = ["OnSIR.ttl", "OnSIR.owl", "OnSIR_abox.ttl", "OnSIR_abox.owl", "OnSIR_base.owl",
+ARTIFACTS = ["OnSIR.ttl", "OnSIR.owl", "OnSIR_abox.ttl", "OnSIR_abox.owl", "OnSIR_examples.ttl",
+             "OnSIR_examples.owl", "OnSIR_base.owl",
              "README.md", "CITATION.cff", os.path.join("docs", "index.html")]
 resid = []
 for f in ARTIFACTS:
@@ -418,7 +467,8 @@ check("no drafting notes or placeholders in the release", not resid, f"{resid}")
 # rewrites every term into the OnSIR namespace. What must not survive is a placeholder INDIVIDUAL.
 check("no example.org IRI reaches the published graphs",
       not any("example.org" in open(os.path.join(HERE, f), errors="ignore").read()
-              for f in ("OnSIR.ttl", "OnSIR_abox.ttl") if os.path.exists(os.path.join(HERE, f))))
+              for f in ("OnSIR.ttl", "OnSIR_abox.ttl", "OnSIR_examples.ttl")
+              if os.path.exists(os.path.join(HERE, f))))
 
 # ---------------------------------------------------------------- 12. README numeric claims
 print("\nREADME numeric claims (hand-written prose, pinned against the artifact)")

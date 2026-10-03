@@ -1,16 +1,14 @@
 # -*- coding: utf-8 -*-
 r"""Reproducible term-level comparison of OnSIR against the OBO Radiation Biology Ontology.
 
-This is the script whose numbers the manuscript quotes. It is deliberately short and states its
-matching rule explicitly, because label-overlap counts are method-dependent: a looser rule that
-also consults synonyms and substring containment reports more matches than strict label equality,
-and a paper should say which it used.
+The script is short and states its matching rule explicitly, because label-overlap counts depend on
+the method: a looser rule that also consults synonyms and substring containment reports more matches
+than strict label equality.
 
 MATCHING RULE. An OnSIR class name is split at camel-case boundaries, lowercased, and stripped of
 non-alphanumerics; an RBO class label is lowercased and stripped the same way. A match is exact
 equality of the two normalized strings. Near matches use difflib ratio >= 0.85. Synonyms are NOT
-consulted for the match counts (they ARE consulted for the concept probe below, which is the claim
-that actually matters).
+consulted for the match counts; they are consulted for the concept probe below.
 
 Run:  python rbo_recheck.py      (expects rbo.owl; fetch with rbo_gap.py if absent)
 """

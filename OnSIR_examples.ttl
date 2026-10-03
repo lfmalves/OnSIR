@@ -1,0 +1,137 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix onsir: <https://w3id.org/onsir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+dct:license a owl:AnnotationProperty .
+
+onsir:Outcome_Co60_GerminationHormesis a owl:NamedIndividual,
+        onsir:TreatmentOutcome ;
+    rdfs:comment "Illustrative individual; its values are invented." ;
+    onsir:forEndpoint onsir:example_endpoint_Co60_GerminationHormesis ;
+    onsir:hasDoseCategory onsir:example_dose_Co60_GerminationHormesis ;
+    onsir:hasModel onsir:Model_BC_Germination ;
+    onsir:hasResponse onsir:Resp_GerminationHormesis ;
+    onsir:hasSubject onsir:example_seed_Co60_GerminationHormesis ;
+    onsir:hasTreatment onsir:Treat_Co60_Gamma_50Gy .
+
+onsir:Outcome_UVC_Sterilization a owl:NamedIndividual,
+        onsir:TreatmentOutcome ;
+    rdfs:comment "Illustrative individual; its values are invented." ;
+    onsir:forEndpoint onsir:example_endpoint_UVC_Sterilization ;
+    onsir:hasDoseCategory onsir:example_dose_UVC_Sterilization ;
+    onsir:hasResponse onsir:Resp_Sterility ;
+    onsir:hasSubject onsir:example_seed_UVC_Sterilization ;
+    onsir:hasTreatment onsir:Treat_UVC_254nm_1200Jm2 .
+
+onsir:Outcome_XRay_Mutagenesis a owl:NamedIndividual,
+        onsir:TreatmentOutcome ;
+    rdfs:comment "Illustrative individual; its values are invented." ;
+    onsir:forEndpoint onsir:example_endpoint_XRay_Mutagenesis ;
+    onsir:hasDoseCategory onsir:example_dose_XRay_Mutagenesis ;
+    onsir:hasSubject onsir:example_seed_XRay_Mutagenesis ;
+    onsir:hasTreatment onsir:Treat_XRay_150Gy .
+
+onsir:examples a owl:Ontology ;
+    dct:license <https://creativecommons.org/licenses/by/4.0/> ;
+    rdfs:comment "Illustrative individuals showing how a treatment, its outcome, its response and a dose-response model are modelled in OnSIR. Every numeric value in this file is invented for illustration and is taken from no study. Outcome_XRay_Mutagenesis carries a dose category and no response, and a reasoner classifies it as a MutagenicOutcome." ;
+    owl:imports <https://w3id.org/onsir> ;
+    owl:versionInfo "1.6.0" .
+
+onsir:Model_BC_Germination a owl:NamedIndividual,
+        onsir:BrainCousensModel ;
+    rdfs:comment "Illustrative individual; its values are invented." ;
+    onsir:bc_b -2.148e+00 ;
+    onsir:bc_c 1.017e-03 ;
+    onsir:bc_d 2.433e-03 ;
+    onsir:bc_e 5.3e+01 ;
+    onsir:bc_f -3.747e-06 .
+
+onsir:Resp_GerminationHormesis a owl:NamedIndividual,
+        onsir:HormeticResponse ;
+    rdfs:comment "Illustrative individual; its values are invented." ;
+    onsir:germinationRateIncrease 2.2e-01 ;
+    onsir:rootGrowthStimulus 3e-01 .
+
+onsir:Resp_Sterility a owl:NamedIndividual,
+        onsir:SterilizationResponse ;
+    rdfs:comment "Illustrative individual; its values are invented." ;
+    onsir:sterilityRate 9.8e-01 .
+
+onsir:Treat_Co60_Gamma_50Gy a owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
+    rdfs:comment "Illustrative individual; its values are invented." ;
+    onsir:hasDose [ a onsir:QuantityValue ;
+            qudt:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
+            onsir:numericValue 5e+01 ] ;
+    onsir:hasDoseRange [ onsir:maxDose [ a onsir:QuantityValue ;
+                    qudt:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
+                    onsir:numericValue 1e+02 ] ;
+            onsir:minDose [ a onsir:QuantityValue ;
+                    qudt:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
+                    onsir:numericValue 2.5e+01 ] ] ;
+    onsir:hasDoseRate [ a onsir:QuantityValue ;
+            qudt:hasUnit <http://qudt.org/vocab/unit/GRAY-PER-MIN> ;
+            onsir:numericValue 2.5e+00 ] ;
+    onsir:hasExposureTime [ a onsir:QuantityValue ;
+            qudt:hasUnit <http://qudt.org/vocab/unit/MIN> ;
+            onsir:numericValue 2e+01 ] .
+
+onsir:Treat_UVC_254nm_1200Jm2 a owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
+    rdfs:comment "Illustrative individual; its values are invented." ;
+    onsir:hasDose _:Na4fe387c3f194e02bcdda9cb91166f92 ;
+    onsir:hasFluence _:Na4fe387c3f194e02bcdda9cb91166f92 ;
+    onsir:hasWavelength [ a onsir:QuantityValue ;
+            qudt:hasUnit <http://qudt.org/vocab/unit/NanoM> ;
+            onsir:numericValue 2.54e+02 ] .
+
+onsir:Treat_XRay_150Gy a owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
+    rdfs:comment "Illustrative individual; its values are invented." ;
+    onsir:hasDose [ a onsir:QuantityValue ;
+            qudt:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
+            onsir:numericValue 1.5e+02 ] .
+
+onsir:example_dose_Co60_GerminationHormesis a owl:NamedIndividual,
+        onsir:HormeticDose ;
+    rdfs:comment "Illustrative individual; its values are invented." .
+
+onsir:example_dose_UVC_Sterilization a owl:NamedIndividual,
+        onsir:SterilizationDose ;
+    rdfs:comment "Illustrative individual; its values are invented." .
+
+onsir:example_dose_XRay_Mutagenesis a owl:NamedIndividual,
+        onsir:MutagenicDose ;
+    rdfs:comment "Illustrative individual; its values are invented." .
+
+onsir:example_endpoint_Co60_GerminationHormesis a owl:NamedIndividual,
+        onsir:GerminationRate ;
+    rdfs:comment "Illustrative individual; its values are invented." .
+
+onsir:example_endpoint_UVC_Sterilization a owl:NamedIndividual,
+        onsir:SeedSterility ;
+    rdfs:comment "Illustrative individual; its values are invented." .
+
+onsir:example_endpoint_XRay_Mutagenesis a owl:NamedIndividual,
+        onsir:MutationFrequency ;
+    rdfs:comment "Illustrative individual; its values are invented." .
+
+onsir:example_seed_Co60_GerminationHormesis a owl:NamedIndividual,
+        onsir:PlantSeed ;
+    rdfs:comment "Illustrative individual; its values are invented." .
+
+onsir:example_seed_UVC_Sterilization a owl:NamedIndividual,
+        onsir:PlantSeed ;
+    rdfs:comment "Illustrative individual; its values are invented." .
+
+onsir:example_seed_XRay_Mutagenesis a owl:NamedIndividual,
+        onsir:PlantSeed ;
+    rdfs:comment "Illustrative individual; its values are invented." .
+
+_:Na4fe387c3f194e02bcdda9cb91166f92 a onsir:QuantityValue ;
+    qudt:hasUnit <http://qudt.org/vocab/unit/J-PER-M2> ;
+    onsir:numericValue 1.2e+03 .
+
