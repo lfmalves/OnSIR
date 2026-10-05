@@ -251,7 +251,9 @@ def load_onsir():
     g = Graph()
     g.parse(ONSIR_FILE, format="turtle")
     named_all = {s for s in g.subjects(RDF.type, OWL.Class) if isinstance(s, URIRef)}
-    classes = sorted({c for c in named_all if str(c).startswith(ONSIR_NS)}, key=str)
+    # obsolete classes (owl:deprecated) are kept in the release for their IRIs and compared with nothing
+    deprecated = set(g.subjects(OWL.deprecated, None))
+    classes = sorted({c for c in named_all if str(c).startswith(ONSIR_NS) and c not in deprecated}, key=str)
     anon = [s for s in g.subjects(RDF.type, OWL.Class) if not isinstance(s, URIRef)]
     referenced = set()
     for p in (RDFS.subClassOf, OWL.equivalentClass, RDFS.domain, RDFS.range,
@@ -266,9 +268,11 @@ def load_onsir():
         "anonymous": len(anon),
         "triples": len(g),
         "object_properties": len({s for s in g.subjects(RDF.type, OWL.ObjectProperty)
-                                  if isinstance(s, URIRef)}),
+                                  if isinstance(s, URIRef) and str(s).startswith(ONSIR_NS)
+                                  and s not in deprecated}),
         "datatype_properties": len({s for s in g.subjects(RDF.type, OWL.DatatypeProperty)
-                                    if isinstance(s, URIRef)}),
+                                    if isinstance(s, URIRef) and str(s).startswith(ONSIR_NS)
+                                    and s not in deprecated}),
         "unlabelled": sorted(c for c in classes if g.value(c, RDFS.label) is None),
     }
     return g, classes, implicit, stats
@@ -478,9 +482,10 @@ def main():
     # OnSIR external alignment targets: are they in rbo.owl at all?
     align_preds = [SKOS.closeMatch, SKOS.exactMatch, OWL.equivalentClass, RDFS.subClassOf]
     targets = set()
+    ons_deprecated = set(gons.subjects(OWL.deprecated, None))
     for p in align_preds:
         for s, o in gons.subject_objects(p):
-            if isinstance(o, URIRef) and str(o).startswith(OBO):
+            if isinstance(o, URIRef) and str(o).startswith(OBO) and s not in ons_deprecated:
                 targets.add(o)
     align_rows = []
     for t in sorted(targets, key=str):
@@ -894,9 +899,8 @@ def write_report(ctx):
       "Plant biology is likewise absent from RBO proper -- %d of %d RBO-native classes "
       "mention plant, seed, germination, crop or cultivar, the %d plant-related classes in "
       "the file all come from the inlined ENVO, PO, NCBITaxon, PATO and ChEBI fragments, and "
-      "%d of the %d external classes OnSIR aligns to (the PO seed, seedling, "
-      "germination-stage and cotyledon terms, and the ChEBI Co-60, Cs-137, chlorophyll and "
-      "ROS terms) are not in the file at all. "
+      "%d of the %d external classes OnSIR aligns to (listed in section 8.1) are not in the "
+      "file at all. "
       "Consequently %d of OnSIR's %d classes (%.1f%%) have no exact or near counterpart "
       "among RBO-native classes and %d (%.1f%%) have none anywhere in the merged release, "
       "the residue being concentrated in the dose-category, response, endpoint, "

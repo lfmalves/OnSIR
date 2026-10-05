@@ -35,8 +35,9 @@ def main():
     if not os.path.exists("rbo.owl"):
         sys.exit("rbo.owl not present; run rbo_gap.py first to download it.")
     o = rdflib.Graph(); o.parse("OnSIR.ttl", format="turtle")
+    dep = set(o.subjects(OWL.deprecated, None))       # obsolete terms are compared with nothing
     onsir = sorted(str(c)[len(NS):] for c in set(o.subjects(RDF.type, OWL.Class))
-                   if isinstance(c, URIRef) and str(c).startswith(NS))
+                   if isinstance(c, URIRef) and str(c).startswith(NS) and c not in dep)
 
     r = rdflib.Graph(); r.parse("rbo.owl")
     ont = next(iter(r.subjects(RDF.type, OWL.Ontology)), None)

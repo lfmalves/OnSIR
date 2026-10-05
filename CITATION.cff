@@ -3,11 +3,12 @@ message: "If you use OnSIR, please cite it as below."
 title: "OnSIR: Ontology for Seed Irradiation and Plant Radiobiology"
 abstract: >-
   An OWL 2 DL ontology of seed-irradiation treatments and their dose-dependent
-  biological effects, aligned to BFO, PO, NCBITaxon, ChEBI, PATO, ENVO, PECO and TO, units in
-  QUDT, with dose-to-effect axioms and taxon dose windows for description-logic reasoning.
+  biological effects, with dose-to-effect axioms and taxon dose windows conditioned on endpoint
+  and stage for description-logic reasoning, aligned to BFO, IAO, OBI, RO, PO, NCBITaxon, ChEBI,
+  GO, PATO, PECO and TO, with units in QUDT.
 type: dataset
-version: "1.6.0"
-date-released: "2026-10-02"
+version: "1.7.0"
+date-released: "2026-10-05"
 license: CC-BY-4.0
 url: "https://w3id.org/onsir"
 repository-code: "https://github.com/lfmalves/OnSIR"

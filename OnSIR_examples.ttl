@@ -7,6 +7,8 @@
 
 dct:license a owl:AnnotationProperty .
 
+dct:title a owl:AnnotationProperty .
+
 onsir:Outcome_Co60_GerminationHormesis a owl:NamedIndividual,
         onsir:TreatmentOutcome ;
     rdfs:comment "Illustrative individual; its values are invented." ;
@@ -14,6 +16,16 @@ onsir:Outcome_Co60_GerminationHormesis a owl:NamedIndividual,
     onsir:hasDoseCategory onsir:example_dose_Co60_GerminationHormesis ;
     onsir:hasModel onsir:Model_BC_Germination ;
     onsir:hasResponse onsir:Resp_GerminationHormesis ;
+    onsir:hasSubject onsir:example_seed_Co60_GerminationHormesis ;
+    onsir:hasTreatment onsir:Treat_Co60_Gamma_50Gy .
+
+onsir:Outcome_Co60_RootLengthNoResponse a [ a owl:Restriction ;
+            owl:maxCardinality "0"^^xsd:nonNegativeInteger ;
+            owl:onProperty onsir:hasResponse ],
+        owl:NamedIndividual,
+        onsir:TreatmentOutcome ;
+    rdfs:comment "Illustrative individual; its values are invented." ;
+    onsir:forEndpoint onsir:example_endpoint_Co60_RootLength ;
     onsir:hasSubject onsir:example_seed_Co60_GerminationHormesis ;
     onsir:hasTreatment onsir:Treat_Co60_Gamma_50Gy .
 
@@ -36,9 +48,11 @@ onsir:Outcome_XRay_Mutagenesis a owl:NamedIndividual,
 
 onsir:examples a owl:Ontology ;
     dct:license <https://creativecommons.org/licenses/by/4.0/> ;
-    rdfs:comment "Illustrative individuals showing how a treatment, its outcome, its response and a dose-response model are modelled in OnSIR. Every numeric value in this file is invented for illustration and is taken from no study. Outcome_XRay_Mutagenesis carries a dose category and no response, and a reasoner classifies it as a MutagenicOutcome." ;
-    owl:imports <https://w3id.org/onsir> ;
-    owl:versionInfo "1.6.0" .
+    dct:title "OnSIR illustrative individuals" ;
+    rdfs:comment "Illustrative individuals showing how a treatment, its outcomes, their responses and a dose-response model are modelled in OnSIR. Every numeric value in this file is invented for illustration and is taken from no study. Outcome_XRay_Mutagenesis carries a dose category and no response, and a reasoner classifies it as a MutagenicOutcome; Outcome_Co60_RootLengthNoResponse is asserted to have no response, and a reasoner classifies it as a NoDetectedResponseOutcome." ;
+    owl:imports onsir:1.7.0 ;
+    owl:versionIRI <https://w3id.org/onsir/examples/1.7.0> ;
+    owl:versionInfo "1.7.0" .
 
 onsir:Model_BC_Germination a owl:NamedIndividual,
         onsir:BrainCousensModel ;
@@ -60,35 +74,23 @@ onsir:Resp_Sterility a owl:NamedIndividual,
     rdfs:comment "Illustrative individual; its values are invented." ;
     onsir:sterilityRate 9.8e-01 .
 
-onsir:Treat_Co60_Gamma_50Gy a owl:NamedIndividual,
+onsir:Treat_UVC_254nm_1200Jm2 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasRadiationType ;
+            owl:someValuesFrom onsir:UV_C ],
+        owl:NamedIndividual,
         onsir:SeedIrradiationTreatment ;
     rdfs:comment "Illustrative individual; its values are invented." ;
-    onsir:hasDose [ a onsir:QuantityValue ;
-            qudt:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
-            onsir:numericValue 5e+01 ] ;
-    onsir:hasDoseRange [ onsir:maxDose [ a onsir:QuantityValue ;
-                    qudt:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
-                    onsir:numericValue 1e+02 ] ;
-            onsir:minDose [ a onsir:QuantityValue ;
-                    qudt:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
-                    onsir:numericValue 2.5e+01 ] ] ;
-    onsir:hasDoseRate [ a onsir:QuantityValue ;
-            qudt:hasUnit <http://qudt.org/vocab/unit/GRAY-PER-MIN> ;
-            onsir:numericValue 2.5e+00 ] ;
-    onsir:hasExposureTime [ a onsir:QuantityValue ;
-            qudt:hasUnit <http://qudt.org/vocab/unit/MIN> ;
-            onsir:numericValue 2e+01 ] .
-
-onsir:Treat_UVC_254nm_1200Jm2 a owl:NamedIndividual,
-        onsir:SeedIrradiationTreatment ;
-    rdfs:comment "Illustrative individual; its values are invented." ;
-    onsir:hasDose _:Na4fe387c3f194e02bcdda9cb91166f92 ;
-    onsir:hasFluence _:Na4fe387c3f194e02bcdda9cb91166f92 ;
+    onsir:hasFluence [ a onsir:QuantityValue ;
+            qudt:hasUnit <http://qudt.org/vocab/unit/J-PER-M2> ;
+            onsir:numericValue 1.2e+03 ] ;
     onsir:hasWavelength [ a onsir:QuantityValue ;
             qudt:hasUnit <http://qudt.org/vocab/unit/NanoM> ;
             onsir:numericValue 2.54e+02 ] .
 
-onsir:Treat_XRay_150Gy a owl:NamedIndividual,
+onsir:Treat_XRay_150Gy a [ a owl:Restriction ;
+            owl:onProperty onsir:hasRadiationType ;
+            owl:someValuesFrom onsir:XRay ],
+        owl:NamedIndividual,
         onsir:SeedIrradiationTreatment ;
     rdfs:comment "Illustrative individual; its values are invented." ;
     onsir:hasDose [ a onsir:QuantityValue ;
@@ -111,16 +113,16 @@ onsir:example_endpoint_Co60_GerminationHormesis a owl:NamedIndividual,
         onsir:GerminationRate ;
     rdfs:comment "Illustrative individual; its values are invented." .
 
+onsir:example_endpoint_Co60_RootLength a owl:NamedIndividual,
+        onsir:RootLength ;
+    rdfs:comment "Illustrative individual; its values are invented." .
+
 onsir:example_endpoint_UVC_Sterilization a owl:NamedIndividual,
         onsir:SeedSterility ;
     rdfs:comment "Illustrative individual; its values are invented." .
 
 onsir:example_endpoint_XRay_Mutagenesis a owl:NamedIndividual,
         onsir:MutationFrequency ;
-    rdfs:comment "Illustrative individual; its values are invented." .
-
-onsir:example_seed_Co60_GerminationHormesis a owl:NamedIndividual,
-        onsir:PlantSeed ;
     rdfs:comment "Illustrative individual; its values are invented." .
 
 onsir:example_seed_UVC_Sterilization a owl:NamedIndividual,
@@ -131,7 +133,26 @@ onsir:example_seed_XRay_Mutagenesis a owl:NamedIndividual,
         onsir:PlantSeed ;
     rdfs:comment "Illustrative individual; its values are invented." .
 
-_:Na4fe387c3f194e02bcdda9cb91166f92 a onsir:QuantityValue ;
-    qudt:hasUnit <http://qudt.org/vocab/unit/J-PER-M2> ;
-    onsir:numericValue 1.2e+03 .
+onsir:Treat_Co60_Gamma_50Gy a [ a owl:Restriction ;
+            owl:onProperty onsir:hasSourceIsotope ;
+            owl:someValuesFrom onsir:Co60 ],
+        [ a owl:Restriction ;
+            owl:onProperty onsir:hasRadiationType ;
+            owl:someValuesFrom onsir:Gamma ],
+        owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
+    rdfs:comment "Illustrative individual; its values are invented." ;
+    onsir:hasDose [ a onsir:QuantityValue ;
+            qudt:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
+            onsir:numericValue 5e+01 ] ;
+    onsir:hasDoseRate [ a onsir:QuantityValue ;
+            qudt:hasUnit <http://qudt.org/vocab/unit/GRAY-PER-MIN> ;
+            onsir:numericValue 2.5e+00 ] ;
+    onsir:hasExposureTime [ a onsir:QuantityValue ;
+            qudt:hasUnit <http://qudt.org/vocab/unit/MIN> ;
+            onsir:numericValue 2e+01 ] .
+
+onsir:example_seed_Co60_GerminationHormesis a owl:NamedIndividual,
+        onsir:PlantSeed ;
+    rdfs:comment "Illustrative individual; its values are invented." .
 

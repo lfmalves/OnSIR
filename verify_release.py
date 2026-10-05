@@ -11,16 +11,24 @@ Checks, in order:
   5. every numeric row of the metrics table matches the artifact;
   6. no IRI sits undeclared in a logical position, counting the imports closure;
   7. every individual in the three files is declared owl:NamedIndividual, and the core carries no
-     individual besides the taxa of the dose windows;
+     individual besides the three obsolete taxon individuals of release 1.6.0;
   8. the property characteristics the README advertises are present, and no property carries two
      rdfs:domain or two rdfs:range axioms (they are read conjunctively);
   9. ROBOT validates each file against the OWL 2 DL profile, the ABox and the examples with their
-     import resolved through the shipped catalogue;
+     import resolved through the shipped catalogue, and HermiT 1.4.5 through ROBOT (the OWL API) finds
+     the ABox and the examples, each with the core it imports, consistent with no unsatisfiable class;
  10. owlready2 can load the ABox by the recipe the README documents;
  11. no drafting note or placeholder survives anywhere in the release, the source skeleton included;
  12. the counts the README states match the artifact;
  13. the examples show the dose-to-effect inference: an example outcome with a typed dose category
-     and no asserted response is classified by HermiT into the matching defined class.
+     and no asserted response is classified by HermiT into the matching defined class, and an outcome
+     asserted to have no response is classified as a NoDetectedResponseOutcome;
+ 14. every class and property of the OnSIR namespace carries exactly one definition (IAO:0000115), and
+     every obsolete term is marked owl:deprecated, labelled "obsolete", points to its replacement or to
+     a term to consider, and carries no logical axiom;
+ 15. the ontology header carries the namespace prefix and URI, a bibliographic citation, an issue date
+     and a publisher, and the ABox and the examples carry versionIRIs of their own and import the
+     versioned core.
 
 HermiT is invoked through its own command line, because owlready2 encodes subsumption as Python
 inheritance and raises on an inferred equivalence (Seedling is equivalent to PO:0008037) before it
@@ -59,8 +67,9 @@ REQUIRED = ["OnSIR.ttl", "OnSIR.owl", "OnSIR_abox.ttl", "OnSIR_abox.owl", "OnSIR
             "OnSIR_examples.owl", "OnSIR_base.owl",
             "catalog-v001.xml", "build_ontology.py", "reason.py", "reason_context.py",
             "abox_cq.py", "rbo_recheck.py", "rbo_gap.py", "make_metrics.py", "make_docs.py",
-            "registry_search.py", "README.md", "CITATION.cff", "LICENSE",
-            os.path.join("corpus", "eiccam_table_body.tex"), os.path.join("corpus", "added_studies.json"),
+            "registry_search.py", "check_taxa.py", "README.md", "CHANGELOG.md", "CITATION.cff", "LICENSE",
+            os.path.join("corpus", "onsir_corpus.csv"), os.path.join("corpus", "codebook.csv"),
+            os.path.join("corpus", "dose_series.json"), os.path.join("corpus", "README.md"),
             os.path.join("docs", "index.html")]
 missing = [f for f in REQUIRED if not os.path.exists(os.path.join(HERE, f))]
 check("every file of the release is present", not missing, f"missing {missing}")
@@ -163,11 +172,13 @@ tabp = os.path.join(HERE, "paper", "tab_metrics.tex")
 if core is not None and os.path.exists(tabp):
     rows = {k.strip(): int(v) for k, v in
             re.findall(r"^(.+?) & (\d+)\\\\$", open(tabp).read(), re.M)}
+    DEP = {x for x in core.subjects(OWL.deprecated, None) if str(core.value(x, OWL.deprecated)).lower() == "true"}
     named = lambda t: [x for x in set(core.subjects(RDF.type, t))
-                       if isinstance(x, URIRef) and str(x).startswith(NS)]
+                       if isinstance(x, URIRef) and str(x).startswith(NS) and x not in DEP]
     sv = [s for s in core.subjects(OWL.someValuesFrom, None)]
-    qc = [s for s in core.subjects(URIRef(str(OWL) + "qualifiedCardinality"), None)]
-    hv = [s for s in core.subjects(OWL.hasValue, None)]
+    qc = [s for c in ("qualifiedCardinality", "minQualifiedCardinality", "maxQualifiedCardinality",
+                      "cardinality", "minCardinality", "maxCardinality")
+          for s in core.subjects(URIRef(str(OWL) + c), None)]
     eq = list(core.subject_objects(OWL.equivalentClass))
     eq_ext = [1 for _s, _o in eq if isinstance(_o, URIRef) and not str(_o).startswith(NS)]
     # An alignment is any triple whose subject is an OnSIR term and whose object is an OBO or
@@ -176,7 +187,7 @@ if core is not None and os.path.exists(tabp):
     # reasons that had nothing to do with the artifact.
     QUDT_UNIT = "http://qudt.org/vocab/unit/"
     align = [(str(s), str(p), str(o)) for s, p, o in core
-             if isinstance(s, URIRef) and str(s).startswith(NS)
+             if isinstance(s, URIRef) and str(s).startswith(NS) and s not in DEP
              and isinstance(o, URIRef)
              and (str(o).startswith(OBO) or str(o).startswith(QUDT_UNIT))
              and not str(o).endswith("rbo.owl")]
@@ -194,16 +205,24 @@ if core is not None and os.path.exists(tabp):
         seen.add(c)
         return any(str(p).startswith(OBO + "BFO_") or has_bfo(p, seen) for p in up.get(c, ()))
 
+    IAO_DEF = URIRef(OBO + "IAO_0000115")
+    _terms = [x for t in (OWL.Class, OWL.ObjectProperty, OWL.DatatypeProperty, OWL.AnnotationProperty)
+              for x in named(t)]
     EXPECT = {
         "Named classes": len(named(OWL.Class)),
         "Object properties": len(named(OWL.ObjectProperty)),
         "Datatype properties": len(named(OWL.DatatypeProperty)),
+        "Annotation properties": len(named(OWL.AnnotationProperty)),
+        "Obsolete classes and properties": len([x for x in DEP if str(x).startswith(NS)
+                                                and (x, RDF.type, OWL.NamedIndividual) not in core]),
+        "Terms with a definition": len([x for x in _terms if (x, IAO_DEF, None) in core]),
         "Functional properties": len(named(OWL.FunctionalProperty)),
         "Disjointness axioms": len(set(core.subjects(RDF.type, OWL.AllDisjointClasses)))
                                + len(list(core.triples((None, OWL.disjointWith, None)))),
         "Existential and cardinality restrictions": len(set(sv)) + len(set(qc)),
-        r"Nominal (\texttt{hasValue}) restrictions": len(set(hv)),
-        "Equivalences: covering, defined and dose-window classes": len(eq) - len(eq_ext),
+        "Dose-window classes": len([c for c in named(OWL.Class) if str(c).endswith("Dose")
+                                    and "_" in str(c)[len(NS):]]),
+        "Equivalences: covering, defined, window and probe classes": len(eq) - len(eq_ext),
         "Equivalences: external alignments": len(eq_ext),
         "External alignment triples": len(align),
         "Named classes with a BFO ancestor": len([c for c in named(OWL.Class) if has_bfo(c)]),
@@ -265,8 +284,9 @@ if core is not None and abox is not None:
     # The illustrative individuals of the scaffold carry invented values and live in the examples
     # file; the core carries only the taxon individuals that the dose windows name.
     core_ind = sorted(str(x)[len(NS):] for x in core.subjects(RDF.type, OWL.NamedIndividual))
-    check("the core carries only the taxon individuals of the dose windows",
-          core_ind and all(x.startswith("taxon_") for x in core_ind), f"{core_ind}")
+    check("the core carries no individual besides the three obsolete taxon individuals of 1.6.0",
+          core_ind == ["taxon_Nicotiana_tabacum", "taxon_Trigonella_foenum_graecum", "taxon_Vigna_unguiculata"]
+          and all((URIRef(NS + x), OWL.deprecated, None) in core for x in core_ind), f"{core_ind}")
 
     # ---------------------------------------------------------- 8. property characteristics
     print("\nproperty characteristics")
@@ -348,8 +368,8 @@ if core is not None and os.path.exists(dp):
     # that would also pass an empty shell.
     n_h3 = dh.count("<h3 id=")
     n_def = dh.count("<p class='def'>")
-    SKOSDEF = URIRef("http://www.w3.org/2004/02/skos/core#definition")
-    described = {s_ for s_, _o in core.subject_objects(SKOSDEF)} | \
+    IAODEF = URIRef(OBO + "IAO_0000115")
+    described = {s_ for s_, _o in core.subject_objects(IAODEF)} | \
                 {s_ for s_, _o in core.subject_objects(RDFS.comment)}
     want = len([x for x in described
                 if isinstance(x, URIRef) and str(x).startswith(NS)
@@ -395,13 +415,28 @@ else:
             check(f"{f} is in the OWL 2 DL profile", good, "" if good else first[:110])
         except subprocess.TimeoutExpired:
             check(f"{f} is in the OWL 2 DL profile", False, "ROBOT timed out")
+    # A second HermiT, the one ROBOT and the OWL API run (1.4.5), over the files as shipped; check 3 runs
+    # the HermiT 1.3.8 of owlready2.
+    for f in ("OnSIR_abox.owl", "OnSIR_examples.owl"):
+        try:
+            _o = os.path.join(tempfile.mkdtemp(), "reasoned.owl")
+            r = subprocess.run(_robot + ["--catalog", "catalog-v001.xml", "reason", "--reasoner", "HermiT",
+                                         "--input", f, "--output", _o],
+                               cwd=HERE, capture_output=True, text=True, timeout=900)
+            txt = (r.stdout or "") + (r.stderr or "")
+            uns = [l.split("unsatisfiable:", 1)[1].strip() for l in txt.splitlines() if "unsatisfiable:" in l]
+            good = r.returncode == 0 and not uns and "inconsistent" not in txt.lower()
+            check(f"{f} with the core: consistent under HermiT 1.4.5 (ROBOT), no unsatisfiable class", good,
+                  "" if good else (f"unsatisfiable: {uns}" if uns else txt.strip().splitlines()[-1][:110]))
+        except subprocess.TimeoutExpired:
+            check(f"{f} with the core: consistent under HermiT 1.4.5 (ROBOT)", False, "ROBOT timed out")
 
 # ---------------------------------------------------------------- 10. owlready2 recipe
 print("\nowlready2 load recipe (README section 'Loading the ABox')")
 try:
     import owlready2 as o2
     w = o2.World()
-    o2c = w.get_ontology("https://w3id.org/onsir")
+    o2c = w.get_ontology("https://w3id.org/onsir/" + str(core.value(URIRef("https://w3id.org/onsir"), OWL.versionInfo)))
     with open(os.path.join(HERE, "OnSIR.owl"), "rb") as fh:
         o2c.load(only_local=False, fileobj=fh)
     w.get_ontology("file://" + os.path.join(HERE, "OnSIR_abox.owl")).load()
@@ -419,7 +454,7 @@ print("\nexamples: dose-to-effect inference")
 try:
     import owlready2 as o2
     w = o2.World()
-    _core = w.get_ontology("https://w3id.org/onsir")
+    _core = w.get_ontology("https://w3id.org/onsir/" + str(core.value(URIRef("https://w3id.org/onsir"), OWL.versionInfo)))
     with open(os.path.join(HERE, "OnSIR.owl"), "rb") as fh:
         _core.load(only_local=False, fileobj=fh)
     _ex = w.get_ontology("file://" + os.path.join(HERE, "OnSIR_examples.owl")).load()
@@ -431,11 +466,60 @@ try:
     _cls = sorted(c.name for c in _x.INDIRECT_is_a if hasattr(c, "name"))
     check("an example outcome with no asserted response is classified MutagenicOutcome",
           _no_resp and "MutagenicOutcome" in _cls, f"{_cls}")
+    _y = _ns["Outcome_Co60_RootLengthNoResponse"]
+    _cls2 = sorted(c.name for c in _y.INDIRECT_is_a if hasattr(c, "name"))
+    check("an example outcome asserted to have no response is classified NoDetectedResponseOutcome",
+          "NoDetectedResponseOutcome" in _cls2, f"{_cls2}")
 except ImportError:
     print("  [skip] owlready2 not installed")
 except Exception as e:
-    check("an example outcome with no asserted response is classified MutagenicOutcome", False,
-          f"{type(e).__name__}: {str(e)[:80]}")
+    check("the examples reason as their header states", False, f"{type(e).__name__}: {str(e)[:80]}")
+
+# ---------------------------------------------------------------- 14. definitions and obsolete terms
+print("\ndefinitions and obsolete terms")
+if core is not None:
+    IAO_DEF = URIRef(OBO + "IAO_0000115")
+    DEPR = {x for x in core.subjects(OWL.deprecated, None)}
+    terms = {x for t in (OWL.Class, OWL.ObjectProperty, OWL.DatatypeProperty, OWL.AnnotationProperty)
+             for x in core.subjects(RDF.type, t) if isinstance(x, URIRef) and str(x).startswith(NS)}
+    bad = sorted(str(x)[len(NS):] for x in terms if len(list(core.objects(x, IAO_DEF))) != 1)
+    check("every class and property carries exactly one IAO:0000115 definition", not bad,
+          f"{len(terms)} terms" + (f"; without one: {bad[:6]}" if bad else ""))
+    LOGICAL_OUT = (RDFS.subClassOf, OWL.equivalentClass, OWL.disjointWith, RDFS.domain, RDFS.range,
+                   RDFS.subPropertyOf, OWL.inverseOf)
+    obs_bad = []
+    for x in sorted(DEPR):
+        lab = str(core.value(x, RDFS.label) or "")
+        repl = list(core.objects(x, URIRef(OBO + "IAO_0100001"))) + \
+            list(core.objects(x, URIRef("http://www.geneontology.org/formats/oboInOwl#consider")))
+        logical = [p for p in LOGICAL_OUT if (x, p, None) in core or (None, p, x) in core]
+        used = [1 for _s, _p, _o in core if _o == x and _p not in (URIRef(OBO + "IAO_0100001"),)]
+        if not lab.startswith("obsolete ") or not repl or logical or used:
+            obs_bad.append(str(x)[len(NS):])
+    check("every obsolete term is deprecated, labelled obsolete, points onward and carries no axiom",
+          bool(DEPR) and not obs_bad, f"{len(DEPR)} obsolete" + (f"; bad: {obs_bad}" if obs_bad else ""))
+
+# ---------------------------------------------------------------- 15. metadata and versioned imports
+print("\nnamespace, citation and version metadata")
+if core is not None:
+    DCT_ = "http://purl.org/dc/terms/"
+    VANN_ = "http://purl.org/vocab/vann/"
+    ont = URIRef("https://w3id.org/onsir")
+    for pred in (VANN_ + "preferredNamespacePrefix", VANN_ + "preferredNamespaceUri",
+                 DCT_ + "bibliographicCitation", DCT_ + "issued", DCT_ + "publisher", DCT_ + "license"):
+        check(f"the ontology header carries {pred.rsplit('/', 1)[-1]}", (ont, URIRef(pred), None) in core)
+    ver = str(core.value(ont, OWL.versionInfo))
+    viri = URIRef("https://w3id.org/onsir/" + ver)
+    for name, g_, iri in (("OnSIR_abox", abox, "https://w3id.org/onsir/abox"),
+                          ("OnSIR_examples", examples, "https://w3id.org/onsir/examples")):
+        if g_ is None:
+            continue
+        o_ = URIRef(iri)
+        check(f"{name} carries versionIRI {iri}/{ver}",
+              (o_, URIRef(str(OWL) + "versionIRI"), URIRef(f"{iri}/{ver}")) in g_)
+        check(f"{name} imports the versioned core {viri}",
+              list(g_.objects(o_, OWL.imports)) == [viri], f"{list(g_.objects(o_, OWL.imports))}")
+        check(f"{name} carries versionInfo {ver}", str(g_.value(o_, OWL.versionInfo)) == ver)
 
 # ---------------------------------------------------------------- 11. no drafting residue
 print("\nrelease hygiene")
@@ -475,9 +559,10 @@ print("\nREADME numeric claims (hand-written prose, pinned against the artifact)
 readme = open(os.path.join(HERE, "README.md"), errors="ignore").read()
 _g = rdflib.Graph(); _g.parse(os.path.join(HERE, "OnSIR.ttl"), format="turtle")
 _NS = "https://w3id.org/onsir/"
+_dep = {s for s in _g.subjects(OWL.deprecated, None)}
 _n_cls = len({s for s in _g.subjects(RDF.type, OWL.Class)
-              if isinstance(s, URIRef) and str(s).startswith(_NS)})
-_n_op = len({s for s in _g.subjects(RDF.type, OWL.ObjectProperty) if str(s).startswith(_NS)})
+              if isinstance(s, URIRef) and str(s).startswith(_NS) and s not in _dep})
+_n_op = len({s for s in _g.subjects(RDF.type, OWL.ObjectProperty) if str(s).startswith(_NS) and s not in _dep})
 _n_dp = len({s for s in _g.subjects(RDF.type, OWL.DatatypeProperty) if str(s).startswith(_NS)})
 _ga = rdflib.Graph(); _ga.parse(os.path.join(HERE, "OnSIR_abox.owl"), format="xml")
 _n_ind = len({s for s in _ga.subjects(RDF.type, OWL.NamedIndividual)})

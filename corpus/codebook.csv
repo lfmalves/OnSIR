@@ -1,0 +1,48 @@
+kind,name,meaning
+column,key,study key: first author and year
+column,species,species as the source names it
+column,ncbitaxon,NCBITaxon identifier of the species
+column,taxon_match,"how the species matched NCBITaxon: its label, or a synonym of the label given"
+column,year,publication year
+column,country,country where the study was done
+column,subject,"irradiated propagule: seed, bulb, tuber, callus, protocorm, shoot culture or cutting"
+column,te,"study type (TE axis); kept for audit, as the review retired the axis as recoverable from EP"
+column,ff,phenological phase of the propagule primarily irradiated (FF axis)
+column,dr,shape of the reported dose-response curve (DR axis); empty when not resolvable
+column,mm,statistical model used for the dose-response (MM axis)
+column,ep,endpoint category (EP axis)
+column,source,radiation source: Co-60 or Cs-137; empty when the study does not state it
+column,highest_dose_reported,"highest dose irradiated, as reported"
+column,highest_dose_gy,"highest dose in Gy; roentgens converted at 8.77 mGy per roentgen (air kerma), a lower estimate of the dose to water"
+column,dose_rate_reported,dose rate as reported; empty when not reported
+column,dose_rate_gy_per_h,dose rate in Gy per hour
+column,n_treatments,"number of dose treatments, control included where the source counts it; empty when not reported"
+column,ci_reported,yes when the study publishes a confidence interval or fiducial limits for its threshold dose
+column,first_author,family name of the first author as printed
+column,doi,DOI of the source
+column,citation,"bibliographic citation, for sources without a DOI"
+column,source_note,"where the Crossref record of the DOI differs from the printed byline, year or status"
+column,recode_note,"the code changed from the review, and the sentence of the source that decides it"
+code (TE),TE1,physiological study
+code (TE),TE2,genetic study
+code (TE),TE3,biochemical study
+code (FF),FF1,dry seed
+code (FF),FF2,hydrated seed
+code (FF),FF3,seedling
+code (FF),FF4,"vegetative tissue or in vitro culture (bulb, tuber, cutting, shoot culture, callus, protocorm)"
+code (DR),DR1,biphasic (hormetic) dose-response
+code (DR),DR2,monotonic decreasing
+code (DR),DR3,monotonic increasing
+code (DR),DR4,complex non-monotonic
+code (DR),(empty),shape not resolvable from the report
+code (MM),MM1,"analysis of variance with mean-comparison tests, no fitted curve"
+code (MM),MM2,Brain-Cousens or log-logistic model with a stimulation term (no study in the corpus)
+code (MM),MM3,"other: non-parametric tests, genetic parameters, sequencing"
+code (MM),MM4,quantal model: probit or logit on the proportion surviving
+code (MM),MM5,"curve fitted directly to percentages (straight line, polynomial or a curve-fitting program)"
+code (EP),EP1,emergence and early vigour
+code (EP),EP2,biochemistry
+code (EP),EP3,genetics
+code (EP),EP4,morphology and anatomy
+code (EP),EP5,plant health
+code (EP),EP6,other physiological

@@ -15,6 +15,11 @@ NS = "https://w3id.org/onsir/"
 DCT = Namespace("http://purl.org/dc/terms/")
 SKOS = Namespace("http://www.w3.org/2004/02/skos/core#")
 OBO = "http://purl.obolibrary.org/obo/"
+IAO_DEF = URIRef(OBO + "IAO_0000115")
+IAO_SRC = URIRef(OBO + "IAO_0000119")
+REPLACED_BY = URIRef(OBO + "IAO_0100001")
+CONSIDER = URIRef("http://www.geneontology.org/formats/oboInOwl#consider")
+VANN = Namespace("http://purl.org/vocab/vann/")
 
 g = rdflib.Graph(); g.parse("OnSIR.ttl", format="turtle")
 
@@ -37,7 +42,9 @@ ont = next(iter(g.subjects(RDF.type, OWL.Ontology)))
 meta = dict(
     title=one(ont, DCT.title), desc=one(ont, DCT.description),
     version=one(ont, OWL.versionInfo), license=one(ont, DCT.license),
-    created=one(ont, DCT.created), modified=one(ont, DCT.modified),
+    created=one(ont, DCT.created), modified=one(ont, DCT.modified), issued=one(ont, DCT.issued),
+    publisher=one(ont, DCT.publisher), citation=one(ont, DCT.bibliographicCitation),
+    prefix=one(ont, VANN.preferredNamespacePrefix), versioniri=one(ont, OWL.versionIRI),
     creators=sorted(str(o) for o in g.objects(ont, DCT.creator)),
     sources=sorted(str(o) for o in g.objects(ont, DCT.source)),
 )
@@ -96,6 +103,9 @@ def class_expr(x):
         if card is not None:
             oc = g.value(x, OWL.onClass)
             return f"{esc(loc(p))} <em>exactly</em> {card} {class_expr(oc)}"
+        mx = g.value(x, OWL.maxCardinality)
+        if mx is not None:
+            return f"{esc(loc(p))} <em>max</em> {mx}"
         return "restriction"
     for pred, sep in [(OWL.intersectionOf, " <b>and</b> "), (OWL.unionOf, " <b>or</b> ")]:
         lst = g.value(x, pred)
@@ -132,13 +142,17 @@ th{{background:#1f1f1f}}.badge{{background:#12261d;border-color:#1f4a35}}a{{colo
 P.append(f"<h1>{esc(meta['title'] or 'OnSIR')}</h1>")
 P.append(f"<p class='sub'>{esc(meta['desc'] or '')}</p>")
 P.append("<table>")
-for k, v in [("Namespace", NS), ("Version", meta["version"]), ("License", meta["license"]),
-             ("Created", meta["created"]), ("Modified", meta["modified"]),
+for k, v in [("Namespace", NS), ("Prefix", meta["prefix"]), ("Version", meta["version"]),
+             ("Version IRI", meta["versioniri"]), ("License", meta["license"]),
+             ("Created", meta["created"]), ("Issued", meta["issued"]), ("Modified", meta["modified"]),
+             ("Publisher", meta["publisher"]), ("Citation", meta["citation"]),
              ("Authors", "; ".join(meta["creators"])),
              ("Provenance", "<br>".join(esc(s) for s in meta["sources"]) or "&mdash;")]:
     if v: P.append(f"<tr><th style='width:9rem'>{esc(k)}</th><td class='mono'>{v if k=='Provenance' else esc(v)}</td></tr>")
-P.append(f"<tr><th>Size</th><td>{len(g)} triples &middot; {len(classes)} named classes &middot; "
-         f"{len(objprops)} object properties &middot; {len(dataprops)} datatype properties</td></tr>")
+_obs = lambda xs: len([x for x in xs if str(g.value(x, OWL.deprecated)).lower() == "true"])
+P.append(f"<tr><th>Size</th><td>{len(g)} triples &middot; {len(classes) - _obs(classes)} named classes &middot; "
+         f"{len(objprops) - _obs(objprops)} object properties &middot; {len(dataprops)} datatype properties "
+         f"&middot; {_obs(classes) + _obs(objprops)} obsolete classes and properties</td></tr>")
 P.append("</table>")
 
 # taxon dose windows — the distinctive content
@@ -146,13 +160,15 @@ windows = defaultdict(list)
 for c in classes:
     for eq in g.objects(c, OWL.equivalentClass):
         txt = class_expr(eq)
-        if "doseGy" in txt:
+        if "doseGy" in txt and not loc(c).endswith("Probe"):
             windows[loc(c)].append(txt)
 if windows:
     P.append("<h2>Taxon-specific dose windows</h2>")
-    P.append("<p>Each taxon carries numeric dose windows, and a reasoner places a dose assessment in a "
-             "window from its dose and its taxon. Each window records its source, the strength of its "
-             "bound and the doses the source tested.</p><table>"
+    P.append("<p>Each taxon carries numeric dose windows for the endpoint and the stage its source "
+             "scored, and a reasoner places a dose assessment in a window from its dose, the taxon of its "
+             "subject, its endpoint and its stage. Each window records its source, the passage of the "
+             "source its bound rests on, the strength of the bound and the doses the source tested."
+             "</p><table>"
              "<tr><th>Window class</th><th>Definition</th><th>Source</th><th>Strength of the bound</th>"
              "<th>Doses tested</th></tr>")
     for k in sorted(windows):
@@ -169,18 +185,25 @@ def entity_section(title, items, kind):
     P.append("<p class='toc'>" + " ".join(f"<a href='#{esc(loc(i))}'>{esc(loc(i))}</a>" for i in items) + "</p>")
     for i in items:
         P.append(f"<h3 id='{esc(loc(i))}'>{esc(loc(i))}</h3>")
-        d = one(i, SKOS.definition) or one(i, RDFS.comment)
-        # A term carrying a curation caveat must show it. skos:definition wins over rdfs:comment
-        # above, so a caveat recorded only in skos:note or owl:deprecated would be invisible in the
-        # rendered documentation.
-        dep = g.value(i, OWL.deprecated)
-        if dep is not None and str(dep).lower() in ("true", "1"):
-            d = "DEPRECATED. " + (d or "")
+        d = one(i, IAO_DEF) or one(i, SKOS.definition) or one(i, RDFS.comment)
+        # A term carrying a curation caveat must show it: the definition of an obsolete term starts
+        # with "OBSOLETE.", and a caveat recorded only in skos:note is appended here.
         note = one(i, SKOS.note)
         if note:
             d = ((d + " ") if d else "") + "[curation note] " + note
         if d: P.append(f"<p class='def'>{esc(d)}</p>")
         rows = []
+        lab = one(i, RDFS.label)
+        if lab: rows.append(("label", esc(lab)))
+        com = one(i, RDFS.comment)
+        if com and one(i, IAO_DEF): rows.append(("comment", esc(com)))
+        src_def = one(i, IAO_SRC)
+        if src_def: rows.append(("definition source", esc(src_def)))
+        quote = one(i, URIRef(NS + "sourceStatement"))
+        if quote: rows.append(("source statement", esc(quote)))
+        for pred, word in ((REPLACED_BY, "replaced by"), (CONSIDER, "consider")):
+            tgt = sorted(class_expr(o) for o in g.objects(i, pred))
+            if tgt: rows.append((word, ", ".join(tgt)))
         if kind == "class":
             sups = [class_expr(o) for o in g.objects(i, RDFS.subClassOf)]
             eqs = [class_expr(o) for o in g.objects(i, OWL.equivalentClass)]
@@ -196,7 +219,11 @@ def entity_section(title, items, kind):
             if inv: rows.append(("inverse of", ", ".join(inv)))
             chars = [loc(t) for t in g.objects(i, RDF.type) if t != OWL.ObjectProperty and t != OWL.DatatypeProperty]
             if chars: rows.append(("characteristics", ", ".join(sorted(esc(c) for c in chars))))
-        ext = [esc(loc(o)) for p in (RDFS.subClassOf, OWL.equivalentClass, SKOS.closeMatch)
+        ext = [f"{esc(w)} {esc(loc(o))}" for p, w in ((RDFS.subClassOf, "subclass of"),
+                                                        (OWL.equivalentClass, "equivalent to"),
+                                                        (SKOS.closeMatch, "close match"),
+                                                        (SKOS.broadMatch, "broad match"),
+                                                        (SKOS.relatedMatch, "related match"))
                for o in g.objects(i, p) if isinstance(o, URIRef) and str(o).startswith(OBO)]
         if ext: rows.append(("external alignment", ", ".join(sorted(set(ext)))))
         if rows:

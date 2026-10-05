@@ -1,25 +1,136 @@
 {
+ "hermit": {
+  "owlready2": "1.3.8.1099",
+  "robot": "1.4.5.456"
+ },
  "A": [
   {
    "taxon": "Nicotiana tabacum",
-   "dose": 200.0,
+   "endpoint": "GerminationPercentage",
+   "stage": "GerminationStage",
+   "dose": 280.0,
    "classes": [
     "AboveReportedFavourableBand"
-   ]
+   ],
+   "windows": [
+    "Nicotiana_tabacum_SeedlingPerformance_AboveFavourableBandDose"
+   ],
+   "tested": [
+    2.5,
+    20.0
+   ],
+   "inside_tested": false
   },
   {
    "taxon": "Vigna unguiculata",
-   "dose": 200.0,
+   "endpoint": "SeedlingSurvival",
+   "stage": "FloweringStage",
+   "dose": 280.0,
    "classes": [
     "AtOrAboveReportedLD50"
-   ]
+   ],
+   "windows": [
+    "Vigna_unguiculata_SeedlingSurvival_AtOrAboveLD50Dose"
+   ],
+   "tested": [
+    150.0,
+    300.0
+   ],
+   "inside_tested": true
   },
   {
    "taxon": "Trigonella foenum-graecum",
-   "dose": 200.0,
+   "endpoint": "SeedlingSurvival",
+   "stage": "EarlySeedlingStage",
+   "dose": 280.0,
    "classes": [
     "BelowReportedLD50"
-   ]
+   ],
+   "windows": [
+    "Trigonella_foenum_graecum_SeedlingSurvival_BelowLD50Dose"
+   ],
+   "tested": [
+    150.0,
+    350.0
+   ],
+   "inside_tested": true
+  },
+  {
+   "taxon": "Magnolia champaca",
+   "endpoint": "GerminationPercentage",
+   "stage": "GerminationStage",
+   "dose": 280.0,
+   "classes": [
+    "AtOrAboveReportedLD50"
+   ],
+   "windows": [
+    "Magnolia_champaca_Germination_AtOrAboveLD50Dose"
+   ],
+   "tested": [
+    5.0,
+    100.0
+   ],
+   "inside_tested": false
+  },
+  {
+   "taxon": "Lablab purpureus",
+   "endpoint": "GerminationPercentage",
+   "stage": "GerminationStage",
+   "dose": 280.0,
+   "classes": [],
+   "windows": [],
+   "tested": [
+    87.7,
+    526.2
+   ],
+   "inside_tested": true
+  },
+  {
+   "taxon": "Plukenetia volubilis",
+   "endpoint": "SeedlingSurvival",
+   "stage": "EarlySeedlingStage",
+   "dose": 280.0,
+   "classes": [
+    "BelowReportedLD50"
+   ],
+   "windows": [
+    "Plukenetia_volubilis_SeedlingSurvival_BelowLD50Dose"
+   ],
+   "tested": [
+    500.0,
+    900.0
+   ],
+   "inside_tested": false
+  },
+  {
+   "taxon": "Solanum lycopersicum",
+   "endpoint": "SeedlingSurvival",
+   "stage": "EarlySeedlingStage",
+   "dose": 280.0,
+   "classes": [],
+   "windows": [],
+   "tested": [
+    50.0,
+    120.0
+   ],
+   "inside_tested": false
+  },
+  {
+   "taxon": "Triticum aestivum",
+   "endpoint": "SeedlingSurvival",
+   "stage": "EarlySeedlingStage",
+   "dose": 280.0,
+   "classes": [
+    "AtOrAboveReportedLD50"
+   ],
+   "windows": [
+    "Triticum_aestivum_SeedlingSurvival_AtOrAboveLD50Dose"
+   ],
+   "tested": [
+    200.0,
+    450.0
+   ],
+   "inside_tested": true
   }
  ],
  "B": [
@@ -53,14 +164,24 @@
   },
   {
    "taxon": "Vigna unguiculata",
-   "dose": 131.0,
+   "dose": 150.0,
    "classes": [
     "BelowReportedLD50"
    ]
   },
   {
    "taxon": "Vigna unguiculata",
-   "dose": 132.0,
+   "dose": 151.0,
+   "classes": []
+  },
+  {
+   "taxon": "Vigna unguiculata",
+   "dose": 249.0,
+   "classes": []
+  },
+  {
+   "taxon": "Vigna unguiculata",
+   "dose": 250.0,
    "classes": [
     "AtOrAboveReportedLD50"
    ]
@@ -72,7 +193,13 @@
    300.0
   ],
   "ld50": 273.0,
-  "dose": 280.0,
+  "endpoint": "SeedlingSurvival",
+  "stage": "EarlySeedlingStage",
+  "consistent_without_doses": true,
+  "unsatisfiable_without_doses": [
+   "Nothing",
+   "test_Conflict_BandUpperEndProbe"
+  ],
   "runs": [
    {
     "dose": 260.0,
@@ -86,120 +213,839 @@
     "dose": 320.0,
     "consistent": true
    }
-  ]
+  ],
+  "control_ld50": 310.0,
+  "control_unsatisfiable": []
  },
  "D": [
   {
-   "individual": "assessment_lumorh2025_100Gy",
-   "taxon": "Vigna unguiculata",
-   "dose": 100.0,
-   "source": "https://doi.org/10.3329/ijarit.v15i1.82798",
+   "individual": "assessment_chakraborty2023_200Gy",
+   "study": "chakraborty2023",
+   "taxon": "Triticum aestivum",
+   "endpoint": "SeedlingSurvival",
+   "stage": "EarlySeedlingStage",
+   "dose": 200.0,
    "classes": [
+    "BelowReportedLD50"
+   ],
+   "windows": [
+    "Triticum_aestivum_SeedlingSurvival_BelowLD50Dose"
+   ],
+   "classes_robot": [
     "BelowReportedLD50"
    ]
   },
   {
-   "individual": "assessment_lumorh2025_200Gy",
-   "taxon": "Vigna unguiculata",
-   "dose": 200.0,
-   "source": "https://doi.org/10.3329/ijarit.v15i1.82798",
+   "individual": "assessment_chakraborty2023_250Gy",
+   "study": "chakraborty2023",
+   "taxon": "Triticum aestivum",
+   "endpoint": "SeedlingSurvival",
+   "stage": "EarlySeedlingStage",
+   "dose": 250.0,
+   "classes": [
+    "BelowReportedLD50"
+   ],
+   "windows": [
+    "Triticum_aestivum_SeedlingSurvival_BelowLD50Dose"
+   ],
+   "classes_robot": [
+    "BelowReportedLD50"
+   ]
+  },
+  {
+   "individual": "assessment_chakraborty2023_300Gy",
+   "study": "chakraborty2023",
+   "taxon": "Triticum aestivum",
+   "endpoint": "SeedlingSurvival",
+   "stage": "EarlySeedlingStage",
+   "dose": 300.0,
    "classes": [
     "AtOrAboveReportedLD50"
+   ],
+   "windows": [
+    "Triticum_aestivum_SeedlingSurvival_AtOrAboveLD50Dose"
+   ],
+   "classes_robot": [
+    "AtOrAboveReportedLD50"
    ]
+  },
+  {
+   "individual": "assessment_chakraborty2023_350Gy",
+   "study": "chakraborty2023",
+   "taxon": "Triticum aestivum",
+   "endpoint": "SeedlingSurvival",
+   "stage": "EarlySeedlingStage",
+   "dose": 350.0,
+   "classes": [
+    "AtOrAboveReportedLD50"
+   ],
+   "windows": [
+    "Triticum_aestivum_SeedlingSurvival_AtOrAboveLD50Dose"
+   ],
+   "classes_robot": [
+    "AtOrAboveReportedLD50"
+   ]
+  },
+  {
+   "individual": "assessment_chakraborty2023_400Gy",
+   "study": "chakraborty2023",
+   "taxon": "Triticum aestivum",
+   "endpoint": "SeedlingSurvival",
+   "stage": "EarlySeedlingStage",
+   "dose": 400.0,
+   "classes": [
+    "AtOrAboveReportedLD50"
+   ],
+   "windows": [
+    "Triticum_aestivum_SeedlingSurvival_AtOrAboveLD50Dose"
+   ],
+   "classes_robot": [
+    "AtOrAboveReportedLD50"
+   ]
+  },
+  {
+   "individual": "assessment_chakraborty2023_450Gy",
+   "study": "chakraborty2023",
+   "taxon": "Triticum aestivum",
+   "endpoint": "SeedlingSurvival",
+   "stage": "EarlySeedlingStage",
+   "dose": 450.0,
+   "classes": [
+    "AtOrAboveReportedLD50"
+   ],
+   "windows": [
+    "Triticum_aestivum_SeedlingSurvival_AtOrAboveLD50Dose"
+   ],
+   "classes_robot": [
+    "AtOrAboveReportedLD50"
+   ]
+  },
+  {
+   "individual": "assessment_corazonguivin2023_500Gy",
+   "study": "corazonguivin2023",
+   "taxon": "Plukenetia volubilis",
+   "endpoint": "SeedlingSurvival",
+   "stage": "EarlySeedlingStage",
+   "dose": 500.0,
+   "classes": [
+    "BelowReportedLD50"
+   ],
+   "windows": [
+    "Plukenetia_volubilis_SeedlingSurvival_BelowLD50Dose"
+   ],
+   "classes_robot": [
+    "BelowReportedLD50"
+   ]
+  },
+  {
+   "individual": "assessment_corazonguivin2023_550Gy",
+   "study": "corazonguivin2023",
+   "taxon": "Plukenetia volubilis",
+   "endpoint": "SeedlingSurvival",
+   "stage": "EarlySeedlingStage",
+   "dose": 550.0,
+   "classes": [
+    "BelowReportedLD50"
+   ],
+   "windows": [
+    "Plukenetia_volubilis_SeedlingSurvival_BelowLD50Dose"
+   ],
+   "classes_robot": [
+    "BelowReportedLD50"
+   ]
+  },
+  {
+   "individual": "assessment_corazonguivin2023_600Gy",
+   "study": "corazonguivin2023",
+   "taxon": "Plukenetia volubilis",
+   "endpoint": "SeedlingSurvival",
+   "stage": "EarlySeedlingStage",
+   "dose": 600.0,
+   "classes": [
+    "BelowReportedLD50"
+   ],
+   "windows": [
+    "Plukenetia_volubilis_SeedlingSurvival_BelowLD50Dose"
+   ],
+   "classes_robot": [
+    "BelowReportedLD50"
+   ]
+  },
+  {
+   "individual": "assessment_corazonguivin2023_650Gy",
+   "study": "corazonguivin2023",
+   "taxon": "Plukenetia volubilis",
+   "endpoint": "SeedlingSurvival",
+   "stage": "EarlySeedlingStage",
+   "dose": 650.0,
+   "classes": [
+    "AtOrAboveReportedLD50"
+   ],
+   "windows": [
+    "Plukenetia_volubilis_SeedlingSurvival_AtOrAboveLD50Dose"
+   ],
+   "classes_robot": [
+    "AtOrAboveReportedLD50"
+   ]
+  },
+  {
+   "individual": "assessment_corazonguivin2023_700Gy",
+   "study": "corazonguivin2023",
+   "taxon": "Plukenetia volubilis",
+   "endpoint": "SeedlingSurvival",
+   "stage": "EarlySeedlingStage",
+   "dose": 700.0,
+   "classes": [
+    "AtOrAboveReportedLD50"
+   ],
+   "windows": [
+    "Plukenetia_volubilis_SeedlingSurvival_AtOrAboveLD50Dose"
+   ],
+   "classes_robot": [
+    "AtOrAboveReportedLD50"
+   ]
+  },
+  {
+   "individual": "assessment_corazonguivin2023_750Gy",
+   "study": "corazonguivin2023",
+   "taxon": "Plukenetia volubilis",
+   "endpoint": "SeedlingSurvival",
+   "stage": "EarlySeedlingStage",
+   "dose": 750.0,
+   "classes": [
+    "AtOrAboveReportedLD50"
+   ],
+   "windows": [
+    "Plukenetia_volubilis_SeedlingSurvival_AtOrAboveLD50Dose"
+   ],
+   "classes_robot": [
+    "AtOrAboveReportedLD50"
+   ]
+  },
+  {
+   "individual": "assessment_corazonguivin2023_800Gy",
+   "study": "corazonguivin2023",
+   "taxon": "Plukenetia volubilis",
+   "endpoint": "SeedlingSurvival",
+   "stage": "EarlySeedlingStage",
+   "dose": 800.0,
+   "classes": [
+    "AtOrAboveReportedLD50"
+   ],
+   "windows": [
+    "Plukenetia_volubilis_SeedlingSurvival_AtOrAboveLD50Dose"
+   ],
+   "classes_robot": [
+    "AtOrAboveReportedLD50"
+   ]
+  },
+  {
+   "individual": "assessment_corazonguivin2023_900Gy",
+   "study": "corazonguivin2023",
+   "taxon": "Plukenetia volubilis",
+   "endpoint": "SeedlingSurvival",
+   "stage": "EarlySeedlingStage",
+   "dose": 900.0,
+   "classes": [
+    "AtOrAboveReportedLD50"
+   ],
+   "windows": [
+    "Plukenetia_volubilis_SeedlingSurvival_AtOrAboveLD50Dose"
+   ],
+   "classes_robot": [
+    "AtOrAboveReportedLD50"
+   ]
+  },
+  {
+   "individual": "assessment_indrayanti2024_50Gy",
+   "study": "indrayanti2024",
+   "taxon": "Solanum lycopersicum",
+   "endpoint": "SeedlingSurvival",
+   "stage": "EarlySeedlingStage",
+   "dose": 50.0,
+   "classes": [
+    "BelowReportedLD50"
+   ],
+   "windows": [
+    "Solanum_lycopersicum_SeedlingSurvival_BelowLD50Dose"
+   ],
+   "classes_robot": [
+    "BelowReportedLD50"
+   ]
+  },
+  {
+   "individual": "assessment_indrayanti2024_60Gy",
+   "study": "indrayanti2024",
+   "taxon": "Solanum lycopersicum",
+   "endpoint": "SeedlingSurvival",
+   "stage": "EarlySeedlingStage",
+   "dose": 60.0,
+   "classes": [
+    "BelowReportedLD50"
+   ],
+   "windows": [
+    "Solanum_lycopersicum_SeedlingSurvival_BelowLD50Dose"
+   ],
+   "classes_robot": [
+    "BelowReportedLD50"
+   ]
+  },
+  {
+   "individual": "assessment_indrayanti2024_70Gy",
+   "study": "indrayanti2024",
+   "taxon": "Solanum lycopersicum",
+   "endpoint": "SeedlingSurvival",
+   "stage": "EarlySeedlingStage",
+   "dose": 70.0,
+   "classes": [
+    "BelowReportedLD50"
+   ],
+   "windows": [
+    "Solanum_lycopersicum_SeedlingSurvival_BelowLD50Dose"
+   ],
+   "classes_robot": [
+    "BelowReportedLD50"
+   ]
+  },
+  {
+   "individual": "assessment_indrayanti2024_80Gy",
+   "study": "indrayanti2024",
+   "taxon": "Solanum lycopersicum",
+   "endpoint": "SeedlingSurvival",
+   "stage": "EarlySeedlingStage",
+   "dose": 80.0,
+   "classes": [
+    "BelowReportedLD50"
+   ],
+   "windows": [
+    "Solanum_lycopersicum_SeedlingSurvival_BelowLD50Dose"
+   ],
+   "classes_robot": [
+    "BelowReportedLD50"
+   ]
+  },
+  {
+   "individual": "assessment_indrayanti2024_90Gy",
+   "study": "indrayanti2024",
+   "taxon": "Solanum lycopersicum",
+   "endpoint": "SeedlingSurvival",
+   "stage": "EarlySeedlingStage",
+   "dose": 90.0,
+   "classes": [
+    "BelowReportedLD50"
+   ],
+   "windows": [
+    "Solanum_lycopersicum_SeedlingSurvival_BelowLD50Dose"
+   ],
+   "classes_robot": [
+    "BelowReportedLD50"
+   ]
+  },
+  {
+   "individual": "assessment_indrayanti2024_100Gy",
+   "study": "indrayanti2024",
+   "taxon": "Solanum lycopersicum",
+   "endpoint": "SeedlingSurvival",
+   "stage": "EarlySeedlingStage",
+   "dose": 100.0,
+   "classes": [
+    "BelowReportedLD50"
+   ],
+   "windows": [
+    "Solanum_lycopersicum_SeedlingSurvival_BelowLD50Dose"
+   ],
+   "classes_robot": [
+    "BelowReportedLD50"
+   ]
+  },
+  {
+   "individual": "assessment_indrayanti2024_110Gy",
+   "study": "indrayanti2024",
+   "taxon": "Solanum lycopersicum",
+   "endpoint": "SeedlingSurvival",
+   "stage": "EarlySeedlingStage",
+   "dose": 110.0,
+   "classes": [
+    "BelowReportedLD50"
+   ],
+   "windows": [
+    "Solanum_lycopersicum_SeedlingSurvival_BelowLD50Dose"
+   ],
+   "classes_robot": [
+    "BelowReportedLD50"
+   ]
+  },
+  {
+   "individual": "assessment_indrayanti2024_120Gy",
+   "study": "indrayanti2024",
+   "taxon": "Solanum lycopersicum",
+   "endpoint": "SeedlingSurvival",
+   "stage": "EarlySeedlingStage",
+   "dose": 120.0,
+   "classes": [
+    "BelowReportedLD50"
+   ],
+   "windows": [
+    "Solanum_lycopersicum_SeedlingSurvival_BelowLD50Dose"
+   ],
+   "classes_robot": [
+    "BelowReportedLD50"
+   ]
+  },
+  {
+   "individual": "assessment_lumorh2025_100Gy",
+   "study": "lumorh2025",
+   "taxon": "Vigna unguiculata",
+   "endpoint": "GerminationPercentage",
+   "stage": "GerminationStage",
+   "dose": 100.0,
+   "classes": [],
+   "windows": [],
+   "classes_robot": []
+  },
+  {
+   "individual": "assessment_lumorh2025_200Gy",
+   "study": "lumorh2025",
+   "taxon": "Vigna unguiculata",
+   "endpoint": "GerminationPercentage",
+   "stage": "GerminationStage",
+   "dose": 200.0,
+   "classes": [],
+   "windows": [],
+   "classes_robot": []
   },
   {
    "individual": "assessment_lumorh2025_300Gy",
+   "study": "lumorh2025",
    "taxon": "Vigna unguiculata",
+   "endpoint": "GerminationPercentage",
+   "stage": "GerminationStage",
    "dose": 300.0,
-   "source": "https://doi.org/10.3329/ijarit.v15i1.82798",
-   "classes": [
-    "AtOrAboveReportedLD50"
-   ]
+   "classes": [],
+   "windows": [],
+   "classes_robot": []
   },
   {
    "individual": "assessment_lumorh2025_400Gy",
+   "study": "lumorh2025",
    "taxon": "Vigna unguiculata",
+   "endpoint": "GerminationPercentage",
+   "stage": "GerminationStage",
    "dose": 400.0,
-   "source": "https://doi.org/10.3329/ijarit.v15i1.82798",
-   "classes": [
-    "AtOrAboveReportedLD50"
-   ]
+   "classes": [],
+   "windows": [],
+   "classes_robot": []
   },
   {
    "individual": "assessment_lumorh2025_500Gy",
+   "study": "lumorh2025",
    "taxon": "Vigna unguiculata",
+   "endpoint": "GerminationPercentage",
+   "stage": "GerminationStage",
    "dose": 500.0,
-   "source": "https://doi.org/10.3329/ijarit.v15i1.82798",
-   "classes": [
-    "AtOrAboveReportedLD50"
-   ]
+   "classes": [],
+   "windows": [],
+   "classes_robot": []
   },
   {
    "individual": "assessment_lumorh2025_600Gy",
+   "study": "lumorh2025",
    "taxon": "Vigna unguiculata",
+   "endpoint": "GerminationPercentage",
+   "stage": "GerminationStage",
    "dose": 600.0,
-   "source": "https://doi.org/10.3329/ijarit.v15i1.82798",
-   "classes": [
-    "AtOrAboveReportedLD50"
-   ]
+   "classes": [],
+   "windows": [],
+   "classes_robot": []
   },
   {
    "individual": "assessment_lumorh2025_700Gy",
+   "study": "lumorh2025",
    "taxon": "Vigna unguiculata",
+   "endpoint": "GerminationPercentage",
+   "stage": "GerminationStage",
    "dose": 700.0,
-   "source": "https://doi.org/10.3329/ijarit.v15i1.82798",
-   "classes": [
-    "AtOrAboveReportedLD50"
-   ]
+   "classes": [],
+   "windows": [],
+   "classes_robot": []
   },
   {
    "individual": "assessment_lumorh2025_800Gy",
+   "study": "lumorh2025",
    "taxon": "Vigna unguiculata",
+   "endpoint": "GerminationPercentage",
+   "stage": "GerminationStage",
    "dose": 800.0,
-   "source": "https://doi.org/10.3329/ijarit.v15i1.82798",
-   "classes": [
-    "AtOrAboveReportedLD50"
-   ]
+   "classes": [],
+   "windows": [],
+   "classes_robot": []
   },
   {
    "individual": "assessment_lumorh2025_900Gy",
+   "study": "lumorh2025",
    "taxon": "Vigna unguiculata",
+   "endpoint": "GerminationPercentage",
+   "stage": "GerminationStage",
    "dose": 900.0,
-   "source": "https://doi.org/10.3329/ijarit.v15i1.82798",
-   "classes": [
-    "AtOrAboveReportedLD50"
-   ]
+   "classes": [],
+   "windows": [],
+   "classes_robot": []
   },
   {
    "individual": "assessment_lumorh2025_1000Gy",
+   "study": "lumorh2025",
    "taxon": "Vigna unguiculata",
+   "endpoint": "GerminationPercentage",
+   "stage": "GerminationStage",
    "dose": 1000.0,
-   "source": "https://doi.org/10.3329/ijarit.v15i1.82798",
-   "classes": [
-    "AtOrAboveReportedLD50"
-   ]
+   "classes": [],
+   "windows": [],
+   "classes_robot": []
   },
   {
    "individual": "assessment_lumorh2025_1100Gy",
+   "study": "lumorh2025",
    "taxon": "Vigna unguiculata",
+   "endpoint": "GerminationPercentage",
+   "stage": "GerminationStage",
    "dose": 1100.0,
-   "source": "https://doi.org/10.3329/ijarit.v15i1.82798",
+   "classes": [],
+   "windows": [],
+   "classes_robot": []
+  },
+  {
+   "individual": "assessment_lumorh2025_1200Gy",
+   "study": "lumorh2025",
+   "taxon": "Vigna unguiculata",
+   "endpoint": "GerminationPercentage",
+   "stage": "GerminationStage",
+   "dose": 1200.0,
+   "classes": [],
+   "windows": [],
+   "classes_robot": []
+  },
+  {
+   "individual": "assessment_mahesha2023_87.7Gy",
+   "study": "mahesha2023",
+   "taxon": "Lablab purpureus",
+   "endpoint": "GerminationPercentage",
+   "stage": "GerminationStage",
+   "dose": 87.7,
    "classes": [
+    "BelowReportedLD50"
+   ],
+   "windows": [
+    "Lablab_purpureus_Germination_BelowLD50Dose"
+   ],
+   "classes_robot": [
+    "BelowReportedLD50"
+   ]
+  },
+  {
+   "individual": "assessment_mahesha2023_175.4Gy",
+   "study": "mahesha2023",
+   "taxon": "Lablab purpureus",
+   "endpoint": "GerminationPercentage",
+   "stage": "GerminationStage",
+   "dose": 175.4,
+   "classes": [
+    "BelowReportedLD50"
+   ],
+   "windows": [
+    "Lablab_purpureus_Germination_BelowLD50Dose"
+   ],
+   "classes_robot": [
+    "BelowReportedLD50"
+   ]
+  },
+  {
+   "individual": "assessment_mahesha2023_263.1Gy",
+   "study": "mahesha2023",
+   "taxon": "Lablab purpureus",
+   "endpoint": "GerminationPercentage",
+   "stage": "GerminationStage",
+   "dose": 263.1,
+   "classes": [],
+   "windows": [],
+   "classes_robot": []
+  },
+  {
+   "individual": "assessment_mahesha2023_350.8Gy",
+   "study": "mahesha2023",
+   "taxon": "Lablab purpureus",
+   "endpoint": "GerminationPercentage",
+   "stage": "GerminationStage",
+   "dose": 350.8,
+   "classes": [
+    "AtOrAboveReportedLD50"
+   ],
+   "windows": [
+    "Lablab_purpureus_Germination_AtOrAboveLD50Dose"
+   ],
+   "classes_robot": [
     "AtOrAboveReportedLD50"
    ]
   },
   {
-   "individual": "assessment_lumorh2025_1200Gy",
-   "taxon": "Vigna unguiculata",
-   "dose": 1200.0,
-   "source": "https://doi.org/10.3329/ijarit.v15i1.82798",
+   "individual": "assessment_mahesha2023_438.5Gy",
+   "study": "mahesha2023",
+   "taxon": "Lablab purpureus",
+   "endpoint": "GerminationPercentage",
+   "stage": "GerminationStage",
+   "dose": 438.5,
    "classes": [
+    "AtOrAboveReportedLD50"
+   ],
+   "windows": [
+    "Lablab_purpureus_Germination_AtOrAboveLD50Dose"
+   ],
+   "classes_robot": [
+    "AtOrAboveReportedLD50"
+   ]
+  },
+  {
+   "individual": "assessment_mahesha2023_526.2Gy",
+   "study": "mahesha2023",
+   "taxon": "Lablab purpureus",
+   "endpoint": "GerminationPercentage",
+   "stage": "GerminationStage",
+   "dose": 526.2,
+   "classes": [
+    "AtOrAboveReportedLD50"
+   ],
+   "windows": [
+    "Lablab_purpureus_Germination_AtOrAboveLD50Dose"
+   ],
+   "classes_robot": [
+    "AtOrAboveReportedLD50"
+   ]
+  },
+  {
+   "individual": "assessment_patel2017_150Gy",
+   "study": "patel2017",
+   "taxon": "Trigonella foenum-graecum",
+   "endpoint": "SeedlingSurvival",
+   "stage": "EarlySeedlingStage",
+   "dose": 150.0,
+   "classes": [
+    "BelowReportedLD50"
+   ],
+   "windows": [
+    "Trigonella_foenum_graecum_SeedlingSurvival_BelowLD50Dose"
+   ],
+   "classes_robot": [
+    "BelowReportedLD50"
+   ]
+  },
+  {
+   "individual": "assessment_patel2017_200Gy",
+   "study": "patel2017",
+   "taxon": "Trigonella foenum-graecum",
+   "endpoint": "SeedlingSurvival",
+   "stage": "EarlySeedlingStage",
+   "dose": 200.0,
+   "classes": [
+    "BelowReportedLD50"
+   ],
+   "windows": [
+    "Trigonella_foenum_graecum_SeedlingSurvival_BelowLD50Dose"
+   ],
+   "classes_robot": [
+    "BelowReportedLD50"
+   ]
+  },
+  {
+   "individual": "assessment_patel2017_250Gy",
+   "study": "patel2017",
+   "taxon": "Trigonella foenum-graecum",
+   "endpoint": "SeedlingSurvival",
+   "stage": "EarlySeedlingStage",
+   "dose": 250.0,
+   "classes": [
+    "BelowReportedLD50"
+   ],
+   "windows": [
+    "Trigonella_foenum_graecum_SeedlingSurvival_BelowLD50Dose"
+   ],
+   "classes_robot": [
+    "BelowReportedLD50"
+   ]
+  },
+  {
+   "individual": "assessment_patel2017_300Gy",
+   "study": "patel2017",
+   "taxon": "Trigonella foenum-graecum",
+   "endpoint": "SeedlingSurvival",
+   "stage": "EarlySeedlingStage",
+   "dose": 300.0,
+   "classes": [
+    "BelowReportedLD50"
+   ],
+   "windows": [
+    "Trigonella_foenum_graecum_SeedlingSurvival_BelowLD50Dose"
+   ],
+   "classes_robot": [
+    "BelowReportedLD50"
+   ]
+  },
+  {
+   "individual": "assessment_patel2017_350Gy",
+   "study": "patel2017",
+   "taxon": "Trigonella foenum-graecum",
+   "endpoint": "SeedlingSurvival",
+   "stage": "EarlySeedlingStage",
+   "dose": 350.0,
+   "classes": [
+    "BelowReportedLD50"
+   ],
+   "windows": [
+    "Trigonella_foenum_graecum_SeedlingSurvival_BelowLD50Dose"
+   ],
+   "classes_robot": [
+    "BelowReportedLD50"
+   ]
+  },
+  {
+   "individual": "assessment_zanzibar2016_5Gy",
+   "study": "zanzibar2016",
+   "taxon": "Magnolia champaca",
+   "endpoint": "GerminationPercentage",
+   "stage": "GerminationStage",
+   "dose": 5.0,
+   "classes": [
+    "BelowReportedLD50"
+   ],
+   "windows": [
+    "Magnolia_champaca_Germination_BelowLD50Dose"
+   ],
+   "classes_robot": [
+    "BelowReportedLD50"
+   ]
+  },
+  {
+   "individual": "assessment_zanzibar2016_10Gy",
+   "study": "zanzibar2016",
+   "taxon": "Magnolia champaca",
+   "endpoint": "GerminationPercentage",
+   "stage": "GerminationStage",
+   "dose": 10.0,
+   "classes": [
+    "BelowReportedLD50"
+   ],
+   "windows": [
+    "Magnolia_champaca_Germination_BelowLD50Dose"
+   ],
+   "classes_robot": [
+    "BelowReportedLD50"
+   ]
+  },
+  {
+   "individual": "assessment_zanzibar2016_15Gy",
+   "study": "zanzibar2016",
+   "taxon": "Magnolia champaca",
+   "endpoint": "GerminationPercentage",
+   "stage": "GerminationStage",
+   "dose": 15.0,
+   "classes": [
+    "BelowReportedLD50"
+   ],
+   "windows": [
+    "Magnolia_champaca_Germination_BelowLD50Dose"
+   ],
+   "classes_robot": [
+    "BelowReportedLD50"
+   ]
+  },
+  {
+   "individual": "assessment_zanzibar2016_20Gy",
+   "study": "zanzibar2016",
+   "taxon": "Magnolia champaca",
+   "endpoint": "GerminationPercentage",
+   "stage": "GerminationStage",
+   "dose": 20.0,
+   "classes": [
+    "BelowReportedLD50"
+   ],
+   "windows": [
+    "Magnolia_champaca_Germination_BelowLD50Dose"
+   ],
+   "classes_robot": [
+    "BelowReportedLD50"
+   ]
+  },
+  {
+   "individual": "assessment_zanzibar2016_40Gy",
+   "study": "zanzibar2016",
+   "taxon": "Magnolia champaca",
+   "endpoint": "GerminationPercentage",
+   "stage": "GerminationStage",
+   "dose": 40.0,
+   "classes": [
+    "AtOrAboveReportedLD50"
+   ],
+   "windows": [
+    "Magnolia_champaca_Germination_AtOrAboveLD50Dose"
+   ],
+   "classes_robot": [
+    "AtOrAboveReportedLD50"
+   ]
+  },
+  {
+   "individual": "assessment_zanzibar2016_60Gy",
+   "study": "zanzibar2016",
+   "taxon": "Magnolia champaca",
+   "endpoint": "GerminationPercentage",
+   "stage": "GerminationStage",
+   "dose": 60.0,
+   "classes": [
+    "AtOrAboveReportedLD50"
+   ],
+   "windows": [
+    "Magnolia_champaca_Germination_AtOrAboveLD50Dose"
+   ],
+   "classes_robot": [
+    "AtOrAboveReportedLD50"
+   ]
+  },
+  {
+   "individual": "assessment_zanzibar2016_80Gy",
+   "study": "zanzibar2016",
+   "taxon": "Magnolia champaca",
+   "endpoint": "GerminationPercentage",
+   "stage": "GerminationStage",
+   "dose": 80.0,
+   "classes": [
+    "AtOrAboveReportedLD50"
+   ],
+   "windows": [
+    "Magnolia_champaca_Germination_AtOrAboveLD50Dose"
+   ],
+   "classes_robot": [
+    "AtOrAboveReportedLD50"
+   ]
+  },
+  {
+   "individual": "assessment_zanzibar2016_100Gy",
+   "study": "zanzibar2016",
+   "taxon": "Magnolia champaca",
+   "endpoint": "GerminationPercentage",
+   "stage": "GerminationStage",
+   "dose": 100.0,
+   "classes": [
+    "AtOrAboveReportedLD50"
+   ],
+   "windows": [
+    "Magnolia_champaca_Germination_AtOrAboveLD50Dose"
+   ],
+   "classes_robot": [
     "AtOrAboveReportedLD50"
    ]
   }
  ],
+ "D_reasoners_agree": true,
  "E": [
   {
+   "dose": 280.0,
    "datatype": "double",
    "consistent": true,
    "classes": [
@@ -207,6 +1053,7 @@
    ]
   },
   {
+   "dose": 280.0,
    "datatype": "decimal",
    "consistent": true,
    "classes": [
@@ -214,6 +1061,7 @@
    ]
   },
   {
+   "dose": 280.0,
    "datatype": "integer",
    "consistent": true,
    "classes": [
@@ -221,9 +1069,203 @@
    ]
   },
   {
+   "dose": 280.0,
+   "datatype": "float",
+   "consistent": false,
+   "classes": null
+  },
+  {
+   "dose": 250.0,
+   "datatype": "double",
+   "consistent": true,
+   "classes": [
+    "AtOrAboveReportedLD50"
+   ]
+  },
+  {
+   "dose": 250.0,
+   "datatype": "decimal",
+   "consistent": true,
+   "classes": [
+    "AtOrAboveReportedLD50"
+   ]
+  },
+  {
+   "dose": 250.0,
+   "datatype": "integer",
+   "consistent": true,
+   "classes": [
+    "AtOrAboveReportedLD50"
+   ]
+  },
+  {
+   "dose": 250.0,
+   "datatype": "float",
+   "consistent": false,
+   "classes": null
+  }
+ ],
+ "E_owlready2": [
+  {
+   "dose": 280.0,
+   "datatype": "float",
+   "consistent": true,
+   "classes": []
+  },
+  {
+   "dose": 250.0,
    "datatype": "float",
    "consistent": true,
    "classes": []
   }
- ]
+ ],
+ "F": {
+  "taxon": "NCBITaxon:3920",
+  "parent": "NCBITaxon:3917",
+  "dose": 280.0,
+  "classes": [
+   "AtOrAboveReportedLD50"
+  ],
+  "windows": [
+   "Vigna_unguiculata_SeedlingSurvival_AtOrAboveLD50Dose"
+  ]
+ },
+ "G": [
+  {
+   "endpoint": "SeedlingSurvival",
+   "stage": "FloweringStage",
+   "dose": 280.0,
+   "classes": [
+    "AtOrAboveReportedLD50"
+   ]
+  },
+  {
+   "endpoint": "GerminationPercentage",
+   "stage": "GerminationStage",
+   "dose": 280.0,
+   "classes": []
+  },
+  {
+   "endpoint": "SeedlingSurvival",
+   "stage": "EarlySeedlingStage",
+   "dose": 280.0,
+   "classes": []
+  }
+ ],
+ "H": {
+  "probes": [
+   "Nicotiana_tabacum_SeedlingPerformance_CotyledonFreeing_EarlySeedlingStage_BandUpperEndProbe",
+   "Nicotiana_tabacum_SeedlingPerformance_CotyledonFreeing_GerminationStage_BandUpperEndProbe",
+   "Nicotiana_tabacum_SeedlingPerformance_FreshMass_EarlySeedlingStage_BandUpperEndProbe",
+   "Nicotiana_tabacum_SeedlingPerformance_FreshMass_GerminationStage_BandUpperEndProbe",
+   "Nicotiana_tabacum_SeedlingPerformance_GerminationPercentage_EarlySeedlingStage_BandUpperEndProbe",
+   "Nicotiana_tabacum_SeedlingPerformance_GerminationPercentage_GerminationStage_BandUpperEndProbe",
+   "Nicotiana_tabacum_SeedlingPerformance_GerminationRate_EarlySeedlingStage_BandUpperEndProbe",
+   "Nicotiana_tabacum_SeedlingPerformance_GerminationRate_GerminationStage_BandUpperEndProbe",
+   "Nicotiana_tabacum_SeedlingPerformance_HypocotylEmergence_EarlySeedlingStage_BandUpperEndProbe",
+   "Nicotiana_tabacum_SeedlingPerformance_HypocotylEmergence_GerminationStage_BandUpperEndProbe"
+  ],
+  "consistent": true,
+  "unsatisfiable": [],
+  "ld50": 10.0,
+  "control_ld50": 16.0,
+  "runs": [
+   {
+    "endpoint": "GerminationPercentage",
+    "stage": "GerminationStage",
+    "probe": "Nicotiana_tabacum_SeedlingPerformance_GerminationPercentage_GerminationStage_BandUpperEndProbe",
+    "consistent": true,
+    "unsatisfiable": [
+     "Nicotiana_tabacum_SeedlingPerformance_GerminationPercentage_GerminationStage_BandUpperEndProbe"
+    ]
+   },
+   {
+    "endpoint": "GerminationPercentage",
+    "stage": "EarlySeedlingStage",
+    "probe": "Nicotiana_tabacum_SeedlingPerformance_GerminationPercentage_EarlySeedlingStage_BandUpperEndProbe",
+    "consistent": true,
+    "unsatisfiable": [
+     "Nicotiana_tabacum_SeedlingPerformance_GerminationPercentage_EarlySeedlingStage_BandUpperEndProbe"
+    ]
+   },
+   {
+    "endpoint": "GerminationRate",
+    "stage": "GerminationStage",
+    "probe": "Nicotiana_tabacum_SeedlingPerformance_GerminationRate_GerminationStage_BandUpperEndProbe",
+    "consistent": true,
+    "unsatisfiable": [
+     "Nicotiana_tabacum_SeedlingPerformance_GerminationRate_GerminationStage_BandUpperEndProbe"
+    ]
+   },
+   {
+    "endpoint": "GerminationRate",
+    "stage": "EarlySeedlingStage",
+    "probe": "Nicotiana_tabacum_SeedlingPerformance_GerminationRate_EarlySeedlingStage_BandUpperEndProbe",
+    "consistent": true,
+    "unsatisfiable": [
+     "Nicotiana_tabacum_SeedlingPerformance_GerminationRate_EarlySeedlingStage_BandUpperEndProbe"
+    ]
+   },
+   {
+    "endpoint": "HypocotylEmergence",
+    "stage": "GerminationStage",
+    "probe": "Nicotiana_tabacum_SeedlingPerformance_HypocotylEmergence_GerminationStage_BandUpperEndProbe",
+    "consistent": true,
+    "unsatisfiable": [
+     "Nicotiana_tabacum_SeedlingPerformance_HypocotylEmergence_GerminationStage_BandUpperEndProbe"
+    ]
+   },
+   {
+    "endpoint": "HypocotylEmergence",
+    "stage": "EarlySeedlingStage",
+    "probe": "Nicotiana_tabacum_SeedlingPerformance_HypocotylEmergence_EarlySeedlingStage_BandUpperEndProbe",
+    "consistent": true,
+    "unsatisfiable": [
+     "Nicotiana_tabacum_SeedlingPerformance_HypocotylEmergence_EarlySeedlingStage_BandUpperEndProbe"
+    ]
+   },
+   {
+    "endpoint": "CotyledonFreeing",
+    "stage": "GerminationStage",
+    "probe": "Nicotiana_tabacum_SeedlingPerformance_CotyledonFreeing_GerminationStage_BandUpperEndProbe",
+    "consistent": true,
+    "unsatisfiable": [
+     "Nicotiana_tabacum_SeedlingPerformance_CotyledonFreeing_GerminationStage_BandUpperEndProbe"
+    ]
+   },
+   {
+    "endpoint": "CotyledonFreeing",
+    "stage": "EarlySeedlingStage",
+    "probe": "Nicotiana_tabacum_SeedlingPerformance_CotyledonFreeing_EarlySeedlingStage_BandUpperEndProbe",
+    "consistent": true,
+    "unsatisfiable": [
+     "Nicotiana_tabacum_SeedlingPerformance_CotyledonFreeing_EarlySeedlingStage_BandUpperEndProbe"
+    ]
+   },
+   {
+    "endpoint": "FreshMass",
+    "stage": "GerminationStage",
+    "probe": "Nicotiana_tabacum_SeedlingPerformance_FreshMass_GerminationStage_BandUpperEndProbe",
+    "consistent": true,
+    "unsatisfiable": [
+     "Nicotiana_tabacum_SeedlingPerformance_FreshMass_GerminationStage_BandUpperEndProbe"
+    ]
+   },
+   {
+    "endpoint": "FreshMass",
+    "stage": "EarlySeedlingStage",
+    "probe": "Nicotiana_tabacum_SeedlingPerformance_FreshMass_EarlySeedlingStage_BandUpperEndProbe",
+    "consistent": true,
+    "unsatisfiable": [
+     "Nicotiana_tabacum_SeedlingPerformance_FreshMass_EarlySeedlingStage_BandUpperEndProbe"
+    ]
+   }
+  ],
+  "control": {
+   "endpoint": "GerminationPercentage",
+   "stage": "GerminationStage",
+   "consistent": true,
+   "unsatisfiable": []
+  }
+ }
 }

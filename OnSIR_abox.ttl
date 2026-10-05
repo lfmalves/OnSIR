@@ -12,351 +12,1074 @@ dct:license a owl:AnnotationProperty .
 
 dct:source a owl:AnnotationProperty .
 
+dct:title a owl:AnnotationProperty .
+
 onsir:abox a owl:Ontology ;
-    dct:description "ABox of OnSIR: gamma-irradiation studies of seeds and other propagules, each coded as a treatment with its source isotope, the highest dose it irradiated and its dose rate where reported, and an outcome with its subject, endpoint category and source; and the irradiated doses of one cowpea study as dose assessments." ;
+    dct:description "ABox of OnSIR: the 55 studies of the coded corpus (corpus/onsir_corpus.csv), gamma-irradiation studies of seeds and other propagules, each coded as a treatment with its radiation type, source isotope, highest dose and dose rate where reported, and an outcome with its subject, taxon, endpoint category and source; and the irradiated doses of seven studies as dose assessments for the endpoint and stage each source scored." ;
     dct:license <https://creativecommons.org/licenses/by/4.0/> ;
-    owl:imports <https://w3id.org/onsir> ;
-    owl:versionInfo "1.6.0" .
+    dct:title "OnSIR ABox: coded gamma-irradiation studies of plant propagules" ;
+    owl:imports onsir:1.7.0 ;
+    owl:versionIRI <https://w3id.org/onsir/abox/1.7.0> ;
+    owl:versionInfo "1.7.0" .
+
+onsir:assessment_chakraborty2023_200Gy a owl:NamedIndividual,
+        onsir:DoseAssessment ;
+    rdfs:label "Triticum aestivum at 200 Gy (chakraborty2023)" ;
+    dct:source <https://doi.org/10.1590/1678-4324-2023220294> ;
+    onsir:atStage onsir:stage_chakraborty2023 ;
+    onsir:doseGy 2e+02 ;
+    onsir:forEndpoint onsir:endpoint_chakraborty2023 ;
+    onsir:hasSubject onsir:subject_chakraborty2023 .
+
+onsir:assessment_chakraborty2023_250Gy a owl:NamedIndividual,
+        onsir:DoseAssessment ;
+    rdfs:label "Triticum aestivum at 250 Gy (chakraborty2023)" ;
+    dct:source <https://doi.org/10.1590/1678-4324-2023220294> ;
+    onsir:atStage onsir:stage_chakraborty2023 ;
+    onsir:doseGy 2.5e+02 ;
+    onsir:forEndpoint onsir:endpoint_chakraborty2023 ;
+    onsir:hasSubject onsir:subject_chakraborty2023 .
+
+onsir:assessment_chakraborty2023_300Gy a owl:NamedIndividual,
+        onsir:DoseAssessment ;
+    rdfs:label "Triticum aestivum at 300 Gy (chakraborty2023)" ;
+    dct:source <https://doi.org/10.1590/1678-4324-2023220294> ;
+    onsir:atStage onsir:stage_chakraborty2023 ;
+    onsir:doseGy 3e+02 ;
+    onsir:forEndpoint onsir:endpoint_chakraborty2023 ;
+    onsir:hasSubject onsir:subject_chakraborty2023 .
+
+onsir:assessment_chakraborty2023_350Gy a owl:NamedIndividual,
+        onsir:DoseAssessment ;
+    rdfs:label "Triticum aestivum at 350 Gy (chakraborty2023)" ;
+    dct:source <https://doi.org/10.1590/1678-4324-2023220294> ;
+    onsir:atStage onsir:stage_chakraborty2023 ;
+    onsir:doseGy 3.5e+02 ;
+    onsir:forEndpoint onsir:endpoint_chakraborty2023 ;
+    onsir:hasSubject onsir:subject_chakraborty2023 .
+
+onsir:assessment_chakraborty2023_400Gy a owl:NamedIndividual,
+        onsir:DoseAssessment ;
+    rdfs:label "Triticum aestivum at 400 Gy (chakraborty2023)" ;
+    dct:source <https://doi.org/10.1590/1678-4324-2023220294> ;
+    onsir:atStage onsir:stage_chakraborty2023 ;
+    onsir:doseGy 4e+02 ;
+    onsir:forEndpoint onsir:endpoint_chakraborty2023 ;
+    onsir:hasSubject onsir:subject_chakraborty2023 .
+
+onsir:assessment_chakraborty2023_450Gy a owl:NamedIndividual,
+        onsir:DoseAssessment ;
+    rdfs:label "Triticum aestivum at 450 Gy (chakraborty2023)" ;
+    dct:source <https://doi.org/10.1590/1678-4324-2023220294> ;
+    onsir:atStage onsir:stage_chakraborty2023 ;
+    onsir:doseGy 4.5e+02 ;
+    onsir:forEndpoint onsir:endpoint_chakraborty2023 ;
+    onsir:hasSubject onsir:subject_chakraborty2023 .
+
+onsir:assessment_corazonguivin2023_500Gy a owl:NamedIndividual,
+        onsir:DoseAssessment ;
+    rdfs:label "Plukenetia volubilis at 500 Gy (corazonguivin2023)" ;
+    dct:source <https://doi.org/10.1155/2023/9737125> ;
+    onsir:atStage onsir:stage_corazonguivin2023 ;
+    onsir:doseGy 5e+02 ;
+    onsir:forEndpoint onsir:endpoint_corazonguivin2023 ;
+    onsir:hasSubject onsir:subject_corazonguivin2023 .
+
+onsir:assessment_corazonguivin2023_550Gy a owl:NamedIndividual,
+        onsir:DoseAssessment ;
+    rdfs:label "Plukenetia volubilis at 550 Gy (corazonguivin2023)" ;
+    dct:source <https://doi.org/10.1155/2023/9737125> ;
+    onsir:atStage onsir:stage_corazonguivin2023 ;
+    onsir:doseGy 5.5e+02 ;
+    onsir:forEndpoint onsir:endpoint_corazonguivin2023 ;
+    onsir:hasSubject onsir:subject_corazonguivin2023 .
+
+onsir:assessment_corazonguivin2023_600Gy a owl:NamedIndividual,
+        onsir:DoseAssessment ;
+    rdfs:label "Plukenetia volubilis at 600 Gy (corazonguivin2023)" ;
+    dct:source <https://doi.org/10.1155/2023/9737125> ;
+    onsir:atStage onsir:stage_corazonguivin2023 ;
+    onsir:doseGy 6e+02 ;
+    onsir:forEndpoint onsir:endpoint_corazonguivin2023 ;
+    onsir:hasSubject onsir:subject_corazonguivin2023 .
+
+onsir:assessment_corazonguivin2023_650Gy a owl:NamedIndividual,
+        onsir:DoseAssessment ;
+    rdfs:label "Plukenetia volubilis at 650 Gy (corazonguivin2023)" ;
+    dct:source <https://doi.org/10.1155/2023/9737125> ;
+    onsir:atStage onsir:stage_corazonguivin2023 ;
+    onsir:doseGy 6.5e+02 ;
+    onsir:forEndpoint onsir:endpoint_corazonguivin2023 ;
+    onsir:hasSubject onsir:subject_corazonguivin2023 .
+
+onsir:assessment_corazonguivin2023_700Gy a owl:NamedIndividual,
+        onsir:DoseAssessment ;
+    rdfs:label "Plukenetia volubilis at 700 Gy (corazonguivin2023)" ;
+    dct:source <https://doi.org/10.1155/2023/9737125> ;
+    onsir:atStage onsir:stage_corazonguivin2023 ;
+    onsir:doseGy 7e+02 ;
+    onsir:forEndpoint onsir:endpoint_corazonguivin2023 ;
+    onsir:hasSubject onsir:subject_corazonguivin2023 .
+
+onsir:assessment_corazonguivin2023_750Gy a owl:NamedIndividual,
+        onsir:DoseAssessment ;
+    rdfs:label "Plukenetia volubilis at 750 Gy (corazonguivin2023)" ;
+    dct:source <https://doi.org/10.1155/2023/9737125> ;
+    onsir:atStage onsir:stage_corazonguivin2023 ;
+    onsir:doseGy 7.5e+02 ;
+    onsir:forEndpoint onsir:endpoint_corazonguivin2023 ;
+    onsir:hasSubject onsir:subject_corazonguivin2023 .
+
+onsir:assessment_corazonguivin2023_800Gy a owl:NamedIndividual,
+        onsir:DoseAssessment ;
+    rdfs:label "Plukenetia volubilis at 800 Gy (corazonguivin2023)" ;
+    dct:source <https://doi.org/10.1155/2023/9737125> ;
+    onsir:atStage onsir:stage_corazonguivin2023 ;
+    onsir:doseGy 8e+02 ;
+    onsir:forEndpoint onsir:endpoint_corazonguivin2023 ;
+    onsir:hasSubject onsir:subject_corazonguivin2023 .
+
+onsir:assessment_corazonguivin2023_900Gy a owl:NamedIndividual,
+        onsir:DoseAssessment ;
+    rdfs:label "Plukenetia volubilis at 900 Gy (corazonguivin2023)" ;
+    dct:source <https://doi.org/10.1155/2023/9737125> ;
+    onsir:atStage onsir:stage_corazonguivin2023 ;
+    onsir:doseGy 9e+02 ;
+    onsir:forEndpoint onsir:endpoint_corazonguivin2023 ;
+    onsir:hasSubject onsir:subject_corazonguivin2023 .
+
+onsir:assessment_indrayanti2024_100Gy a owl:NamedIndividual,
+        onsir:DoseAssessment ;
+    rdfs:label "Solanum lycopersicum at 100 Gy (indrayanti2024)" ;
+    dct:source <https://doi.org/10.33866/phytopathol.036.02.1047> ;
+    onsir:atStage onsir:stage_indrayanti2024 ;
+    onsir:doseGy 1e+02 ;
+    onsir:forEndpoint onsir:endpoint_indrayanti2024 ;
+    onsir:hasSubject onsir:subject_indrayanti2024 .
+
+onsir:assessment_indrayanti2024_110Gy a owl:NamedIndividual,
+        onsir:DoseAssessment ;
+    rdfs:label "Solanum lycopersicum at 110 Gy (indrayanti2024)" ;
+    dct:source <https://doi.org/10.33866/phytopathol.036.02.1047> ;
+    onsir:atStage onsir:stage_indrayanti2024 ;
+    onsir:doseGy 1.1e+02 ;
+    onsir:forEndpoint onsir:endpoint_indrayanti2024 ;
+    onsir:hasSubject onsir:subject_indrayanti2024 .
+
+onsir:assessment_indrayanti2024_120Gy a owl:NamedIndividual,
+        onsir:DoseAssessment ;
+    rdfs:label "Solanum lycopersicum at 120 Gy (indrayanti2024)" ;
+    dct:source <https://doi.org/10.33866/phytopathol.036.02.1047> ;
+    onsir:atStage onsir:stage_indrayanti2024 ;
+    onsir:doseGy 1.2e+02 ;
+    onsir:forEndpoint onsir:endpoint_indrayanti2024 ;
+    onsir:hasSubject onsir:subject_indrayanti2024 .
+
+onsir:assessment_indrayanti2024_50Gy a owl:NamedIndividual,
+        onsir:DoseAssessment ;
+    rdfs:label "Solanum lycopersicum at 50 Gy (indrayanti2024)" ;
+    dct:source <https://doi.org/10.33866/phytopathol.036.02.1047> ;
+    onsir:atStage onsir:stage_indrayanti2024 ;
+    onsir:doseGy 5e+01 ;
+    onsir:forEndpoint onsir:endpoint_indrayanti2024 ;
+    onsir:hasSubject onsir:subject_indrayanti2024 .
+
+onsir:assessment_indrayanti2024_60Gy a owl:NamedIndividual,
+        onsir:DoseAssessment ;
+    rdfs:label "Solanum lycopersicum at 60 Gy (indrayanti2024)" ;
+    dct:source <https://doi.org/10.33866/phytopathol.036.02.1047> ;
+    onsir:atStage onsir:stage_indrayanti2024 ;
+    onsir:doseGy 6e+01 ;
+    onsir:forEndpoint onsir:endpoint_indrayanti2024 ;
+    onsir:hasSubject onsir:subject_indrayanti2024 .
+
+onsir:assessment_indrayanti2024_70Gy a owl:NamedIndividual,
+        onsir:DoseAssessment ;
+    rdfs:label "Solanum lycopersicum at 70 Gy (indrayanti2024)" ;
+    dct:source <https://doi.org/10.33866/phytopathol.036.02.1047> ;
+    onsir:atStage onsir:stage_indrayanti2024 ;
+    onsir:doseGy 7e+01 ;
+    onsir:forEndpoint onsir:endpoint_indrayanti2024 ;
+    onsir:hasSubject onsir:subject_indrayanti2024 .
+
+onsir:assessment_indrayanti2024_80Gy a owl:NamedIndividual,
+        onsir:DoseAssessment ;
+    rdfs:label "Solanum lycopersicum at 80 Gy (indrayanti2024)" ;
+    dct:source <https://doi.org/10.33866/phytopathol.036.02.1047> ;
+    onsir:atStage onsir:stage_indrayanti2024 ;
+    onsir:doseGy 8e+01 ;
+    onsir:forEndpoint onsir:endpoint_indrayanti2024 ;
+    onsir:hasSubject onsir:subject_indrayanti2024 .
+
+onsir:assessment_indrayanti2024_90Gy a owl:NamedIndividual,
+        onsir:DoseAssessment ;
+    rdfs:label "Solanum lycopersicum at 90 Gy (indrayanti2024)" ;
+    dct:source <https://doi.org/10.33866/phytopathol.036.02.1047> ;
+    onsir:atStage onsir:stage_indrayanti2024 ;
+    onsir:doseGy 9e+01 ;
+    onsir:forEndpoint onsir:endpoint_indrayanti2024 ;
+    onsir:hasSubject onsir:subject_indrayanti2024 .
 
 onsir:assessment_lumorh2025_1000Gy a owl:NamedIndividual,
         onsir:DoseAssessment ;
     rdfs:label "Vigna unguiculata at 1000 Gy (lumorh2025)" ;
     dct:source <https://doi.org/10.3329/ijarit.v15i1.82798> ;
+    onsir:atStage onsir:stage_lumorh2025 ;
     onsir:doseGy 1e+03 ;
-    onsir:forEndpoint onsir:endpoint_lumorh2025_germination ;
-    onsir:forTaxon onsir:taxon_Vigna_unguiculata .
+    onsir:forEndpoint onsir:endpoint_lumorh2025 ;
+    onsir:hasSubject onsir:subject_lumorh2025 .
 
 onsir:assessment_lumorh2025_100Gy a owl:NamedIndividual,
         onsir:DoseAssessment ;
     rdfs:label "Vigna unguiculata at 100 Gy (lumorh2025)" ;
     dct:source <https://doi.org/10.3329/ijarit.v15i1.82798> ;
+    onsir:atStage onsir:stage_lumorh2025 ;
     onsir:doseGy 1e+02 ;
-    onsir:forEndpoint onsir:endpoint_lumorh2025_germination ;
-    onsir:forTaxon onsir:taxon_Vigna_unguiculata .
+    onsir:forEndpoint onsir:endpoint_lumorh2025 ;
+    onsir:hasSubject onsir:subject_lumorh2025 .
 
 onsir:assessment_lumorh2025_1100Gy a owl:NamedIndividual,
         onsir:DoseAssessment ;
     rdfs:label "Vigna unguiculata at 1100 Gy (lumorh2025)" ;
     dct:source <https://doi.org/10.3329/ijarit.v15i1.82798> ;
+    onsir:atStage onsir:stage_lumorh2025 ;
     onsir:doseGy 1.1e+03 ;
-    onsir:forEndpoint onsir:endpoint_lumorh2025_germination ;
-    onsir:forTaxon onsir:taxon_Vigna_unguiculata .
+    onsir:forEndpoint onsir:endpoint_lumorh2025 ;
+    onsir:hasSubject onsir:subject_lumorh2025 .
 
 onsir:assessment_lumorh2025_1200Gy a owl:NamedIndividual,
         onsir:DoseAssessment ;
     rdfs:label "Vigna unguiculata at 1200 Gy (lumorh2025)" ;
     dct:source <https://doi.org/10.3329/ijarit.v15i1.82798> ;
+    onsir:atStage onsir:stage_lumorh2025 ;
     onsir:doseGy 1.2e+03 ;
-    onsir:forEndpoint onsir:endpoint_lumorh2025_germination ;
-    onsir:forTaxon onsir:taxon_Vigna_unguiculata .
+    onsir:forEndpoint onsir:endpoint_lumorh2025 ;
+    onsir:hasSubject onsir:subject_lumorh2025 .
 
 onsir:assessment_lumorh2025_200Gy a owl:NamedIndividual,
         onsir:DoseAssessment ;
     rdfs:label "Vigna unguiculata at 200 Gy (lumorh2025)" ;
     dct:source <https://doi.org/10.3329/ijarit.v15i1.82798> ;
+    onsir:atStage onsir:stage_lumorh2025 ;
     onsir:doseGy 2e+02 ;
-    onsir:forEndpoint onsir:endpoint_lumorh2025_germination ;
-    onsir:forTaxon onsir:taxon_Vigna_unguiculata .
+    onsir:forEndpoint onsir:endpoint_lumorh2025 ;
+    onsir:hasSubject onsir:subject_lumorh2025 .
 
 onsir:assessment_lumorh2025_300Gy a owl:NamedIndividual,
         onsir:DoseAssessment ;
     rdfs:label "Vigna unguiculata at 300 Gy (lumorh2025)" ;
     dct:source <https://doi.org/10.3329/ijarit.v15i1.82798> ;
+    onsir:atStage onsir:stage_lumorh2025 ;
     onsir:doseGy 3e+02 ;
-    onsir:forEndpoint onsir:endpoint_lumorh2025_germination ;
-    onsir:forTaxon onsir:taxon_Vigna_unguiculata .
+    onsir:forEndpoint onsir:endpoint_lumorh2025 ;
+    onsir:hasSubject onsir:subject_lumorh2025 .
 
 onsir:assessment_lumorh2025_400Gy a owl:NamedIndividual,
         onsir:DoseAssessment ;
     rdfs:label "Vigna unguiculata at 400 Gy (lumorh2025)" ;
     dct:source <https://doi.org/10.3329/ijarit.v15i1.82798> ;
+    onsir:atStage onsir:stage_lumorh2025 ;
     onsir:doseGy 4e+02 ;
-    onsir:forEndpoint onsir:endpoint_lumorh2025_germination ;
-    onsir:forTaxon onsir:taxon_Vigna_unguiculata .
+    onsir:forEndpoint onsir:endpoint_lumorh2025 ;
+    onsir:hasSubject onsir:subject_lumorh2025 .
 
 onsir:assessment_lumorh2025_500Gy a owl:NamedIndividual,
         onsir:DoseAssessment ;
     rdfs:label "Vigna unguiculata at 500 Gy (lumorh2025)" ;
     dct:source <https://doi.org/10.3329/ijarit.v15i1.82798> ;
+    onsir:atStage onsir:stage_lumorh2025 ;
     onsir:doseGy 5e+02 ;
-    onsir:forEndpoint onsir:endpoint_lumorh2025_germination ;
-    onsir:forTaxon onsir:taxon_Vigna_unguiculata .
+    onsir:forEndpoint onsir:endpoint_lumorh2025 ;
+    onsir:hasSubject onsir:subject_lumorh2025 .
 
 onsir:assessment_lumorh2025_600Gy a owl:NamedIndividual,
         onsir:DoseAssessment ;
     rdfs:label "Vigna unguiculata at 600 Gy (lumorh2025)" ;
     dct:source <https://doi.org/10.3329/ijarit.v15i1.82798> ;
+    onsir:atStage onsir:stage_lumorh2025 ;
     onsir:doseGy 6e+02 ;
-    onsir:forEndpoint onsir:endpoint_lumorh2025_germination ;
-    onsir:forTaxon onsir:taxon_Vigna_unguiculata .
+    onsir:forEndpoint onsir:endpoint_lumorh2025 ;
+    onsir:hasSubject onsir:subject_lumorh2025 .
 
 onsir:assessment_lumorh2025_700Gy a owl:NamedIndividual,
         onsir:DoseAssessment ;
     rdfs:label "Vigna unguiculata at 700 Gy (lumorh2025)" ;
     dct:source <https://doi.org/10.3329/ijarit.v15i1.82798> ;
+    onsir:atStage onsir:stage_lumorh2025 ;
     onsir:doseGy 7e+02 ;
-    onsir:forEndpoint onsir:endpoint_lumorh2025_germination ;
-    onsir:forTaxon onsir:taxon_Vigna_unguiculata .
+    onsir:forEndpoint onsir:endpoint_lumorh2025 ;
+    onsir:hasSubject onsir:subject_lumorh2025 .
 
 onsir:assessment_lumorh2025_800Gy a owl:NamedIndividual,
         onsir:DoseAssessment ;
     rdfs:label "Vigna unguiculata at 800 Gy (lumorh2025)" ;
     dct:source <https://doi.org/10.3329/ijarit.v15i1.82798> ;
+    onsir:atStage onsir:stage_lumorh2025 ;
     onsir:doseGy 8e+02 ;
-    onsir:forEndpoint onsir:endpoint_lumorh2025_germination ;
-    onsir:forTaxon onsir:taxon_Vigna_unguiculata .
+    onsir:forEndpoint onsir:endpoint_lumorh2025 ;
+    onsir:hasSubject onsir:subject_lumorh2025 .
 
 onsir:assessment_lumorh2025_900Gy a owl:NamedIndividual,
         onsir:DoseAssessment ;
     rdfs:label "Vigna unguiculata at 900 Gy (lumorh2025)" ;
     dct:source <https://doi.org/10.3329/ijarit.v15i1.82798> ;
+    onsir:atStage onsir:stage_lumorh2025 ;
     onsir:doseGy 9e+02 ;
-    onsir:forEndpoint onsir:endpoint_lumorh2025_germination ;
-    onsir:forTaxon onsir:taxon_Vigna_unguiculata .
+    onsir:forEndpoint onsir:endpoint_lumorh2025 ;
+    onsir:hasSubject onsir:subject_lumorh2025 .
 
-onsir:outcome_00 a owl:NamedIndividual,
-        onsir:TreatmentOutcome ;
-    rdfs:label "Phyllanthus odontadenius / Cs-137 / highest dose 300 Gy (2014)" ;
-    dct:source <https://doi.org/10.9734/AJEA/2014/8631> ;
-    onsir:hasEndpointCategory onsir:BiochemicalEndpointCategory ;
-    onsir:hasSubject onsir:seed_00 ;
-    onsir:hasTreatment onsir:treat_00 .
-
-onsir:outcome_01 a owl:NamedIndividual,
-        onsir:TreatmentOutcome ;
-    rdfs:label "Polianthes tuberosa / Co-60 / highest dose 13.155 Gy (2015)" ;
-    dct:source <https://doi.org/10.4038/tar.v26i4.8135> ;
-    onsir:hasEndpointCategory onsir:MorphologicalEndpointCategory ;
-    onsir:hasSubject onsir:seed_01 ;
-    onsir:hasTreatment onsir:treat_01 .
-
-onsir:outcome_02 a owl:NamedIndividual,
-        onsir:TreatmentOutcome ;
-    rdfs:label "Magnolia champaca / Co-60 / highest dose 100 Gy (2016)" ;
-    dct:source <https://doi.org/10.20886/ijfr.2016.3.2.95-106> ;
-    onsir:hasEndpointCategory onsir:EmergenceAndEarlyVigor ;
-    onsir:hasSubject onsir:seed_02 ;
-    onsir:hasTreatment onsir:treat_02 .
-
-onsir:outcome_03 a owl:NamedIndividual,
-        onsir:TreatmentOutcome ;
-    rdfs:label "Vigna radiata / N.R. / highest dose 60 Gy (2016)" ;
-    dct:source <https://doi.org/10.21608/jbes.2016.369618> ;
-    onsir:hasEndpointCategory onsir:OtherPhysiologicalEndpointCategory ;
-    onsir:hasSubject onsir:seed_03 ;
-    onsir:hasTreatment onsir:treat_03 .
-
-onsir:outcome_04 a owl:NamedIndividual,
-        onsir:TreatmentOutcome ;
-    rdfs:label "Datura stramonium / Co-60 / highest dose 80 Gy (2019)" ;
-    dct:source <https://doi.org/10.14719/pst.2019.6.4.634> ;
-    onsir:hasEndpointCategory onsir:BiochemicalEndpointCategory ;
-    onsir:hasSubject onsir:seed_04 ;
-    onsir:hasTreatment onsir:treat_04 .
-
-onsir:outcome_05 a owl:NamedIndividual,
-        onsir:TreatmentOutcome ;
-    rdfs:label "Osmanthus fragrans / Co-60 / highest dose 150 Gy (2019)" ;
-    dct:source <https://doi.org/10.3390/f10050406> ;
-    onsir:hasEndpointCategory onsir:BiochemicalEndpointCategory ;
-    onsir:hasSubject onsir:seed_05 ;
-    onsir:hasTreatment onsir:treat_05 .
-
-onsir:outcome_06 a owl:NamedIndividual,
-        onsir:TreatmentOutcome ;
-    rdfs:label "Capsicum sp. / Co-60 / highest dose 600 Gy (2020)" ;
-    dct:source "Thisawech M, Saritnum O, Sarapirom S, Prakrajang K, Phakham W (2020). Effects of plasma technique and gamma irradiation on seed germination and seedling growth of chili pepper. Chiang Mai Journal of Science 47(1):73-82." ;
-    onsir:hasEndpointCategory onsir:EmergenceAndEarlyVigor ;
-    onsir:hasSubject onsir:seed_06 ;
-    onsir:hasTreatment onsir:treat_06 .
-
-onsir:outcome_07 a owl:NamedIndividual,
-        onsir:TreatmentOutcome ;
-    rdfs:label "Hordeum vulgare / Co-60 / highest dose 20 Gy (2020)" ;
-    dct:source <https://doi.org/10.31367/2079-8725-2020-68-2-23-28> ;
-    onsir:hasEndpointCategory onsir:EmergenceAndEarlyVigor ;
-    onsir:hasSubject onsir:seed_07 ;
-    onsir:hasTreatment onsir:treat_07 .
-
-onsir:outcome_08 a owl:NamedIndividual,
-        onsir:TreatmentOutcome ;
-    rdfs:label "Brassica napus / N.R. / highest dose 800 Gy (2021)" ;
-    dct:source "Bhuiyan MSH, Emon RM, Khatun MK, Malek MA, Khan NA (2021). Evaluation of induced genetic variability in gamma ray irradiated rapeseed mutants. Bangladesh Journal of Nuclear Agriculture 35:1-8." ;
-    onsir:hasEndpointCategory onsir:GeneticEndpointCategory ;
-    onsir:hasSubject onsir:seed_08 ;
-    onsir:hasTreatment onsir:treat_08 .
-
-onsir:outcome_09 a owl:NamedIndividual,
-        onsir:TreatmentOutcome ;
-    rdfs:label "Solanum lycopersicum / Co-60 / highest dose 100 Gy (2021)" ;
-    dct:source <https://doi.org/10.1088/1742-6596/1719/1/012076> ;
-    onsir:hasEndpointCategory onsir:EmergenceAndEarlyVigor ;
-    onsir:hasSubject onsir:seed_09 ;
-    onsir:hasTreatment onsir:treat_09 .
-
-onsir:outcome_10 a owl:NamedIndividual,
-        onsir:TreatmentOutcome ;
-    rdfs:label "Toona sureni / Co-60 / highest dose 100 Gy (2021)" ;
-    dct:source <https://doi.org/10.1080/21580103.2021.1924872> ;
-    onsir:hasEndpointCategory onsir:EmergenceAndEarlyVigor ;
-    onsir:hasSubject onsir:seed_10 ;
-    onsir:hasTreatment onsir:treat_10 .
-
-onsir:outcome_11 a owl:NamedIndividual,
-        onsir:TreatmentOutcome ;
-    rdfs:label "Vigna mungo / Co-60 / highest dose 500 Gy (2021)" ;
-    dct:source "Roy S, Alim SMA, Ghosh SR, Akondo MRI, Chowhan S, Ali MKJ (2021). Binamash-2, a gamma ray induced high yielding blackgram mutant variety. Bangladesh Journal of Nuclear Agriculture 35:63-70." ;
-    onsir:hasEndpointCategory onsir:OtherPhysiologicalEndpointCategory ;
-    onsir:hasSubject onsir:seed_11 ;
-    onsir:hasTreatment onsir:treat_11 .
-
-onsir:outcome_12 a owl:NamedIndividual,
-        onsir:TreatmentOutcome ;
-    rdfs:label "Calotropis gigantea / Co-60 / highest dose 900 Gy (2022)" ;
-    dct:source <https://doi.org/10.53552/ijmfmap.8.1.2022.40-46> ;
-    onsir:hasEndpointCategory onsir:EmergenceAndEarlyVigor ;
-    onsir:hasSubject onsir:seed_12 ;
-    onsir:hasTreatment onsir:treat_12 .
-
-onsir:outcome_13 a owl:NamedIndividual,
-        onsir:TreatmentOutcome ;
-    rdfs:label "Coriandrum sativum / Co-60 / highest dose 150 Gy (2022)" ;
-    dct:source <https://doi.org/10.53730/ijhs.v6nS3.7675> ;
-    onsir:hasEndpointCategory onsir:GeneticEndpointCategory ;
-    onsir:hasSubject onsir:seed_13 ;
-    onsir:hasTreatment onsir:treat_13 .
-
-onsir:outcome_14 a owl:NamedIndividual,
-        onsir:TreatmentOutcome ;
-    rdfs:label "Neolamarckia cadamba / Co-60 / highest dose 50 Gy (2022)" ;
-    dct:source <https://doi.org/10.13057/biodiv/d231014> ;
-    onsir:hasEndpointCategory onsir:EmergenceAndEarlyVigor ;
-    onsir:hasSubject onsir:seed_14 ;
-    onsir:hasTreatment onsir:treat_14 .
-
-onsir:outcome_15 a owl:NamedIndividual,
-        onsir:TreatmentOutcome ;
-    rdfs:label "Arabidopsis thaliana / Co-60 / highest dose 1500 Gy (2023)" ;
-    dct:source <https://doi.org/10.3389/fpls.2023.1149083> ;
-    onsir:hasEndpointCategory onsir:GeneticEndpointCategory ;
-    onsir:hasSubject onsir:seed_15 ;
-    onsir:hasTreatment onsir:treat_15 .
-
-onsir:outcome_16 a owl:NamedIndividual,
-        onsir:TreatmentOutcome ;
-    rdfs:label "Ficus variegata / Co-60 / highest dose 240 Gy (2023)" ;
-    dct:source <https://doi.org/10.4308/hjb.30.2.336-346> ;
-    onsir:hasEndpointCategory onsir:EmergenceAndEarlyVigor ;
-    onsir:hasSubject onsir:seed_16 ;
-    onsir:hasTreatment onsir:treat_16 .
-
-onsir:outcome_17 a owl:NamedIndividual,
-        onsir:TreatmentOutcome ;
-    rdfs:label "Lablab purpureus / Co-60 / highest dose 526.2 Gy (2023)" ;
+onsir:assessment_mahesha2023_175.4Gy a owl:NamedIndividual,
+        onsir:DoseAssessment ;
+    rdfs:label "Lablab purpureus at 175.4 Gy (mahesha2023)" ;
     dct:source <https://doi.org/10.60151/envec/EFHD5757> ;
-    onsir:hasEndpointCategory onsir:GeneticEndpointCategory ;
-    onsir:hasSubject onsir:seed_17 ;
-    onsir:hasTreatment onsir:treat_17 .
+    onsir:atStage onsir:stage_mahesha2023 ;
+    onsir:doseGy 1.754e+02 ;
+    onsir:forEndpoint onsir:endpoint_mahesha2023 ;
+    onsir:hasSubject onsir:subject_mahesha2023 .
 
-onsir:outcome_18 a owl:NamedIndividual,
+onsir:assessment_mahesha2023_263.1Gy a owl:NamedIndividual,
+        onsir:DoseAssessment ;
+    rdfs:label "Lablab purpureus at 263.1 Gy (mahesha2023)" ;
+    dct:source <https://doi.org/10.60151/envec/EFHD5757> ;
+    onsir:atStage onsir:stage_mahesha2023 ;
+    onsir:doseGy 2.631e+02 ;
+    onsir:forEndpoint onsir:endpoint_mahesha2023 ;
+    onsir:hasSubject onsir:subject_mahesha2023 .
+
+onsir:assessment_mahesha2023_350.8Gy a owl:NamedIndividual,
+        onsir:DoseAssessment ;
+    rdfs:label "Lablab purpureus at 350.8 Gy (mahesha2023)" ;
+    dct:source <https://doi.org/10.60151/envec/EFHD5757> ;
+    onsir:atStage onsir:stage_mahesha2023 ;
+    onsir:doseGy 3.508e+02 ;
+    onsir:forEndpoint onsir:endpoint_mahesha2023 ;
+    onsir:hasSubject onsir:subject_mahesha2023 .
+
+onsir:assessment_mahesha2023_438.5Gy a owl:NamedIndividual,
+        onsir:DoseAssessment ;
+    rdfs:label "Lablab purpureus at 438.5 Gy (mahesha2023)" ;
+    dct:source <https://doi.org/10.60151/envec/EFHD5757> ;
+    onsir:atStage onsir:stage_mahesha2023 ;
+    onsir:doseGy 4.385e+02 ;
+    onsir:forEndpoint onsir:endpoint_mahesha2023 ;
+    onsir:hasSubject onsir:subject_mahesha2023 .
+
+onsir:assessment_mahesha2023_526.2Gy a owl:NamedIndividual,
+        onsir:DoseAssessment ;
+    rdfs:label "Lablab purpureus at 526.2 Gy (mahesha2023)" ;
+    dct:source <https://doi.org/10.60151/envec/EFHD5757> ;
+    onsir:atStage onsir:stage_mahesha2023 ;
+    onsir:doseGy 5.262e+02 ;
+    onsir:forEndpoint onsir:endpoint_mahesha2023 ;
+    onsir:hasSubject onsir:subject_mahesha2023 .
+
+onsir:assessment_mahesha2023_87.7Gy a owl:NamedIndividual,
+        onsir:DoseAssessment ;
+    rdfs:label "Lablab purpureus at 87.7 Gy (mahesha2023)" ;
+    dct:source <https://doi.org/10.60151/envec/EFHD5757> ;
+    onsir:atStage onsir:stage_mahesha2023 ;
+    onsir:doseGy 8.77e+01 ;
+    onsir:forEndpoint onsir:endpoint_mahesha2023 ;
+    onsir:hasSubject onsir:subject_mahesha2023 .
+
+onsir:assessment_patel2017_150Gy a owl:NamedIndividual,
+        onsir:DoseAssessment ;
+    rdfs:label "Trigonella foenum-graecum at 150 Gy (patel2017)" ;
+    dct:source <https://doi.org/10.21921/jas.v4i04.10200> ;
+    onsir:atStage onsir:stage_patel2017 ;
+    onsir:doseGy 1.5e+02 ;
+    onsir:forEndpoint onsir:endpoint_patel2017 ;
+    onsir:hasSubject onsir:subject_patel2017 .
+
+onsir:assessment_patel2017_200Gy a owl:NamedIndividual,
+        onsir:DoseAssessment ;
+    rdfs:label "Trigonella foenum-graecum at 200 Gy (patel2017)" ;
+    dct:source <https://doi.org/10.21921/jas.v4i04.10200> ;
+    onsir:atStage onsir:stage_patel2017 ;
+    onsir:doseGy 2e+02 ;
+    onsir:forEndpoint onsir:endpoint_patel2017 ;
+    onsir:hasSubject onsir:subject_patel2017 .
+
+onsir:assessment_patel2017_250Gy a owl:NamedIndividual,
+        onsir:DoseAssessment ;
+    rdfs:label "Trigonella foenum-graecum at 250 Gy (patel2017)" ;
+    dct:source <https://doi.org/10.21921/jas.v4i04.10200> ;
+    onsir:atStage onsir:stage_patel2017 ;
+    onsir:doseGy 2.5e+02 ;
+    onsir:forEndpoint onsir:endpoint_patel2017 ;
+    onsir:hasSubject onsir:subject_patel2017 .
+
+onsir:assessment_patel2017_300Gy a owl:NamedIndividual,
+        onsir:DoseAssessment ;
+    rdfs:label "Trigonella foenum-graecum at 300 Gy (patel2017)" ;
+    dct:source <https://doi.org/10.21921/jas.v4i04.10200> ;
+    onsir:atStage onsir:stage_patel2017 ;
+    onsir:doseGy 3e+02 ;
+    onsir:forEndpoint onsir:endpoint_patel2017 ;
+    onsir:hasSubject onsir:subject_patel2017 .
+
+onsir:assessment_patel2017_350Gy a owl:NamedIndividual,
+        onsir:DoseAssessment ;
+    rdfs:label "Trigonella foenum-graecum at 350 Gy (patel2017)" ;
+    dct:source <https://doi.org/10.21921/jas.v4i04.10200> ;
+    onsir:atStage onsir:stage_patel2017 ;
+    onsir:doseGy 3.5e+02 ;
+    onsir:forEndpoint onsir:endpoint_patel2017 ;
+    onsir:hasSubject onsir:subject_patel2017 .
+
+onsir:assessment_zanzibar2016_100Gy a owl:NamedIndividual,
+        onsir:DoseAssessment ;
+    rdfs:label "Magnolia champaca at 100 Gy (zanzibar2016)" ;
+    dct:source <https://doi.org/10.20886/ijfr.2016.3.2.95-106> ;
+    onsir:atStage onsir:stage_zanzibar2016 ;
+    onsir:doseGy 1e+02 ;
+    onsir:forEndpoint onsir:endpoint_zanzibar2016 ;
+    onsir:hasSubject onsir:subject_zanzibar2016 .
+
+onsir:assessment_zanzibar2016_10Gy a owl:NamedIndividual,
+        onsir:DoseAssessment ;
+    rdfs:label "Magnolia champaca at 10 Gy (zanzibar2016)" ;
+    dct:source <https://doi.org/10.20886/ijfr.2016.3.2.95-106> ;
+    onsir:atStage onsir:stage_zanzibar2016 ;
+    onsir:doseGy 1e+01 ;
+    onsir:forEndpoint onsir:endpoint_zanzibar2016 ;
+    onsir:hasSubject onsir:subject_zanzibar2016 .
+
+onsir:assessment_zanzibar2016_15Gy a owl:NamedIndividual,
+        onsir:DoseAssessment ;
+    rdfs:label "Magnolia champaca at 15 Gy (zanzibar2016)" ;
+    dct:source <https://doi.org/10.20886/ijfr.2016.3.2.95-106> ;
+    onsir:atStage onsir:stage_zanzibar2016 ;
+    onsir:doseGy 1.5e+01 ;
+    onsir:forEndpoint onsir:endpoint_zanzibar2016 ;
+    onsir:hasSubject onsir:subject_zanzibar2016 .
+
+onsir:assessment_zanzibar2016_20Gy a owl:NamedIndividual,
+        onsir:DoseAssessment ;
+    rdfs:label "Magnolia champaca at 20 Gy (zanzibar2016)" ;
+    dct:source <https://doi.org/10.20886/ijfr.2016.3.2.95-106> ;
+    onsir:atStage onsir:stage_zanzibar2016 ;
+    onsir:doseGy 2e+01 ;
+    onsir:forEndpoint onsir:endpoint_zanzibar2016 ;
+    onsir:hasSubject onsir:subject_zanzibar2016 .
+
+onsir:assessment_zanzibar2016_40Gy a owl:NamedIndividual,
+        onsir:DoseAssessment ;
+    rdfs:label "Magnolia champaca at 40 Gy (zanzibar2016)" ;
+    dct:source <https://doi.org/10.20886/ijfr.2016.3.2.95-106> ;
+    onsir:atStage onsir:stage_zanzibar2016 ;
+    onsir:doseGy 4e+01 ;
+    onsir:forEndpoint onsir:endpoint_zanzibar2016 ;
+    onsir:hasSubject onsir:subject_zanzibar2016 .
+
+onsir:assessment_zanzibar2016_5Gy a owl:NamedIndividual,
+        onsir:DoseAssessment ;
+    rdfs:label "Magnolia champaca at 5 Gy (zanzibar2016)" ;
+    dct:source <https://doi.org/10.20886/ijfr.2016.3.2.95-106> ;
+    onsir:atStage onsir:stage_zanzibar2016 ;
+    onsir:doseGy 5e+00 ;
+    onsir:forEndpoint onsir:endpoint_zanzibar2016 ;
+    onsir:hasSubject onsir:subject_zanzibar2016 .
+
+onsir:assessment_zanzibar2016_60Gy a owl:NamedIndividual,
+        onsir:DoseAssessment ;
+    rdfs:label "Magnolia champaca at 60 Gy (zanzibar2016)" ;
+    dct:source <https://doi.org/10.20886/ijfr.2016.3.2.95-106> ;
+    onsir:atStage onsir:stage_zanzibar2016 ;
+    onsir:doseGy 6e+01 ;
+    onsir:forEndpoint onsir:endpoint_zanzibar2016 ;
+    onsir:hasSubject onsir:subject_zanzibar2016 .
+
+onsir:assessment_zanzibar2016_80Gy a owl:NamedIndividual,
+        onsir:DoseAssessment ;
+    rdfs:label "Magnolia champaca at 80 Gy (zanzibar2016)" ;
+    dct:source <https://doi.org/10.20886/ijfr.2016.3.2.95-106> ;
+    onsir:atStage onsir:stage_zanzibar2016 ;
+    onsir:doseGy 8e+01 ;
+    onsir:forEndpoint onsir:endpoint_zanzibar2016 ;
+    onsir:hasSubject onsir:subject_zanzibar2016 .
+
+onsir:outcome_abdelrahman2016 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasEndpointCategory ;
+            owl:someValuesFrom onsir:OtherPhysiologicalEndpointCategory ],
+        owl:NamedIndividual,
         onsir:TreatmentOutcome ;
-    rdfs:label "Oryza sativa / Co-60 / highest dose 8 Gy (2023)" ;
-    dct:source <https://doi.org/10.3329/bjnag.v37i2.71778> ;
-    onsir:hasEndpointCategory onsir:MorphologicalEndpointCategory ;
-    onsir:hasSubject onsir:callus_18 ;
-    onsir:hasTreatment onsir:treat_18 .
+    rdfs:label "Vigna radiata / source not reported / highest dose 60 Gy (2016)" ;
+    dct:source <https://doi.org/10.21608/jbes.2016.369618> ;
+    onsir:hasSubject onsir:subject_abdelrahman2016 ;
+    onsir:hasTreatment onsir:treat_abdelrahman2016 .
 
-onsir:outcome_19 a owl:NamedIndividual,
-        onsir:TreatmentOutcome ;
-    rdfs:label "Plukenetia volubilis / Co-60 / highest dose 900 Gy (2023)" ;
-    dct:source <https://doi.org/10.1155/2023/9737125> ;
-    onsir:hasEndpointCategory onsir:MorphologicalEndpointCategory ;
-    onsir:hasSubject onsir:seed_19 ;
-    onsir:hasTreatment onsir:treat_19 .
-
-onsir:outcome_20 a owl:NamedIndividual,
-        onsir:TreatmentOutcome ;
-    rdfs:label "Reutealis trisperma / N.R. / highest dose 1000 Gy (2023)" ;
-    dct:source <https://doi.org/10.1051/e3sconf/202346701021> ;
-    onsir:hasEndpointCategory onsir:EmergenceAndEarlyVigor ;
-    onsir:hasSubject onsir:seed_20 ;
-    onsir:hasTreatment onsir:treat_20 .
-
-onsir:outcome_21 a owl:NamedIndividual,
-        onsir:TreatmentOutcome ;
-    rdfs:label "Solanum melongena / Co-60 / highest dose 100 Gy (2023)" ;
-    dct:source <https://doi.org/10.14720/aas.2023.119.3.13423> ;
-    onsir:hasEndpointCategory onsir:MorphologicalEndpointCategory ;
-    onsir:hasSubject onsir:seed_21 ;
-    onsir:hasTreatment onsir:treat_21 .
-
-onsir:outcome_22 a owl:NamedIndividual,
-        onsir:TreatmentOutcome ;
-    rdfs:label "Catharanthus roseus / Co-60 / highest dose 500 Gy (2024)" ;
-    dct:source "Nelka SAP, Vidanapathirana NP, Silva TD, Subasinghe S, Dahanayake N (2024). Effect of gamma irradiation on seed germination of Catharanthus roseus (Madagascar periwinkle). Proceedings of the 5th National Symposium on Agro-Technology and Rural Sciences (NSATRS), Colombo, p. 31." ;
-    onsir:hasEndpointCategory onsir:EmergenceAndEarlyVigor ;
-    onsir:hasSubject onsir:seed_22 ;
-    onsir:hasTreatment onsir:treat_22 .
-
-onsir:outcome_23 a owl:NamedIndividual,
-        onsir:TreatmentOutcome ;
-    rdfs:label "Salvia hispanica / Co-60 / highest dose 250 Gy (2024)" ;
-    dct:source <https://doi.org/10.36253/caryologia-2820> ;
-    onsir:hasEndpointCategory onsir:GeneticEndpointCategory ;
-    onsir:hasSubject onsir:seed_23 ;
-    onsir:hasTreatment onsir:treat_23 .
-
-onsir:outcome_24 a owl:NamedIndividual,
-        onsir:TreatmentOutcome ;
-    rdfs:label "Solanum lycopersicum / Co-60 / highest dose 120 Gy (2024)" ;
-    dct:source <https://doi.org/10.33866/phytopathol.036.02.1047> ;
-    onsir:hasEndpointCategory onsir:PlantHealthEndpointCategory ;
-    onsir:hasSubject onsir:seed_24 ;
-    onsir:hasTreatment onsir:treat_24 .
-
-onsir:outcome_25 a owl:NamedIndividual,
+onsir:outcome_ahmed2025 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasEndpointCategory ;
+            owl:someValuesFrom onsir:OtherPhysiologicalEndpointCategory ],
+        owl:NamedIndividual,
         onsir:TreatmentOutcome ;
     rdfs:label "Dianthus caryophyllus / Co-60 / highest dose 30 Gy (2025)" ;
     dct:source <https://doi.org/10.1007/s44372-025-00375-1> ;
-    onsir:hasEndpointCategory onsir:OtherPhysiologicalEndpointCategory ;
-    onsir:hasSubject onsir:seed_25 ;
-    onsir:hasTreatment onsir:treat_25 .
+    onsir:hasSubject onsir:subject_ahmed2025 ;
+    onsir:hasTreatment onsir:treat_ahmed2025 .
 
-onsir:outcome_26 a owl:NamedIndividual,
+onsir:outcome_ajijah2023 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasEndpointCategory ;
+            owl:someValuesFrom onsir:EmergenceAndEarlyVigor ],
+        owl:NamedIndividual,
         onsir:TreatmentOutcome ;
-    rdfs:label "Phaseolus vulgaris / Co-60 / highest dose 200 Gy (2025)" ;
-    dct:source <https://doi.org/10.18619/2072-9146-2025-1-37-44> ;
-    onsir:hasEndpointCategory onsir:EmergenceAndEarlyVigor ;
-    onsir:hasSubject onsir:seed_26 ;
-    onsir:hasTreatment onsir:treat_26 .
+    rdfs:label "Reutealis trisperma / source not reported / highest dose 1000 Gy (2023)" ;
+    dct:source <https://doi.org/10.1051/e3sconf/202346701021> ;
+    onsir:hasSubject onsir:subject_ajijah2023 ;
+    onsir:hasTreatment onsir:treat_ajijah2023 .
 
-onsir:outcome_27 a owl:NamedIndividual,
+onsir:outcome_alvarez2019 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasEndpointCategory ;
+            owl:someValuesFrom onsir:EmergenceAndEarlyVigor ],
+        owl:NamedIndividual,
+        onsir:TreatmentOutcome ;
+    rdfs:label "Eragrostis superba / Co-60 / highest dose 4000 Gy (2019)" ;
+    dct:source <https://doi.org/10.22319/rmcp.v10i1.4327> ;
+    onsir:hasSubject onsir:subject_alvarez2019 ;
+    onsir:hasTreatment onsir:treat_alvarez2019 .
+
+onsir:outcome_asadi2025 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasEndpointCategory ;
+            owl:someValuesFrom onsir:EmergenceAndEarlyVigor ],
+        owl:NamedIndividual,
+        onsir:TreatmentOutcome ;
+    rdfs:label "Berberis vulgaris / Co-60 / highest dose 100 Gy (2025)" ;
+    dct:source <https://doi.org/10.1371/journal.pone.0334218> ;
+    onsir:hasSubject onsir:subject_asadi2025 ;
+    onsir:hasTreatment onsir:treat_asadi2025 .
+
+onsir:outcome_benslimani2019 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasEndpointCategory ;
+            owl:someValuesFrom onsir:BiochemicalEndpointCategory ],
+        owl:NamedIndividual,
+        onsir:TreatmentOutcome ;
+    rdfs:label "Datura stramonium / Co-60 / highest dose 80 Gy (2019)" ;
+    dct:source <https://doi.org/10.14719/pst.2019.6.4.634> ;
+    onsir:hasSubject onsir:subject_benslimani2019 ;
+    onsir:hasTreatment onsir:treat_benslimani2019 .
+
+onsir:outcome_bhuiyan2021 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasEndpointCategory ;
+            owl:someValuesFrom onsir:GeneticEndpointCategory ],
+        owl:NamedIndividual,
+        onsir:TreatmentOutcome ;
+    rdfs:label "Brassica napus / source not reported / highest dose 800 Gy (2021)" ;
+    dct:source "Bhuiyan MSH, Emon RM, Khatun MK, Malek MA, Khan NA (2021). Evaluation of induced genetic variability in gamma ray irradiated rapeseed mutants. Bangladesh Journal of Nuclear Agriculture 35:1-8." ;
+    onsir:hasSubject onsir:subject_bhuiyan2021 ;
+    onsir:hasTreatment onsir:treat_bhuiyan2021 .
+
+onsir:outcome_bishnoi2025 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasEndpointCategory ;
+            owl:someValuesFrom onsir:GeneticEndpointCategory ],
+        owl:NamedIndividual,
+        onsir:TreatmentOutcome ;
+    rdfs:label "Vigna aconitifolia / source not reported / highest dose 800 Gy (2025)" ;
+    dct:source <https://doi.org/10.51470/PLANTARCHIVES.2025.v25.supplement-2.243> ;
+    onsir:hasSubject onsir:subject_bishnoi2025 ;
+    onsir:hasTreatment onsir:treat_bishnoi2025 .
+
+onsir:outcome_boonsua2021 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasEndpointCategory ;
+            owl:someValuesFrom onsir:EmergenceAndEarlyVigor ],
+        owl:NamedIndividual,
+        onsir:TreatmentOutcome ;
+    rdfs:label "Solanum lycopersicum / Co-60 / highest dose 100 Gy (2021)" ;
+    dct:source <https://doi.org/10.1088/1742-6596/1719/1/012076> ;
+    onsir:hasSubject onsir:subject_boonsua2021 ;
+    onsir:hasTreatment onsir:treat_boonsua2021 .
+
+onsir:outcome_chakraborty2023 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasEndpointCategory ;
+            owl:someValuesFrom onsir:EmergenceAndEarlyVigor ],
+        owl:NamedIndividual,
+        onsir:TreatmentOutcome ;
+    rdfs:label "Triticum aestivum / Co-60 / highest dose 450 Gy (2023)" ;
+    dct:source <https://doi.org/10.1590/1678-4324-2023220294> ;
+    onsir:hasSubject onsir:subject_chakraborty2023 ;
+    onsir:hasTreatment onsir:treat_chakraborty2023 .
+
+onsir:outcome_corazonguivin2023 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasEndpointCategory ;
+            owl:someValuesFrom onsir:MorphologicalEndpointCategory ],
+        owl:NamedIndividual,
+        onsir:TreatmentOutcome ;
+    rdfs:label "Plukenetia volubilis / Co-60 / highest dose 900 Gy (2023)" ;
+    dct:source <https://doi.org/10.1155/2023/9737125> ;
+    onsir:hasSubject onsir:subject_corazonguivin2023 ;
+    onsir:hasTreatment onsir:treat_corazonguivin2023 .
+
+onsir:outcome_dev2025 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasEndpointCategory ;
+            owl:someValuesFrom onsir:MorphologicalEndpointCategory ],
+        owl:NamedIndividual,
+        onsir:TreatmentOutcome ;
+    rdfs:label "Vitis vinifera / Co-60 / highest dose 25 Gy (2025)" ;
+    dct:source <https://doi.org/10.24154/jhs.v20i1.2003> ;
+    onsir:hasSubject onsir:subject_dev2025 ;
+    onsir:hasTreatment onsir:treat_dev2025 .
+
+onsir:outcome_dhange2023 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasEndpointCategory ;
+            owl:someValuesFrom onsir:EmergenceAndEarlyVigor ],
+        owl:NamedIndividual,
+        onsir:TreatmentOutcome ;
+    rdfs:label "Stevia rebaudiana / Co-60 / highest dose 600 Gy (2023)" ;
+    dct:source <https://doi.org/10.9734/IJPSS/2023/v35i234256> ;
+    onsir:hasSubject onsir:subject_dhange2023 ;
+    onsir:hasTreatment onsir:treat_dhange2023 .
+
+onsir:outcome_galvezmarroquin2023 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasEndpointCategory ;
+            owl:someValuesFrom onsir:EmergenceAndEarlyVigor ],
+        owl:NamedIndividual,
+        onsir:TreatmentOutcome ;
+    rdfs:label "Arachis pintoi / Co-60 / highest dose 1000 Gy (2023)" ;
+    dct:source <https://doi.org/10.32854/agrop.v16i3.2503> ;
+    onsir:hasSubject onsir:subject_galvezmarroquin2023 ;
+    onsir:hasTreatment onsir:treat_galvezmarroquin2023 .
+
+onsir:outcome_geng2019 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasEndpointCategory ;
+            owl:someValuesFrom onsir:BiochemicalEndpointCategory ],
+        owl:NamedIndividual,
+        onsir:TreatmentOutcome ;
+    rdfs:label "Osmanthus fragrans / Co-60 / highest dose 150 Gy (2019)" ;
+    dct:source <https://doi.org/10.3390/f10050406> ;
+    onsir:hasSubject onsir:subject_geng2019 ;
+    onsir:hasTreatment onsir:treat_geng2019 .
+
+onsir:outcome_ghasemi2025 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasEndpointCategory ;
+            owl:someValuesFrom onsir:EmergenceAndEarlyVigor ],
+        owl:NamedIndividual,
+        onsir:TreatmentOutcome ;
+    rdfs:label "Ficus carica / source not reported / highest dose 100 Gy (2025)" ;
+    dct:source <https://doi.org/10.1371/journal.pone.0313017> ;
+    onsir:hasSubject onsir:subject_ghasemi2025 ;
+    onsir:hasTreatment onsir:treat_ghasemi2025 .
+
+onsir:outcome_guhamallick2022 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasEndpointCategory ;
+            owl:someValuesFrom onsir:EmergenceAndEarlyVigor ],
+        owl:NamedIndividual,
+        onsir:TreatmentOutcome ;
+    rdfs:label "Vicia faba / Co-60 / highest dose 800 Gy (2022)" ;
+    dct:source <https://doi.org/10.1080/09553002.2022.2107723> ;
+    onsir:hasSubject onsir:subject_guhamallick2022 ;
+    onsir:hasTreatment onsir:treat_guhamallick2022 .
+
+onsir:outcome_handini2020 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasEndpointCategory ;
+            owl:someValuesFrom onsir:EmergenceAndEarlyVigor ],
+        owl:NamedIndividual,
+        onsir:TreatmentOutcome ;
+    rdfs:label "Dendrobium discolor / Co-60 / highest dose 60 Gy (2020)" ;
+    dct:source <https://doi.org/10.14203/bkr.v23i3.631> ;
+    onsir:hasSubject onsir:subject_handini2020 ;
+    onsir:hasTreatment onsir:treat_handini2020 .
+
+onsir:outcome_haque2025 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasEndpointCategory ;
+            owl:someValuesFrom onsir:PlantHealthEndpointCategory ],
+        owl:NamedIndividual,
         onsir:TreatmentOutcome ;
     rdfs:label "Solanum tuberosum / Co-60 / highest dose 40 Gy (2025)" ;
     dct:source <https://doi.org/10.3329/bjnag.v39i1.83341> ;
-    onsir:hasEndpointCategory onsir:PlantHealthEndpointCategory ;
-    onsir:hasSubject onsir:seed_27 ;
-    onsir:hasTreatment onsir:treat_27 .
+    onsir:hasSubject onsir:subject_haque2025 ;
+    onsir:hasTreatment onsir:treat_haque2025 .
 
-onsir:outcome_28 a owl:NamedIndividual,
+onsir:outcome_hase2023 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasEndpointCategory ;
+            owl:someValuesFrom onsir:GeneticEndpointCategory ],
+        owl:NamedIndividual,
+        onsir:TreatmentOutcome ;
+    rdfs:label "Arabidopsis thaliana / Co-60 / highest dose 1500 Gy (2023)" ;
+    dct:source <https://doi.org/10.3389/fpls.2023.1149083> ;
+    onsir:hasSubject onsir:subject_hase2023 ;
+    onsir:hasTreatment onsir:treat_hase2023 .
+
+onsir:outcome_hayat2025 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasEndpointCategory ;
+            owl:someValuesFrom onsir:EmergenceAndEarlyVigor ],
+        owl:NamedIndividual,
+        onsir:TreatmentOutcome ;
+    rdfs:label "Chenopodium quinoa / Cs-137 / highest dose 2400 Gy (2025)" ;
+    dct:source <https://doi.org/10.1111/pbr.70000> ;
+    onsir:hasSubject onsir:subject_hayat2025 ;
+    onsir:hasTreatment onsir:treat_hayat2025 .
+
+onsir:outcome_herdiyanti2025 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasEndpointCategory ;
+            owl:someValuesFrom onsir:EmergenceAndEarlyVigor ],
+        owl:NamedIndividual,
+        onsir:TreatmentOutcome ;
+    rdfs:label "Oryza sativa / Co-60 / highest dose 300 Gy (2025)" ;
+    dct:source <https://doi.org/10.1051/bioconf/202520602004> ;
+    onsir:hasSubject onsir:subject_herdiyanti2025 ;
+    onsir:hasTreatment onsir:treat_herdiyanti2025 .
+
+onsir:outcome_indrayanti2024 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasEndpointCategory ;
+            owl:someValuesFrom onsir:PlantHealthEndpointCategory ],
+        owl:NamedIndividual,
+        onsir:TreatmentOutcome ;
+    rdfs:label "Solanum lycopersicum / Co-60 / highest dose 120 Gy (2024)" ;
+    dct:source <https://doi.org/10.33866/phytopathol.036.02.1047> ;
+    onsir:hasSubject onsir:subject_indrayanti2024 ;
+    onsir:hasTreatment onsir:treat_indrayanti2024 .
+
+onsir:outcome_islam2023 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasEndpointCategory ;
+            owl:someValuesFrom onsir:MorphologicalEndpointCategory ],
+        owl:NamedIndividual,
+        onsir:TreatmentOutcome ;
+    rdfs:label "Oryza sativa / Co-60 / highest dose 8 Gy (2023)" ;
+    dct:source <https://doi.org/10.3329/bjnag.v37i2.71778> ;
+    onsir:hasSubject onsir:subject_islam2023 ;
+    onsir:hasTreatment onsir:treat_islam2023 .
+
+onsir:outcome_jabbar2022 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasEndpointCategory ;
+            owl:someValuesFrom onsir:GeneticEndpointCategory ],
+        owl:NamedIndividual,
+        onsir:TreatmentOutcome ;
+    rdfs:label "Coriandrum sativum / Co-60 / highest dose 150 Gy (2022)" ;
+    dct:source <https://doi.org/10.53730/ijhs.v6nS3.7675> ;
+    onsir:hasSubject onsir:subject_jabbar2022 ;
+    onsir:hasTreatment onsir:treat_jabbar2022 .
+
+onsir:outcome_joshi2025 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasEndpointCategory ;
+            owl:someValuesFrom onsir:PlantHealthEndpointCategory ],
+        owl:NamedIndividual,
+        onsir:TreatmentOutcome ;
+    rdfs:label "Punica granatum / source not reported / highest dose 210.48 Gy (2025)" ;
+    dct:source <https://doi.org/10.14719/pst.9903> ;
+    onsir:hasSubject onsir:subject_joshi2025 ;
+    onsir:hasTreatment onsir:treat_joshi2025 .
+
+onsir:outcome_kainthura2015 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasEndpointCategory ;
+            owl:someValuesFrom onsir:MorphologicalEndpointCategory ],
+        owl:NamedIndividual,
+        onsir:TreatmentOutcome ;
+    rdfs:label "Polianthes tuberosa / Co-60 / highest dose 13.15 Gy (2015)" ;
+    dct:source <https://doi.org/10.4038/tar.v26i4.8135> ;
+    onsir:hasSubject onsir:subject_kainthura2015 ;
+    onsir:hasTreatment onsir:treat_kainthura2015 .
+
+onsir:outcome_karthiksaran2026 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasEndpointCategory ;
+            owl:someValuesFrom onsir:BiochemicalEndpointCategory ],
+        owl:NamedIndividual,
+        onsir:TreatmentOutcome ;
+    rdfs:label "Oryza sativa / Co-60 / highest dose 500 Gy (2026)" ;
+    dct:source <https://doi.org/10.1080/10715762.2026.2668662> ;
+    onsir:hasSubject onsir:subject_karthiksaran2026 ;
+    onsir:hasTreatment onsir:treat_karthiksaran2026 .
+
+onsir:outcome_kazakova2020 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasEndpointCategory ;
+            owl:someValuesFrom onsir:EmergenceAndEarlyVigor ],
+        owl:NamedIndividual,
+        onsir:TreatmentOutcome ;
+    rdfs:label "Hordeum vulgare / Co-60 / highest dose 20 Gy (2020)" ;
+    dct:source <https://doi.org/10.31367/2079-8725-2020-68-2-23-28> ;
+    onsir:hasSubject onsir:subject_kazakova2020 ;
+    onsir:hasTreatment onsir:treat_kazakova2020 .
+
+onsir:outcome_kikakedimau2014 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasEndpointCategory ;
+            owl:someValuesFrom onsir:BiochemicalEndpointCategory ],
+        owl:NamedIndividual,
+        onsir:TreatmentOutcome ;
+    rdfs:label "Phyllanthus odontadenius / Cs-137 / highest dose 300 Gy (2014)" ;
+    dct:source <https://doi.org/10.9734/AJEA/2014/8631> ;
+    onsir:hasSubject onsir:subject_kikakedimau2014 ;
+    onsir:hasTreatment onsir:treat_kikakedimau2014 .
+
+onsir:outcome_kotsyubinskaya2025 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasEndpointCategory ;
+            owl:someValuesFrom onsir:EmergenceAndEarlyVigor ],
+        owl:NamedIndividual,
+        onsir:TreatmentOutcome ;
+    rdfs:label "Phaseolus vulgaris / Co-60 / highest dose 200 Gy (2025)" ;
+    dct:source <https://doi.org/10.18619/2072-9146-2025-1-37-44> ;
+    onsir:hasSubject onsir:subject_kotsyubinskaya2025 ;
+    onsir:hasTreatment onsir:treat_kotsyubinskaya2025 .
+
+onsir:outcome_lumorh2025 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasEndpointCategory ;
+            owl:someValuesFrom onsir:EmergenceAndEarlyVigor ],
+        owl:NamedIndividual,
         onsir:TreatmentOutcome ;
     rdfs:label "Vigna unguiculata / Co-60 / highest dose 1200 Gy (2025)" ;
     dct:source <https://doi.org/10.3329/ijarit.v15i1.82798> ;
-    onsir:hasEndpointCategory onsir:EmergenceAndEarlyVigor ;
-    onsir:hasSubject onsir:seed_28 ;
-    onsir:hasTreatment onsir:treat_28 .
+    onsir:hasSubject onsir:subject_lumorh2025 ;
+    onsir:hasTreatment onsir:treat_lumorh2025 .
+
+onsir:outcome_mahesha2023 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasEndpointCategory ;
+            owl:someValuesFrom onsir:GeneticEndpointCategory ],
+        owl:NamedIndividual,
+        onsir:TreatmentOutcome ;
+    rdfs:label "Lablab purpureus / Co-60 / highest dose 526.2 Gy (2023)" ;
+    dct:source <https://doi.org/10.60151/envec/EFHD5757> ;
+    onsir:hasSubject onsir:subject_mahesha2023 ;
+    onsir:hasTreatment onsir:treat_mahesha2023 .
+
+onsir:outcome_makhziah2026 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasEndpointCategory ;
+            owl:someValuesFrom onsir:MorphologicalEndpointCategory ],
+        owl:NamedIndividual,
+        onsir:TreatmentOutcome ;
+    rdfs:label "Allium sativum / Co-60 / highest dose 11 Gy (2026)" ;
+    dct:source <https://doi.org/10.54910/sabrao2026.58.2.8> ;
+    onsir:hasSubject onsir:subject_makhziah2026 ;
+    onsir:hasTreatment onsir:treat_makhziah2026 .
+
+onsir:outcome_mirza2024 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasEndpointCategory ;
+            owl:someValuesFrom onsir:EmergenceAndEarlyVigor ],
+        owl:NamedIndividual,
+        onsir:TreatmentOutcome ;
+    rdfs:label "Carthamus tinctorius / Co-60 / highest dose 500 Gy (2024)" ;
+    dct:source <https://doi.org/10.55544/jrasb.3.2.19> ;
+    onsir:hasSubject onsir:subject_mirza2024 ;
+    onsir:hasTreatment onsir:treat_mirza2024 .
+
+onsir:outcome_nandi2026 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasEndpointCategory ;
+            owl:someValuesFrom onsir:EmergenceAndEarlyVigor ],
+        owl:NamedIndividual,
+        onsir:TreatmentOutcome ;
+    rdfs:label "Glycine max / Co-60 / highest dose 700 Gy (2026)" ;
+    dct:source <https://doi.org/10.1038/s41598-026-59264-6> ;
+    onsir:hasSubject onsir:subject_nandi2026 ;
+    onsir:hasTreatment onsir:treat_nandi2026 .
+
+onsir:outcome_nelka2022 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasEndpointCategory ;
+            owl:someValuesFrom onsir:EmergenceAndEarlyVigor ],
+        owl:NamedIndividual,
+        onsir:TreatmentOutcome ;
+    rdfs:label "Calotropis gigantea / Co-60 / highest dose 900 Gy (2022)" ;
+    dct:source <https://doi.org/10.53552/ijmfmap.8.1.2022.40-46> ;
+    onsir:hasSubject onsir:subject_nelka2022 ;
+    onsir:hasTreatment onsir:treat_nelka2022 .
+
+onsir:outcome_nelka2024 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasEndpointCategory ;
+            owl:someValuesFrom onsir:EmergenceAndEarlyVigor ],
+        owl:NamedIndividual,
+        onsir:TreatmentOutcome ;
+    rdfs:label "Catharanthus roseus / Co-60 / highest dose 500 Gy (2024)" ;
+    dct:source "Nelka SAP, Vidanapathirana NP, Silva TD, Subasinghe S, Dahanayake N (2024). Effect of gamma irradiation on seed germination of Catharanthus roseus (Madagascar periwinkle). Proceedings of the 5th National Symposium on Agro-Technology and Rural Sciences (NSATRS), Colombo, p. 31." ;
+    onsir:hasSubject onsir:subject_nelka2024 ;
+    onsir:hasTreatment onsir:treat_nelka2024 .
+
+onsir:outcome_obok2023 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasEndpointCategory ;
+            owl:someValuesFrom onsir:MorphologicalEndpointCategory ],
+        owl:NamedIndividual,
+        onsir:TreatmentOutcome ;
+    rdfs:label "Solanum melongena / Co-60 / highest dose 100 Gy (2023)" ;
+    dct:source <https://doi.org/10.14720/aas.2023.119.3.13423> ;
+    onsir:hasSubject onsir:subject_obok2023 ;
+    onsir:hasTreatment onsir:treat_obok2023 .
+
+onsir:outcome_oliveira2021 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasEndpointCategory ;
+            owl:someValuesFrom onsir:EmergenceAndEarlyVigor ],
+        owl:NamedIndividual,
+        onsir:TreatmentOutcome ;
+    rdfs:label "Glycine max / Co-60 / highest dose 20 Gy (2021)" ;
+    dct:source <https://doi.org/10.1016/j.compag.2021.106251> ;
+    onsir:hasSubject onsir:subject_oliveira2021 ;
+    onsir:hasTreatment onsir:treat_oliveira2021 .
+
+onsir:outcome_pandey2024 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasEndpointCategory ;
+            owl:someValuesFrom onsir:GeneticEndpointCategory ],
+        owl:NamedIndividual,
+        onsir:TreatmentOutcome ;
+    rdfs:label "Salvia hispanica / Co-60 / highest dose 250 Gy (2024)" ;
+    dct:source <https://doi.org/10.36253/caryologia-2820> ;
+    onsir:hasSubject onsir:subject_pandey2024 ;
+    onsir:hasTreatment onsir:treat_pandey2024 .
+
+onsir:outcome_patel2017 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasEndpointCategory ;
+            owl:someValuesFrom onsir:EmergenceAndEarlyVigor ],
+        owl:NamedIndividual,
+        onsir:TreatmentOutcome ;
+    rdfs:label "Trigonella foenum-graecum / Co-60 / highest dose 350 Gy (2017)" ;
+    dct:source <https://doi.org/10.21921/jas.v4i04.10200> ;
+    onsir:hasSubject onsir:subject_patel2017 ;
+    onsir:hasTreatment onsir:treat_patel2017 .
+
+onsir:outcome_persada2025 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasEndpointCategory ;
+            owl:someValuesFrom onsir:MorphologicalEndpointCategory ],
+        owl:NamedIndividual,
+        onsir:TreatmentOutcome ;
+    rdfs:label "Allium cepa / Co-60 / highest dose 8 Gy (2025)" ;
+    dct:source <https://doi.org/10.32734/injar.v8i3.16838> ;
+    onsir:hasSubject onsir:subject_persada2025 ;
+    onsir:hasTreatment onsir:treat_persada2025 .
+
+onsir:outcome_qosim2024 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasEndpointCategory ;
+            owl:someValuesFrom onsir:EmergenceAndEarlyVigor ],
+        owl:NamedIndividual,
+        onsir:TreatmentOutcome ;
+    rdfs:label "Coix lacryma-jobi / Co-60 / highest dose 500 Gy (2024)" ;
+    dct:source <https://doi.org/10.24198/kultivasi.v23i2.55619> ;
+    onsir:hasSubject onsir:subject_qosim2024 ;
+    onsir:hasTreatment onsir:treat_qosim2024 .
+
+onsir:outcome_roy2021 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasEndpointCategory ;
+            owl:someValuesFrom onsir:OtherPhysiologicalEndpointCategory ],
+        owl:NamedIndividual,
+        onsir:TreatmentOutcome ;
+    rdfs:label "Vigna mungo / Co-60 / highest dose 500 Gy (2021)" ;
+    dct:source "Roy S, Alim SMA, Ghosh SR, Akondo MRI, Chowhan S, Ali MKJ (2021). Binamash-2, a gamma ray induced high yielding blackgram mutant variety. Bangladesh Journal of Nuclear Agriculture 35:63-70." ;
+    onsir:hasSubject onsir:subject_roy2021 ;
+    onsir:hasTreatment onsir:treat_roy2021 .
+
+onsir:outcome_shammy2025 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasEndpointCategory ;
+            owl:someValuesFrom onsir:EmergenceAndEarlyVigor ],
+        owl:NamedIndividual,
+        onsir:TreatmentOutcome ;
+    rdfs:label "Oryza sativa / Co-60 / highest dose 600 Gy (2025)" ;
+    dct:source <https://doi.org/10.9734/ajarr/2025/v19i101187> ;
+    onsir:hasSubject onsir:subject_shammy2025 ;
+    onsir:hasTreatment onsir:treat_shammy2025 .
+
+onsir:outcome_srikanth2026 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasEndpointCategory ;
+            owl:someValuesFrom onsir:GeneticEndpointCategory ],
+        owl:NamedIndividual,
+        onsir:TreatmentOutcome ;
+    rdfs:label "Litchi chinensis / Co-60 / highest dose 100 Gy (2026)" ;
+    dct:source <https://doi.org/10.1080/23311932.2025.2610024> ;
+    onsir:hasSubject onsir:subject_srikanth2026 ;
+    onsir:hasTreatment onsir:treat_srikanth2026 .
+
+onsir:outcome_sudrajat2022 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasEndpointCategory ;
+            owl:someValuesFrom onsir:EmergenceAndEarlyVigor ],
+        owl:NamedIndividual,
+        onsir:TreatmentOutcome ;
+    rdfs:label "Neolamarckia cadamba / Co-60 / highest dose 50 Gy (2022)" ;
+    dct:source <https://doi.org/10.13057/biodiv/d231014> ;
+    onsir:hasSubject onsir:subject_sudrajat2022 ;
+    onsir:hasTreatment onsir:treat_sudrajat2022 .
+
+onsir:outcome_thisawech2020 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasEndpointCategory ;
+            owl:someValuesFrom onsir:EmergenceAndEarlyVigor ],
+        owl:NamedIndividual,
+        onsir:TreatmentOutcome ;
+    rdfs:label "Capsicum sp. / Co-60 / highest dose 600 Gy (2020)" ;
+    dct:source "Thisawech M, Saritnum O, Sarapirom S, Prakrajang K, Phakham W (2020). Effects of plasma technique and gamma irradiation on seed germination and seedling growth of chili pepper. Chiang Mai Journal of Science 47(1):73-82." ;
+    onsir:hasSubject onsir:subject_thisawech2020 ;
+    onsir:hasTreatment onsir:treat_thisawech2020 .
+
+onsir:outcome_valombola2025 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasEndpointCategory ;
+            owl:someValuesFrom onsir:EmergenceAndEarlyVigor ],
+        owl:NamedIndividual,
+        onsir:TreatmentOutcome ;
+    rdfs:label "Vigna subterranea / Co-60 / highest dose 500 Gy (2025)" ;
+    dct:source <https://doi.org/10.2139/ssrn.5402998> ;
+    onsir:hasSubject onsir:subject_valombola2025 ;
+    onsir:hasTreatment onsir:treat_valombola2025 .
+
+onsir:outcome_wardhani2025 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasEndpointCategory ;
+            owl:someValuesFrom onsir:EmergenceAndEarlyVigor ],
+        owl:NamedIndividual,
+        onsir:TreatmentOutcome ;
+    rdfs:label "Colocasia esculenta / Co-60 / highest dose 27.5 Gy (2025)" ;
+    dct:source <https://doi.org/10.47836/pjtas.48.3.05> ;
+    onsir:hasSubject onsir:subject_wardhani2025 ;
+    onsir:hasTreatment onsir:treat_wardhani2025 .
+
+onsir:outcome_woya2026 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasEndpointCategory ;
+            owl:someValuesFrom onsir:EmergenceAndEarlyVigor ],
+        owl:NamedIndividual,
+        onsir:TreatmentOutcome ;
+    rdfs:label "Ipomoea batatas / Co-60 / highest dose 35 Gy (2026)" ;
+    dct:source <https://doi.org/10.1186/s12870-026-08565-z> ;
+    onsir:hasSubject onsir:subject_woya2026 ;
+    onsir:hasTreatment onsir:treat_woya2026 .
+
+onsir:outcome_zanzibar2016 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasEndpointCategory ;
+            owl:someValuesFrom onsir:EmergenceAndEarlyVigor ],
+        owl:NamedIndividual,
+        onsir:TreatmentOutcome ;
+    rdfs:label "Magnolia champaca / Co-60 / highest dose 100 Gy (2016)" ;
+    dct:source <https://doi.org/10.20886/ijfr.2016.3.2.95-106> ;
+    onsir:hasSubject onsir:subject_zanzibar2016 ;
+    onsir:hasTreatment onsir:treat_zanzibar2016 .
+
+onsir:outcome_zanzibar2021 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasEndpointCategory ;
+            owl:someValuesFrom onsir:EmergenceAndEarlyVigor ],
+        owl:NamedIndividual,
+        onsir:TreatmentOutcome ;
+    rdfs:label "Toona sureni / Co-60 / highest dose 100 Gy (2021)" ;
+    dct:source <https://doi.org/10.1080/21580103.2021.1924872> ;
+    onsir:hasSubject onsir:subject_zanzibar2021 ;
+    onsir:hasTreatment onsir:treat_zanzibar2021 .
+
+onsir:outcome_zanzibar2023 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasEndpointCategory ;
+            owl:someValuesFrom onsir:EmergenceAndEarlyVigor ],
+        owl:NamedIndividual,
+        onsir:TreatmentOutcome ;
+    rdfs:label "Ficus variegata / Co-60 / highest dose 240 Gy (2023)" ;
+    dct:source <https://doi.org/10.4308/hjb.30.2.336-346> ;
+    onsir:hasSubject onsir:subject_zanzibar2023 ;
+    onsir:hasTreatment onsir:treat_zanzibar2023 .
+
+obo:NCBITaxon_100579 a owl:Class .
+
+obo:NCBITaxon_108216 a owl:Class .
+
+obo:NCBITaxon_115715 a owl:Class .
 
 obo:NCBITaxon_1258759 a owl:Class .
 
 obo:NCBITaxon_1487825 a owl:Class .
 
+obo:NCBITaxon_151069 a owl:Class .
+
 obo:NCBITaxon_153762 a owl:Class .
 
 obo:NCBITaxon_157791 a owl:Class .
 
+obo:NCBITaxon_22663 a owl:Class .
+
+obo:NCBITaxon_258209 a owl:Class .
+
+obo:NCBITaxon_2708486 a owl:Class .
+
+obo:NCBITaxon_29760 a owl:Class .
+
+obo:NCBITaxon_3130074 a owl:Class .
+
 obo:NCBITaxon_316893 a owl:Class .
 
 obo:NCBITaxon_3413428 a owl:Class .
+
+obo:NCBITaxon_3494 a owl:Class .
 
 obo:NCBITaxon_3570 a owl:Class .
 
@@ -368,9 +1091,15 @@ obo:NCBITaxon_3708 a owl:Class .
 
 obo:NCBITaxon_3885 a owl:Class .
 
+obo:NCBITaxon_3906 a owl:Class .
+
 obo:NCBITaxon_3915 a owl:Class .
 
 obo:NCBITaxon_3917 a owl:Class .
+
+obo:NCBITaxon_391786 a owl:Class .
+
+obo:NCBITaxon_3918 a owl:Class .
 
 obo:NCBITaxon_4047 a owl:Class .
 
@@ -380,751 +1109,1760 @@ obo:NCBITaxon_4066 a owl:Class .
 
 obo:NCBITaxon_4076 a owl:Class .
 
-obo:NCBITaxon_4081 a owl:Class .
-
 obo:NCBITaxon_4111 a owl:Class .
 
 obo:NCBITaxon_4113 a owl:Class .
 
+obo:NCBITaxon_4120 a owl:Class .
+
+obo:NCBITaxon_4222 a owl:Class .
+
+obo:NCBITaxon_4460 a owl:Class .
+
+obo:NCBITaxon_4505 a owl:Class .
+
 obo:NCBITaxon_4513 a owl:Class .
 
-obo:NCBITaxon_4530 a owl:Class .
+obo:NCBITaxon_4565 a owl:Class .
+
+obo:NCBITaxon_4679 a owl:Class .
+
+obo:NCBITaxon_4682 a owl:Class .
 
 obo:NCBITaxon_49212 a owl:Class .
+
+obo:NCBITaxon_55670 a owl:Class .
+
+obo:NCBITaxon_63459 a owl:Class .
+
+obo:NCBITaxon_78534 a owl:Class .
+
+obo:NCBITaxon_82206 a owl:Class .
 
 obo:NCBITaxon_86757 a owl:Class .
 
 obo:NCBITaxon_93977 a owl:Class .
 
-onsir:callus_18 a owl:NamedIndividual,
-        onsir:PlantCallus ;
-    rdfs:label "Oryza sativa" ;
-    onsir:hasTaxon onsir:taxon_Oryza_sativa .
-
-onsir:dose_00 a owl:NamedIndividual,
-        onsir:QuantityValue ;
-    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
-    onsir:numericValue 3e+02 .
-
-onsir:dose_01 a owl:NamedIndividual,
-        onsir:QuantityValue ;
-    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
-    onsir:numericValue 1.315e+01 .
-
-onsir:dose_02 a owl:NamedIndividual,
-        onsir:QuantityValue ;
-    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
-    onsir:numericValue 1e+02 .
-
-onsir:dose_03 a owl:NamedIndividual,
+onsir:dosemax_abdelrahman2016 a owl:NamedIndividual,
         onsir:QuantityValue ;
     ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
     onsir:numericValue 6e+01 .
 
-onsir:dose_04 a owl:NamedIndividual,
-        onsir:QuantityValue ;
-    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
-    onsir:numericValue 8e+01 .
-
-onsir:dose_05 a owl:NamedIndividual,
-        onsir:QuantityValue ;
-    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
-    onsir:numericValue 1.5e+02 .
-
-onsir:dose_06 a owl:NamedIndividual,
-        onsir:QuantityValue ;
-    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
-    onsir:numericValue 6e+02 .
-
-onsir:dose_07 a owl:NamedIndividual,
-        onsir:QuantityValue ;
-    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
-    onsir:numericValue 2e+01 .
-
-onsir:dose_08 a owl:NamedIndividual,
-        onsir:QuantityValue ;
-    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
-    onsir:numericValue 8e+02 .
-
-onsir:dose_09 a owl:NamedIndividual,
-        onsir:QuantityValue ;
-    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
-    onsir:numericValue 1e+02 .
-
-onsir:dose_10 a owl:NamedIndividual,
-        onsir:QuantityValue ;
-    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
-    onsir:numericValue 1e+02 .
-
-onsir:dose_11 a owl:NamedIndividual,
-        onsir:QuantityValue ;
-    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
-    onsir:numericValue 5e+02 .
-
-onsir:dose_12 a owl:NamedIndividual,
-        onsir:QuantityValue ;
-    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
-    onsir:numericValue 9e+02 .
-
-onsir:dose_13 a owl:NamedIndividual,
-        onsir:QuantityValue ;
-    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
-    onsir:numericValue 1.5e+02 .
-
-onsir:dose_14 a owl:NamedIndividual,
-        onsir:QuantityValue ;
-    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
-    onsir:numericValue 5e+01 .
-
-onsir:dose_15 a owl:NamedIndividual,
-        onsir:QuantityValue ;
-    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
-    onsir:numericValue 1.5e+03 .
-
-onsir:dose_16 a owl:NamedIndividual,
-        onsir:QuantityValue ;
-    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
-    onsir:numericValue 2.4e+02 .
-
-onsir:dose_17 a owl:NamedIndividual,
-        onsir:QuantityValue ;
-    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
-    onsir:numericValue 5.262e+02 .
-
-onsir:dose_18 a owl:NamedIndividual,
-        onsir:QuantityValue ;
-    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
-    onsir:numericValue 8e+00 .
-
-onsir:dose_19 a owl:NamedIndividual,
-        onsir:QuantityValue ;
-    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
-    onsir:numericValue 9e+02 .
-
-onsir:dose_20 a owl:NamedIndividual,
-        onsir:QuantityValue ;
-    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
-    onsir:numericValue 1e+03 .
-
-onsir:dose_21 a owl:NamedIndividual,
-        onsir:QuantityValue ;
-    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
-    onsir:numericValue 1e+02 .
-
-onsir:dose_22 a owl:NamedIndividual,
-        onsir:QuantityValue ;
-    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
-    onsir:numericValue 5e+02 .
-
-onsir:dose_23 a owl:NamedIndividual,
-        onsir:QuantityValue ;
-    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
-    onsir:numericValue 2.5e+02 .
-
-onsir:dose_24 a owl:NamedIndividual,
-        onsir:QuantityValue ;
-    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
-    onsir:numericValue 1.2e+02 .
-
-onsir:dose_25 a owl:NamedIndividual,
+onsir:dosemax_ahmed2025 a owl:NamedIndividual,
         onsir:QuantityValue ;
     ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
     onsir:numericValue 3e+01 .
 
-onsir:dose_26 a owl:NamedIndividual,
+onsir:dosemax_ajijah2023 a owl:NamedIndividual,
         onsir:QuantityValue ;
     ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
-    onsir:numericValue 2e+02 .
+    onsir:numericValue 1e+03 .
 
-onsir:dose_27 a owl:NamedIndividual,
+onsir:dosemax_alvarez2019 a owl:NamedIndividual,
         onsir:QuantityValue ;
     ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
-    onsir:numericValue 4e+01 .
+    onsir:numericValue 4e+03 .
 
-onsir:dose_28 a owl:NamedIndividual,
-        onsir:QuantityValue ;
-    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
-    onsir:numericValue 1.2e+03 .
-
-onsir:dosemin_28 a owl:NamedIndividual,
+onsir:dosemax_asadi2025 a owl:NamedIndividual,
         onsir:QuantityValue ;
     ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
     onsir:numericValue 1e+02 .
 
-onsir:doserange_00 a owl:NamedIndividual,
-        onsir:DoseRange ;
-    onsir:maxDose onsir:dose_00 .
-
-onsir:doserange_01 a owl:NamedIndividual,
-        onsir:DoseRange ;
-    onsir:maxDose onsir:dose_01 .
-
-onsir:doserange_02 a owl:NamedIndividual,
-        onsir:DoseRange ;
-    onsir:maxDose onsir:dose_02 .
-
-onsir:doserange_03 a owl:NamedIndividual,
-        onsir:DoseRange ;
-    onsir:maxDose onsir:dose_03 .
-
-onsir:doserange_04 a owl:NamedIndividual,
-        onsir:DoseRange ;
-    onsir:maxDose onsir:dose_04 .
-
-onsir:doserange_05 a owl:NamedIndividual,
-        onsir:DoseRange ;
-    onsir:maxDose onsir:dose_05 .
-
-onsir:doserange_06 a owl:NamedIndividual,
-        onsir:DoseRange ;
-    onsir:maxDose onsir:dose_06 .
-
-onsir:doserange_07 a owl:NamedIndividual,
-        onsir:DoseRange ;
-    onsir:maxDose onsir:dose_07 .
-
-onsir:doserange_08 a owl:NamedIndividual,
-        onsir:DoseRange ;
-    onsir:maxDose onsir:dose_08 .
-
-onsir:doserange_09 a owl:NamedIndividual,
-        onsir:DoseRange ;
-    onsir:maxDose onsir:dose_09 .
-
-onsir:doserange_10 a owl:NamedIndividual,
-        onsir:DoseRange ;
-    onsir:maxDose onsir:dose_10 .
-
-onsir:doserange_11 a owl:NamedIndividual,
-        onsir:DoseRange ;
-    onsir:maxDose onsir:dose_11 .
-
-onsir:doserange_12 a owl:NamedIndividual,
-        onsir:DoseRange ;
-    onsir:maxDose onsir:dose_12 .
-
-onsir:doserange_13 a owl:NamedIndividual,
-        onsir:DoseRange ;
-    onsir:maxDose onsir:dose_13 .
-
-onsir:doserange_14 a owl:NamedIndividual,
-        onsir:DoseRange ;
-    onsir:maxDose onsir:dose_14 .
-
-onsir:doserange_15 a owl:NamedIndividual,
-        onsir:DoseRange ;
-    onsir:maxDose onsir:dose_15 .
-
-onsir:doserange_16 a owl:NamedIndividual,
-        onsir:DoseRange ;
-    onsir:maxDose onsir:dose_16 .
-
-onsir:doserange_17 a owl:NamedIndividual,
-        onsir:DoseRange ;
-    onsir:maxDose onsir:dose_17 .
-
-onsir:doserange_18 a owl:NamedIndividual,
-        onsir:DoseRange ;
-    onsir:maxDose onsir:dose_18 .
-
-onsir:doserange_19 a owl:NamedIndividual,
-        onsir:DoseRange ;
-    onsir:maxDose onsir:dose_19 .
-
-onsir:doserange_20 a owl:NamedIndividual,
-        onsir:DoseRange ;
-    onsir:maxDose onsir:dose_20 .
-
-onsir:doserange_21 a owl:NamedIndividual,
-        onsir:DoseRange ;
-    onsir:maxDose onsir:dose_21 .
-
-onsir:doserange_22 a owl:NamedIndividual,
-        onsir:DoseRange ;
-    onsir:maxDose onsir:dose_22 .
-
-onsir:doserange_23 a owl:NamedIndividual,
-        onsir:DoseRange ;
-    onsir:maxDose onsir:dose_23 .
-
-onsir:doserange_24 a owl:NamedIndividual,
-        onsir:DoseRange ;
-    onsir:maxDose onsir:dose_24 .
-
-onsir:doserange_25 a owl:NamedIndividual,
-        onsir:DoseRange ;
-    onsir:maxDose onsir:dose_25 .
-
-onsir:doserange_26 a owl:NamedIndividual,
-        onsir:DoseRange ;
-    onsir:maxDose onsir:dose_26 .
-
-onsir:doserange_27 a owl:NamedIndividual,
-        onsir:DoseRange ;
-    onsir:maxDose onsir:dose_27 .
-
-onsir:doserange_28 a owl:NamedIndividual,
-        onsir:DoseRange ;
-    onsir:maxDose onsir:dose_28 ;
-    onsir:minDose onsir:dosemin_28 .
-
-onsir:doserate_00 a owl:NamedIndividual,
+onsir:dosemax_benslimani2019 a owl:NamedIndividual,
         onsir:QuantityValue ;
-    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY-PER-HR> ;
-    onsir:numericValue 7.26e+01 .
+    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
+    onsir:numericValue 8e+01 .
 
-onsir:doserate_04 a owl:NamedIndividual,
+onsir:dosemax_bhuiyan2021 a owl:NamedIndividual,
         onsir:QuantityValue ;
-    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY-PER-HR> ;
-    onsir:numericValue 3.738e+01 .
-
-onsir:doserate_05 a owl:NamedIndividual,
-        onsir:QuantityValue ;
-    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY-PER-HR> ;
-    onsir:numericValue 7.8e+01 .
-
-onsir:doserate_07 a owl:NamedIndividual,
-        onsir:QuantityValue ;
-    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY-PER-HR> ;
-    onsir:numericValue 6e+01 .
-
-onsir:doserate_09 a owl:NamedIndividual,
-        onsir:QuantityValue ;
-    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY-PER-HR> ;
+    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
     onsir:numericValue 8e+02 .
 
-onsir:doserate_14 a owl:NamedIndividual,
+onsir:dosemax_bishnoi2025 a owl:NamedIndividual,
         onsir:QuantityValue ;
-    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY-PER-HR> ;
-    onsir:numericValue 6.6457e+03 .
+    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
+    onsir:numericValue 8e+02 .
 
-onsir:doserate_16 a owl:NamedIndividual,
+onsir:dosemax_boonsua2021 a owl:NamedIndividual,
         onsir:QuantityValue ;
-    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY-PER-HR> ;
-    onsir:numericValue 6.6457e+03 .
+    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
+    onsir:numericValue 1e+02 .
 
-onsir:doserate_19 a owl:NamedIndividual,
+onsir:dosemax_chakraborty2023 a owl:NamedIndividual,
         onsir:QuantityValue ;
-    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY-PER-HR> ;
-    onsir:numericValue 1.9643e+03 .
+    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
+    onsir:numericValue 4.5e+02 .
 
-onsir:doserate_25 a owl:NamedIndividual,
+onsir:dosemax_corazonguivin2023 a owl:NamedIndividual,
+        onsir:QuantityValue ;
+    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
+    onsir:numericValue 9e+02 .
+
+onsir:dosemax_dev2025 a owl:NamedIndividual,
+        onsir:QuantityValue ;
+    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
+    onsir:numericValue 2.5e+01 .
+
+onsir:dosemax_dhange2023 a owl:NamedIndividual,
+        onsir:QuantityValue ;
+    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
+    onsir:numericValue 6e+02 .
+
+onsir:dosemax_galvezmarroquin2023 a owl:NamedIndividual,
+        onsir:QuantityValue ;
+    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
+    onsir:numericValue 1e+03 .
+
+onsir:dosemax_geng2019 a owl:NamedIndividual,
+        onsir:QuantityValue ;
+    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
+    onsir:numericValue 1.5e+02 .
+
+onsir:dosemax_ghasemi2025 a owl:NamedIndividual,
+        onsir:QuantityValue ;
+    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
+    onsir:numericValue 1e+02 .
+
+onsir:dosemax_guhamallick2022 a owl:NamedIndividual,
+        onsir:QuantityValue ;
+    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
+    onsir:numericValue 8e+02 .
+
+onsir:dosemax_handini2020 a owl:NamedIndividual,
+        onsir:QuantityValue ;
+    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
+    onsir:numericValue 6e+01 .
+
+onsir:dosemax_haque2025 a owl:NamedIndividual,
+        onsir:QuantityValue ;
+    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
+    onsir:numericValue 4e+01 .
+
+onsir:dosemax_hase2023 a owl:NamedIndividual,
+        onsir:QuantityValue ;
+    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
+    onsir:numericValue 1.5e+03 .
+
+onsir:dosemax_hayat2025 a owl:NamedIndividual,
+        onsir:QuantityValue ;
+    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
+    onsir:numericValue 2.4e+03 .
+
+onsir:dosemax_herdiyanti2025 a owl:NamedIndividual,
+        onsir:QuantityValue ;
+    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
+    onsir:numericValue 3e+02 .
+
+onsir:dosemax_indrayanti2024 a owl:NamedIndividual,
+        onsir:QuantityValue ;
+    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
+    onsir:numericValue 1.2e+02 .
+
+onsir:dosemax_islam2023 a owl:NamedIndividual,
+        onsir:QuantityValue ;
+    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
+    onsir:numericValue 8e+00 .
+
+onsir:dosemax_jabbar2022 a owl:NamedIndividual,
+        onsir:QuantityValue ;
+    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
+    onsir:numericValue 1.5e+02 .
+
+onsir:dosemax_joshi2025 a owl:NamedIndividual,
+        onsir:QuantityValue ;
+    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
+    onsir:numericValue 2.1048e+02 .
+
+onsir:dosemax_kainthura2015 a owl:NamedIndividual,
+        onsir:QuantityValue ;
+    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
+    onsir:numericValue 1.315e+01 .
+
+onsir:dosemax_karthiksaran2026 a owl:NamedIndividual,
+        onsir:QuantityValue ;
+    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
+    onsir:numericValue 5e+02 .
+
+onsir:dosemax_kazakova2020 a owl:NamedIndividual,
+        onsir:QuantityValue ;
+    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
+    onsir:numericValue 2e+01 .
+
+onsir:dosemax_kikakedimau2014 a owl:NamedIndividual,
+        onsir:QuantityValue ;
+    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
+    onsir:numericValue 3e+02 .
+
+onsir:dosemax_kotsyubinskaya2025 a owl:NamedIndividual,
+        onsir:QuantityValue ;
+    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
+    onsir:numericValue 2e+02 .
+
+onsir:dosemax_lumorh2025 a owl:NamedIndividual,
+        onsir:QuantityValue ;
+    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
+    onsir:numericValue 1.2e+03 .
+
+onsir:dosemax_mahesha2023 a owl:NamedIndividual,
+        onsir:QuantityValue ;
+    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
+    onsir:numericValue 5.262e+02 .
+
+onsir:dosemax_makhziah2026 a owl:NamedIndividual,
+        onsir:QuantityValue ;
+    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
+    onsir:numericValue 1.1e+01 .
+
+onsir:dosemax_mirza2024 a owl:NamedIndividual,
+        onsir:QuantityValue ;
+    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
+    onsir:numericValue 5e+02 .
+
+onsir:dosemax_nandi2026 a owl:NamedIndividual,
+        onsir:QuantityValue ;
+    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
+    onsir:numericValue 7e+02 .
+
+onsir:dosemax_nelka2022 a owl:NamedIndividual,
+        onsir:QuantityValue ;
+    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
+    onsir:numericValue 9e+02 .
+
+onsir:dosemax_nelka2024 a owl:NamedIndividual,
+        onsir:QuantityValue ;
+    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
+    onsir:numericValue 5e+02 .
+
+onsir:dosemax_obok2023 a owl:NamedIndividual,
+        onsir:QuantityValue ;
+    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
+    onsir:numericValue 1e+02 .
+
+onsir:dosemax_oliveira2021 a owl:NamedIndividual,
+        onsir:QuantityValue ;
+    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
+    onsir:numericValue 2e+01 .
+
+onsir:dosemax_pandey2024 a owl:NamedIndividual,
+        onsir:QuantityValue ;
+    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
+    onsir:numericValue 2.5e+02 .
+
+onsir:dosemax_patel2017 a owl:NamedIndividual,
+        onsir:QuantityValue ;
+    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
+    onsir:numericValue 3.5e+02 .
+
+onsir:dosemax_persada2025 a owl:NamedIndividual,
+        onsir:QuantityValue ;
+    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
+    onsir:numericValue 8e+00 .
+
+onsir:dosemax_qosim2024 a owl:NamedIndividual,
+        onsir:QuantityValue ;
+    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
+    onsir:numericValue 5e+02 .
+
+onsir:dosemax_roy2021 a owl:NamedIndividual,
+        onsir:QuantityValue ;
+    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
+    onsir:numericValue 5e+02 .
+
+onsir:dosemax_shammy2025 a owl:NamedIndividual,
+        onsir:QuantityValue ;
+    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
+    onsir:numericValue 6e+02 .
+
+onsir:dosemax_srikanth2026 a owl:NamedIndividual,
+        onsir:QuantityValue ;
+    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
+    onsir:numericValue 1e+02 .
+
+onsir:dosemax_sudrajat2022 a owl:NamedIndividual,
+        onsir:QuantityValue ;
+    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
+    onsir:numericValue 5e+01 .
+
+onsir:dosemax_thisawech2020 a owl:NamedIndividual,
+        onsir:QuantityValue ;
+    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
+    onsir:numericValue 6e+02 .
+
+onsir:dosemax_valombola2025 a owl:NamedIndividual,
+        onsir:QuantityValue ;
+    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
+    onsir:numericValue 5e+02 .
+
+onsir:dosemax_wardhani2025 a owl:NamedIndividual,
+        onsir:QuantityValue ;
+    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
+    onsir:numericValue 2.75e+01 .
+
+onsir:dosemax_woya2026 a owl:NamedIndividual,
+        onsir:QuantityValue ;
+    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
+    onsir:numericValue 3.5e+01 .
+
+onsir:dosemax_zanzibar2016 a owl:NamedIndividual,
+        onsir:QuantityValue ;
+    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
+    onsir:numericValue 1e+02 .
+
+onsir:dosemax_zanzibar2021 a owl:NamedIndividual,
+        onsir:QuantityValue ;
+    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
+    onsir:numericValue 1e+02 .
+
+onsir:dosemax_zanzibar2023 a owl:NamedIndividual,
+        onsir:QuantityValue ;
+    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
+    onsir:numericValue 2.4e+02 .
+
+onsir:dosemin_chakraborty2023 a owl:NamedIndividual,
+        onsir:QuantityValue ;
+    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
+    onsir:numericValue 2e+02 .
+
+onsir:dosemin_corazonguivin2023 a owl:NamedIndividual,
+        onsir:QuantityValue ;
+    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
+    onsir:numericValue 5e+02 .
+
+onsir:dosemin_indrayanti2024 a owl:NamedIndividual,
+        onsir:QuantityValue ;
+    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
+    onsir:numericValue 5e+01 .
+
+onsir:dosemin_lumorh2025 a owl:NamedIndividual,
+        onsir:QuantityValue ;
+    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
+    onsir:numericValue 1e+02 .
+
+onsir:dosemin_mahesha2023 a owl:NamedIndividual,
+        onsir:QuantityValue ;
+    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
+    onsir:numericValue 8.77e+01 .
+
+onsir:dosemin_patel2017 a owl:NamedIndividual,
+        onsir:QuantityValue ;
+    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
+    onsir:numericValue 1.5e+02 .
+
+onsir:dosemin_zanzibar2016 a owl:NamedIndividual,
+        onsir:QuantityValue ;
+    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY> ;
+    onsir:numericValue 5e+00 .
+
+onsir:doserange_abdelrahman2016 a owl:NamedIndividual,
+        onsir:DoseRange ;
+    onsir:maxDose onsir:dosemax_abdelrahman2016 .
+
+onsir:doserange_ahmed2025 a owl:NamedIndividual,
+        onsir:DoseRange ;
+    onsir:maxDose onsir:dosemax_ahmed2025 .
+
+onsir:doserange_ajijah2023 a owl:NamedIndividual,
+        onsir:DoseRange ;
+    onsir:maxDose onsir:dosemax_ajijah2023 .
+
+onsir:doserange_alvarez2019 a owl:NamedIndividual,
+        onsir:DoseRange ;
+    onsir:maxDose onsir:dosemax_alvarez2019 .
+
+onsir:doserange_asadi2025 a owl:NamedIndividual,
+        onsir:DoseRange ;
+    onsir:maxDose onsir:dosemax_asadi2025 .
+
+onsir:doserange_benslimani2019 a owl:NamedIndividual,
+        onsir:DoseRange ;
+    onsir:maxDose onsir:dosemax_benslimani2019 .
+
+onsir:doserange_bhuiyan2021 a owl:NamedIndividual,
+        onsir:DoseRange ;
+    onsir:maxDose onsir:dosemax_bhuiyan2021 .
+
+onsir:doserange_bishnoi2025 a owl:NamedIndividual,
+        onsir:DoseRange ;
+    onsir:maxDose onsir:dosemax_bishnoi2025 .
+
+onsir:doserange_boonsua2021 a owl:NamedIndividual,
+        onsir:DoseRange ;
+    onsir:maxDose onsir:dosemax_boonsua2021 .
+
+onsir:doserange_chakraborty2023 a owl:NamedIndividual,
+        onsir:DoseRange ;
+    onsir:maxDose onsir:dosemax_chakraborty2023 ;
+    onsir:minDose onsir:dosemin_chakraborty2023 .
+
+onsir:doserange_corazonguivin2023 a owl:NamedIndividual,
+        onsir:DoseRange ;
+    onsir:maxDose onsir:dosemax_corazonguivin2023 ;
+    onsir:minDose onsir:dosemin_corazonguivin2023 .
+
+onsir:doserange_dev2025 a owl:NamedIndividual,
+        onsir:DoseRange ;
+    onsir:maxDose onsir:dosemax_dev2025 .
+
+onsir:doserange_dhange2023 a owl:NamedIndividual,
+        onsir:DoseRange ;
+    onsir:maxDose onsir:dosemax_dhange2023 .
+
+onsir:doserange_galvezmarroquin2023 a owl:NamedIndividual,
+        onsir:DoseRange ;
+    onsir:maxDose onsir:dosemax_galvezmarroquin2023 .
+
+onsir:doserange_geng2019 a owl:NamedIndividual,
+        onsir:DoseRange ;
+    onsir:maxDose onsir:dosemax_geng2019 .
+
+onsir:doserange_ghasemi2025 a owl:NamedIndividual,
+        onsir:DoseRange ;
+    onsir:maxDose onsir:dosemax_ghasemi2025 .
+
+onsir:doserange_guhamallick2022 a owl:NamedIndividual,
+        onsir:DoseRange ;
+    onsir:maxDose onsir:dosemax_guhamallick2022 .
+
+onsir:doserange_handini2020 a owl:NamedIndividual,
+        onsir:DoseRange ;
+    onsir:maxDose onsir:dosemax_handini2020 .
+
+onsir:doserange_haque2025 a owl:NamedIndividual,
+        onsir:DoseRange ;
+    onsir:maxDose onsir:dosemax_haque2025 .
+
+onsir:doserange_hase2023 a owl:NamedIndividual,
+        onsir:DoseRange ;
+    onsir:maxDose onsir:dosemax_hase2023 .
+
+onsir:doserange_hayat2025 a owl:NamedIndividual,
+        onsir:DoseRange ;
+    onsir:maxDose onsir:dosemax_hayat2025 .
+
+onsir:doserange_herdiyanti2025 a owl:NamedIndividual,
+        onsir:DoseRange ;
+    onsir:maxDose onsir:dosemax_herdiyanti2025 .
+
+onsir:doserange_indrayanti2024 a owl:NamedIndividual,
+        onsir:DoseRange ;
+    onsir:maxDose onsir:dosemax_indrayanti2024 ;
+    onsir:minDose onsir:dosemin_indrayanti2024 .
+
+onsir:doserange_islam2023 a owl:NamedIndividual,
+        onsir:DoseRange ;
+    onsir:maxDose onsir:dosemax_islam2023 .
+
+onsir:doserange_jabbar2022 a owl:NamedIndividual,
+        onsir:DoseRange ;
+    onsir:maxDose onsir:dosemax_jabbar2022 .
+
+onsir:doserange_joshi2025 a owl:NamedIndividual,
+        onsir:DoseRange ;
+    onsir:maxDose onsir:dosemax_joshi2025 .
+
+onsir:doserange_kainthura2015 a owl:NamedIndividual,
+        onsir:DoseRange ;
+    onsir:maxDose onsir:dosemax_kainthura2015 .
+
+onsir:doserange_karthiksaran2026 a owl:NamedIndividual,
+        onsir:DoseRange ;
+    onsir:maxDose onsir:dosemax_karthiksaran2026 .
+
+onsir:doserange_kazakova2020 a owl:NamedIndividual,
+        onsir:DoseRange ;
+    onsir:maxDose onsir:dosemax_kazakova2020 .
+
+onsir:doserange_kikakedimau2014 a owl:NamedIndividual,
+        onsir:DoseRange ;
+    onsir:maxDose onsir:dosemax_kikakedimau2014 .
+
+onsir:doserange_kotsyubinskaya2025 a owl:NamedIndividual,
+        onsir:DoseRange ;
+    onsir:maxDose onsir:dosemax_kotsyubinskaya2025 .
+
+onsir:doserange_lumorh2025 a owl:NamedIndividual,
+        onsir:DoseRange ;
+    onsir:maxDose onsir:dosemax_lumorh2025 ;
+    onsir:minDose onsir:dosemin_lumorh2025 .
+
+onsir:doserange_mahesha2023 a owl:NamedIndividual,
+        onsir:DoseRange ;
+    onsir:maxDose onsir:dosemax_mahesha2023 ;
+    onsir:minDose onsir:dosemin_mahesha2023 .
+
+onsir:doserange_makhziah2026 a owl:NamedIndividual,
+        onsir:DoseRange ;
+    onsir:maxDose onsir:dosemax_makhziah2026 .
+
+onsir:doserange_mirza2024 a owl:NamedIndividual,
+        onsir:DoseRange ;
+    onsir:maxDose onsir:dosemax_mirza2024 .
+
+onsir:doserange_nandi2026 a owl:NamedIndividual,
+        onsir:DoseRange ;
+    onsir:maxDose onsir:dosemax_nandi2026 .
+
+onsir:doserange_nelka2022 a owl:NamedIndividual,
+        onsir:DoseRange ;
+    onsir:maxDose onsir:dosemax_nelka2022 .
+
+onsir:doserange_nelka2024 a owl:NamedIndividual,
+        onsir:DoseRange ;
+    onsir:maxDose onsir:dosemax_nelka2024 .
+
+onsir:doserange_obok2023 a owl:NamedIndividual,
+        onsir:DoseRange ;
+    onsir:maxDose onsir:dosemax_obok2023 .
+
+onsir:doserange_oliveira2021 a owl:NamedIndividual,
+        onsir:DoseRange ;
+    onsir:maxDose onsir:dosemax_oliveira2021 .
+
+onsir:doserange_pandey2024 a owl:NamedIndividual,
+        onsir:DoseRange ;
+    onsir:maxDose onsir:dosemax_pandey2024 .
+
+onsir:doserange_patel2017 a owl:NamedIndividual,
+        onsir:DoseRange ;
+    onsir:maxDose onsir:dosemax_patel2017 ;
+    onsir:minDose onsir:dosemin_patel2017 .
+
+onsir:doserange_persada2025 a owl:NamedIndividual,
+        onsir:DoseRange ;
+    onsir:maxDose onsir:dosemax_persada2025 .
+
+onsir:doserange_qosim2024 a owl:NamedIndividual,
+        onsir:DoseRange ;
+    onsir:maxDose onsir:dosemax_qosim2024 .
+
+onsir:doserange_roy2021 a owl:NamedIndividual,
+        onsir:DoseRange ;
+    onsir:maxDose onsir:dosemax_roy2021 .
+
+onsir:doserange_shammy2025 a owl:NamedIndividual,
+        onsir:DoseRange ;
+    onsir:maxDose onsir:dosemax_shammy2025 .
+
+onsir:doserange_srikanth2026 a owl:NamedIndividual,
+        onsir:DoseRange ;
+    onsir:maxDose onsir:dosemax_srikanth2026 .
+
+onsir:doserange_sudrajat2022 a owl:NamedIndividual,
+        onsir:DoseRange ;
+    onsir:maxDose onsir:dosemax_sudrajat2022 .
+
+onsir:doserange_thisawech2020 a owl:NamedIndividual,
+        onsir:DoseRange ;
+    onsir:maxDose onsir:dosemax_thisawech2020 .
+
+onsir:doserange_valombola2025 a owl:NamedIndividual,
+        onsir:DoseRange ;
+    onsir:maxDose onsir:dosemax_valombola2025 .
+
+onsir:doserange_wardhani2025 a owl:NamedIndividual,
+        onsir:DoseRange ;
+    onsir:maxDose onsir:dosemax_wardhani2025 .
+
+onsir:doserange_woya2026 a owl:NamedIndividual,
+        onsir:DoseRange ;
+    onsir:maxDose onsir:dosemax_woya2026 .
+
+onsir:doserange_zanzibar2016 a owl:NamedIndividual,
+        onsir:DoseRange ;
+    onsir:maxDose onsir:dosemax_zanzibar2016 ;
+    onsir:minDose onsir:dosemin_zanzibar2016 .
+
+onsir:doserange_zanzibar2021 a owl:NamedIndividual,
+        onsir:DoseRange ;
+    onsir:maxDose onsir:dosemax_zanzibar2021 .
+
+onsir:doserange_zanzibar2023 a owl:NamedIndividual,
+        onsir:DoseRange ;
+    onsir:maxDose onsir:dosemax_zanzibar2023 .
+
+onsir:doserate_ahmed2025 a owl:NamedIndividual,
         onsir:QuantityValue ;
     ns1:hasUnit <http://qudt.org/vocab/unit/GRAY-PER-HR> ;
     onsir:numericValue 7.2e+02 .
 
-onsir:doserate_26 a owl:NamedIndividual,
+onsir:doserate_asadi2025 a owl:NamedIndividual,
         onsir:QuantityValue ;
     ns1:hasUnit <http://qudt.org/vocab/unit/GRAY-PER-HR> ;
     onsir:numericValue 6e+01 .
 
-onsir:doserate_28 a owl:NamedIndividual,
+onsir:doserate_benslimani2019 a owl:NamedIndividual,
+        onsir:QuantityValue ;
+    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY-PER-HR> ;
+    onsir:numericValue 3.738e+01 .
+
+onsir:doserate_boonsua2021 a owl:NamedIndividual,
+        onsir:QuantityValue ;
+    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY-PER-HR> ;
+    onsir:numericValue 8e+02 .
+
+onsir:doserate_chakraborty2023 a owl:NamedIndividual,
+        onsir:QuantityValue ;
+    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY-PER-HR> ;
+    onsir:numericValue 3.897e+03 .
+
+onsir:doserate_corazonguivin2023 a owl:NamedIndividual,
+        onsir:QuantityValue ;
+    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY-PER-HR> ;
+    onsir:numericValue 1.9643e+03 .
+
+onsir:doserate_dev2025 a owl:NamedIndividual,
+        onsir:QuantityValue ;
+    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY-PER-HR> ;
+    onsir:numericValue 7.03e+03 .
+
+onsir:doserate_geng2019 a owl:NamedIndividual,
+        onsir:QuantityValue ;
+    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY-PER-HR> ;
+    onsir:numericValue 7.8e+01 .
+
+onsir:doserate_guhamallick2022 a owl:NamedIndividual,
+        onsir:QuantityValue ;
+    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY-PER-HR> ;
+    onsir:numericValue 4.507e+03 .
+
+onsir:doserate_hayat2025 a owl:NamedIndividual,
+        onsir:QuantityValue ;
+    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY-PER-HR> ;
+    onsir:numericValue 6.6e+02 .
+
+onsir:doserate_karthiksaran2026 a owl:NamedIndividual,
+        onsir:QuantityValue ;
+    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY-PER-HR> ;
+    onsir:numericValue 1.68e+03 .
+
+onsir:doserate_kazakova2020 a owl:NamedIndividual,
+        onsir:QuantityValue ;
+    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY-PER-HR> ;
+    onsir:numericValue 6e+01 .
+
+onsir:doserate_kikakedimau2014 a owl:NamedIndividual,
+        onsir:QuantityValue ;
+    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY-PER-HR> ;
+    onsir:numericValue 7.26e+01 .
+
+onsir:doserate_kotsyubinskaya2025 a owl:NamedIndividual,
+        onsir:QuantityValue ;
+    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY-PER-HR> ;
+    onsir:numericValue 6e+01 .
+
+onsir:doserate_lumorh2025 a owl:NamedIndividual,
         onsir:QuantityValue ;
     ns1:hasUnit <http://qudt.org/vocab/unit/GRAY-PER-HR> ;
     onsir:numericValue 3.03e+02 .
 
-onsir:seed_00 a owl:NamedIndividual,
+onsir:doserate_nandi2026 a owl:NamedIndividual,
+        onsir:QuantityValue ;
+    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY-PER-HR> ;
+    onsir:numericValue 3.474e+03 .
+
+onsir:doserate_oliveira2021 a owl:NamedIndividual,
+        onsir:QuantityValue ;
+    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY-PER-HR> ;
+    onsir:numericValue 8.4e+01 .
+
+onsir:doserate_srikanth2026 a owl:NamedIndividual,
+        onsir:QuantityValue ;
+    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY-PER-HR> ;
+    onsir:numericValue 4.65e+02 .
+
+onsir:doserate_sudrajat2022 a owl:NamedIndividual,
+        onsir:QuantityValue ;
+    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY-PER-HR> ;
+    onsir:numericValue 6.6457e+03 .
+
+onsir:doserate_valombola2025 a owl:NamedIndividual,
+        onsir:QuantityValue ;
+    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY-PER-HR> ;
+    onsir:numericValue 2.5884e+03 .
+
+onsir:doserate_wardhani2025 a owl:NamedIndividual,
+        onsir:QuantityValue ;
+    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY-PER-HR> ;
+    onsir:numericValue 1.35e+02 .
+
+onsir:doserate_woya2026 a owl:NamedIndividual,
+        onsir:QuantityValue ;
+    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY-PER-HR> ;
+    onsir:numericValue 1.152e+03 .
+
+onsir:doserate_zanzibar2023 a owl:NamedIndividual,
+        onsir:QuantityValue ;
+    ns1:hasUnit <http://qudt.org/vocab/unit/GRAY-PER-HR> ;
+    onsir:numericValue 6.6457e+03 .
+
+onsir:subject_abdelrahman2016 a [ a owl:Restriction ;
+            owl:onProperty obo:RO_0002162 ;
+            owl:someValuesFrom obo:NCBITaxon_157791 ],
+        owl:NamedIndividual,
+        onsir:PlantSeed ;
+    rdfs:label "Vigna radiata" .
+
+onsir:subject_ahmed2025 a [ a owl:Restriction ;
+            owl:onProperty obo:RO_0002162 ;
+            owl:someValuesFrom obo:NCBITaxon_3570 ],
+        owl:NamedIndividual,
+        onsir:PlantSeed ;
+    rdfs:label "Dianthus caryophyllus" .
+
+onsir:subject_ajijah2023 a [ a owl:Restriction ;
+            owl:onProperty obo:RO_0002162 ;
+            owl:someValuesFrom obo:NCBITaxon_1487825 ],
+        owl:NamedIndividual,
+        onsir:PlantSeed ;
+    rdfs:label "Reutealis trisperma" .
+
+onsir:subject_alvarez2019 a [ a owl:Restriction ;
+            owl:onProperty obo:RO_0002162 ;
+            owl:someValuesFrom obo:NCBITaxon_391786 ],
+        owl:NamedIndividual,
+        onsir:PlantSeed ;
+    rdfs:label "Eragrostis superba" .
+
+onsir:subject_asadi2025 a [ a owl:Restriction ;
+            owl:onProperty obo:RO_0002162 ;
+            owl:someValuesFrom obo:NCBITaxon_258209 ],
+        owl:NamedIndividual,
+        onsir:PlantPart ;
+    rdfs:label "Berberis vulgaris" .
+
+onsir:subject_benslimani2019 a [ a owl:Restriction ;
+            owl:onProperty obo:RO_0002162 ;
+            owl:someValuesFrom obo:NCBITaxon_4076 ],
+        owl:NamedIndividual,
+        onsir:PlantSeed ;
+    rdfs:label "Datura stramonium" .
+
+onsir:subject_bhuiyan2021 a [ a owl:Restriction ;
+            owl:onProperty obo:RO_0002162 ;
+            owl:someValuesFrom obo:NCBITaxon_3708 ],
+        owl:NamedIndividual,
+        onsir:PlantSeed ;
+    rdfs:label "Brassica napus" .
+
+onsir:subject_bishnoi2025 a [ a owl:Restriction ;
+            owl:onProperty obo:RO_0002162 ;
+            owl:someValuesFrom obo:NCBITaxon_3918 ],
+        owl:NamedIndividual,
+        onsir:PlantSeed ;
+    rdfs:label "Vigna aconitifolia" .
+
+onsir:subject_boonsua2021 a [ a owl:Restriction ;
+            owl:onProperty obo:RO_0002162 ;
+            owl:someValuesFrom obo:NCBITaxon_4081 ],
+        owl:NamedIndividual,
+        onsir:PlantSeed ;
+    rdfs:label "Solanum lycopersicum" .
+
+onsir:subject_dev2025 a [ a owl:Restriction ;
+            owl:onProperty obo:RO_0002162 ;
+            owl:someValuesFrom obo:NCBITaxon_29760 ],
+        owl:NamedIndividual,
+        onsir:PlantPart ;
+    rdfs:label "Vitis vinifera" .
+
+onsir:subject_dhange2023 a [ a owl:Restriction ;
+            owl:onProperty obo:RO_0002162 ;
+            owl:someValuesFrom obo:NCBITaxon_55670 ],
+        owl:NamedIndividual,
+        onsir:PlantSeed ;
+    rdfs:label "Stevia rebaudiana" .
+
+onsir:subject_galvezmarroquin2023 a [ a owl:Restriction ;
+            owl:onProperty obo:RO_0002162 ;
+            owl:someValuesFrom obo:NCBITaxon_108216 ],
+        owl:NamedIndividual,
+        onsir:PlantSeed ;
+    rdfs:label "Arachis pintoi" .
+
+onsir:subject_geng2019 a [ a owl:Restriction ;
+            owl:onProperty obo:RO_0002162 ;
+            owl:someValuesFrom obo:NCBITaxon_93977 ],
+        owl:NamedIndividual,
+        onsir:PlantSeed ;
+    rdfs:label "Osmanthus fragrans" .
+
+onsir:subject_ghasemi2025 a [ a owl:Restriction ;
+            owl:onProperty obo:RO_0002162 ;
+            owl:someValuesFrom obo:NCBITaxon_3494 ],
+        owl:NamedIndividual,
+        onsir:PlantPart ;
+    rdfs:label "Ficus carica" .
+
+onsir:subject_guhamallick2022 a [ a owl:Restriction ;
+            owl:onProperty obo:RO_0002162 ;
+            owl:someValuesFrom obo:NCBITaxon_3906 ],
+        owl:NamedIndividual,
+        onsir:PlantSeed ;
+    rdfs:label "Vicia faba" .
+
+onsir:subject_handini2020 a [ a owl:Restriction ;
+            owl:onProperty obo:RO_0002162 ;
+            owl:someValuesFrom obo:NCBITaxon_3130074 ],
+        owl:NamedIndividual,
+        onsir:PlantPart ;
+    rdfs:label "Dendrobium discolor" .
+
+onsir:subject_haque2025 a [ a owl:Restriction ;
+            owl:onProperty obo:RO_0002162 ;
+            owl:someValuesFrom obo:NCBITaxon_4113 ],
+        owl:NamedIndividual,
+        onsir:PlantTuber ;
+    rdfs:label "Solanum tuberosum" .
+
+onsir:subject_hase2023 a [ a owl:Restriction ;
+            owl:onProperty obo:RO_0002162 ;
+            owl:someValuesFrom obo:NCBITaxon_3702 ],
+        owl:NamedIndividual,
+        onsir:PlantSeed ;
+    rdfs:label "Arabidopsis thaliana" .
+
+onsir:subject_hayat2025 a [ a owl:Restriction ;
+            owl:onProperty obo:RO_0002162 ;
+            owl:someValuesFrom obo:NCBITaxon_63459 ],
+        owl:NamedIndividual,
+        onsir:PlantSeed ;
+    rdfs:label "Chenopodium quinoa" .
+
+onsir:subject_herdiyanti2025 a [ a owl:Restriction ;
+            owl:onProperty obo:RO_0002162 ;
+            owl:someValuesFrom obo:NCBITaxon_4530 ],
+        owl:NamedIndividual,
+        onsir:PlantSeed ;
+    rdfs:label "Oryza sativa" .
+
+onsir:subject_islam2023 a [ a owl:Restriction ;
+            owl:onProperty obo:RO_0002162 ;
+            owl:someValuesFrom obo:NCBITaxon_4530 ],
+        owl:NamedIndividual,
+        onsir:PlantCallus ;
+    rdfs:label "Oryza sativa" .
+
+onsir:subject_jabbar2022 a [ a owl:Restriction ;
+            owl:onProperty obo:RO_0002162 ;
+            owl:someValuesFrom obo:NCBITaxon_4047 ],
+        owl:NamedIndividual,
+        onsir:PlantSeed ;
+    rdfs:label "Coriandrum sativum" .
+
+onsir:subject_joshi2025 a [ a owl:Restriction ;
+            owl:onProperty obo:RO_0002162 ;
+            owl:someValuesFrom obo:NCBITaxon_22663 ],
+        owl:NamedIndividual,
+        onsir:PlantSeed ;
+    rdfs:label "Punica granatum" .
+
+onsir:subject_kainthura2015 a [ a owl:Restriction ;
+            owl:onProperty obo:RO_0002162 ;
+            owl:someValuesFrom obo:NCBITaxon_82206 ],
+        owl:NamedIndividual,
+        onsir:PlantBulb ;
+    rdfs:label "Polianthes tuberosa" .
+
+onsir:subject_karthiksaran2026 a [ a owl:Restriction ;
+            owl:onProperty obo:RO_0002162 ;
+            owl:someValuesFrom obo:NCBITaxon_4530 ],
+        owl:NamedIndividual,
+        onsir:PlantSeed ;
+    rdfs:label "Oryza sativa" .
+
+onsir:subject_kazakova2020 a [ a owl:Restriction ;
+            owl:onProperty obo:RO_0002162 ;
+            owl:someValuesFrom obo:NCBITaxon_4513 ],
+        owl:NamedIndividual,
+        onsir:PlantSeed ;
+    rdfs:label "Hordeum vulgare" .
+
+onsir:subject_kikakedimau2014 a [ a owl:Restriction ;
+            owl:onProperty obo:RO_0002162 ;
+            owl:someValuesFrom obo:NCBITaxon_2708486 ],
+        owl:NamedIndividual,
         onsir:PlantSeed ;
     rdfs:label "Phyllanthus odontadenius" .
 
-onsir:seed_01 a owl:NamedIndividual,
+onsir:subject_kotsyubinskaya2025 a [ a owl:Restriction ;
+            owl:onProperty obo:RO_0002162 ;
+            owl:someValuesFrom obo:NCBITaxon_3885 ],
+        owl:NamedIndividual,
         onsir:PlantSeed ;
-    rdfs:label "Polianthes tuberosa" .
+    rdfs:label "Phaseolus vulgaris" .
 
-onsir:seed_02 a owl:NamedIndividual,
+onsir:subject_makhziah2026 a [ a owl:Restriction ;
+            owl:onProperty obo:RO_0002162 ;
+            owl:someValuesFrom obo:NCBITaxon_4682 ],
+        owl:NamedIndividual,
+        onsir:PlantBulb ;
+    rdfs:label "Allium sativum" .
+
+onsir:subject_mirza2024 a [ a owl:Restriction ;
+            owl:onProperty obo:RO_0002162 ;
+            owl:someValuesFrom obo:NCBITaxon_4222 ],
+        owl:NamedIndividual,
         onsir:PlantSeed ;
-    rdfs:label "Magnolia champaca" ;
-    onsir:hasTaxon onsir:taxon_Magnolia_champaca .
+    rdfs:label "Carthamus tinctorius" .
 
-onsir:seed_03 a owl:NamedIndividual,
+onsir:subject_nandi2026 a [ a owl:Restriction ;
+            owl:onProperty obo:RO_0002162 ;
+            owl:someValuesFrom obo:NCBITaxon_3847 ],
+        owl:NamedIndividual,
         onsir:PlantSeed ;
-    rdfs:label "Vigna radiata" ;
-    onsir:hasTaxon onsir:taxon_Vigna_radiata .
+    rdfs:label "Glycine max" .
 
-onsir:seed_04 a owl:NamedIndividual,
+onsir:subject_nelka2022 a [ a owl:Restriction ;
+            owl:onProperty obo:RO_0002162 ;
+            owl:someValuesFrom obo:NCBITaxon_4066 ],
+        owl:NamedIndividual,
         onsir:PlantSeed ;
-    rdfs:label "Datura stramonium" ;
-    onsir:hasTaxon onsir:taxon_Datura_stramonium .
+    rdfs:label "Calotropis gigantea" .
 
-onsir:seed_05 a owl:NamedIndividual,
+onsir:subject_nelka2024 a [ a owl:Restriction ;
+            owl:onProperty obo:RO_0002162 ;
+            owl:someValuesFrom obo:NCBITaxon_4058 ],
+        owl:NamedIndividual,
         onsir:PlantSeed ;
-    rdfs:label "Osmanthus fragrans" ;
-    onsir:hasTaxon onsir:taxon_Osmanthus_fragrans .
+    rdfs:label "Catharanthus roseus" .
 
-onsir:seed_06 a owl:NamedIndividual,
+onsir:subject_obok2023 a [ a owl:Restriction ;
+            owl:onProperty obo:RO_0002162 ;
+            owl:someValuesFrom obo:NCBITaxon_4111 ],
+        owl:NamedIndividual,
         onsir:PlantSeed ;
-    rdfs:label "Capsicum sp." ;
-    onsir:hasTaxon onsir:taxon_Capsicum_sp .
+    rdfs:label "Solanum melongena" .
 
-onsir:seed_07 a owl:NamedIndividual,
+onsir:subject_oliveira2021 a [ a owl:Restriction ;
+            owl:onProperty obo:RO_0002162 ;
+            owl:someValuesFrom obo:NCBITaxon_3847 ],
+        owl:NamedIndividual,
         onsir:PlantSeed ;
-    rdfs:label "Hordeum vulgare" ;
-    onsir:hasTaxon onsir:taxon_Hordeum_vulgare .
+    rdfs:label "Glycine max" .
 
-onsir:seed_08 a owl:NamedIndividual,
+onsir:subject_pandey2024 a [ a owl:Restriction ;
+            owl:onProperty obo:RO_0002162 ;
+            owl:someValuesFrom obo:NCBITaxon_49212 ],
+        owl:NamedIndividual,
         onsir:PlantSeed ;
-    rdfs:label "Brassica napus" ;
-    onsir:hasTaxon onsir:taxon_Brassica_napus .
+    rdfs:label "Salvia hispanica" .
 
-onsir:seed_09 a owl:NamedIndividual,
+onsir:subject_persada2025 a [ a owl:Restriction ;
+            owl:onProperty obo:RO_0002162 ;
+            owl:someValuesFrom obo:NCBITaxon_4679 ],
+        owl:NamedIndividual,
+        onsir:PlantBulb ;
+    rdfs:label "Allium cepa" .
+
+onsir:subject_qosim2024 a [ a owl:Restriction ;
+            owl:onProperty obo:RO_0002162 ;
+            owl:someValuesFrom obo:NCBITaxon_4505 ],
+        owl:NamedIndividual,
         onsir:PlantSeed ;
-    rdfs:label "Solanum lycopersicum" ;
-    onsir:hasTaxon onsir:taxon_Solanum_lycopersicum .
+    rdfs:label "Coix lacryma-jobi" .
 
-onsir:seed_10 a owl:NamedIndividual,
+onsir:subject_roy2021 a [ a owl:Restriction ;
+            owl:onProperty obo:RO_0002162 ;
+            owl:someValuesFrom obo:NCBITaxon_3915 ],
+        owl:NamedIndividual,
         onsir:PlantSeed ;
-    rdfs:label "Toona sureni" ;
-    onsir:hasTaxon onsir:taxon_Toona_sureni .
+    rdfs:label "Vigna mungo" .
 
-onsir:seed_11 a owl:NamedIndividual,
+onsir:subject_shammy2025 a [ a owl:Restriction ;
+            owl:onProperty obo:RO_0002162 ;
+            owl:someValuesFrom obo:NCBITaxon_4530 ],
+        owl:NamedIndividual,
         onsir:PlantSeed ;
-    rdfs:label "Vigna mungo" ;
-    onsir:hasTaxon onsir:taxon_Vigna_mungo .
+    rdfs:label "Oryza sativa" .
 
-onsir:seed_12 a owl:NamedIndividual,
+onsir:subject_srikanth2026 a [ a owl:Restriction ;
+            owl:onProperty obo:RO_0002162 ;
+            owl:someValuesFrom obo:NCBITaxon_151069 ],
+        owl:NamedIndividual,
         onsir:PlantSeed ;
-    rdfs:label "Calotropis gigantea" ;
-    onsir:hasTaxon onsir:taxon_Calotropis_gigantea .
+    rdfs:label "Litchi chinensis" .
 
-onsir:seed_13 a owl:NamedIndividual,
+onsir:subject_sudrajat2022 a [ a owl:Restriction ;
+            owl:onProperty obo:RO_0002162 ;
+            owl:someValuesFrom obo:NCBITaxon_153762 ],
+        owl:NamedIndividual,
         onsir:PlantSeed ;
-    rdfs:label "Coriandrum sativum" ;
-    onsir:hasTaxon onsir:taxon_Coriandrum_sativum .
+    rdfs:label "Neolamarckia cadamba" .
 
-onsir:seed_14 a owl:NamedIndividual,
+onsir:subject_thisawech2020 a [ a owl:Restriction ;
+            owl:onProperty obo:RO_0002162 ;
+            owl:someValuesFrom obo:NCBITaxon_3413428 ],
+        owl:NamedIndividual,
         onsir:PlantSeed ;
-    rdfs:label "Neolamarckia cadamba" ;
-    onsir:hasTaxon onsir:taxon_Neolamarckia_cadamba .
+    rdfs:label "Capsicum sp." .
 
-onsir:seed_15 a owl:NamedIndividual,
+onsir:subject_valombola2025 a [ a owl:Restriction ;
+            owl:onProperty obo:RO_0002162 ;
+            owl:someValuesFrom obo:NCBITaxon_115715 ],
+        owl:NamedIndividual,
         onsir:PlantSeed ;
-    rdfs:label "Arabidopsis thaliana" ;
-    onsir:hasTaxon onsir:taxon_Arabidopsis_thaliana .
+    rdfs:label "Vigna subterranea" .
 
-onsir:seed_16 a owl:NamedIndividual,
+onsir:subject_wardhani2025 a [ a owl:Restriction ;
+            owl:onProperty obo:RO_0002162 ;
+            owl:someValuesFrom obo:NCBITaxon_4460 ],
+        owl:NamedIndividual,
+        onsir:PlantCallus ;
+    rdfs:label "Colocasia esculenta" .
+
+onsir:subject_woya2026 a [ a owl:Restriction ;
+            owl:onProperty obo:RO_0002162 ;
+            owl:someValuesFrom obo:NCBITaxon_4120 ],
+        owl:NamedIndividual,
+        onsir:PlantPart ;
+    rdfs:label "Ipomoea batatas" .
+
+onsir:subject_zanzibar2021 a [ a owl:Restriction ;
+            owl:onProperty obo:RO_0002162 ;
+            owl:someValuesFrom obo:NCBITaxon_1258759 ],
+        owl:NamedIndividual,
+        onsir:PlantSeed ;
+    rdfs:label "Toona sureni" .
+
+onsir:subject_zanzibar2023 a [ a owl:Restriction ;
+            owl:onProperty obo:RO_0002162 ;
+            owl:someValuesFrom obo:NCBITaxon_100579 ],
+        owl:NamedIndividual,
         onsir:PlantSeed ;
     rdfs:label "Ficus variegata" .
 
-onsir:seed_17 a owl:NamedIndividual,
+onsir:treat_abdelrahman2016 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasRadiationType ;
+            owl:someValuesFrom onsir:Gamma ],
+        owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
+    onsir:hasDoseRange onsir:doserange_abdelrahman2016 .
+
+onsir:treat_ahmed2025 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasSourceIsotope ;
+            owl:someValuesFrom onsir:Co60 ],
+        [ a owl:Restriction ;
+            owl:onProperty onsir:hasDoseRateCategory ;
+            owl:someValuesFrom onsir:DoseRateAbove100GyPerHour ],
+        [ a owl:Restriction ;
+            owl:onProperty onsir:hasRadiationType ;
+            owl:someValuesFrom onsir:Gamma ],
+        owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
+    onsir:hasDoseRange onsir:doserange_ahmed2025 ;
+    onsir:hasDoseRate onsir:doserate_ahmed2025 .
+
+onsir:treat_ajijah2023 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasRadiationType ;
+            owl:someValuesFrom onsir:Gamma ],
+        owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
+    onsir:hasDoseRange onsir:doserange_ajijah2023 .
+
+onsir:treat_alvarez2019 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasSourceIsotope ;
+            owl:someValuesFrom onsir:Co60 ],
+        [ a owl:Restriction ;
+            owl:onProperty onsir:hasRadiationType ;
+            owl:someValuesFrom onsir:Gamma ],
+        owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
+    onsir:hasDoseRange onsir:doserange_alvarez2019 .
+
+onsir:treat_asadi2025 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasRadiationType ;
+            owl:someValuesFrom onsir:Gamma ],
+        [ a owl:Restriction ;
+            owl:onProperty onsir:hasDoseRateCategory ;
+            owl:someValuesFrom onsir:DoseRateBelow100GyPerHour ],
+        [ a owl:Restriction ;
+            owl:onProperty onsir:hasSourceIsotope ;
+            owl:someValuesFrom onsir:Co60 ],
+        owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
+    onsir:hasDoseRange onsir:doserange_asadi2025 ;
+    onsir:hasDoseRate onsir:doserate_asadi2025 .
+
+onsir:treat_benslimani2019 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasRadiationType ;
+            owl:someValuesFrom onsir:Gamma ],
+        [ a owl:Restriction ;
+            owl:onProperty onsir:hasDoseRateCategory ;
+            owl:someValuesFrom onsir:DoseRateBelow100GyPerHour ],
+        [ a owl:Restriction ;
+            owl:onProperty onsir:hasSourceIsotope ;
+            owl:someValuesFrom onsir:Co60 ],
+        owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
+    onsir:hasDoseRange onsir:doserange_benslimani2019 ;
+    onsir:hasDoseRate onsir:doserate_benslimani2019 .
+
+onsir:treat_bhuiyan2021 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasRadiationType ;
+            owl:someValuesFrom onsir:Gamma ],
+        owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
+    onsir:hasDoseRange onsir:doserange_bhuiyan2021 .
+
+onsir:treat_bishnoi2025 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasRadiationType ;
+            owl:someValuesFrom onsir:Gamma ],
+        owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
+    onsir:hasDoseRange onsir:doserange_bishnoi2025 .
+
+onsir:treat_boonsua2021 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasDoseRateCategory ;
+            owl:someValuesFrom onsir:DoseRateAbove100GyPerHour ],
+        [ a owl:Restriction ;
+            owl:onProperty onsir:hasSourceIsotope ;
+            owl:someValuesFrom onsir:Co60 ],
+        [ a owl:Restriction ;
+            owl:onProperty onsir:hasRadiationType ;
+            owl:someValuesFrom onsir:Gamma ],
+        owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
+    onsir:hasDoseRange onsir:doserange_boonsua2021 ;
+    onsir:hasDoseRate onsir:doserate_boonsua2021 .
+
+onsir:treat_chakraborty2023 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasRadiationType ;
+            owl:someValuesFrom onsir:Gamma ],
+        [ a owl:Restriction ;
+            owl:onProperty onsir:hasSourceIsotope ;
+            owl:someValuesFrom onsir:Co60 ],
+        [ a owl:Restriction ;
+            owl:onProperty onsir:hasDoseRateCategory ;
+            owl:someValuesFrom onsir:DoseRateAbove100GyPerHour ],
+        owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
+    onsir:hasDoseRange onsir:doserange_chakraborty2023 ;
+    onsir:hasDoseRate onsir:doserate_chakraborty2023 .
+
+onsir:treat_corazonguivin2023 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasRadiationType ;
+            owl:someValuesFrom onsir:Gamma ],
+        [ a owl:Restriction ;
+            owl:onProperty onsir:hasDoseRateCategory ;
+            owl:someValuesFrom onsir:DoseRateAbove100GyPerHour ],
+        [ a owl:Restriction ;
+            owl:onProperty onsir:hasSourceIsotope ;
+            owl:someValuesFrom onsir:Co60 ],
+        owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
+    onsir:hasDoseRange onsir:doserange_corazonguivin2023 ;
+    onsir:hasDoseRate onsir:doserate_corazonguivin2023 .
+
+onsir:treat_dev2025 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasDoseRateCategory ;
+            owl:someValuesFrom onsir:DoseRateAbove100GyPerHour ],
+        [ a owl:Restriction ;
+            owl:onProperty onsir:hasSourceIsotope ;
+            owl:someValuesFrom onsir:Co60 ],
+        [ a owl:Restriction ;
+            owl:onProperty onsir:hasRadiationType ;
+            owl:someValuesFrom onsir:Gamma ],
+        owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
+    onsir:hasDoseRange onsir:doserange_dev2025 ;
+    onsir:hasDoseRate onsir:doserate_dev2025 .
+
+onsir:treat_dhange2023 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasRadiationType ;
+            owl:someValuesFrom onsir:Gamma ],
+        [ a owl:Restriction ;
+            owl:onProperty onsir:hasSourceIsotope ;
+            owl:someValuesFrom onsir:Co60 ],
+        owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
+    onsir:hasDoseRange onsir:doserange_dhange2023 .
+
+onsir:treat_galvezmarroquin2023 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasSourceIsotope ;
+            owl:someValuesFrom onsir:Co60 ],
+        [ a owl:Restriction ;
+            owl:onProperty onsir:hasRadiationType ;
+            owl:someValuesFrom onsir:Gamma ],
+        owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
+    onsir:hasDoseRange onsir:doserange_galvezmarroquin2023 .
+
+onsir:treat_geng2019 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasRadiationType ;
+            owl:someValuesFrom onsir:Gamma ],
+        [ a owl:Restriction ;
+            owl:onProperty onsir:hasDoseRateCategory ;
+            owl:someValuesFrom onsir:DoseRateBelow100GyPerHour ],
+        [ a owl:Restriction ;
+            owl:onProperty onsir:hasSourceIsotope ;
+            owl:someValuesFrom onsir:Co60 ],
+        owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
+    onsir:hasDoseRange onsir:doserange_geng2019 ;
+    onsir:hasDoseRate onsir:doserate_geng2019 .
+
+onsir:treat_ghasemi2025 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasRadiationType ;
+            owl:someValuesFrom onsir:Gamma ],
+        owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
+    onsir:hasDoseRange onsir:doserange_ghasemi2025 .
+
+onsir:treat_guhamallick2022 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasDoseRateCategory ;
+            owl:someValuesFrom onsir:DoseRateAbove100GyPerHour ],
+        [ a owl:Restriction ;
+            owl:onProperty onsir:hasSourceIsotope ;
+            owl:someValuesFrom onsir:Co60 ],
+        [ a owl:Restriction ;
+            owl:onProperty onsir:hasRadiationType ;
+            owl:someValuesFrom onsir:Gamma ],
+        owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
+    onsir:hasDoseRange onsir:doserange_guhamallick2022 ;
+    onsir:hasDoseRate onsir:doserate_guhamallick2022 .
+
+onsir:treat_handini2020 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasRadiationType ;
+            owl:someValuesFrom onsir:Gamma ],
+        [ a owl:Restriction ;
+            owl:onProperty onsir:hasSourceIsotope ;
+            owl:someValuesFrom onsir:Co60 ],
+        owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
+    onsir:hasDoseRange onsir:doserange_handini2020 .
+
+onsir:treat_haque2025 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasRadiationType ;
+            owl:someValuesFrom onsir:Gamma ],
+        [ a owl:Restriction ;
+            owl:onProperty onsir:hasSourceIsotope ;
+            owl:someValuesFrom onsir:Co60 ],
+        owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
+    onsir:hasDoseRange onsir:doserange_haque2025 .
+
+onsir:treat_hase2023 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasSourceIsotope ;
+            owl:someValuesFrom onsir:Co60 ],
+        [ a owl:Restriction ;
+            owl:onProperty onsir:hasRadiationType ;
+            owl:someValuesFrom onsir:Gamma ],
+        owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
+    onsir:hasDoseRange onsir:doserange_hase2023 .
+
+onsir:treat_hayat2025 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasDoseRateCategory ;
+            owl:someValuesFrom onsir:DoseRateAbove100GyPerHour ],
+        [ a owl:Restriction ;
+            owl:onProperty onsir:hasRadiationType ;
+            owl:someValuesFrom onsir:Gamma ],
+        [ a owl:Restriction ;
+            owl:onProperty onsir:hasSourceIsotope ;
+            owl:someValuesFrom onsir:Cs137 ],
+        owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
+    onsir:hasDoseRange onsir:doserange_hayat2025 ;
+    onsir:hasDoseRate onsir:doserate_hayat2025 .
+
+onsir:treat_herdiyanti2025 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasRadiationType ;
+            owl:someValuesFrom onsir:Gamma ],
+        [ a owl:Restriction ;
+            owl:onProperty onsir:hasSourceIsotope ;
+            owl:someValuesFrom onsir:Co60 ],
+        owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
+    onsir:hasDoseRange onsir:doserange_herdiyanti2025 .
+
+onsir:treat_indrayanti2024 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasSourceIsotope ;
+            owl:someValuesFrom onsir:Co60 ],
+        [ a owl:Restriction ;
+            owl:onProperty onsir:hasRadiationType ;
+            owl:someValuesFrom onsir:Gamma ],
+        owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
+    onsir:hasDoseRange onsir:doserange_indrayanti2024 .
+
+onsir:treat_islam2023 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasRadiationType ;
+            owl:someValuesFrom onsir:Gamma ],
+        [ a owl:Restriction ;
+            owl:onProperty onsir:hasSourceIsotope ;
+            owl:someValuesFrom onsir:Co60 ],
+        owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
+    onsir:hasDoseRange onsir:doserange_islam2023 .
+
+onsir:treat_jabbar2022 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasSourceIsotope ;
+            owl:someValuesFrom onsir:Co60 ],
+        [ a owl:Restriction ;
+            owl:onProperty onsir:hasRadiationType ;
+            owl:someValuesFrom onsir:Gamma ],
+        owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
+    onsir:hasDoseRange onsir:doserange_jabbar2022 .
+
+onsir:treat_joshi2025 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasRadiationType ;
+            owl:someValuesFrom onsir:Gamma ],
+        owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
+    onsir:hasDoseRange onsir:doserange_joshi2025 .
+
+onsir:treat_kainthura2015 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasSourceIsotope ;
+            owl:someValuesFrom onsir:Co60 ],
+        [ a owl:Restriction ;
+            owl:onProperty onsir:hasRadiationType ;
+            owl:someValuesFrom onsir:Gamma ],
+        owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
+    onsir:hasDoseRange onsir:doserange_kainthura2015 .
+
+onsir:treat_karthiksaran2026 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasSourceIsotope ;
+            owl:someValuesFrom onsir:Co60 ],
+        [ a owl:Restriction ;
+            owl:onProperty onsir:hasRadiationType ;
+            owl:someValuesFrom onsir:Gamma ],
+        [ a owl:Restriction ;
+            owl:onProperty onsir:hasDoseRateCategory ;
+            owl:someValuesFrom onsir:DoseRateAbove100GyPerHour ],
+        owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
+    onsir:hasDoseRange onsir:doserange_karthiksaran2026 ;
+    onsir:hasDoseRate onsir:doserate_karthiksaran2026 .
+
+onsir:treat_kazakova2020 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasDoseRateCategory ;
+            owl:someValuesFrom onsir:DoseRateBelow100GyPerHour ],
+        [ a owl:Restriction ;
+            owl:onProperty onsir:hasRadiationType ;
+            owl:someValuesFrom onsir:Gamma ],
+        [ a owl:Restriction ;
+            owl:onProperty onsir:hasSourceIsotope ;
+            owl:someValuesFrom onsir:Co60 ],
+        owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
+    onsir:hasDoseRange onsir:doserange_kazakova2020 ;
+    onsir:hasDoseRate onsir:doserate_kazakova2020 .
+
+onsir:treat_kikakedimau2014 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasDoseRateCategory ;
+            owl:someValuesFrom onsir:DoseRateBelow100GyPerHour ],
+        [ a owl:Restriction ;
+            owl:onProperty onsir:hasRadiationType ;
+            owl:someValuesFrom onsir:Gamma ],
+        [ a owl:Restriction ;
+            owl:onProperty onsir:hasSourceIsotope ;
+            owl:someValuesFrom onsir:Cs137 ],
+        owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
+    onsir:hasDoseRange onsir:doserange_kikakedimau2014 ;
+    onsir:hasDoseRate onsir:doserate_kikakedimau2014 .
+
+onsir:treat_kotsyubinskaya2025 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasDoseRateCategory ;
+            owl:someValuesFrom onsir:DoseRateBelow100GyPerHour ],
+        [ a owl:Restriction ;
+            owl:onProperty onsir:hasSourceIsotope ;
+            owl:someValuesFrom onsir:Co60 ],
+        [ a owl:Restriction ;
+            owl:onProperty onsir:hasRadiationType ;
+            owl:someValuesFrom onsir:Gamma ],
+        owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
+    onsir:hasDoseRange onsir:doserange_kotsyubinskaya2025 ;
+    onsir:hasDoseRate onsir:doserate_kotsyubinskaya2025 .
+
+onsir:treat_lumorh2025 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasSourceIsotope ;
+            owl:someValuesFrom onsir:Co60 ],
+        [ a owl:Restriction ;
+            owl:onProperty onsir:hasDoseRateCategory ;
+            owl:someValuesFrom onsir:DoseRateAbove100GyPerHour ],
+        [ a owl:Restriction ;
+            owl:onProperty onsir:hasRadiationType ;
+            owl:someValuesFrom onsir:Gamma ],
+        owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
+    onsir:hasDoseRange onsir:doserange_lumorh2025 ;
+    onsir:hasDoseRate onsir:doserate_lumorh2025 .
+
+onsir:treat_mahesha2023 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasRadiationType ;
+            owl:someValuesFrom onsir:Gamma ],
+        [ a owl:Restriction ;
+            owl:onProperty onsir:hasSourceIsotope ;
+            owl:someValuesFrom onsir:Co60 ],
+        owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
+    onsir:hasDoseRange onsir:doserange_mahesha2023 .
+
+onsir:treat_makhziah2026 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasRadiationType ;
+            owl:someValuesFrom onsir:Gamma ],
+        [ a owl:Restriction ;
+            owl:onProperty onsir:hasSourceIsotope ;
+            owl:someValuesFrom onsir:Co60 ],
+        owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
+    onsir:hasDoseRange onsir:doserange_makhziah2026 .
+
+onsir:treat_mirza2024 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasSourceIsotope ;
+            owl:someValuesFrom onsir:Co60 ],
+        [ a owl:Restriction ;
+            owl:onProperty onsir:hasRadiationType ;
+            owl:someValuesFrom onsir:Gamma ],
+        owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
+    onsir:hasDoseRange onsir:doserange_mirza2024 .
+
+onsir:treat_nandi2026 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasRadiationType ;
+            owl:someValuesFrom onsir:Gamma ],
+        [ a owl:Restriction ;
+            owl:onProperty onsir:hasDoseRateCategory ;
+            owl:someValuesFrom onsir:DoseRateAbove100GyPerHour ],
+        [ a owl:Restriction ;
+            owl:onProperty onsir:hasSourceIsotope ;
+            owl:someValuesFrom onsir:Co60 ],
+        owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
+    onsir:hasDoseRange onsir:doserange_nandi2026 ;
+    onsir:hasDoseRate onsir:doserate_nandi2026 .
+
+onsir:treat_nelka2022 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasSourceIsotope ;
+            owl:someValuesFrom onsir:Co60 ],
+        [ a owl:Restriction ;
+            owl:onProperty onsir:hasRadiationType ;
+            owl:someValuesFrom onsir:Gamma ],
+        owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
+    onsir:hasDoseRange onsir:doserange_nelka2022 .
+
+onsir:treat_nelka2024 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasSourceIsotope ;
+            owl:someValuesFrom onsir:Co60 ],
+        [ a owl:Restriction ;
+            owl:onProperty onsir:hasRadiationType ;
+            owl:someValuesFrom onsir:Gamma ],
+        owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
+    onsir:hasDoseRange onsir:doserange_nelka2024 .
+
+onsir:treat_obok2023 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasRadiationType ;
+            owl:someValuesFrom onsir:Gamma ],
+        [ a owl:Restriction ;
+            owl:onProperty onsir:hasSourceIsotope ;
+            owl:someValuesFrom onsir:Co60 ],
+        owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
+    onsir:hasDoseRange onsir:doserange_obok2023 .
+
+onsir:treat_oliveira2021 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasSourceIsotope ;
+            owl:someValuesFrom onsir:Co60 ],
+        [ a owl:Restriction ;
+            owl:onProperty onsir:hasDoseRateCategory ;
+            owl:someValuesFrom onsir:DoseRateBelow100GyPerHour ],
+        [ a owl:Restriction ;
+            owl:onProperty onsir:hasRadiationType ;
+            owl:someValuesFrom onsir:Gamma ],
+        owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
+    onsir:hasDoseRange onsir:doserange_oliveira2021 ;
+    onsir:hasDoseRate onsir:doserate_oliveira2021 .
+
+onsir:treat_pandey2024 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasSourceIsotope ;
+            owl:someValuesFrom onsir:Co60 ],
+        [ a owl:Restriction ;
+            owl:onProperty onsir:hasRadiationType ;
+            owl:someValuesFrom onsir:Gamma ],
+        owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
+    onsir:hasDoseRange onsir:doserange_pandey2024 .
+
+onsir:treat_patel2017 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasSourceIsotope ;
+            owl:someValuesFrom onsir:Co60 ],
+        [ a owl:Restriction ;
+            owl:onProperty onsir:hasRadiationType ;
+            owl:someValuesFrom onsir:Gamma ],
+        owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
+    onsir:hasDoseRange onsir:doserange_patel2017 .
+
+onsir:treat_persada2025 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasRadiationType ;
+            owl:someValuesFrom onsir:Gamma ],
+        [ a owl:Restriction ;
+            owl:onProperty onsir:hasSourceIsotope ;
+            owl:someValuesFrom onsir:Co60 ],
+        owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
+    onsir:hasDoseRange onsir:doserange_persada2025 .
+
+onsir:treat_qosim2024 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasSourceIsotope ;
+            owl:someValuesFrom onsir:Co60 ],
+        [ a owl:Restriction ;
+            owl:onProperty onsir:hasRadiationType ;
+            owl:someValuesFrom onsir:Gamma ],
+        owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
+    onsir:hasDoseRange onsir:doserange_qosim2024 .
+
+onsir:treat_roy2021 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasRadiationType ;
+            owl:someValuesFrom onsir:Gamma ],
+        [ a owl:Restriction ;
+            owl:onProperty onsir:hasSourceIsotope ;
+            owl:someValuesFrom onsir:Co60 ],
+        owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
+    onsir:hasDoseRange onsir:doserange_roy2021 .
+
+onsir:treat_shammy2025 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasSourceIsotope ;
+            owl:someValuesFrom onsir:Co60 ],
+        [ a owl:Restriction ;
+            owl:onProperty onsir:hasRadiationType ;
+            owl:someValuesFrom onsir:Gamma ],
+        owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
+    onsir:hasDoseRange onsir:doserange_shammy2025 .
+
+onsir:treat_srikanth2026 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasSourceIsotope ;
+            owl:someValuesFrom onsir:Co60 ],
+        [ a owl:Restriction ;
+            owl:onProperty onsir:hasRadiationType ;
+            owl:someValuesFrom onsir:Gamma ],
+        [ a owl:Restriction ;
+            owl:onProperty onsir:hasDoseRateCategory ;
+            owl:someValuesFrom onsir:DoseRateAbove100GyPerHour ],
+        owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
+    onsir:hasDoseRange onsir:doserange_srikanth2026 ;
+    onsir:hasDoseRate onsir:doserate_srikanth2026 .
+
+onsir:treat_sudrajat2022 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasDoseRateCategory ;
+            owl:someValuesFrom onsir:DoseRateAbove100GyPerHour ],
+        [ a owl:Restriction ;
+            owl:onProperty onsir:hasRadiationType ;
+            owl:someValuesFrom onsir:Gamma ],
+        [ a owl:Restriction ;
+            owl:onProperty onsir:hasSourceIsotope ;
+            owl:someValuesFrom onsir:Co60 ],
+        owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
+    onsir:hasDoseRange onsir:doserange_sudrajat2022 ;
+    onsir:hasDoseRate onsir:doserate_sudrajat2022 .
+
+onsir:treat_thisawech2020 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasSourceIsotope ;
+            owl:someValuesFrom onsir:Co60 ],
+        [ a owl:Restriction ;
+            owl:onProperty onsir:hasRadiationType ;
+            owl:someValuesFrom onsir:Gamma ],
+        owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
+    onsir:hasDoseRange onsir:doserange_thisawech2020 .
+
+onsir:treat_valombola2025 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasDoseRateCategory ;
+            owl:someValuesFrom onsir:DoseRateAbove100GyPerHour ],
+        [ a owl:Restriction ;
+            owl:onProperty onsir:hasSourceIsotope ;
+            owl:someValuesFrom onsir:Co60 ],
+        [ a owl:Restriction ;
+            owl:onProperty onsir:hasRadiationType ;
+            owl:someValuesFrom onsir:Gamma ],
+        owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
+    onsir:hasDoseRange onsir:doserange_valombola2025 ;
+    onsir:hasDoseRate onsir:doserate_valombola2025 .
+
+onsir:treat_wardhani2025 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasDoseRateCategory ;
+            owl:someValuesFrom onsir:DoseRateAbove100GyPerHour ],
+        [ a owl:Restriction ;
+            owl:onProperty onsir:hasRadiationType ;
+            owl:someValuesFrom onsir:Gamma ],
+        [ a owl:Restriction ;
+            owl:onProperty onsir:hasSourceIsotope ;
+            owl:someValuesFrom onsir:Co60 ],
+        owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
+    onsir:hasDoseRange onsir:doserange_wardhani2025 ;
+    onsir:hasDoseRate onsir:doserate_wardhani2025 .
+
+onsir:treat_woya2026 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasSourceIsotope ;
+            owl:someValuesFrom onsir:Co60 ],
+        [ a owl:Restriction ;
+            owl:onProperty onsir:hasRadiationType ;
+            owl:someValuesFrom onsir:Gamma ],
+        [ a owl:Restriction ;
+            owl:onProperty onsir:hasDoseRateCategory ;
+            owl:someValuesFrom onsir:DoseRateAbove100GyPerHour ],
+        owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
+    onsir:hasDoseRange onsir:doserange_woya2026 ;
+    onsir:hasDoseRate onsir:doserate_woya2026 .
+
+onsir:treat_zanzibar2016 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasSourceIsotope ;
+            owl:someValuesFrom onsir:Co60 ],
+        [ a owl:Restriction ;
+            owl:onProperty onsir:hasRadiationType ;
+            owl:someValuesFrom onsir:Gamma ],
+        owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
+    onsir:hasDoseRange onsir:doserange_zanzibar2016 .
+
+onsir:treat_zanzibar2021 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasRadiationType ;
+            owl:someValuesFrom onsir:Gamma ],
+        [ a owl:Restriction ;
+            owl:onProperty onsir:hasSourceIsotope ;
+            owl:someValuesFrom onsir:Co60 ],
+        owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
+    onsir:hasDoseRange onsir:doserange_zanzibar2021 .
+
+onsir:treat_zanzibar2023 a [ a owl:Restriction ;
+            owl:onProperty onsir:hasRadiationType ;
+            owl:someValuesFrom onsir:Gamma ],
+        [ a owl:Restriction ;
+            owl:onProperty onsir:hasDoseRateCategory ;
+            owl:someValuesFrom onsir:DoseRateAbove100GyPerHour ],
+        [ a owl:Restriction ;
+            owl:onProperty onsir:hasSourceIsotope ;
+            owl:someValuesFrom onsir:Co60 ],
+        owl:NamedIndividual,
+        onsir:SeedIrradiationTreatment ;
+    onsir:hasDoseRange onsir:doserange_zanzibar2023 ;
+    onsir:hasDoseRate onsir:doserate_zanzibar2023 .
+
+obo:NCBITaxon_3847 a owl:Class .
+
+obo:NCBITaxon_4081 a owl:Class .
+
+obo:NCBITaxon_4530 a owl:Class .
+
+onsir:endpoint_patel2017 a owl:NamedIndividual,
+        onsir:SeedlingSurvival ;
+    rdfs:label "SeedlingSurvival scored by patel2017: plants alive 30 days after sowing, in Petri dishes" .
+
+onsir:stage_patel2017 a owl:NamedIndividual,
+        onsir:EarlySeedlingStage ;
+    rdfs:label "EarlySeedlingStage of patel2017" .
+
+onsir:endpoint_chakraborty2023 a owl:NamedIndividual,
+        onsir:SeedlingSurvival ;
+    rdfs:label "SeedlingSurvival scored by chakraborty2023: viable seedlings 7 days after sowing" .
+
+onsir:endpoint_mahesha2023 a owl:NamedIndividual,
+        onsir:GerminationPercentage ;
+    rdfs:label "GerminationPercentage scored by mahesha2023: germination seven days after sowing, in Petri plates and polybags" .
+
+onsir:stage_chakraborty2023 a owl:NamedIndividual,
+        onsir:EarlySeedlingStage ;
+    rdfs:label "EarlySeedlingStage of chakraborty2023" .
+
+onsir:stage_mahesha2023 a owl:NamedIndividual,
+        onsir:GerminationStage ;
+    rdfs:label "GerminationStage of mahesha2023" .
+
+onsir:subject_patel2017 a [ a owl:Restriction ;
+            owl:onProperty obo:RO_0002162 ;
+            owl:someValuesFrom obo:NCBITaxon_78534 ],
+        owl:NamedIndividual,
         onsir:PlantSeed ;
-    rdfs:label "Lablab purpureus" ;
-    onsir:hasTaxon onsir:taxon_Lablab_purpureus .
+    rdfs:label "Trigonella foenum-graecum" .
 
-onsir:seed_19 a owl:NamedIndividual,
+onsir:subject_chakraborty2023 a [ a owl:Restriction ;
+            owl:onProperty obo:RO_0002162 ;
+            owl:someValuesFrom obo:NCBITaxon_4565 ],
+        owl:NamedIndividual,
         onsir:PlantSeed ;
-    rdfs:label "Plukenetia volubilis" ;
-    onsir:hasTaxon onsir:taxon_Plukenetia_volubilis .
+    rdfs:label "Triticum aestivum" .
 
-onsir:seed_20 a owl:NamedIndividual,
+onsir:subject_mahesha2023 a [ a owl:Restriction ;
+            owl:onProperty obo:RO_0002162 ;
+            owl:someValuesFrom obo:NCBITaxon_35936 ],
+        owl:NamedIndividual,
         onsir:PlantSeed ;
-    rdfs:label "Reutealis trisperma" ;
-    onsir:hasTaxon onsir:taxon_Reutealis_trisperma .
-
-onsir:seed_21 a owl:NamedIndividual,
-        onsir:PlantSeed ;
-    rdfs:label "Solanum melongena" ;
-    onsir:hasTaxon onsir:taxon_Solanum_melongena .
-
-onsir:seed_22 a owl:NamedIndividual,
-        onsir:PlantSeed ;
-    rdfs:label "Catharanthus roseus" ;
-    onsir:hasTaxon onsir:taxon_Catharanthus_roseus .
-
-onsir:seed_23 a owl:NamedIndividual,
-        onsir:PlantSeed ;
-    rdfs:label "Salvia hispanica" ;
-    onsir:hasTaxon onsir:taxon_Salvia_hispanica .
-
-onsir:seed_24 a owl:NamedIndividual,
-        onsir:PlantSeed ;
-    rdfs:label "Solanum lycopersicum" ;
-    onsir:hasTaxon onsir:taxon_Solanum_lycopersicum .
-
-onsir:seed_25 a owl:NamedIndividual,
-        onsir:PlantSeed ;
-    rdfs:label "Dianthus caryophyllus" ;
-    onsir:hasTaxon onsir:taxon_Dianthus_caryophyllus .
-
-onsir:seed_26 a owl:NamedIndividual,
-        onsir:PlantSeed ;
-    rdfs:label "Phaseolus vulgaris" ;
-    onsir:hasTaxon onsir:taxon_Phaseolus_vulgaris .
-
-onsir:seed_27 a owl:NamedIndividual,
-        onsir:PlantSeed ;
-    rdfs:label "Solanum tuberosum" ;
-    onsir:hasTaxon onsir:taxon_Solanum_tuberosum .
-
-onsir:seed_28 a owl:NamedIndividual,
-        onsir:PlantSeed ;
-    rdfs:label "Vigna unguiculata" ;
-    onsir:hasTaxon onsir:taxon_Vigna_unguiculata .
-
-onsir:taxon_Arabidopsis_thaliana a obo:NCBITaxon_3702,
-        owl:NamedIndividual ;
-    rdfs:label "Arabidopsis thaliana" .
-
-onsir:taxon_Brassica_napus a obo:NCBITaxon_3708,
-        owl:NamedIndividual ;
-    rdfs:label "Brassica napus" .
-
-onsir:taxon_Calotropis_gigantea a obo:NCBITaxon_4066,
-        owl:NamedIndividual ;
-    rdfs:label "Calotropis gigantea" .
-
-onsir:taxon_Capsicum_sp a obo:NCBITaxon_3413428,
-        owl:NamedIndividual ;
-    rdfs:label "Capsicum sp." .
-
-onsir:taxon_Catharanthus_roseus a obo:NCBITaxon_4058,
-        owl:NamedIndividual ;
-    rdfs:label "Catharanthus roseus" .
-
-onsir:taxon_Coriandrum_sativum a obo:NCBITaxon_4047,
-        owl:NamedIndividual ;
-    rdfs:label "Coriandrum sativum" .
-
-onsir:taxon_Datura_stramonium a obo:NCBITaxon_4076,
-        owl:NamedIndividual ;
-    rdfs:label "Datura stramonium" .
-
-onsir:taxon_Dianthus_caryophyllus a obo:NCBITaxon_3570,
-        owl:NamedIndividual ;
-    rdfs:label "Dianthus caryophyllus" .
-
-onsir:taxon_Hordeum_vulgare a obo:NCBITaxon_4513,
-        owl:NamedIndividual ;
-    rdfs:label "Hordeum vulgare" .
-
-onsir:taxon_Lablab_purpureus a obo:NCBITaxon_35936,
-        owl:NamedIndividual ;
     rdfs:label "Lablab purpureus" .
 
-onsir:taxon_Magnolia_champaca a obo:NCBITaxon_86757,
-        owl:NamedIndividual ;
-    rdfs:label "Magnolia champaca" .
+onsir:endpoint_corazonguivin2023 a owl:NamedIndividual,
+        onsir:SeedlingSurvival ;
+    rdfs:label "SeedlingSurvival scored by corazonguivin2023: surviving plants per irradiated seed in the greenhouse experiment, with growth recorded 30 days after emergence" .
 
-onsir:taxon_Neolamarckia_cadamba a obo:NCBITaxon_153762,
-        owl:NamedIndividual ;
-    rdfs:label "Neolamarckia cadamba" .
+onsir:endpoint_indrayanti2024 a owl:NamedIndividual,
+        onsir:SeedlingSurvival ;
+    rdfs:label "SeedlingSurvival scored by indrayanti2024: seedlings alive four weeks after germination, relative to the control" .
 
-onsir:taxon_Oryza_sativa a obo:NCBITaxon_4530,
-        owl:NamedIndividual ;
-    rdfs:label "Oryza sativa" .
+onsir:endpoint_zanzibar2016 a owl:NamedIndividual,
+        onsir:GerminationPercentage ;
+    rdfs:label "GerminationPercentage scored by zanzibar2016: germination percentage of fresh seeds in the germination test" .
 
-onsir:taxon_Osmanthus_fragrans a obo:NCBITaxon_93977,
-        owl:NamedIndividual ;
-    rdfs:label "Osmanthus fragrans" .
+onsir:stage_corazonguivin2023 a owl:NamedIndividual,
+        onsir:EarlySeedlingStage ;
+    rdfs:label "EarlySeedlingStage of corazonguivin2023" .
 
-onsir:taxon_Phaseolus_vulgaris a obo:NCBITaxon_3885,
-        owl:NamedIndividual ;
-    rdfs:label "Phaseolus vulgaris" .
+onsir:stage_indrayanti2024 a owl:NamedIndividual,
+        onsir:EarlySeedlingStage ;
+    rdfs:label "EarlySeedlingStage of indrayanti2024" .
 
-onsir:taxon_Plukenetia_volubilis a obo:NCBITaxon_316893,
-        owl:NamedIndividual ;
+onsir:stage_zanzibar2016 a owl:NamedIndividual,
+        onsir:GerminationStage ;
+    rdfs:label "GerminationStage of zanzibar2016" .
+
+onsir:subject_corazonguivin2023 a [ a owl:Restriction ;
+            owl:onProperty obo:RO_0002162 ;
+            owl:someValuesFrom obo:NCBITaxon_316893 ],
+        owl:NamedIndividual,
+        onsir:PlantSeed ;
     rdfs:label "Plukenetia volubilis" .
 
-onsir:taxon_Reutealis_trisperma a obo:NCBITaxon_1487825,
-        owl:NamedIndividual ;
-    rdfs:label "Reutealis trisperma" .
-
-onsir:taxon_Salvia_hispanica a obo:NCBITaxon_49212,
-        owl:NamedIndividual ;
-    rdfs:label "Salvia hispanica" .
-
-onsir:taxon_Solanum_melongena a obo:NCBITaxon_4111,
-        owl:NamedIndividual ;
-    rdfs:label "Solanum melongena" .
-
-onsir:taxon_Solanum_tuberosum a obo:NCBITaxon_4113,
-        owl:NamedIndividual ;
-    rdfs:label "Solanum tuberosum" .
-
-onsir:taxon_Toona_sureni a obo:NCBITaxon_1258759,
-        owl:NamedIndividual ;
-    rdfs:label "Toona sureni" .
-
-onsir:taxon_Vigna_mungo a obo:NCBITaxon_3915,
-        owl:NamedIndividual ;
-    rdfs:label "Vigna mungo" .
-
-onsir:taxon_Vigna_radiata a obo:NCBITaxon_157791,
-        owl:NamedIndividual ;
-    rdfs:label "Vigna radiata" .
-
-onsir:treat_00 a owl:NamedIndividual,
-        onsir:SeedIrradiationTreatment ;
-    onsir:hasDoseRange onsir:doserange_00 ;
-    onsir:hasDoseRate onsir:doserate_00 ;
-    onsir:hasDoseRateCategory onsir:LowDoseRate ;
-    onsir:hasSourceIsotope onsir:Cs137 .
-
-onsir:treat_01 a owl:NamedIndividual,
-        onsir:SeedIrradiationTreatment ;
-    onsir:hasDoseRange onsir:doserange_01 ;
-    onsir:hasSourceIsotope onsir:Co60 .
-
-onsir:treat_02 a owl:NamedIndividual,
-        onsir:SeedIrradiationTreatment ;
-    onsir:hasDoseRange onsir:doserange_02 ;
-    onsir:hasSourceIsotope onsir:Co60 .
-
-onsir:treat_03 a owl:NamedIndividual,
-        onsir:SeedIrradiationTreatment ;
-    onsir:hasDoseRange onsir:doserange_03 .
-
-onsir:treat_04 a owl:NamedIndividual,
-        onsir:SeedIrradiationTreatment ;
-    onsir:hasDoseRange onsir:doserange_04 ;
-    onsir:hasDoseRate onsir:doserate_04 ;
-    onsir:hasDoseRateCategory onsir:LowDoseRate ;
-    onsir:hasSourceIsotope onsir:Co60 .
-
-onsir:treat_05 a owl:NamedIndividual,
-        onsir:SeedIrradiationTreatment ;
-    onsir:hasDoseRange onsir:doserange_05 ;
-    onsir:hasDoseRate onsir:doserate_05 ;
-    onsir:hasDoseRateCategory onsir:LowDoseRate ;
-    onsir:hasSourceIsotope onsir:Co60 .
-
-onsir:treat_06 a owl:NamedIndividual,
-        onsir:SeedIrradiationTreatment ;
-    onsir:hasDoseRange onsir:doserange_06 ;
-    onsir:hasSourceIsotope onsir:Co60 .
-
-onsir:treat_07 a owl:NamedIndividual,
-        onsir:SeedIrradiationTreatment ;
-    onsir:hasDoseRange onsir:doserange_07 ;
-    onsir:hasDoseRate onsir:doserate_07 ;
-    onsir:hasDoseRateCategory onsir:LowDoseRate ;
-    onsir:hasSourceIsotope onsir:Co60 .
-
-onsir:treat_08 a owl:NamedIndividual,
-        onsir:SeedIrradiationTreatment ;
-    onsir:hasDoseRange onsir:doserange_08 .
-
-onsir:treat_09 a owl:NamedIndividual,
-        onsir:SeedIrradiationTreatment ;
-    onsir:hasDoseRange onsir:doserange_09 ;
-    onsir:hasDoseRate onsir:doserate_09 ;
-    onsir:hasDoseRateCategory onsir:HighDoseRate ;
-    onsir:hasSourceIsotope onsir:Co60 .
-
-onsir:treat_10 a owl:NamedIndividual,
-        onsir:SeedIrradiationTreatment ;
-    onsir:hasDoseRange onsir:doserange_10 ;
-    onsir:hasSourceIsotope onsir:Co60 .
-
-onsir:treat_11 a owl:NamedIndividual,
-        onsir:SeedIrradiationTreatment ;
-    onsir:hasDoseRange onsir:doserange_11 ;
-    onsir:hasSourceIsotope onsir:Co60 .
-
-onsir:treat_12 a owl:NamedIndividual,
-        onsir:SeedIrradiationTreatment ;
-    onsir:hasDoseRange onsir:doserange_12 ;
-    onsir:hasSourceIsotope onsir:Co60 .
-
-onsir:treat_13 a owl:NamedIndividual,
-        onsir:SeedIrradiationTreatment ;
-    onsir:hasDoseRange onsir:doserange_13 ;
-    onsir:hasSourceIsotope onsir:Co60 .
-
-onsir:treat_14 a owl:NamedIndividual,
-        onsir:SeedIrradiationTreatment ;
-    onsir:hasDoseRange onsir:doserange_14 ;
-    onsir:hasDoseRate onsir:doserate_14 ;
-    onsir:hasDoseRateCategory onsir:HighDoseRate ;
-    onsir:hasSourceIsotope onsir:Co60 .
-
-onsir:treat_15 a owl:NamedIndividual,
-        onsir:SeedIrradiationTreatment ;
-    onsir:hasDoseRange onsir:doserange_15 ;
-    onsir:hasSourceIsotope onsir:Co60 .
-
-onsir:treat_16 a owl:NamedIndividual,
-        onsir:SeedIrradiationTreatment ;
-    onsir:hasDoseRange onsir:doserange_16 ;
-    onsir:hasDoseRate onsir:doserate_16 ;
-    onsir:hasDoseRateCategory onsir:HighDoseRate ;
-    onsir:hasSourceIsotope onsir:Co60 .
-
-onsir:treat_17 a owl:NamedIndividual,
-        onsir:SeedIrradiationTreatment ;
-    onsir:hasDoseRange onsir:doserange_17 ;
-    onsir:hasSourceIsotope onsir:Co60 .
-
-onsir:treat_18 a owl:NamedIndividual,
-        onsir:SeedIrradiationTreatment ;
-    onsir:hasDoseRange onsir:doserange_18 ;
-    onsir:hasSourceIsotope onsir:Co60 .
-
-onsir:treat_19 a owl:NamedIndividual,
-        onsir:SeedIrradiationTreatment ;
-    onsir:hasDoseRange onsir:doserange_19 ;
-    onsir:hasDoseRate onsir:doserate_19 ;
-    onsir:hasDoseRateCategory onsir:HighDoseRate ;
-    onsir:hasSourceIsotope onsir:Co60 .
-
-onsir:treat_20 a owl:NamedIndividual,
-        onsir:SeedIrradiationTreatment ;
-    onsir:hasDoseRange onsir:doserange_20 .
-
-onsir:treat_21 a owl:NamedIndividual,
-        onsir:SeedIrradiationTreatment ;
-    onsir:hasDoseRange onsir:doserange_21 ;
-    onsir:hasSourceIsotope onsir:Co60 .
-
-onsir:treat_22 a owl:NamedIndividual,
-        onsir:SeedIrradiationTreatment ;
-    onsir:hasDoseRange onsir:doserange_22 ;
-    onsir:hasSourceIsotope onsir:Co60 .
-
-onsir:treat_23 a owl:NamedIndividual,
-        onsir:SeedIrradiationTreatment ;
-    onsir:hasDoseRange onsir:doserange_23 ;
-    onsir:hasSourceIsotope onsir:Co60 .
-
-onsir:treat_24 a owl:NamedIndividual,
-        onsir:SeedIrradiationTreatment ;
-    onsir:hasDoseRange onsir:doserange_24 ;
-    onsir:hasSourceIsotope onsir:Co60 .
-
-onsir:treat_25 a owl:NamedIndividual,
-        onsir:SeedIrradiationTreatment ;
-    onsir:hasDoseRange onsir:doserange_25 ;
-    onsir:hasDoseRate onsir:doserate_25 ;
-    onsir:hasDoseRateCategory onsir:HighDoseRate ;
-    onsir:hasSourceIsotope onsir:Co60 .
-
-onsir:treat_26 a owl:NamedIndividual,
-        onsir:SeedIrradiationTreatment ;
-    onsir:hasDoseRange onsir:doserange_26 ;
-    onsir:hasDoseRate onsir:doserate_26 ;
-    onsir:hasDoseRateCategory onsir:LowDoseRate ;
-    onsir:hasSourceIsotope onsir:Co60 .
-
-onsir:treat_27 a owl:NamedIndividual,
-        onsir:SeedIrradiationTreatment ;
-    onsir:hasDoseRange onsir:doserange_27 ;
-    onsir:hasSourceIsotope onsir:Co60 .
-
-onsir:treat_28 a owl:NamedIndividual,
-        onsir:SeedIrradiationTreatment ;
-    onsir:hasDoseRange onsir:doserange_28 ;
-    onsir:hasDoseRate onsir:doserate_28 ;
-    onsir:hasDoseRateCategory onsir:HighDoseRate ;
-    onsir:hasSourceIsotope onsir:Co60 .
-
-onsir:taxon_Solanum_lycopersicum a obo:NCBITaxon_4081,
-        owl:NamedIndividual ;
+onsir:subject_indrayanti2024 a [ a owl:Restriction ;
+            owl:onProperty obo:RO_0002162 ;
+            owl:someValuesFrom obo:NCBITaxon_4081 ],
+        owl:NamedIndividual,
+        onsir:PlantSeed ;
     rdfs:label "Solanum lycopersicum" .
 
-onsir:endpoint_lumorh2025_germination a owl:NamedIndividual,
-        onsir:GerminationRate ;
-    rdfs:label "germination scored by lumorh2025" .
+onsir:subject_zanzibar2016 a [ a owl:Restriction ;
+            owl:onProperty obo:RO_0002162 ;
+            owl:someValuesFrom obo:NCBITaxon_86757 ],
+        owl:NamedIndividual,
+        onsir:PlantSeed ;
+    rdfs:label "Magnolia champaca" .
 
-onsir:taxon_Vigna_unguiculata a obo:NCBITaxon_3917,
-        owl:NamedIndividual ;
+onsir:endpoint_lumorh2025 a owl:NamedIndividual,
+        onsir:GerminationPercentage ;
+    rdfs:label "GerminationPercentage scored by lumorh2025: germination counted 3 to 18 days after sowing in nursery pots" .
+
+onsir:stage_lumorh2025 a owl:NamedIndividual,
+        onsir:GerminationStage ;
+    rdfs:label "GerminationStage of lumorh2025" .
+
+onsir:subject_lumorh2025 a [ a owl:Restriction ;
+            owl:onProperty obo:RO_0002162 ;
+            owl:someValuesFrom obo:NCBITaxon_3917 ],
+        owl:NamedIndividual,
+        onsir:PlantSeed ;
     rdfs:label "Vigna unguiculata" .
 

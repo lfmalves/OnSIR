@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- OASIS XML catalogue. OnSIR_abox.owl and OnSIR_examples.owl import https://w3id.org/onsir, which
-     resolves over the network to the file on the main branch. This catalogue maps the canonical IRI
-     to the OnSIR.owl of this directory, so Protege and the OWL API load the release the files came
-     with, offline. -->
+<!-- OASIS XML catalogue. OnSIR_abox.owl and OnSIR_examples.owl import the versioned IRI
+     https://w3id.org/onsir/1.7.0, which resolves over the network to the file of the matching release
+     tag. This catalogue maps that IRI, and the unversioned one, to the OnSIR.owl of this directory, so
+     Protege and the OWL API load the release the files came with, offline. -->
 <catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+  <uri id="onsir-versioned" name="https://w3id.org/onsir/1.7.0" uri="OnSIR.owl"/>
   <uri id="onsir-ttl" name="https://w3id.org/onsir" uri="OnSIR.owl"/>
   <uri id="onsir-slash" name="https://w3id.org/onsir/" uri="OnSIR.owl"/>
 </catalog>

@@ -7,132 +7,133 @@
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
 >
-  <rdf:Description rdf:about="https://w3id.org/onsir/Outcome_XRay_Mutagenesis">
-    <rdf:type rdf:resource="https://w3id.org/onsir/TreatmentOutcome"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <onsir:hasDoseCategory rdf:resource="https://w3id.org/onsir/example_dose_XRay_Mutagenesis"/>
-    <onsir:hasSubject rdf:resource="https://w3id.org/onsir/example_seed_XRay_Mutagenesis"/>
-    <onsir:hasTreatment rdf:resource="https://w3id.org/onsir/Treat_XRay_150Gy"/>
-    <onsir:forEndpoint rdf:resource="https://w3id.org/onsir/example_endpoint_XRay_Mutagenesis"/>
-    <rdfs:comment>Illustrative individual; its values are invented.</rdfs:comment>
+  <rdf:Description rdf:nodeID="N3580f68daa224054b28c5b621913a634">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/onsir/hasSourceIsotope"/>
+    <owl:someValuesFrom rdf:resource="https://w3id.org/onsir/Co60"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dc/terms/license">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N5418961d2a3d4741a9c7660680808d79">
-    <onsir:minDose rdf:nodeID="Ncfb0a82a86494fe8b61136b6302b9b0f"/>
-    <onsir:maxDose rdf:nodeID="N0adfc9b4ff6c4f329765edce8d7572e7"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/Treat_XRay_150Gy">
-    <onsir:hasDose rdf:nodeID="N0acb00cc297b4578972387e219513607"/>
+  <rdf:Description rdf:about="https://w3id.org/onsir/Treat_UVC_254nm_1200Jm2">
     <rdf:type rdf:resource="https://w3id.org/onsir/SeedIrradiationTreatment"/>
+    <rdf:type rdf:nodeID="N69e2c3c3ec0f4873b99a1bb41d26320c"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <onsir:hasWavelength rdf:nodeID="Nba15fe902874494b9756cf1754511cb8"/>
+    <onsir:hasFluence rdf:nodeID="N3dd739f771134d66be95f2ca21953c78"/>
     <rdfs:comment>Illustrative individual; its values are invented.</rdfs:comment>
   </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/Outcome_UVC_Sterilization">
+  <rdf:Description rdf:about="https://w3id.org/onsir/Outcome_XRay_Mutagenesis">
+    <onsir:forEndpoint rdf:resource="https://w3id.org/onsir/example_endpoint_XRay_Mutagenesis"/>
+    <onsir:hasSubject rdf:resource="https://w3id.org/onsir/example_seed_XRay_Mutagenesis"/>
     <rdf:type rdf:resource="https://w3id.org/onsir/TreatmentOutcome"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <onsir:hasSubject rdf:resource="https://w3id.org/onsir/example_seed_UVC_Sterilization"/>
-    <onsir:hasResponse rdf:resource="https://w3id.org/onsir/Resp_Sterility"/>
-    <onsir:forEndpoint rdf:resource="https://w3id.org/onsir/example_endpoint_UVC_Sterilization"/>
-    <onsir:hasDoseCategory rdf:resource="https://w3id.org/onsir/example_dose_UVC_Sterilization"/>
-    <onsir:hasTreatment rdf:resource="https://w3id.org/onsir/Treat_UVC_254nm_1200Jm2"/>
+    <onsir:hasTreatment rdf:resource="https://w3id.org/onsir/Treat_XRay_150Gy"/>
+    <onsir:hasDoseCategory rdf:resource="https://w3id.org/onsir/example_dose_XRay_Mutagenesis"/>
     <rdfs:comment>Illustrative individual; its values are invented.</rdfs:comment>
   </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/example_dose_UVC_Sterilization">
-    <rdf:type rdf:resource="https://w3id.org/onsir/SterilizationDose"/>
+  <rdf:Description rdf:about="https://w3id.org/onsir/Outcome_Co60_RootLengthNoResponse">
+    <rdf:type rdf:resource="https://w3id.org/onsir/TreatmentOutcome"/>
+    <rdf:type rdf:nodeID="N5f204491d7b64c15a8cc2d8d97b1d17c"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <onsir:hasTreatment rdf:resource="https://w3id.org/onsir/Treat_Co60_Gamma_50Gy"/>
+    <onsir:hasSubject rdf:resource="https://w3id.org/onsir/example_seed_Co60_GerminationHormesis"/>
+    <onsir:forEndpoint rdf:resource="https://w3id.org/onsir/example_endpoint_Co60_RootLength"/>
     <rdfs:comment>Illustrative individual; its values are invented.</rdfs:comment>
   </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/Resp_GerminationHormesis">
-    <onsir:rootGrowthStimulus rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.3</onsir:rootGrowthStimulus>
-    <rdf:type rdf:resource="https://w3id.org/onsir/HormeticResponse"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <onsir:germinationRateIncrease rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.22</onsir:germinationRateIncrease>
-    <rdfs:comment>Illustrative individual; its values are invented.</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Ncfb0a82a86494fe8b61136b6302b9b0f">
-    <qudt:hasUnit rdf:resource="http://qudt.org/vocab/unit/GRAY"/>
+  <rdf:Description rdf:nodeID="N8ba32b41dfa7471eb1718033c87b9bb5">
+    <qudt:hasUnit rdf:resource="http://qudt.org/vocab/unit/MIN"/>
     <rdf:type rdf:resource="https://w3id.org/onsir/QuantityValue"/>
-    <onsir:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">25.0</onsir:numericValue>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N0adfc9b4ff6c4f329765edce8d7572e7">
-    <qudt:hasUnit rdf:resource="http://qudt.org/vocab/unit/GRAY"/>
-    <rdf:type rdf:resource="https://w3id.org/onsir/QuantityValue"/>
-    <onsir:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">100.0</onsir:numericValue>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/example_seed_XRay_Mutagenesis">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdf:type rdf:resource="https://w3id.org/onsir/PlantSeed"/>
-    <rdfs:comment>Illustrative individual; its values are invented.</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/Resp_Sterility">
-    <rdf:type rdf:resource="https://w3id.org/onsir/SterilizationResponse"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <onsir:sterilityRate rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.98</onsir:sterilityRate>
-    <rdfs:comment>Illustrative individual; its values are invented.</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N5e0b71ebb0bd448aa9cdbc0c5a7d660c">
-    <qudt:hasUnit rdf:resource="http://qudt.org/vocab/unit/GRAY"/>
-    <rdf:type rdf:resource="https://w3id.org/onsir/QuantityValue"/>
-    <onsir:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">50.0</onsir:numericValue>
+    <onsir:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">20.0</onsir:numericValue>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/onsir/Outcome_Co60_GerminationHormesis">
+    <onsir:hasResponse rdf:resource="https://w3id.org/onsir/Resp_GerminationHormesis"/>
     <onsir:hasDoseCategory rdf:resource="https://w3id.org/onsir/example_dose_Co60_GerminationHormesis"/>
-    <onsir:hasModel rdf:resource="https://w3id.org/onsir/Model_BC_Germination"/>
+    <onsir:hasTreatment rdf:resource="https://w3id.org/onsir/Treat_Co60_Gamma_50Gy"/>
     <rdf:type rdf:resource="https://w3id.org/onsir/TreatmentOutcome"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <onsir:hasResponse rdf:resource="https://w3id.org/onsir/Resp_GerminationHormesis"/>
     <onsir:hasSubject rdf:resource="https://w3id.org/onsir/example_seed_Co60_GerminationHormesis"/>
+    <onsir:hasModel rdf:resource="https://w3id.org/onsir/Model_BC_Germination"/>
     <onsir:forEndpoint rdf:resource="https://w3id.org/onsir/example_endpoint_Co60_GerminationHormesis"/>
-    <onsir:hasTreatment rdf:resource="https://w3id.org/onsir/Treat_Co60_Gamma_50Gy"/>
     <rdfs:comment>Illustrative individual; its values are invented.</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N6fb5cbdf6e224eca903396cc68f3bc65">
-    <rdf:type rdf:resource="https://w3id.org/onsir/QuantityValue"/>
-    <qudt:hasUnit rdf:resource="http://qudt.org/vocab/unit/GRAY-PER-MIN"/>
-    <onsir:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">2.5</onsir:numericValue>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/onsir/example_seed_Co60_GerminationHormesis">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <rdf:type rdf:resource="https://w3id.org/onsir/PlantSeed"/>
     <rdfs:comment>Illustrative individual; its values are invented.</rdfs:comment>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N0acb00cc297b4578972387e219513607">
-    <qudt:hasUnit rdf:resource="http://qudt.org/vocab/unit/GRAY"/>
-    <rdf:type rdf:resource="https://w3id.org/onsir/QuantityValue"/>
-    <onsir:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">150.0</onsir:numericValue>
-  </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/onsir/Treat_Co60_Gamma_50Gy">
     <rdf:type rdf:resource="https://w3id.org/onsir/SeedIrradiationTreatment"/>
+    <rdf:type rdf:nodeID="N50f7fc70c0574f02aa26207f092a23e9"/>
+    <rdf:type rdf:nodeID="N3580f68daa224054b28c5b621913a634"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <onsir:hasExposureTime rdf:nodeID="Nd5f171aac6b44938ad5a546af15b958e"/>
-    <onsir:hasDoseRange rdf:nodeID="N5418961d2a3d4741a9c7660680808d79"/>
-    <onsir:hasDose rdf:nodeID="N5e0b71ebb0bd448aa9cdbc0c5a7d660c"/>
-    <onsir:hasDoseRate rdf:nodeID="N6fb5cbdf6e224eca903396cc68f3bc65"/>
+    <onsir:hasExposureTime rdf:nodeID="N8ba32b41dfa7471eb1718033c87b9bb5"/>
+    <onsir:hasDoseRate rdf:nodeID="N1bae63ac61b24717ab8dff8a69937981"/>
+    <onsir:hasDose rdf:nodeID="Nf0c6a868212d4fcda21764f526bd8848"/>
     <rdfs:comment>Illustrative individual; its values are invented.</rdfs:comment>
   </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/example_endpoint_XRay_Mutagenesis">
-    <rdf:type rdf:resource="https://w3id.org/onsir/MutationFrequency"/>
+  <rdf:Description rdf:nodeID="Nf0c6a868212d4fcda21764f526bd8848">
+    <rdf:type rdf:resource="https://w3id.org/onsir/QuantityValue"/>
+    <qudt:hasUnit rdf:resource="http://qudt.org/vocab/unit/GRAY"/>
+    <onsir:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">50.0</onsir:numericValue>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/Outcome_UVC_Sterilization">
+    <onsir:hasTreatment rdf:resource="https://w3id.org/onsir/Treat_UVC_254nm_1200Jm2"/>
+    <onsir:hasDoseCategory rdf:resource="https://w3id.org/onsir/example_dose_UVC_Sterilization"/>
+    <onsir:forEndpoint rdf:resource="https://w3id.org/onsir/example_endpoint_UVC_Sterilization"/>
+    <onsir:hasResponse rdf:resource="https://w3id.org/onsir/Resp_Sterility"/>
+    <onsir:hasSubject rdf:resource="https://w3id.org/onsir/example_seed_UVC_Sterilization"/>
+    <rdf:type rdf:resource="https://w3id.org/onsir/TreatmentOutcome"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:comment>Illustrative individual; its values are invented.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/Resp_Sterility">
+    <onsir:sterilityRate rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.98</onsir:sterilityRate>
+    <rdf:type rdf:resource="https://w3id.org/onsir/SterilizationResponse"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:comment>Illustrative individual; its values are invented.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/example_endpoint_UVC_Sterilization">
+    <rdf:type rdf:resource="https://w3id.org/onsir/SeedSterility"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:comment>Illustrative individual; its values are invented.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N3dd739f771134d66be95f2ca21953c78">
+    <rdf:type rdf:resource="https://w3id.org/onsir/QuantityValue"/>
+    <qudt:hasUnit rdf:resource="http://qudt.org/vocab/unit/J-PER-M2"/>
+    <onsir:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1200.0</onsir:numericValue>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/Treat_XRay_150Gy">
+    <onsir:hasDose rdf:nodeID="N19cacf7f548a4b9abc22c15e00e2813f"/>
+    <rdf:type rdf:resource="https://w3id.org/onsir/SeedIrradiationTreatment"/>
+    <rdf:type rdf:nodeID="N0ec1f378fda244df9300850f44447ada"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <rdfs:comment>Illustrative individual; its values are invented.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/onsir/Model_BC_Germination">
-    <onsir:bc_e rdf:datatype="http://www.w3.org/2001/XMLSchema#double">53.0</onsir:bc_e>
-    <onsir:bc_d rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.002433</onsir:bc_d>
-    <onsir:bc_c rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.001017</onsir:bc_c>
     <onsir:bc_f rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-3.747e-06</onsir:bc_f>
-    <onsir:bc_b rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-2.148</onsir:bc_b>
     <rdf:type rdf:resource="https://w3id.org/onsir/BrainCousensModel"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <onsir:bc_c rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.001017</onsir:bc_c>
+    <onsir:bc_d rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.002433</onsir:bc_d>
+    <onsir:bc_b rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-2.148</onsir:bc_b>
+    <onsir:bc_e rdf:datatype="http://www.w3.org/2001/XMLSchema#double">53.0</onsir:bc_e>
+    <rdfs:comment>Illustrative individual; its values are invented.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/examples">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <owl:versionIRI rdf:resource="https://w3id.org/onsir/examples/1.7.0"/>
+    <owl:imports rdf:resource="https://w3id.org/onsir/1.7.0"/>
+    <owl:versionInfo>1.7.0</owl:versionInfo>
+    <dct:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
+    <dct:title>OnSIR illustrative individuals</dct:title>
+    <rdfs:comment>Illustrative individuals showing how a treatment, its outcomes, their responses and a dose-response model are modelled in OnSIR. Every numeric value in this file is invented for illustration and is taken from no study. Outcome_XRay_Mutagenesis carries a dose category and no response, and a reasoner classifies it as a MutagenicOutcome; Outcome_Co60_RootLengthNoResponse is asserted to have no response, and a reasoner classifies it as a NoDetectedResponseOutcome.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/example_dose_UVC_Sterilization">
+    <rdf:type rdf:resource="https://w3id.org/onsir/SterilizationDose"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <rdfs:comment>Illustrative individual; its values are invented.</rdfs:comment>
   </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/Treat_UVC_254nm_1200Jm2">
-    <rdf:type rdf:resource="https://w3id.org/onsir/SeedIrradiationTreatment"/>
+  <rdf:Description rdf:about="https://w3id.org/onsir/example_dose_Co60_GerminationHormesis">
+    <rdf:type rdf:resource="https://w3id.org/onsir/HormeticDose"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <onsir:hasFluence rdf:nodeID="Na4fe387c3f194e02bcdda9cb91166f92"/>
-    <onsir:hasWavelength rdf:nodeID="N1af2ec76c84f4a1494c9168fad709e75"/>
-    <onsir:hasDose rdf:nodeID="Na4fe387c3f194e02bcdda9cb91166f92"/>
     <rdfs:comment>Illustrative individual; its values are invented.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/onsir/example_seed_UVC_Sterilization">
@@ -140,35 +141,45 @@
     <rdf:type rdf:resource="https://w3id.org/onsir/PlantSeed"/>
     <rdfs:comment>Illustrative individual; its values are invented.</rdfs:comment>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="Nd5f171aac6b44938ad5a546af15b958e">
-    <qudt:hasUnit rdf:resource="http://qudt.org/vocab/unit/MIN"/>
+  <rdf:Description rdf:nodeID="N69e2c3c3ec0f4873b99a1bb41d26320c">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/onsir/hasRadiationType"/>
+    <owl:someValuesFrom rdf:resource="https://w3id.org/onsir/UV_C"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N19cacf7f548a4b9abc22c15e00e2813f">
+    <qudt:hasUnit rdf:resource="http://qudt.org/vocab/unit/GRAY"/>
     <rdf:type rdf:resource="https://w3id.org/onsir/QuantityValue"/>
-    <onsir:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">20.0</onsir:numericValue>
+    <onsir:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">150.0</onsir:numericValue>
   </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/examples">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
-    <owl:imports rdf:resource="https://w3id.org/onsir"/>
-    <owl:versionInfo>1.6.0</owl:versionInfo>
-    <dct:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
-    <rdfs:comment>Illustrative individuals showing how a treatment, its outcome, its response and a dose-response model are modelled in OnSIR. Every numeric value in this file is invented for illustration and is taken from no study. Outcome_XRay_Mutagenesis carries a dose category and no response, and a reasoner classifies it as a MutagenicOutcome.</rdfs:comment>
+  <rdf:Description rdf:about="https://w3id.org/onsir/Resp_GerminationHormesis">
+    <rdf:type rdf:resource="https://w3id.org/onsir/HormeticResponse"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <onsir:rootGrowthStimulus rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.3</onsir:rootGrowthStimulus>
+    <onsir:germinationRateIncrease rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.22</onsir:germinationRateIncrease>
+    <rdfs:comment>Illustrative individual; its values are invented.</rdfs:comment>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N1af2ec76c84f4a1494c9168fad709e75">
-    <qudt:hasUnit rdf:resource="http://qudt.org/vocab/unit/NanoM"/>
-    <rdf:type rdf:resource="https://w3id.org/onsir/QuantityValue"/>
-    <onsir:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">254.0</onsir:numericValue>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/example_endpoint_UVC_Sterilization">
-    <rdf:type rdf:resource="https://w3id.org/onsir/SeedSterility"/>
+  <rdf:Description rdf:about="https://w3id.org/onsir/example_endpoint_XRay_Mutagenesis">
+    <rdf:type rdf:resource="https://w3id.org/onsir/MutationFrequency"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <rdfs:comment>Illustrative individual; its values are invented.</rdfs:comment>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="Na4fe387c3f194e02bcdda9cb91166f92">
-    <qudt:hasUnit rdf:resource="http://qudt.org/vocab/unit/J-PER-M2"/>
+  <rdf:Description rdf:nodeID="N1bae63ac61b24717ab8dff8a69937981">
     <rdf:type rdf:resource="https://w3id.org/onsir/QuantityValue"/>
-    <onsir:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1200.0</onsir:numericValue>
+    <qudt:hasUnit rdf:resource="http://qudt.org/vocab/unit/GRAY-PER-MIN"/>
+    <onsir:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">2.5</onsir:numericValue>
   </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/example_dose_XRay_Mutagenesis">
-    <rdf:type rdf:resource="https://w3id.org/onsir/MutagenicDose"/>
+  <rdf:Description rdf:nodeID="N0ec1f378fda244df9300850f44447ada">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/onsir/hasRadiationType"/>
+    <owl:someValuesFrom rdf:resource="https://w3id.org/onsir/XRay"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N5f204491d7b64c15a8cc2d8d97b1d17c">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/onsir/hasResponse"/>
+    <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:maxCardinality>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/example_endpoint_Co60_RootLength">
+    <rdf:type rdf:resource="https://w3id.org/onsir/RootLength"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <rdfs:comment>Illustrative individual; its values are invented.</rdfs:comment>
   </rdf:Description>
@@ -177,9 +188,30 @@
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <rdfs:comment>Illustrative individual; its values are invented.</rdfs:comment>
   </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/onsir/example_dose_Co60_GerminationHormesis">
-    <rdf:type rdf:resource="https://w3id.org/onsir/HormeticDose"/>
+  <rdf:Description rdf:nodeID="N50f7fc70c0574f02aa26207f092a23e9">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/onsir/hasRadiationType"/>
+    <owl:someValuesFrom rdf:resource="https://w3id.org/onsir/Gamma"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/example_dose_XRay_Mutagenesis">
+    <rdf:type rdf:resource="https://w3id.org/onsir/MutagenicDose"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <rdfs:comment>Illustrative individual; its values are invented.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/dc/terms/title">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/onsir/example_seed_XRay_Mutagenesis">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/onsir/PlantSeed"/>
+    <rdfs:comment>Illustrative individual; its values are invented.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/dc/terms/license">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nba15fe902874494b9756cf1754511cb8">
+    <qudt:hasUnit rdf:resource="http://qudt.org/vocab/unit/NanoM"/>
+    <rdf:type rdf:resource="https://w3id.org/onsir/QuantityValue"/>
+    <onsir:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">254.0</onsir:numericValue>
   </rdf:Description>
 </rdf:RDF>
